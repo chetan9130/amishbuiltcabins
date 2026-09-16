@@ -98,9 +98,9 @@ export default function CustomizeAndPlansSection() {
                         </span>
                       </div>
                     </div>
-                    <b className="block text-sm sm:text-[15px] font-black text-[#101114]">
+                    <h3 className="block text-sm sm:text-[15px] font-black text-[#101114] m-0">
                       {p.title}
-                    </b>
+                    </h3>
                     <p className="text-xs text-[#6b7280] mt-0.5 mb-3 font-medium">
                       {p.sqft}
                     </p>

@@ -204,9 +204,9 @@ export default function QuoteAndStepsSection() {
                     <div className="w-[38px] h-[38px] rounded-full bg-[#e20b16] text-white flex items-center justify-center font-black text-sm mx-auto mb-2 shadow-xs">
                       {st.num}
                     </div>
-                    <b className="block text-sm font-black text-[#101114]">
+                    <h3 className="block text-sm font-black text-[#101114] m-0">
                       {st.title}
-                    </b>
+                    </h3>
                     <p className="text-[11px] text-[#6b7280] mt-0.5 mb-0 font-medium">
                       {st.desc}
                     </p>
