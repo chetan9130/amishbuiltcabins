@@ -300,13 +300,13 @@ export default function AdminVideoManager() {
 
         <div className="p-5 bg-[var(--soft)] border border-[var(--line)] rounded-[18px] space-y-1 shadow-xs">
           <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--muted)]">Videos Found</div>
-          <div className="text-2xl font-black text-[var(--ink)] font-display">{videos.length}</div>
+          <div className="text-2xl font-black text-[var(--ink)]">{videos.length}</div>
           <div className="text-[11px] text-[var(--muted)]">{videos.filter(v => v.isPublished).length} published on website</div>
         </div>
 
         <div className="p-5 bg-[var(--soft)] border border-[var(--line)] rounded-[18px] space-y-1 shadow-xs">
           <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--muted)]">New Videos Added</div>
-          <div className="text-2xl font-black text-[var(--r)] font-display">{stats?.newVideosAdded || 0}</div>
+          <div className="text-2xl font-black text-[var(--r)]">{stats?.newVideosAdded || 0}</div>
           <div className="text-[11px] text-[var(--muted)]">From last channel sync</div>
         </div>
 

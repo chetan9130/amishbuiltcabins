@@ -7,10 +7,8 @@ import { usePathname } from "next/navigation";
 import { 
   Menu, 
   X, 
-  Phone, 
-  ChevronRight,
-  ArrowRight,
-  Home
+  ChevronRight, 
+  ArrowRight
 } from "lucide-react";
 
 export default function Navbar() {
@@ -34,14 +32,13 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { label: "Modular Homes", href: "/buildings?category=Modular+Homes" },
-    { label: "Prefab Homes", href: "/buildings?category=Prefab+Homes" },
-    { label: "Barndominiums", href: "/buildings?category=Barndominiums" },
-    { label: "House Kits", href: "/buildings?category=House+Kits" },
-    { label: "Tiny Homes", href: "/buildings?category=Tiny+Homes" },
+    { label: "Home", href: "/" },
     { label: "Cabins", href: "/buildings?category=Cabins" },
-    { label: "ADUs", href: "/buildings?category=ADUs+%26+Granny+Pods" },
+    { label: "Barndominiums", href: "/buildings?category=Barndominiums" },
     { label: "Floor Plans", href: "/upload-floor-plan" },
+    { label: "Videos", href: "/videos" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -63,21 +60,25 @@ export default function Navbar() {
             <b className="font-bold text-[#101114]">Trusted by 1,000,000+ Followers</b>
           </div>
           <div className="flex items-center gap-3 font-medium">
+            <a href="tel:+18125954033" className="hover:text-[#e20b16] transition-colors font-bold text-[#101114]">
+              ☎ +1-812-595-4033
+            </a>
+            <span className="text-[#d0d4dc]">|</span>
             <Link href="#financing" className="hover:text-[#e20b16] transition-colors">Financing</Link>
             <span className="text-[#d0d4dc]">|</span>
             <Link href="/resources" className="hover:text-[#e20b16] transition-colors">Blog</Link>
             <span className="text-[#d0d4dc]">|</span>
             <Link href="#testimonials" className="hover:text-[#e20b16] transition-colors">Customer Reviews</Link>
             <span className="text-[#d0d4dc]">|</span>
-            <Link href="/contact" className="hover:text-[#e20b16] transition-colors">Track Order</Link>
+            <Link href="/contact" className="hover:text-[#e20b16] transition-colors">Contact</Link>
           </div>
         </div>
       </div>
 
       {/* 2. MOBILE CONTACT TOP BAR (Mobile Only) */}
       <div className="md:hidden bg-[#101114] text-white h-[44px] px-4 flex items-center justify-between text-xs font-bold">
-        <a href="tel:+18005551234" className="flex items-center gap-1.5 text-white font-extrabold hover:text-[#e20b16] transition-colors">
-          <span>☎</span> (800) 555-1234
+        <a href="tel:+18125954033" className="flex items-center gap-1.5 text-white font-extrabold hover:text-[#e20b16] transition-colors">
+          <span>☎</span> +1-812-595-4033
         </a>
         <div className="flex items-center gap-2">
           <a
@@ -104,20 +105,12 @@ export default function Navbar() {
           >
             ▶
           </a>
-          <a
-            href="https://www.tiktok.com"
-            target="_blank"
-            rel="noreferrer"
-            className="w-7 h-7 rounded-full bg-[#e20b16] text-white flex items-center justify-center text-[11px] font-black"
-          >
-            ♪
-          </a>
         </div>
       </div>
 
       {/* 3. STICKY MAIN HEADER */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#e7e9ee]">
-        <div className="wrap h-[70px] sm:h-[78px] flex items-center justify-between gap-3 sm:gap-6">
+        <div className="wrap h-[80px] sm:h-[90px] flex items-center justify-between gap-3 sm:gap-6">
           {/* Mobile Hamburger Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -128,34 +121,45 @@ export default function Navbar() {
           </button>
 
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-1.5 group select-none shrink-0">
-            <span className="text-[#e20b16] text-2xl sm:text-3xl font-black">⌂</span>
-            <span className="text-lg sm:text-2xl font-black tracking-[-1.2px] text-[#101114]">
-              MODULAR<b className="text-[#e20b16]">HOME</b>.COM
-            </span>
+          <Link href="/" className="flex items-center group select-none shrink-0 py-1">
+            <Image
+              src="/newlogo2.png"
+              alt="ModularHome.com"
+              width={300}
+              height={75}
+              priority
+              className="h-12 sm:h-14 lg:h-[60px] w-auto object-contain hover:opacity-95 transition-opacity"
+            />
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center justify-center gap-4 xl:gap-5 flex-1 text-[13px] font-bold text-[#101114]">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="hover:text-[#e20b16] transition-colors whitespace-nowrap py-1 relative group"
-              >
-                <span>{link.label}</span>
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#e20b16] transition-all group-hover:w-full" />
-              </Link>
-            ))}
+          <nav className="hidden lg:flex items-center justify-center gap-4 xl:gap-6 flex-1 text-[13.5px] font-bold text-[#101114]">
+            {navLinks.map((link) => {
+              const active = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`hover:text-[#e20b16] transition-colors whitespace-nowrap py-1 relative group ${
+                    active ? "text-[#e20b16]" : "text-[#101114]"
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  <span className={`absolute bottom-0 left-0 h-[2px] bg-[#e20b16] transition-all ${
+                    active ? "w-full" : "w-0 group-hover:w-full"
+                  }`} />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right Action Block (Phone & Quote Button) */}
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
             <a
-              href="tel:+18005551234"
+              href="tel:+18125954033"
               className="hidden md:inline-flex items-center gap-1.5 font-extrabold text-[14px] text-[#101114] hover:text-[#e20b16] transition-colors"
             >
-              <span>☎</span> (800) 555-1234
+              <span>☎</span> +1-812-595-4033
             </a>
 
             <Link
@@ -183,11 +187,14 @@ export default function Navbar() {
             <div className="space-y-6">
               {/* Drawer Header */}
               <div className="flex items-center justify-between pb-4 border-b border-[#e7e9ee]">
-                <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-1">
-                  <span className="text-[#e20b16] text-2xl font-black">⌂</span>
-                  <span className="text-base font-black tracking-tight text-[#101114]">
-                    MODULAR<b className="text-[#e20b16]">HOME</b>.COM
-                  </span>
+                <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
+                  <Image
+                    src="/newlogo2.png"
+                    alt="ModularHome.com"
+                    width={220}
+                    height={55}
+                    className="h-11 sm:h-12 w-auto object-contain"
+                  />
                 </Link>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
@@ -200,17 +207,24 @@ export default function Navbar() {
 
               {/* Navigation Links */}
               <nav className="space-y-1">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between p-3 text-sm font-bold text-[#101114] hover:bg-[#f6f7f9] hover:text-[#e20b16] rounded-xl transition-all"
-                  >
-                    <span>{link.label}</span>
-                    <ChevronRight className="w-4 h-4 text-[#6b7280]" />
-                  </Link>
-                ))}
+                {navLinks.map((link) => {
+                  const active = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`flex items-center justify-between p-3 text-sm font-bold rounded-xl transition-all ${
+                        active
+                          ? "bg-[#fff2f2] text-[#e20b16]"
+                          : "text-[#101114] hover:bg-[#f6f7f9] hover:text-[#e20b16]"
+                      }`}
+                    >
+                      <span>{link.label}</span>
+                      <ChevronRight className="w-4 h-4 text-[#6b7280]" />
+                    </Link>
+                  );
+                })}
               </nav>
 
               {/* Quick Resources */}
@@ -228,10 +242,10 @@ export default function Navbar() {
             {/* Bottom Actions */}
             <div className="pt-6 space-y-3 border-t border-[#e7e9ee] mt-6">
               <a
-                href="tel:+18005551234"
+                href="tel:+18125954033"
                 className="w-full py-3 bg-[#101114] hover:bg-[#222] text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-colors"
               >
-                <span>☎ (800) 555-1234</span>
+                <span>☎ +1-812-595-4033</span>
               </a>
 
               <Link

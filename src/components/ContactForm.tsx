@@ -92,7 +92,7 @@ export default function ContactForm() {
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            placeholder="info@modularhome.com"
+            placeholder="support@modularhome.com"
             className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
           />
         </div>
@@ -106,7 +106,7 @@ export default function ContactForm() {
             required
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            placeholder="(800) 555-1234"
+            placeholder="+1-812-595-4033"
             className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
           />
         </div>

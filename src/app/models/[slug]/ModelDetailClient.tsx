@@ -188,7 +188,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
 
                 <div className="grid grid-cols-2 gap-2.5">
                   <a
-                    href="tel:+18005551234"
+                    href="tel:+18125954033"
                     className="btn-outline py-2.5 text-xs font-bold rounded-[9px] flex items-center justify-center gap-1.5"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#e20b16]" />
@@ -429,11 +429,11 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                   </Link>
 
                   <a
-                    href="tel:+18005551234"
+                    href="tel:+18125954033"
                     className="btn-outline w-full py-2.5 text-xs font-bold rounded-[11px] flex items-center justify-center gap-2"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#e20b16]" />
-                    <span>Call (800) 555-1234</span>
+                    <span>Call +1-812-595-4033</span>
                   </a>
                 </div>
               </div>

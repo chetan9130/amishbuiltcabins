@@ -128,17 +128,17 @@ export default function LocationAvailability() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
             <div className="p-4 bg-[var(--soft)] rounded-[14px] border border-[var(--line)]">
               <span className="text-[var(--muted)] uppercase font-bold block mb-1">Estimated Lead Time</span>
-              <span className="text-sm font-extrabold text-[var(--ink)] font-display">{activeStateObj.leadTime}</span>
+              <span className="text-sm font-extrabold text-[var(--ink)]">{activeStateObj.leadTime}</span>
             </div>
 
             <div className="p-4 bg-[var(--soft)] rounded-[14px] border border-[var(--line)]">
               <span className="text-[var(--muted)] uppercase font-bold block mb-1">Building Code Status</span>
-              <span className="text-sm font-extrabold text-[var(--ink)] font-display">{activeStateObj.permitRating} Compliant</span>
+              <span className="text-sm font-extrabold text-[var(--ink)]">{activeStateObj.permitRating} Compliant</span>
             </div>
 
             <div className="p-4 bg-[var(--soft)] rounded-[14px] border border-[var(--line)]">
               <span className="text-[var(--muted)] uppercase font-bold block mb-1">Engineering Packet</span>
-              <span className="text-sm font-extrabold text-[var(--r)] font-display">Wet-Stamped Included</span>
+              <span className="text-sm font-extrabold text-[var(--r)]">Wet-Stamped Included</span>
             </div>
           </div>
 

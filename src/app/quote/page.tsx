@@ -48,8 +48,8 @@ export default function QuotePage() {
         {/* Assistive footer callout */}
         <div className="mt-14 text-center text-xs text-[#6b7280]">
           Prefer to speak directly with an estimator? Call us at{" "}
-          <a href="tel:+18005551234" className="text-[#e20b16] font-bold hover:underline">
-            (800) 555-1234
+          <a href="tel:+18125954033" className="text-[#e20b16] font-bold hover:underline">
+            +1-812-595-4033
           </a>{" "}
           (Monday–Friday 7am–6pm EST).
         </div>

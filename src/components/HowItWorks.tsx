@@ -92,7 +92,7 @@ export default function HowItWorks() {
                 key={step.num}
                 className="bg-white border border-[var(--line)] rounded-[18px] p-5 flex items-start gap-4 shadow-xs"
               >
-                <div className="w-10 h-10 rounded-full bg-[var(--r)] text-white flex items-center justify-center shrink-0 font-bold font-display text-sm shadow-xs">
+                <div className="w-10 h-10 rounded-full bg-[var(--r)] text-white flex items-center justify-center shrink-0 font-bold text-sm shadow-xs">
                   {step.num}
                 </div>
 

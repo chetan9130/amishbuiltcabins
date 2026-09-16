@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -22,11 +23,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_repeat(3,1fr)] gap-8 sm:gap-10 pb-8 text-center md:text-left">
           {/* Column 1: Brand */}
           <div className="space-y-3">
-            <Link href="/" className="inline-flex items-center gap-1.5 justify-center md:justify-start">
-              <span className="text-[#e20b16] text-2xl font-black">⌂</span>
-              <span className="text-xl sm:text-2xl font-black tracking-[-1px] text-[#101114]">
-                MODULAR<b className="text-[#e20b16]">HOME</b>.COM
-              </span>
+            <Link href="/" className="inline-flex items-center justify-center md:justify-start">
+              <Image
+                src="/newlogo2.png"
+                alt="ModularHome.com"
+                width={280}
+                height={70}
+                className="h-12 sm:h-14 w-auto object-contain"
+              />
             </Link>
 
             <p className="text-sm text-[#69707d] leading-relaxed max-w-sm mx-auto md:mx-0">
@@ -122,8 +126,8 @@ export default function Footer() {
               Contact Us
             </h4>
             <div className="space-y-2 text-sm text-[#555d69] font-medium">
-              <div><a href="tel:+18005551234" className="hover:text-[#e20b16]">☎ (800) 555-1234</a></div>
-              <div><a href="mailto:info@modularhome.com" className="hover:text-[#e20b16]">✉ info@modularhome.com</a></div>
+              <div><a href="tel:+18125954033" className="hover:text-[#e20b16]">☎ +1-812-595-4033</a></div>
+              <div><a href="mailto:support@modularhome.com" className="hover:text-[#e20b16]">✉ support@modularhome.com</a></div>
               <div><span>Nationwide USA</span></div>
             </div>
 

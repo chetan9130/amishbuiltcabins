@@ -152,7 +152,7 @@ export default function AIBuildAssistant() {
         ) : (
           <>
             <MessageSquare className="w-5 h-5" />
-            <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline-block pr-1 font-display">
+            <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline-block pr-1">
               Housing Advisor
             </span>
           </>
@@ -175,7 +175,7 @@ export default function AIBuildAssistant() {
                 />
               </div>
               <div>
-                <div className="text-xs font-bold uppercase tracking-wider font-display">
+                <div className="text-xs font-bold uppercase tracking-wider">
                   Housing Advisor
                 </div>
                 <div className="text-[10px] text-white/70 flex items-center gap-1.5 font-medium">

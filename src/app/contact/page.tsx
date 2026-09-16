@@ -56,8 +56,8 @@ export default function ContactPage() {
                 <div className="space-y-0.5">
                   <div className="text-[11px] uppercase font-bold text-[#6b7280]">Phone Numbers</div>
                   <div className="flex flex-col">
-                    <a href="tel:+18005551234" className="text-base font-black text-[#101114] hover:text-[#e20b16] transition-colors">
-                      Toll-Free: (800) 555-1234
+                    <a href="tel:+18125954033" className="text-base font-black text-[#101114] hover:text-[#e20b16] transition-colors">
+                      Direct / Toll-Free: +1-812-595-4033
                     </a>
                   </div>
                 </div>
@@ -70,8 +70,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="text-[11px] uppercase font-bold text-[#6b7280]">Email Support & Quotes</div>
-                  <a href="mailto:info@modularhome.com" className="text-base font-black text-[#101114] hover:text-[#e20b16] transition-colors break-all">
-                    info@modularhome.com
+                  <a href="mailto:support@modularhome.com" className="text-base font-black text-[#101114] hover:text-[#e20b16] transition-colors break-all">
+                    support@modularhome.com
                   </a>
                   <div className="text-[11px] text-[#6b7280]">Prompt assistance with pricing, plans & consultations</div>
                 </div>

@@ -15,8 +15,13 @@
   --color-brand-darktext: #101114;
   --color-brand-mutedtext: #6b7280;
 
-  --font-display: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-heading: var(--font-playfair), Georgia, serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-playfair: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-manrope: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 :root {
@@ -35,12 +40,19 @@ html {
   color-scheme: light;
 }
 
-body {
+body, input, button, select, textarea {
   margin: 0;
-  background-color: #ffffff;
   color: var(--ink);
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading, .font-display, .font-playfair {
+  font-family: var(--font-playfair), Georgia, serif;
 }
 
 /* Base custom classes matching reference */

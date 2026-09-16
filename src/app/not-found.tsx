@@ -10,9 +10,9 @@ export default function NotFound() {
           <Image
             src="/newlogo2.png"
             alt="ModularHome.com"
-            width={180}
-            height={56}
-            className="h-12 w-auto object-contain mx-auto"
+            width={240}
+            height={60}
+            className="h-14 sm:h-16 w-auto object-contain mx-auto"
           />
         </Link>
 
