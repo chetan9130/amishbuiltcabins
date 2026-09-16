@@ -16,18 +16,18 @@
   --color-brand-darktext: #101114;
   --color-brand-mutedtext: #6b7280;
 
-  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
-  --font-heading: var(--font-playfair), "Playfair Display", Georgia, serif;
-  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
-  --font-playfair: var(--font-playfair), "Playfair Display", Georgia, serif;
-  --font-sans: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-manrope: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-playfair-next), "Playfair Display", Georgia, serif;
+  --font-heading: var(--font-playfair-next), "Playfair Display", Georgia, serif;
+  --font-display: var(--font-playfair-next), "Playfair Display", Georgia, serif;
+  --font-playfair: var(--font-playfair-next), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-manrope-next), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: var(--font-manrope-next), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-manrope: var(--font-manrope-next), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 :root {
-  --font-playfair: "Playfair Display", Georgia, serif;
-  --font-manrope: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-playfair: var(--font-playfair-next), "Playfair Display", Georgia, serif;
+  --font-manrope: var(--font-manrope-next), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --r: #e20b16;
   --r-hover: #c50812;
   --ink: #101114;
@@ -38,10 +38,17 @@
   --shadow: 0 12px 35px rgba(16, 24, 40, 0.08);
 }
 
+/* Universal Base: All text defaults to Manrope */
+*,
+*::before,
+*::after {
+  font-family: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
   color-scheme: light;
-  font-family: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-family: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body,
@@ -58,8 +65,25 @@ div,
 section,
 nav,
 footer,
-header {
-  font-family: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+header,
+main,
+aside,
+article,
+table,
+th,
+td,
+form,
+ul,
+ol,
+dl,
+dt,
+dd,
+small,
+strong,
+b,
+i,
+em {
+  font-family: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
@@ -69,10 +93,38 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6,
-h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
-.font-display, .font-heading, .font-playfair, .font-serif {
+/* Headings & Display typography: Strictly Playfair Display */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 *,
+h2 *,
+h3 *,
+h4 *,
+h5 *,
+h6 *,
+.font-display,
+.font-heading,
+.font-playfair,
+.font-serif,
+.font-display *,
+.font-heading *,
+.font-playfair *,
+.font-serif * {
   font-family: var(--font-playfair), "Playfair Display", Georgia, serif !important;
+}
+
+/* Specific utilities for Manrope overrides */
+.font-sans,
+.font-body,
+.font-manrope,
+.font-sans *,
+.font-body *,
+.font-manrope * {
+  font-family: var(--font-manrope), "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 }
 
 /* Base custom classes matching reference */
