@@ -1,757 +1,1164 @@
-I want to add an AUTOMATIC YOUTUBE VIDEO SYNC SYSTEM to my existing website.
+I want you to recreate the website from the provided reference HTML file
+inside my EXISTING PROJECT.
 
 IMPORTANT:
-- This is an EXISTING project.
-- Do NOT create a new project.
-- First inspect the existing project architecture, framework, routes, components and Videos section.
-- Preserve all existing functionality.
-- Implement this feature cleanly so it can later be connected to the existing backend/admin system.
+DO NOT create a new project.
+
+The attached HTML file is the visual/layout reference and source of truth for the website structure.
+
+The existing project is the actual project that must be modified.
+
+============================================================
+1. FIRST INSPECT THE EXISTING PROJECT
+============================================================
 
-==================================================
-GOAL
-==================================================
+Before writing code:
 
-Whenever the client uploads a NEW VIDEO to their configured YouTube channel, the website should automatically detect the new video and display it in the website's Videos section.
+1. Inspect the complete project structure.
+2. Identify the framework.
+3. Identify whether it uses Next.js/React.
+4. Inspect package.json.
+5. Inspect the current homepage.
+6. Inspect existing components.
+7. Inspect existing CSS/Tailwind configuration.
+8. Inspect existing assets/images.
+9. Inspect existing routing.
+10. Inspect existing backend/API code.
+11. Identify which components can be reused.
 
-Desired flow:
+DO NOT blindly overwrite the project.
 
-CLIENT UPLOADS VIDEO TO YOUTUBE
-             ↓
-YOUTUBE CHANNEL
-             ↓
-SYSTEM DETECTS NEW VIDEO
-             ↓
-FETCH VIDEO INFORMATION
-             ↓
-STORE/SYNC VIDEO
-             ↓
-WEBSITE VIDEOS SECTION
-             ↓
-NEW VIDEO AUTOMATICALLY APPEARS
+Preserve:
+- existing backend
+- existing APIs
+- existing database
+- existing authentication
+- existing routes
+- existing components that are still useful
 
-The client should NOT have to manually create a video post on the website.
+The current task is primarily to build the FRONTEND/UI.
 
-==================================================
-YOUTUBE DATA
-==================================================
+============================================================
+2. REFERENCE HTML
+============================================================
 
-For every synced YouTube video, retrieve:
+Use the attached HTML file as the main visual and structural reference.
 
-- YouTube video ID
-- Video title
-- Description
-- Thumbnail
-- Published date
-- Channel name
-- YouTube URL
-- Duration
-- Category if available
+The reference contains a complete ModularHome-style building website with:
 
-Use the YouTube Data API v3.
+- top utility bar
+- sticky navigation
+- hero section
+- trust/benefit cards
+- home search/filter section
+- home categories
+- available homes
+- budget categories
+- homes near you
+- trending homes
+- customization section
+- floor plans
+- quote form
+- how-it-works
+- financing section
+- payment calculator
+- video section
+- testimonials
+- latest resources/blog
+- final CTA
+- footer
+- responsive mobile behavior
 
-Do NOT download or duplicate the actual YouTube video.
+Recreate the SAME overall structure and visual hierarchy.
 
-The website should embed/play the video directly from YouTube.
+Do not simply paste the HTML into the project.
 
-==================================================
-ADMIN CONFIGURATION
-==================================================
+Convert it into proper reusable React/Next.js components.
 
-Create an admin configuration for the YouTube channel.
+============================================================
+3. IMPORTANT BRANDING CHANGE
+============================================================
 
-Example:
+The reference HTML uses ModularHome.com branding.
 
-YouTube Channel ID:
-[ CHANNEL_ID ]
+DO NOT use ModularHome.com branding in the final website.
 
-Enable Auto Sync:
-[ ON / OFF ]
+Use the existing project's actual company branding/logo/content if available.
 
-Sync Frequency:
-[ Every 15 minutes / Every hour / Daily ]
+The reference HTML's branding, company name, contact details and content should be treated as PLACEHOLDER content.
 
-For development, make the sync function easy to trigger manually.
+The existing project's building/cabin company identity should be used instead.
 
-Add:
+============================================================
+4. DESIGN STYLE
+============================================================
 
-[ Sync YouTube Videos Now ]
+Create a premium modern building/home website.
 
-Display:
+Visual style:
 
-Last Sync:
-September 15, 2026 14:30
+- clean
+- professional
+- architectural
+- premium
+- trustworthy
+- conversion focused
+- image-heavy
+- modern construction aesthetic
 
-Videos Found:
-24
+Primary colors:
 
-New Videos:
-2
+RED:
+#E20B16
 
-==================================================
-ENVIRONMENT VARIABLES
-==================================================
+DARK:
+#101114
 
-Do NOT hardcode secrets.
+WHITE:
+#FFFFFF
 
-Create environment variables such as:
+LIGHT GRAY:
+#F6F7F9
 
-YOUTUBE_API_KEY=
-YOUTUBE_CHANNEL_ID=
+BORDER:
+#E7E9EE
 
-If required:
+MUTED:
+#6B7280
 
-YOUTUBE_PLAYLIST_ID=
+Use red for:
+- CTA buttons
+- prices
+- active navigation
+- important links
+- small accents
 
-Keep API keys server-side.
+Keep the overall page mostly white/light with strong red CTA elements.
 
-NEVER expose YOUTUBE_API_KEY to client-side JavaScript.
-
-==================================================
-HOW TO FIND CHANNEL VIDEOS
-==================================================
-
-Use the configured YouTube Channel ID.
-
-Retrieve the channel's uploads playlist ID.
-
-Then retrieve videos from the uploads playlist using the YouTube Data API.
-
-Do NOT repeatedly search YouTube using search.list if it can be avoided.
-
-Prefer the channel's uploads playlist because it is more efficient and reliable.
-
-Retrieve:
-
-playlistItems.list
-
-Then retrieve video metadata using:
-
-videos.list
-
-Use the uploads playlist to determine which videos are new.
-
-==================================================
-DATABASE
-==================================================
-
-If the existing project already has a database:
-
-Create a Video model/table.
-
-Example:
-
-Video
-
-- id
-- youtubeVideoId
-- title
-- description
-- thumbnail
-- youtubeUrl
-- publishedAt
-- duration
-- channelId
-- category
-- isPublished
-- createdAt
-- updatedAt
-
-IMPORTANT:
-
-youtubeVideoId MUST be unique.
-
-This prevents duplicate videos.
-
-Example:
-
-youtubeVideoId:
-"dQw4w9WgXcQ"
-
-If that ID already exists:
-
-DO NOT create another record.
-
-Instead update the existing record if metadata changed.
-
-==================================================
-AUTO SYNC LOGIC
-==================================================
-
-Create a backend service:
-
-youtubeSyncService
-
-Example logic:
-
-1. Read YOUTUBE_CHANNEL_ID.
-2. Get the channel's uploads playlist.
-3. Fetch latest videos.
-4. Compare YouTube video IDs with database.
-5. Identify new videos.
-6. Fetch complete metadata.
-7. Save new videos.
-8. Update changed metadata.
-9. Do not duplicate existing videos.
-10. Mark videos as published.
-11. Return sync result.
-
-Example response:
-
-{
-  "success": true,
-  "checked": 10,
-  "newVideos": 2,
-  "updatedVideos": 1
-}
-
-==================================================
-SYNC ENDPOINT
-==================================================
-
-Create a secure server endpoint:
-
-POST /api/youtube/sync
-
-This endpoint should:
-
-- Authenticate admin
-- Run YouTube sync
-- Return sync results
-
-Example:
-
-POST /api/youtube/sync
-
-Response:
-
-{
-  "success": true,
-  "message": "YouTube videos synchronized",
-  "newVideos": 2
-}
-
-Do NOT expose this endpoint publicly without authentication.
-
-==================================================
-AUTOMATIC SYNC
-==================================================
-
-The system should automatically run the sync process periodically.
-
-Preferred options:
-
-1. Cron job
-2. Scheduled server function
-3. Existing background-job system if the project already has one
-
-If the deployment platform supports cron jobs, use that.
-
-For example:
-
-Every hour:
-
-GET/POST:
-
-/api/youtube/sync
-
-The system checks the channel and adds newly uploaded videos.
-
-Do not run the YouTube API call on every website visitor.
-
-IMPORTANT:
-The website frontend should read videos from the database/API.
-
-Do NOT call YouTube Data API directly from every visitor's browser.
-
-==================================================
-VIDEO SECTION
-==================================================
-
-Update the existing Videos section to use synced video data.
-
-Desktop:
-
-Show video cards similar to the existing design.
-
-Each card:
-
-[ YouTube Thumbnail ]
-
-▶ Play button
-
-Video Title
-
-Published date
-
-Duration
-
-[ Watch Video ]
-
-Clicking the video should either:
-
-1. Open a YouTube embed modal
-
-OR
-
-2. Navigate to the video detail page.
-
-Prefer a modal for the homepage.
-
-==================================================
-VIDEOS PAGE
-==================================================
-
-Create/use:
-
-/videos
-
-Display all synced YouTube videos.
-
-Features:
-
-- Search
-- Category filter
-- Latest videos
-- Pagination or Load More
-- Video cards
-- Responsive layout
-
-Sort newest videos first.
-
-Example:
-
-LATEST VIDEOS
-
-┌─────────────────────────────┐
-│                             │
-│       YOUTUBE THUMBNAIL     │
-│             ▶               │
-│                             │
-└─────────────────────────────┘
-NEW CABIN TOUR
-
-Take a tour of our latest...
-Sep 15, 2026
-
-[ Watch Video → ]
-
-==================================================
-HOMEPAGE VIDEO SECTION
-==================================================
-
-The homepage should automatically display the latest videos.
-
-Example:
-
-SEE OUR BUILDINGS IN ACTION
-
-Take a closer look at our cabins,
-barndominiums and building projects.
-
-[ Video 1 ]
-[ Video 2 ]
-[ Video 3 ]
-[ Video 4 ]
-
-View All Videos →
-
-If the client uploads a new YouTube video, it should automatically appear here after the next successful sync.
-
-==================================================
-VIDEO CATEGORIES
-==================================================
-
-Allow optional categories.
-
-Examples:
-
-- Building Tours
-- Cabin Tours
-- Construction
-- Barndominiums
-- Delivery
-- Customer Stories
-- Interior
-- Other
-
-YouTube videos can initially default to:
-
-"Latest Videos"
-
-Allow admin to change the category later.
-
-==================================================
-THUMBNAILS
-==================================================
-
-Use YouTube's official thumbnail URLs.
-
-Prefer the highest available quality.
-
-Fallback:
-
-high.jpg
-→
-medium.jpg
-→
-default.jpg
-
-Do not download thumbnails unnecessarily.
-
-Use proper image optimization.
-
-==================================================
-VIDEO DETAIL
-==================================================
-
-Create:
-
-/videos/[slug]
-
-or:
-
-/videos/[youtubeVideoId]
-
-Display:
-
-- Large YouTube player
-- Video title
-- Description
-- Published date
-- Category
-- Related videos
-- CTA:
-
-GET A QUOTE →
-
-The video player should use YouTube's embed URL.
-
-Example structure:
-
-https://www.youtube.com/embed/{VIDEO_ID}
-
-Do NOT hardcode URLs.
-
-==================================================
-ADMIN VIDEO MANAGEMENT
-==================================================
-
-Create an admin Videos section.
-
-Display:
-
-VIDEO MANAGEMENT
-
-------------------------------------------------
-
-Video Title
-YouTube ID
-Published
-Category
-Status
-Actions
-
-------------------------------------------------
-
-Admin actions:
-
-- View
-- Edit category
-- Publish/unpublish
-- Delete/archive local record
-- Sync
-- Open YouTube video
-
-IMPORTANT:
-
-Deleting a video from the website MUST NOT delete the video from YouTube.
-
-It only removes/archives the local website record.
-
-==================================================
-MANUAL VIDEO ADDITION
-==================================================
-
-Also provide:
-
-[ Add YouTube Video ]
-
-Admin can paste:
-
-YouTube URL
-
-Example:
-
-https://www.youtube.com/watch?v=XXXXXXXX
-
-Then:
-
-[ Fetch Video ]
-
-Automatically retrieve:
-
-- Title
-- Thumbnail
-- Description
-- Published date
-- Duration
-- Video ID
-
-Admin can edit:
-
-- Category
-- Website visibility
-
-Then:
-
-[ Publish ]
-
-This provides a backup if automatic synchronization fails.
-
-==================================================
-DUPLICATE PROTECTION
-==================================================
-
-This is VERY IMPORTANT.
-
-Never create duplicate videos.
+============================================================
+5. TYPOGRAPHY
+============================================================
 
 Use:
 
-youtubeVideoId
+Inter / Manrope / DM Sans
 
-as a unique database field.
+Headings:
+font-weight 700–900
 
-Before inserting:
+Body:
+400–500
 
-if video exists:
-    update metadata
+Use large bold headings.
 
-else:
-    create video
+Keep typography similar to the reference HTML.
 
-==================================================
-ERROR HANDLING
-==================================================
+Do not use futuristic fonts.
 
-Handle:
+============================================================
+6. GLOBAL CONTAINER
+============================================================
 
-- Invalid API key
-- Invalid channel ID
-- YouTube API quota exceeded
-- Video deleted
-- Private video
-- Unavailable video
-- Network errors
-- Invalid YouTube URL
-- Rate limiting
+Use a maximum content width around:
 
-Do not crash the website if YouTube API fails.
+1440px
 
-If synchronization fails:
-
-- Keep existing videos
-- Log the error
-- Show admin-friendly error
-- Retry on next scheduled sync
-
-==================================================
-API QUOTA
-==================================================
-
-Use the YouTube API efficiently.
-
-DO NOT repeatedly call expensive search endpoints.
-
-Prefer:
-
-channels.list
-↓
-uploads playlist ID
-
-playlistItems.list
-↓
-video IDs
-
-videos.list
-↓
-video details
-
-Store results locally.
-
-The website should use the database for normal page rendering.
-
-==================================================
-SECURITY
-==================================================
-
-IMPORTANT:
-
-- YouTube API key must remain server-side.
-- Never use NEXT_PUBLIC_YOUTUBE_API_KEY.
-- Protect admin sync endpoint.
-- Validate YouTube URLs.
-- Sanitize descriptions before rendering.
-- Do not trust YouTube HTML.
-- Rate-limit manual sync if appropriate.
-
-==================================================
-SEO
-==================================================
-
-For video pages implement:
-
-- title
-- description
-- Open Graph metadata
-- canonical URL
-- VideoObject schema where appropriate
-- thumbnail metadata
-
-Example VideoObject information:
-
-- name
-- description
-- thumbnailUrl
-- uploadDate
-- duration
-- embedUrl
-
-==================================================
-RESPONSIVE DESIGN
-==================================================
-
-Keep the existing website design.
+with responsive horizontal padding.
 
 Desktop:
-4 video cards where appropriate.
+28–40px
 
 Tablet:
-2 cards.
+24px
 
 Mobile:
-1 card / horizontal carousel depending on existing design.
+16px
 
-The video section must match the existing website's visual style:
+Maintain consistent spacing throughout the website.
 
-- Dark green section
-- White headings
-- Red accents
-- Premium building photography
-- Play buttons
-- Subtle hover effects
+============================================================
+7. TOP BAR
+============================================================
 
-==================================================
-IMPORTANT FRONTEND BEHAVIOR
-==================================================
+Create a slim top utility bar.
 
-The frontend should NEVER need to know the YouTube API key.
+Desktop:
 
-Architecture:
+LEFT:
+- Social links
+- Facebook
+- Instagram
+- YouTube
+- Trust message
 
-YouTube
-   ↓
-Backend Sync Service
-   ↓
-Database
-   ↓
-Website API
-   ↓
-Video Components
+RIGHT:
+- Financing
+- Blog
+- Customer Reviews
+- Track Order
 
-NOT:
+Mobile:
+Hide the desktop utility bar.
 
-Browser
-   ↓
-YouTube API
-   ↓
-Frontend
+============================================================
+8. NAVBAR
+============================================================
 
-==================================================
-FALLBACK
-==================================================
+Create a sticky header.
 
-If the database/backend is not yet implemented in the existing project:
+Desktop:
 
-First create the frontend using mock video data.
+LEFT:
+Existing project logo.
 
-Create the interfaces/types so the mock data can later be replaced with:
-
-GET /api/videos
-
-Do not block the frontend implementation.
-
-==================================================
-FINAL EXPECTED BEHAVIOR
-==================================================
+CENTER:
+Navigation links.
 
 Example:
 
-Client uploads:
+Modular Homes
+Prefab Homes
+Barndominiums
+House Kits
+Tiny Homes
+Cabins
+ADUs
+Floor Plans
 
-"New Cabin Tour 2026"
+RIGHT:
+Phone number
+Get a Quote
 
-to the configured YouTube channel.
+Use a white background.
 
-After the scheduled sync:
+Add:
+- subtle border
+- backdrop blur
+- sticky positioning
 
-System detects:
+Mobile:
 
-New Cabin Tour 2026
+LEFT:
+Logo
 
-System automatically creates:
+RIGHT:
+Phone/call button
+Hamburger
 
-Video record
+Clicking hamburger opens a mobile menu.
 
+============================================================
+9. HERO SECTION
+============================================================
+
+Create a large full-width hero.
+
+Use a high-quality building/home image.
+
+Hero should have:
+
+- background image
+- dark gradient overlay
+- large heading
+- description
+- two CTA buttons
+
+Example structure:
+
+MODERN. AFFORDABLE. BUILT FOR LIFE.
+
+MODULAR HOMES
+FOR A BETTER TOMORROW
+
+Explore beautiful homes, floor plans and flexible options designed around your lifestyle, location and budget.
+
+Buttons:
+
+GET A QUOTE →
+
+BROWSE HOMES
+
+Hero height:
+
+Desktop:
+560–650px
+
+Mobile:
+500–620px
+
+Text should remain readable over the image.
+
+============================================================
+10. TRUST / BENEFITS
+============================================================
+
+Immediately below hero.
+
+Create four cards:
+
+Faster Build Times
+Lower Costs
+Energy Efficient
+Nationwide Delivery
+
+Use icons.
+
+Desktop:
+4 columns
+
+Tablet:
+2 columns
+
+Mobile:
+2 columns
+
+Cards should have:
+- white background
+- border
+- subtle shadow
+- rounded corners
+
+============================================================
+11. FIND YOUR PERFECT HOME
+============================================================
+
+Create a search/filter card.
+
+Heading:
+
+Find Your Perfect Home
+
+Subheading:
+
+Search homes based on your requirements.
+
+Filters:
+
+Home Type
+Budget
+Bedrooms
+Bathrooms
+Location
+
+Button:
+
+Search Homes →
+
+Desktop:
+6-column style layout.
+
+Mobile:
+Stack filters vertically.
+
+Make the controls visually functional even if they use mock data initially.
+
+============================================================
+12. SHOP BY HOME TYPE
+============================================================
+
+Create a light-gray section.
+
+Heading:
+
+Shop by Home Type
+
+Subheading:
+
+Explore our most popular home categories.
+
+Create category cards for:
+
+- Modular Homes
+- Prefab Homes
+- Barndominiums
+- House Kits
+- Tiny Homes
+- Cabins
+- ADUs
+- Park Models
+- A-Frames
+- Commercial
+
+Desktop:
+5-column grid.
+
+Tablet:
+3 columns.
+
+Mobile:
+2 columns or horizontally scrollable cards.
+
+Each card:
+
+Image
+Category name
+Arrow
+
+Use large high-quality building images.
+
+============================================================
+13. HOMES / BUILDINGS AVAILABLE
+============================================================
+
+Heading:
+
+Homes Available Right Now
+
+Subheading:
+
+Move-in ready and quick-ship homes.
+
+Create product cards.
+
+Each product:
+
+Image
+Badge
+Name
+Bedrooms
+Bathrooms
+Square footage
+Price
+View Home button
+
+Example:
+
+The Aspen
+3 Bed | 2 Bath | 1,586 Sq Ft
+$189,000
+
+Use mock data.
+
+Create at least 8 products.
+
+Desktop:
+5-column layout where space permits.
+
+Tablet:
+3 columns.
+
+Mobile:
+1 column.
+
+============================================================
+14. BUDGET SECTION
+============================================================
+
+Create:
+
+Find a Home in Your Budget
+
+Cards:
+
+Under $75K
+$75K – $150K
+$150K – $250K
+$250K+
+
+Each card:
+- image
+- budget
+- short description
+
+============================================================
+15. HOMES NEAR YOU
+============================================================
+
+Create a location section.
+
+LEFT:
+ZIP code search.
+
+CENTER:
+Map placeholder.
+
+RIGHT:
+Nationwide delivery information.
+
+Include:
+
+Delivered to your site
+Professional installation
+Nationwide availability
+
+CTA:
+
+Learn More →
+
+For now, the map can be a styled placeholder.
+
+Keep architecture ready for Google Maps or another map API later.
+
+============================================================
+16. TRENDING HOMES
+============================================================
+
+Create another product grid.
+
+Heading:
+
+Trending Homes
+
+Show 5 products.
+
+Use the same reusable ProductCard component.
+
+Do NOT duplicate component code.
+
+============================================================
+17. CUSTOMIZATION
+============================================================
+
+Create a split section.
+
+LEFT:
+Large interior/building image.
+
+RIGHT:
+
+Customize Your Dream Home
+
+Description.
+
+Features:
+
+✓ Multiple floor plans
+✓ Premium finishes
+✓ Energy-efficient options
+✓ Expert support
+
+CTA:
+
+Start Customizing →
+
+============================================================
+18. FLOOR PLANS
+============================================================
+
+Create:
+
+Floor Plans & House Plans
+
+Display floor-plan cards.
+
+Each:
+
+Floor plan preview
+Bedrooms
+Bathrooms
+Square footage
+View Plan button
+
+Use a realistic floor-plan visual or existing assets.
+
+============================================================
+19. QUOTE SECTION
+============================================================
+
+Create a large quote form.
+
+Heading:
+
+Get Your Custom Quote
+
+Fields:
+
+Full Name
+Email Address
+Phone Number
+State
+Home Type
+Budget
+Project Details
+Floor Plan Upload
+
+Button:
+
+Submit Quote →
+
+Frontend only for now.
+
+Implement:
+- validation
+- loading state
+- success state
+- error state
+
+Do not connect to backend unless existing API already supports it.
+
+============================================================
+20. HOW IT WORKS
+============================================================
+
+Create five steps:
+
+1. Browse
+2. Quote
+3. Customize
+4. Build
+5. Deliver
+
+Use numbered circles.
+
+Desktop:
+horizontal layout.
+
+Mobile:
+vertical layout.
+
+============================================================
+21. FINANCING
+============================================================
+
+Create:
+
+Financing Your Modular Home
+
+Benefits:
+
+✓ Competitive rates
+✓ Multiple loan options
+✓ Fast approval process
+✓ Trusted lenders
+
+CTA:
+
+Learn More →
+
+Right side:
+
+Estimate Your Monthly Payment
+
+Fields:
+
+Home Price
+Down Payment
+Loan Term
+Rate
+
+Show:
+
+Estimated Monthly Payment
+
+Make the calculator actually work on the frontend.
+
+When values change, calculate an approximate monthly payment using the standard loan payment formula.
+
+Do not hardcode the final value.
+
+============================================================
+22. VIDEO SECTION
+============================================================
+
+Create:
+
+Watch Our Home Tours
+
+Display video cards.
+
+Each card:
+
+Thumbnail
+Play button
+Title
+
+Use:
+
+- building tours
+- interior tours
+- construction
+- barndominiums
+- customer stories
+
+Clicking a video should open a modal or YouTube embed.
+
+For now, use mock YouTube video IDs if real IDs are not available.
+
+IMPORTANT:
+
+Create the video component in a way that later supports automatic YouTube synchronization.
+
+Future architecture:
+
+YouTube
 ↓
-
-Website homepage:
-
-SEE OUR BUILDINGS IN ACTION
-
-[ New Cabin Tour 2026 ]
-
+Backend sync
 ↓
-
-/videos page:
-
-New Cabin Tour 2026
-
+Database
 ↓
+API
+↓
+VideoSection
 
-Video detail page:
+Do not expose YouTube API keys in frontend.
 
-/videos/new-cabin-tour-2026
+============================================================
+23. TESTIMONIALS
+============================================================
 
-No manual website post creation should be required.
+Create:
 
-==================================================
-IMPLEMENTATION RULE
-==================================================
+What Our Customers Say
 
-FIRST inspect the existing project.
+Three testimonial cards.
 
-Then:
+Each:
 
-1. Identify existing Videos components.
-2. Identify existing backend/API.
-3. Identify database.
-4. Identify authentication/admin system.
-5. Implement the Video model.
-6. Implement YouTube sync service.
-7. Implement secure sync endpoint.
-8. Implement scheduled synchronization.
-9. Connect Videos section to database/API.
-10. Implement admin video management.
-11. Implement manual YouTube URL addition.
-12. Add duplicate protection.
-13. Add error handling.
-14. Test with mock data.
-15. Test with a real YouTube video after API credentials are configured.
-16. Test desktop and mobile.
+Stars
+Customer quote
+Customer name
+Location
 
-DO NOT redesign unrelated parts of the existing website.
+Desktop:
+3 columns.
 
-The final experience should be:
+Mobile:
+Carousel or one card at a time.
 
-UPLOAD TO YOUTUBE → AUTOMATICALLY APPEARS ON WEBSITE.
+Use subtle animations.
+
+============================================================
+24. LATEST NEWS / RESOURCES
+============================================================
+
+Create:
+
+Latest News & Resources
+
+Three article cards.
+
+Each:
+
+Image
+Title
+Category/date
+Read More →
+
+Use reusable ArticleCard.
+
+============================================================
+25. FINAL CTA
+============================================================
+
+Create a large visual CTA.
+
+Background:
+High-quality home/building image.
+
+Overlay:
+
+Ready to Build Your Dream Home?
+
+Get a personalized quote and take the first step today.
+
+Button:
+
+Get a Quote →
+
+============================================================
+26. FOOTER
+============================================================
+
+Create a professional multi-column footer.
+
+Column 1:
+Logo
+Description
+Social icons
+
+Column 2:
+Quick Links
+
+Column 3:
+Home Types & Resources
+
+Column 4:
+Contact Us
+
+Include:
+
+Phone
+Email
+Location
+
+Newsletter:
+
+Email input
+Join button
+
+Bottom:
+
+Copyright
+Privacy Policy
+Terms
+Sitemap
+
+Mobile:
+Stack columns vertically.
+
+============================================================
+27. RESPONSIVE DESIGN
+============================================================
+
+The website MUST be responsive.
+
+Test:
+
+375px
+390px
+768px
+1024px
+1280px
+1440px
+
+Desktop:
+- large hero
+- multi-column grids
+- horizontal navigation
+- spacious layout
+
+Tablet:
+- reduce columns
+- maintain visual hierarchy
+
+Mobile:
+- hamburger navigation
+- stacked sections
+- horizontal/compact cards where appropriate
+- full-width buttons
+- smaller typography
+- reduced spacing
+- touch-friendly controls
+
+NO horizontal overflow.
+
+============================================================
+28. COMPONENT ARCHITECTURE
+============================================================
+
+Create reusable components.
+
+Suggested:
+
+components/
+├── Header/
+├── TopBar/
+├── Navbar/
+├── MobileMenu/
+├── Hero/
+├── TrustBar/
+├── HomeSearch/
+├── CategoryCard/
+├── CategoryGrid/
+├── ProductCard/
+├── ProductGrid/
+├── BudgetCard/
+├── LocationSection/
+├── CustomizeSection/
+├── FloorPlanCard/
+├── QuoteForm/
+├── HowItWorks/
+├── FinancingCalculator/
+├── VideoCard/
+├── VideoSection/
+├── TestimonialCard/
+├── Testimonials/
+├── ArticleCard/
+├── Resources/
+├── CTASection/
+└── Footer/
+
+Use shared Button, Card, SectionHeading and Container components if appropriate.
+
+============================================================
+29. MOCK DATA
+============================================================
+
+Create centralized mock data.
+
+Example:
+
+data/
+├── homes.ts
+├── categories.ts
+├── floorPlans.ts
+├── videos.ts
+├── testimonials.ts
+└── articles.ts
+
+Do not hardcode product information directly inside JSX.
+
+Example:
+
+{
+  id: "aspen",
+  name: "The Aspen",
+  category: "Modular Home",
+  image: "...",
+  bedrooms: 3,
+  bathrooms: 2,
+  sqft: 1586,
+  price: 189000
+}
+
+============================================================
+30. ROUTES
+============================================================
+
+Homepage:
+
+/
+
+Prepare architecture for:
+
+/homes
+/homes/[slug]
+/floor-plans
+/floor-plans/[slug]
+/videos
+/videos/[slug]
+/quote
+/about
+/contact
+
+The homepage should be the primary focus.
+
+============================================================
+31. INTERACTIONS
+============================================================
+
+Implement functional frontend interactions:
+
+- Mobile menu
+- Sticky navbar
+- Search filters
+- Product filtering
+- Category filtering
+- Quote form validation
+- File selection
+- Financing calculator
+- Video modal
+- Testimonial carousel
+- Newsletter success state
+- Smooth scrolling
+- Hover effects
+
+Do not leave obvious dead buttons.
+
+============================================================
+32. ANIMATIONS
+============================================================
+
+Use subtle animations.
+
+Hero:
+- fade in
+- slide up
+
+Cards:
+- slight hover lift
+- image zoom
+
+Buttons:
+- arrow movement
+
+Sections:
+- scroll reveal
+
+Navbar:
+- smooth sticky transition
+
+Do NOT overuse animations.
+
+The website must remain fast.
+
+============================================================
+33. IMAGES
+============================================================
+
+Use existing project assets first.
+
+If suitable assets don't exist, use high-quality placeholders temporarily.
+
+Prefer:
+
+- modular homes
+- cabins
+- barndominiums
+- steel buildings
+- tiny homes
+- modern homes
+- architectural interiors
+- construction
+- floor plans
+
+Images must:
+- maintain aspect ratio
+- use object-cover
+- be responsive
+- be optimized
+
+============================================================
+34. SEO
+============================================================
+
+Implement:
+
+- proper title
+- meta description
+- Open Graph metadata
+- semantic HTML
+- H1/H2 hierarchy
+- image alt text
+- canonical-ready URLs
+- sitemap-ready structure
+
+Do not use the reference site's exact SEO text.
+
+Use the existing company's information.
+
+============================================================
+35. ACCESSIBILITY
+============================================================
+
+Implement:
+
+- semantic HTML
+- accessible navigation
+- keyboard support
+- focus states
+- form labels
+- alt text
+- accessible buttons
+- sufficient contrast
+
+============================================================
+36. PERFORMANCE
+============================================================
+
+Optimize for:
+
+- fast initial load
+- optimized images
+- lazy loading below fold
+- minimal JavaScript
+- reusable components
+- no unnecessary dependencies
+- no layout shift
+- responsive images
+
+============================================================
+37. VERY IMPORTANT: REFERENCE MATCH
+============================================================
+
+The attached HTML is the design reference.
+
+Match its:
+
+- section order
+- spacing
+- card proportions
+- typography hierarchy
+- CTA placement
+- grid layouts
+- hero proportions
+- navigation structure
+- footer structure
+- responsive behavior
+- overall visual density
+
+However:
+
+DO NOT simply copy/paste the HTML.
+
+Convert the design into a clean modern component-based implementation.
+
+============================================================
+38. EXISTING PROJECT INTEGRATION
+============================================================
+
+If the existing project already has:
+
+Navbar
+Footer
+Product components
+API services
+Database models
+Authentication
+Images
+Design system
+
+reuse them where possible.
+
+Do not create duplicate implementations.
+
+If existing backend functionality exists, don't break it.
+
+If backend functionality is not ready, use mock data.
+
+============================================================
+39. FINAL TESTING
+============================================================
+
+After implementation:
+
+1. Start the development server.
+2. Open homepage.
+3. Check console.
+4. Check desktop at 1440px.
+5. Check mobile at 375px.
+6. Check tablet.
+7. Test navbar.
+8. Test mobile menu.
+9. Test every CTA.
+10. Test filters.
+11. Test product cards.
+12. Test quote form.
+13. Test file upload UI.
+14. Test calculator.
+15. Test video modal.
+16. Test testimonials.
+17. Test newsletter.
+18. Check footer.
+19. Check image loading.
+20. Check for horizontal overflow.
+21. Fix all console errors.
+22. Fix all visual spacing issues.
+
+============================================================
+40. FINAL DESIGN GOAL
+============================================================
+
+The finished website should feel like a polished,
+production-quality American building/home company website.
+
+It should NOT look like:
+
+- a basic HTML template
+- a SaaS dashboard
+- a generic AI-generated website
+- a simple Bootstrap page
+
+It should look like a real commercial website with:
+
+PREMIUM IMAGERY
++
+STRONG TYPOGRAPHY
++
+CLEAN WHITE SPACE
++
+RED CTA ACCENTS
++
+PROFESSIONAL PRODUCT CARDS
++
+HIGH-CONVERSION SECTIONS
++
+EXCELLENT MOBILE RESPONSIVENESS
+
+Most importantly:
+
+BUILD THIS INSIDE THE EXISTING PROJECT.
+
+DO NOT CREATE A NEW PROJECT.
+
+Use the attached HTML reference as the structural and visual source of truth, while adapting the branding and content to the existing project.

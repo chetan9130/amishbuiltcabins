@@ -63,8 +63,8 @@ const TRUST_CARDS = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="py-20 bg-white border-b border-[#E5E0D4] text-[#1D2521]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="why-choose-us" className="py-20 bg-white border-b border-[var(--line)] text-[var(--ink)]">
+      <div className="wrap">
         <SectionHeading
           eyebrow="Uncompromised Excellence"
           title="WHY CHOOSE OUR MODULAR HOMES"
@@ -79,16 +79,16 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={idx}
-                className="bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm p-6 space-y-3 hover:border-[#B82025] hover:shadow-md transition-all group duration-200"
+                className="bg-[var(--soft)] border border-[var(--line)] rounded-[18px] p-6 space-y-3 hover:border-[var(--r)] hover:shadow-md transition-all group duration-200"
               >
-                <div className="w-12 h-12 rounded-sm bg-white text-[#B82025] border border-[#E5E0D4] flex items-center justify-center group-hover:bg-[#B82025] group-hover:text-white transition-colors shadow-2xs">
+                <div className="w-12 h-12 rounded-[14px] bg-white text-[var(--r)] border border-[var(--line)] flex items-center justify-center group-hover:bg-[var(--r)] group-hover:text-white transition-colors shadow-xs">
                   <IconComp className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold uppercase text-[#1D2521] font-display group-hover:text-[#B82025] transition-colors">
+                  <h3 className="text-base font-bold uppercase text-[var(--ink)] font-display group-hover:text-[var(--r)] transition-colors">
                     {card.title}
                   </h3>
-                  <p className="text-xs text-[#6B716D] mt-1.5 leading-relaxed font-body">
+                  <p className="text-xs text-[var(--muted)] mt-1.5 leading-relaxed font-body">
                     {card.desc}
                   </p>
                 </div>

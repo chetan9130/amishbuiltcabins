@@ -9,8 +9,6 @@ import {
   ShieldCheck, 
   Check, 
   Maximize2, 
-  Layers, 
-  Wind, 
   Play, 
   Bed, 
   Bath, 
@@ -64,25 +62,25 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
   };
 
   return (
-    <div className="min-h-screen bg-white pt-24 pb-28 text-[#1D2521]">
+    <div className="min-h-screen bg-white pt-24 pb-28 text-[#101114]">
       {/* Top Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-xs text-[#6B716D]">
+      <div className="wrap py-4 text-xs text-[#6b7280]">
         <div className="flex items-center gap-2">
-          <Link href="/" className="hover:text-[#1D2521] transition-colors">Home</Link>
+          <Link href="/" className="hover:text-[#101114] transition-colors">Home</Link>
           <span>/</span>
-          <Link href="/buildings" className="hover:text-[#1D2521] transition-colors">Buildings</Link>
+          <Link href="/buildings" className="hover:text-[#101114] transition-colors">Buildings</Link>
           <span>/</span>
-          <span className="text-[#B82025] font-bold uppercase">{model.name}</span>
+          <span className="text-[#e20b16] font-bold uppercase">{model.name}</span>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="wrap">
         {/* HERO SECTION: Gallery + Core Specs Box */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Gallery Viewport (7 cols) */}
           <div className="lg:col-span-7 space-y-4">
             {/* Main Stage Image */}
-            <div className="relative aspect-[16/10] w-full rounded-sm overflow-hidden bg-[#F7F4EC] border border-[#E5E0D4] shadow-md">
+            <div className="relative aspect-[16/10] w-full rounded-[14px] overflow-hidden bg-[#f6f7f9] border border-[#e7e9ee] shadow-sm">
               <Image
                 src={activeImage}
                 alt={model.name}
@@ -96,7 +94,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
               {/* Video Tour Quick Trigger Badge */}
               <button
                 onClick={handleOpenVideo}
-                className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-sm bg-white/95 hover:bg-[#B82025] text-[#1D2521] hover:text-white border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all shadow-md"
+                className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-[9px] bg-white/95 hover:bg-[#e20b16] text-[#101114] hover:text-white border border-[#e7e9ee] text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all shadow-md cursor-pointer"
               >
                 <Play className="w-3.5 h-3.5 fill-current" />
                 <span>Watch Video Tour ({model.videoDuration || "Tour"})</span>
@@ -109,10 +107,10 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                 <button
                   key={idx}
                   onClick={() => setActiveImage(img)}
-                  className={`relative aspect-[16/10] rounded-sm overflow-hidden border transition-all ${
+                  className={`relative aspect-[16/10] rounded-[9px] overflow-hidden border transition-all cursor-pointer ${
                     activeImage === img
-                      ? "border-[#B82025] ring-2 ring-[#B82025]/40 scale-[1.02]"
-                      : "border-[#E5E0D4] opacity-70 hover:opacity-100"
+                      ? "border-[#e20b16] ring-2 ring-[#e20b16]/40 scale-[1.02]"
+                      : "border-[#e7e9ee] opacity-70 hover:opacity-100"
                   }`}
                 >
                   <Image
@@ -129,49 +127,49 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
 
           {/* Model Information & Sticky Pricing Panel (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 sm:p-8 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm shadow-md space-y-6">
+            <div className="p-6 sm:p-7 bg-[#f6f7f9] border border-[#e7e9ee] rounded-[18px] shadow-sm space-y-5">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#B82025]">
+                <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#e20b16]">
                   {model.series} • {model.category}
                 </span>
-                <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-[#1D2521] mt-1 font-display">
+                <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-[#101114] mt-1">
                   {model.name}
                 </h1>
-                <p className="text-xs sm:text-sm text-[#6B716D] mt-2 leading-relaxed font-body">
+                <p className="text-xs sm:text-sm text-[#6b7280] mt-1.5 leading-relaxed">
                   {model.tagline}
                 </p>
               </div>
 
               {/* Core Specs Grid */}
-              <div className="grid grid-cols-3 gap-3 p-4 bg-white border border-[#E5E0D4] rounded-sm text-center">
+              <div className="grid grid-cols-3 gap-3 p-3.5 bg-white border border-[#e7e9ee] rounded-[11px] text-center">
                 <div className="flex flex-col items-center">
-                  <Maximize2 className="w-4 h-4 text-[#B82025] mb-1" />
-                  <span className="text-[10px] uppercase text-[#6B716D] font-bold">Area</span>
-                  <span className="font-bold text-sm text-[#1D2521]">{model.sqft} SQ FT</span>
+                  <Maximize2 className="w-4 h-4 text-[#e20b16] mb-1" />
+                  <span className="text-[10px] uppercase text-[#6b7280] font-bold">Area</span>
+                  <span className="font-bold text-xs sm:text-sm text-[#101114]">{model.sqft} SQ FT</span>
                 </div>
-                <div className="flex flex-col items-center border-x border-[#E5E0D4]">
-                  <Bed className="w-4 h-4 text-[#B82025] mb-1" />
-                  <span className="text-[10px] uppercase text-[#6B716D] font-bold">Bedrooms</span>
-                  <span className="font-bold text-sm text-[#1D2521]">{model.bedrooms > 0 ? `${model.bedrooms} Bed` : "Open"}</span>
+                <div className="flex flex-col items-center border-x border-[#e7e9ee]">
+                  <Bed className="w-4 h-4 text-[#e20b16] mb-1" />
+                  <span className="text-[10px] uppercase text-[#6b7280] font-bold">Bedrooms</span>
+                  <span className="font-bold text-xs sm:text-sm text-[#101114]">{model.bedrooms > 0 ? `${model.bedrooms} Bed` : "Open"}</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <Bath className="w-4 h-4 text-[#B82025] mb-1" />
-                  <span className="text-[10px] uppercase text-[#6B716D] font-bold">Bathrooms</span>
-                  <span className="font-bold text-sm text-[#1D2521]">{model.bathrooms > 0 ? `${model.bathrooms} Bath` : "Shop"}</span>
+                  <Bath className="w-4 h-4 text-[#e20b16] mb-1" />
+                  <span className="text-[10px] uppercase text-[#6b7280] font-bold">Bathrooms</span>
+                  <span className="font-bold text-xs sm:text-sm text-[#101114]">{model.bathrooms > 0 ? `${model.bathrooms} Bath` : "1 Bath"}</span>
                 </div>
               </div>
 
               {/* Price Calculation Box */}
-              <div className="pt-2 border-t border-[#E5E0D4] flex items-baseline justify-between">
+              <div className="pt-2 border-t border-[#e7e9ee] flex items-baseline justify-between">
                 <div>
-                  <div className="text-[10px] uppercase tracking-wider text-[#6B716D] font-bold">Starting Price</div>
-                  <div className="text-3xl font-black text-[#1D2521] font-display">
+                  <div className="text-[10px] uppercase tracking-wider text-[#6b7280] font-bold">Starting Price</div>
+                  <div className="text-3xl font-black text-[#e20b16]">
                     {formatPrice(totalCalculatedPrice)}
                   </div>
                 </div>
                 {selectedOptions.length > 0 && (
                   <div className="text-right">
-                    <span className="text-[10px] text-[#B82025] font-bold">
+                    <span className="text-[11px] text-[#e20b16] font-bold">
                       +{formatPrice(optionsTotal)} in Options
                     </span>
                   </div>
@@ -179,27 +177,27 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
               </div>
 
               {/* Call-to-action buttons */}
-              <div className="space-y-3 pt-2">
+              <div className="space-y-2.5 pt-1">
                 <Link
-                  href={`/quote`}
-                  className="w-full py-4 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-sm transition-all shadow-md flex items-center justify-center gap-2 group"
+                  href="/quote"
+                  className="btn-primary w-full py-3.5 text-xs sm:text-sm font-extrabold rounded-[11px] shadow-sm flex items-center justify-center gap-2"
                 >
                   <span>Customize & Get Official Quote</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2.5">
                   <a
-                    href="tel:+18125954033"
-                    className="py-3 bg-white hover:bg-[#B82025] hover:text-white border border-[#E5E0D4] text-[#1D2521] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
+                    href="tel:+18005551234"
+                    className="btn-outline py-2.5 text-xs font-bold rounded-[9px] flex items-center justify-center gap-1.5"
                   >
-                    <Phone className="w-3.5 h-3.5 text-[#B82025]" />
-                    <span>Call +1-812-595-4033</span>
+                    <Phone className="w-3.5 h-3.5 text-[#e20b16]" />
+                    <span>Call Us</span>
                   </a>
 
                   <Link
                     href="/upload-floor-plan"
-                    className="py-3 bg-white hover:bg-[#B82025] hover:text-white border border-[#E5E0D4] text-[#1D2521] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
+                    className="btn-outline py-2.5 text-xs font-bold rounded-[9px] flex items-center justify-center gap-1.5"
                   >
                     <span>Upload Plan</span>
                   </Link>
@@ -207,8 +205,8 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
               </div>
 
               {/* Engineering highlights badge */}
-              <div className="p-3 bg-white border border-[#E5E0D4] rounded-sm flex items-center gap-3 text-xs text-[#6B716D]">
-                <ShieldCheck className="w-4 h-4 text-[#B82025] shrink-0" />
+              <div className="p-3 bg-white border border-[#e7e9ee] rounded-[9px] flex items-center gap-2.5 text-xs text-[#6b7280]">
+                <ShieldCheck className="w-4 h-4 text-[#e20b16] shrink-0" />
                 <span>{model.warranty} • IBC & IRC Engineered</span>
               </div>
             </div>
@@ -216,36 +214,36 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
         </div>
 
         {/* DETAILED CONTENT SECTIONS */}
-        <div className="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Left Main Information Columns (8 cols) */}
-          <div className="lg:col-span-8 space-y-16">
+          <div className="lg:col-span-8 space-y-12">
             {/* Overview */}
-            <section className="space-y-4">
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
+            <section className="space-y-3">
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
                 Design & Architecture
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] font-display">
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114]">
                 Architectural Overview
               </h2>
-              <p className="text-sm sm:text-base text-[#6B716D] leading-relaxed font-body">
+              <p className="text-sm sm:text-base text-[#6b7280] leading-relaxed">
                 {model.description}
               </p>
             </section>
 
             {/* Floor Plan Section */}
-            <section className="space-y-6 pt-8 border-t border-[#E5E0D4]">
+            <section className="space-y-5 pt-8 border-t border-[#e7e9ee]">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
                     Layout & Dimensions
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] font-display">
+                  <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114]">
                     Architectural Floor Plan
                   </h2>
                 </div>
                 <button
                   onClick={() => setFloorPlanExpanded(true)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#1D2521] bg-[#F7F4EC] hover:bg-[#B82025] hover:text-white border border-[#E5E0D4] rounded-sm transition-colors shadow-xs"
+                  className="btn-outline py-1.5 px-3 text-xs font-bold rounded-[9px] flex items-center gap-1.5 cursor-pointer"
                 >
                   <Maximize2 className="w-3.5 h-3.5" />
                   <span>Enlarge Blueprint</span>
@@ -255,65 +253,65 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
               {/* Floor Plan Viewer Box */}
               <div
                 onClick={() => setFloorPlanExpanded(true)}
-                className="cursor-pointer relative aspect-[16/9] w-full rounded-sm overflow-hidden bg-[#F7F4EC] border border-[#E5E0D4] group shadow-md"
+                className="cursor-pointer relative aspect-[16/9] w-full rounded-[14px] overflow-hidden bg-[#f6f7f9] border border-[#e7e9ee] group shadow-sm"
               >
                 <Image
                   src={model.floorPlanImage}
                   alt={`${model.name} Floor Plan Schematic`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 65vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-95 contrast-110"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white">
                   <span className="font-semibold">{model.dimensions} Standard Footprint</span>
-                  <span className="text-[#F7F4EC] font-bold">Click to view full layout →</span>
+                  <span className="text-[#f6f7f9] font-bold">Click to view full layout →</span>
                 </div>
               </div>
             </section>
 
             {/* Technical Specifications Table */}
-            <section className="space-y-6 pt-8 border-t border-[#E5E0D4]">
+            <section className="space-y-5 pt-8 border-t border-[#e7e9ee]">
               <div>
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
                   Structural Tolerances
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] font-display">
+                <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114]">
                   Technical Specifications
                 </h2>
               </div>
 
-              <div className="bg-white border border-[#E5E0D4] rounded-sm overflow-hidden shadow-xs">
-                <div className="divide-y divide-[#E5E0D4]">
-                  <div className="grid grid-cols-2 p-4 text-xs">
-                    <span className="text-[#6B716D] uppercase font-bold">Framing System</span>
-                    <span className="text-[#1D2521] font-semibold">{model.frameType}</span>
+              <div className="card overflow-hidden">
+                <div className="divide-y divide-[#e7e9ee]">
+                  <div className="grid grid-cols-2 p-3.5 text-xs">
+                    <span className="text-[#6b7280] uppercase font-bold">Framing System</span>
+                    <span className="text-[#101114] font-semibold">{model.frameType}</span>
                   </div>
-                  <div className="grid grid-cols-2 p-4 text-xs bg-[#F7F4EC]">
-                    <span className="text-[#6B716D] uppercase font-bold">Standard Dimensions</span>
-                    <span className="text-[#1D2521] font-semibold">{model.dimensions}</span>
+                  <div className="grid grid-cols-2 p-3.5 text-xs bg-[#f6f7f9]">
+                    <span className="text-[#6b7280] uppercase font-bold">Standard Dimensions</span>
+                    <span className="text-[#101114] font-semibold">{model.dimensions}</span>
                   </div>
-                  <div className="grid grid-cols-2 p-4 text-xs">
-                    <span className="text-[#6B716D] uppercase font-bold">Roof Pitch & Profile</span>
-                    <span className="text-[#1D2521] font-semibold">{model.roofPitch}</span>
+                  <div className="grid grid-cols-2 p-3.5 text-xs">
+                    <span className="text-[#6b7280] uppercase font-bold">Roof Pitch & Profile</span>
+                    <span className="text-[#101114] font-semibold">{model.roofPitch}</span>
                   </div>
-                  <div className="grid grid-cols-2 p-4 text-xs bg-[#F7F4EC]">
-                    <span className="text-[#6B716D] uppercase font-bold">Wind Speed Rating</span>
-                    <span className="text-[#1D2521] font-semibold">{model.windRating}</span>
+                  <div className="grid grid-cols-2 p-3.5 text-xs bg-[#f6f7f9]">
+                    <span className="text-[#6b7280] uppercase font-bold">Wind Speed Rating</span>
+                    <span className="text-[#101114] font-semibold">{model.windRating}</span>
                   </div>
-                  <div className="grid grid-cols-2 p-4 text-xs">
-                    <span className="text-[#6B716D] uppercase font-bold">Ground Snow Load</span>
-                    <span className="text-[#1D2521] font-semibold">{model.snowLoad}</span>
+                  <div className="grid grid-cols-2 p-3.5 text-xs">
+                    <span className="text-[#6b7280] uppercase font-bold">Ground Snow Load</span>
+                    <span className="text-[#101114] font-semibold">{model.snowLoad}</span>
                   </div>
-                  <div className="grid grid-cols-2 p-4 text-xs bg-[#F7F4EC]">
-                    <span className="text-[#6B716D] uppercase font-bold">Structural Warranty</span>
-                    <span className="text-[#B82025] font-bold">{model.warranty}</span>
+                  <div className="grid grid-cols-2 p-3.5 text-xs bg-[#f6f7f9]">
+                    <span className="text-[#6b7280] uppercase font-bold">Structural Warranty</span>
+                    <span className="text-[#e20b16] font-bold">{model.warranty}</span>
                   </div>
 
                   {model.specs.map((spec, idx) => (
-                    <div key={idx} className={`grid grid-cols-2 p-4 text-xs ${idx % 2 === 1 ? "bg-[#F7F4EC]" : ""}`}>
-                      <span className="text-[#6B716D] uppercase font-bold">{spec.label}</span>
-                      <span className="text-[#1D2521] font-semibold">{spec.value}</span>
+                    <div key={idx} className={`grid grid-cols-2 p-3.5 text-xs ${idx % 2 === 1 ? "bg-[#f6f7f9]" : ""}`}>
+                      <span className="text-[#6b7280] uppercase font-bold">{spec.label}</span>
+                      <span className="text-[#101114] font-semibold">{spec.value}</span>
                     </div>
                   ))}
                 </div>
@@ -321,161 +319,80 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
             </section>
 
             {/* Included Architectural Features */}
-            <section className="space-y-6 pt-8 border-t border-[#E5E0D4]">
+            <section className="space-y-5 pt-8 border-t border-[#e7e9ee]">
               <div>
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
                   Standard Package
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] font-display">
+                <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114]">
                   Engineered Features
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {model.features.map((feature, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] flex items-start gap-3 shadow-xs"
+                    className="p-3.5 rounded-[11px] bg-[#f6f7f9] border border-[#e7e9ee] flex items-start gap-2.5"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-[#B82025] shrink-0 mt-0.5" />
-                    <span className="text-xs text-[#1D2521] leading-relaxed font-medium">{feature}</span>
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="text-xs text-[#101114] leading-relaxed font-semibold">{feature}</span>
                   </div>
                 ))}
-              </div>
-            </section>
-
-            {/* Construction & Engineering Information */}
-            <section className="space-y-6 pt-8 border-t border-[#E5E0D4]">
-              <div>
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
-                  Factory Precision
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] font-display">
-                  Construction & Quality Standards
-                </h2>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
-                  <div className="text-xs uppercase font-bold text-[#1D2521]">Climate-Controlled Manufacturing</div>
-                  <p className="text-xs text-[#6B716D] leading-relaxed">
-                    Built in indoor facilities protected from moisture, rain, and UV degradation. Ensures zero warping, tight tolerances, and superior structural integrity.
-                  </p>
-                </div>
-
-                <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
-                  <div className="text-xs uppercase font-bold text-[#1D2521]">Engineered Building Code Standards</div>
-                  <p className="text-xs text-[#6B716D] leading-relaxed">
-                    Compliant with IRC, IBC, and regional energy code standards. Includes wet-stamped county engineering calculation packets ready for local permitting.
-                  </p>
-                </div>
-
-                <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
-                  <div className="text-xs uppercase font-bold text-[#1D2521]">High Thermal Envelope</div>
-                  <p className="text-xs text-[#6B716D] leading-relaxed">
-                    High R-value wall and roof insulation options, thermal break barriers, and double-pane Low-E argon insulated windows for low heating & cooling costs.
-                  </p>
-                </div>
-
-                <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
-                  <div className="text-xs uppercase font-bold text-[#1D2521]">Severe Weather Certification</div>
-                  <p className="text-xs text-[#6B716D] leading-relaxed">
-                    Engineered for high wind zones (up to {model.windRating}) and heavy alpine snow loads (up to {model.snowLoad}). Covered by our {model.warranty}.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            {/* Delivery & Logistics Information */}
-            <section className="space-y-6 pt-8 border-t border-[#E5E0D4]">
-              <div>
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
-                  Site Logistics
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] font-display">
-                  Delivery & Site Preparation
-                </h2>
-              </div>
-
-              <div className="p-6 rounded-sm bg-white border border-[#E5E0D4] space-y-4 shadow-xs">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#E5E0D4]">
-                  <div>
-                    <div className="text-sm font-bold text-[#1D2521]">Nationwide Freight Logistics</div>
-                    <div className="text-xs text-[#6B716D]">Transported directly to your build site via specialized low-boy carriers or modular hydraulic trailers.</div>
-                  </div>
-                  <span className="px-3 py-1 bg-[#F7F4EC] border border-[#E5E0D4] text-xs font-bold text-[#B82025] rounded-xs shrink-0">
-                    Lead Time: 4–6 Weeks
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                  <div>
-                    <span className="font-bold text-[#1D2521] block mb-1">1. Access Requirements</span>
-                    <p className="text-[#6B716D] leading-relaxed">14ft overhead clearance along delivery route and clear turn radius for transport trucks.</p>
-                  </div>
-                  <div>
-                    <span className="font-bold text-[#1D2521] block mb-1">2. Foundation Preparation</span>
-                    <p className="text-[#6B716D] leading-relaxed">Monolithic concrete slab, stem wall crawlspace, or reinforced pier runners level within 1/4 inch.</p>
-                  </div>
-                  <div>
-                    <span className="font-bold text-[#1D2521] block mb-1">3. Installation Support</span>
-                    <p className="text-[#6B716D] leading-relaxed">Our logistics advisors assist local crane operators and set crews during delivery day.</p>
-                  </div>
-                </div>
               </div>
             </section>
           </div>
 
           {/* Right Column: Customization Options & Configurator (4 cols) */}
-          <div className="lg:col-span-4 space-y-8">
-            <div className="bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm p-6 space-y-6 sticky top-28 shadow-md">
+          <div className="lg:col-span-4 space-y-6">
+            <div className="bg-[#f6f7f9] border border-[#e7e9ee] rounded-[18px] p-6 space-y-5 sticky top-28 shadow-sm">
               <div>
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
                   Factory Add-ons
                 </div>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-[#1D2521] mt-1 font-display">
+                <h3 className="text-xl font-black uppercase tracking-tight text-[#101114] mt-1">
                   Available Upgrades
                 </h3>
-                <p className="text-xs text-[#6B716D] mt-1">
+                <p className="text-xs text-[#6b7280] mt-1">
                   Click to add options directly to your estimated pricing summary.
                 </p>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {model.customizableOptions.map((option) => {
                   const isChecked = selectedOptions.includes(option.id);
                   return (
                     <div
                       key={option.id}
                       onClick={() => toggleOption(option.id)}
-                      className={`cursor-pointer p-3.5 rounded-sm border transition-all ${
+                      className={`cursor-pointer p-3.5 rounded-[11px] border transition-all ${
                         isChecked
-                          ? "bg-white border-[#B82025] shadow-xs"
-                          : "bg-white/80 border-[#E5E0D4] hover:border-[#B82025]"
+                          ? "bg-white border-[#e20b16] shadow-xs"
+                          : "bg-white/80 border-[#e7e9ee] hover:border-[#e20b16]"
                       }`}
                     >
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex items-start gap-2.5">
                           <div
-                            className={`w-4 h-4 rounded-xs border mt-0.5 flex items-center justify-center shrink-0 ${
+                            className={`w-4 h-4 rounded-[4px] border mt-0.5 flex items-center justify-center shrink-0 ${
                               isChecked
-                                ? "border-[#B82025] bg-[#B82025] text-white"
-                                : "border-[#6B716D]"
+                                ? "border-[#e20b16] bg-[#e20b16] text-white"
+                                : "border-[#6b7280]"
                             }`}
                           >
                             {isChecked && <Check className="w-3 h-3" />}
                           </div>
                           <div>
-                            <div className="text-xs font-bold uppercase text-[#1D2521]">
+                            <div className="text-xs font-bold uppercase text-[#101114]">
                               {option.name}
                             </div>
-                            <div className="text-[11px] text-[#6B716D] mt-0.5">
+                            <div className="text-[11px] text-[#6b7280] mt-0.5">
                               {option.description}
                             </div>
                           </div>
                         </div>
 
-                        <span className="text-xs font-bold text-[#B82025] shrink-0">
+                        <span className="text-xs font-bold text-[#e20b16] shrink-0">
                           +{formatPrice(option.price)}
                         </span>
                       </div>
@@ -485,54 +402,39 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
               </div>
 
               {/* Total Calculation */}
-              <div className="pt-4 border-t border-[#E5E0D4] space-y-3">
-                <div className="flex justify-between text-xs text-[#6B716D]">
+              <div className="pt-4 border-t border-[#e7e9ee] space-y-2.5">
+                <div className="flex justify-between text-xs text-[#6b7280]">
                   <span>Base Model:</span>
-                  <span className="text-[#1D2521] font-semibold">{formattedBasePrice}</span>
+                  <span className="text-[#101114] font-semibold">{formattedBasePrice}</span>
                 </div>
-                <div className="flex justify-between text-xs text-[#6B716D]">
+                <div className="flex justify-between text-xs text-[#6b7280]">
                   <span>Selected Upgrades:</span>
-                  <span className="text-[#B82025] font-bold">+{formatPrice(optionsTotal)}</span>
+                  <span className="text-[#e20b16] font-bold">+{formatPrice(optionsTotal)}</span>
                 </div>
-                <div className="flex justify-between text-sm font-bold text-[#1D2521] pt-2 border-t border-[#E5E0D4]">
+                <div className="flex justify-between text-sm font-bold text-[#101114] pt-2 border-t border-[#e7e9ee]">
                   <span>Updated Estimate:</span>
-                  <span className="text-[#B82025] text-lg font-black">
+                  <span className="text-[#e20b16] text-xl font-black">
                     {formatPrice(totalCalculatedPrice)}
                   </span>
                 </div>
 
                 {/* Main Action CTAs */}
-                <div className="space-y-2 pt-1">
+                <div className="space-y-2 pt-2">
                   <Link
                     href="/quote"
-                    className="w-full py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-sm"
+                    className="btn-primary w-full py-3.5 text-xs font-extrabold rounded-[11px] flex items-center justify-center gap-2"
                   >
                     <span>Request a Detailed Quote</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
 
                   <a
-                    href="tel:+18125954033"
-                    className="w-full py-3 bg-[#8F171C] hover:bg-[#721215] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
+                    href="tel:+18005551234"
+                    className="btn-outline w-full py-2.5 text-xs font-bold rounded-[11px] flex items-center justify-center gap-2"
                   >
-                    <Phone className="w-3.5 h-3.5 text-white" />
-                    <span>Call +1-812-595-4033</span>
+                    <Phone className="w-3.5 h-3.5 text-[#e20b16]" />
+                    <span>Call (800) 555-1234</span>
                   </a>
-
-                  <Link
-                    href="/contact"
-                    className="w-full py-2.5 bg-white hover:bg-[#F7F4EC] text-[#1D2521] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors text-center block"
-                  >
-                    Contact Building Advisor
-                  </Link>
-                </div>
-
-                {/* Financing Box */}
-                <div className="p-3 bg-white border border-[#E5E0D4] rounded-sm text-xs text-[#6B716D] space-y-1">
-                  <div className="font-bold text-[#1D2521] uppercase text-[11px]">Financing Available</div>
-                  <p className="text-[11px] leading-relaxed">
-                    Estimated payments from <strong className="text-[#B82025]">${Math.round(totalCalculatedPrice * 0.0065)}/mo</strong> with approved credit.
-                  </p>
                 </div>
               </div>
             </div>
@@ -541,17 +443,17 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
 
         {/* RELATED MODELS SECTION */}
         {relatedModels.length > 0 && (
-          <div className="mt-28 pt-16 border-t border-[#E5E0D4]">
-            <div className="mb-10">
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
+          <div className="mt-20 pt-12 border-t border-[#e7e9ee]">
+            <div className="mb-8">
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
                 Similar Footprints
               </div>
-              <h2 className="text-3xl font-extrabold uppercase tracking-tight text-[#1D2521] mt-1 font-display">
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114] mt-1">
                 Related Building Models
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {relatedModels.map((m) => (
                 <BuildingCard key={m.id} model={m} />
               ))}
@@ -560,65 +462,29 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
         )}
       </div>
 
-      {/* MOBILE STICKY BOTTOM CTA BAR */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#E5E0D4] p-3 shadow-2xl flex items-center justify-between gap-3">
-        <div>
-          <div className="text-[10px] uppercase font-bold text-[#6B716D] leading-tight">{model.name}</div>
-          <div className="text-base font-black text-[#B82025] font-display leading-tight">
-            {formatPrice(totalCalculatedPrice)}
-          </div>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <a
-            href="tel:+18125954033"
-            className="p-2.5 bg-[#B82025] text-white rounded-sm hover:bg-[#8F171C] transition-colors shrink-0"
-            aria-label="Call +1-812-595-4033"
-          >
-            <Phone className="w-4 h-4 text-white" />
-          </a>
-          <Link
-            href="/quote"
-            className="px-4 py-2.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors shrink-0 shadow-sm"
-          >
-            Request Quote
-          </Link>
-        </div>
-      </div>
-
       {/* Floor Plan Fullscreen Modal */}
       {floorPlanExpanded && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative max-w-5xl w-full bg-white border border-[#E5E0D4] rounded-sm p-6 shadow-2xl">
-            <div className="flex items-center justify-between pb-4 border-b border-[#E5E0D4]">
-              <h3 className="text-lg font-bold uppercase text-[#1D2521]">
+          <div className="relative max-w-5xl w-full bg-white border border-[#e7e9ee] rounded-[18px] p-6 shadow-2xl">
+            <div className="flex items-center justify-between pb-4 border-b border-[#e7e9ee]">
+              <h3 className="text-base sm:text-lg font-black text-[#101114]">
                 {model.name} — Detailed Floor Plan ({model.dimensions})
               </h3>
               <button
                 onClick={() => setFloorPlanExpanded(false)}
-                className="p-1.5 text-[#6B716D] hover:text-[#1D2521] rounded-sm"
+                className="p-1.5 text-[#6b7280] hover:text-[#e20b16] rounded-md cursor-pointer"
               >
                 <X className="w-6 h-6" />
               </button>
             </div>
 
-            <div className="relative aspect-[16/10] w-full mt-4 bg-[#F7F4EC] rounded-sm overflow-hidden">
+            <div className="relative aspect-[16/10] w-full mt-4 bg-[#f6f7f9] rounded-[11px] overflow-hidden">
               <Image
                 src={model.floorPlanImage}
                 alt={`${model.name} Full Blueprint`}
                 fill
                 className="object-contain"
               />
-            </div>
-
-            <div className="mt-4 flex items-center justify-between text-xs text-[#6B716D]">
-              <span>Dimensions: {model.dimensions} | Total Under Roof: {model.sqft} SQ FT</span>
-              <Link
-                href="/upload-floor-plan"
-                className="text-[#B82025] hover:underline font-bold"
-              >
-                Request Custom Modifications to This Plan →
-              </Link>
             </div>
           </div>
         </div>

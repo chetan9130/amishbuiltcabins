@@ -13,40 +13,40 @@ export default function BuildingCard({ model, priority = false }: BuildingCardPr
   const formattedSqFt = new Intl.NumberFormat("en-US").format(model.sqft);
 
   return (
-    <div className="group flex flex-col bg-white border border-[#E5E0D4] hover:border-[#B82025] rounded-xs overflow-hidden transition-all duration-300 hover:shadow-md">
+    <div className="card overflow-hidden group hover:-translate-y-1 transition-all flex flex-col justify-between bg-white">
       {/* Image Viewport */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F7F4EC]">
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
         <Image
           src={model.primaryImage || model.image || ""}
           alt={model.name}
           fill
           priority={priority}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-108"
         />
       </div>
 
       {/* Content Area */}
-      <div className="p-4 flex-1 flex flex-col justify-between space-y-3 bg-white">
+      <div className="p-4 flex-1 flex flex-col justify-between space-y-2.5 bg-white">
         <div>
-          <h3 className="text-base sm:text-lg font-bold tracking-tight text-[#1D2521] group-hover:text-[#B82025] transition-colors font-display">
+          <h3 className="text-base sm:text-lg font-black tracking-tight text-[#101114] group-hover:text-[#e20b16] transition-colors">
             {model.name}
           </h3>
-          <p className="text-xs text-[#6B716D] font-medium mt-1">
+          <p className="text-xs text-[#6b7280] font-medium mt-1">
             {formattedSqFt} sq ft | {model.bedrooms} Bed | {model.bathrooms} Bath
           </p>
-          <div className="text-lg font-extrabold text-[#B82025] mt-2 font-display">
+          <div className="text-lg sm:text-[21px] font-black text-[#e20b16] mt-2">
             {formattedPrice}
           </div>
         </div>
 
         {/* Red View Details Button */}
-        <div className="pt-1">
+        <div className="pt-2">
           <Link
             href={`/buildings/${model.slug}`}
-            className="w-full py-2.5 px-4 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-xs transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+            className="btn-primary w-full py-2.5 px-4 text-xs font-extrabold rounded-[9px] text-center justify-center shadow-xs"
           >
-            <span>View Details</span>
+            <span>View Details →</span>
           </Link>
         </div>
       </div>

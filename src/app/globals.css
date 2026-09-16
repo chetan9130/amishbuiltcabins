@@ -1,32 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-red: #B82025;
-  --color-brand-darkred: #8F171C;
-  --color-brand-deepred: #721215;
-  --color-brand-cream: #F7F4EC;
-  --color-brand-white: #FFFFFF;
-  --color-brand-darktext: #1D2521;
-  --color-brand-mutedtext: #6B716D;
+  --color-r: #e20b16;
+  --color-r-hover: #c50812;
+  --color-ink: #101114;
+  --color-muted: #6b7280;
+  --color-line: #e7e9ee;
+  --color-soft: #f6f7f9;
+  --color-brand-red: #e20b16;
+  --color-brand-darkred: #c50812;
+  --color-brand-deepred: #a0060e;
+  --color-brand-cream: #f6f7f9;
+  --color-brand-white: #ffffff;
+  --color-brand-darktext: #101114;
+  --color-brand-mutedtext: #6b7280;
 
-  --color-charcoal: #1D2521;
-  --color-graphite: #2A2E2C;
-  --color-copper: #B82025;
-  --color-copper-hover: #8F171C;
-
-  --font-display: var(--font-manrope), sans-serif;
-  --font-body: var(--font-inter), sans-serif;
+  --font-display: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #1D2521;
-  --primary-red: #B82025;
-  --secondary-red: #8F171C;
-  --accent-red: #B82025;
-  --dark-red: #8F171C;
-  --cream: #F7F4EC;
-  --muted: #6B716D;
+  --r: #e20b16;
+  --r-hover: #c50812;
+  --ink: #101114;
+  --muted: #6b7280;
+  --line: #e7e9ee;
+  --soft: #f6f7f9;
+  --radius: 18px;
+  --shadow: 0 12px 35px rgba(16, 24, 40, 0.08);
 }
 
 html {
@@ -35,16 +36,85 @@ html {
 }
 
 body {
-  background-color: #FFFFFF;
-  color: #1D2521;
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  background-color: #ffffff;
+  color: var(--ink);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
 }
 
-/* Typography styles */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-manrope), -apple-system, sans-serif;
-  letter-spacing: -0.02em;
+/* Base custom classes matching reference */
+.wrap {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 16px 40px rgba(16, 24, 40, 0.12);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background-color: var(--r);
+  color: #ffffff;
+  padding: 14px 22px;
+  font-weight: 800;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 0;
+}
+
+.btn-primary:hover {
+  background-color: var(--r-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background-color: #ffffff;
+  color: var(--ink);
+  border: 1px solid #d5d9e0;
+  padding: 14px 22px;
+  font-weight: 800;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background-color: var(--soft);
+  border-color: #b5bac4;
+}
+
+/* Floor plan drawing preview background */
+.drawing-bg {
+  background: repeating-linear-gradient(0deg, #ffffff, #ffffff 18px, #ececec 19px),
+              repeating-linear-gradient(90deg, transparent, transparent 27px, #dddddd 28px);
 }
 
 /* Custom Scrollbar */
@@ -53,28 +123,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F7F4EC;
+  background: #f6f7f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #B82025;
+  background: #e20b16;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8F171C;
+  background: #c50812;
 }
 
 /* Selection */
 ::selection {
-  background: #B82025;
-  color: #FFFFFF;
-}
-
-/* Subtle architectural grid pattern */
-.bg-architectural-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(184, 32, 37, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(184, 32, 37, 0.05) 1px, transparent 1px);
+  background: #e20b16;
+  color: #ffffff;
 }

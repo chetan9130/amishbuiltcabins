@@ -8,34 +8,34 @@ export const metadata = {
 
 export default function QuotePage() {
   return (
-    <div className="min-h-screen bg-white pt-28 pb-28 text-[#1D2521]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white pt-24 pb-20 text-[#101114]">
+      <div className="wrap">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-[#B82025] mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#B82025]"></span>
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16] mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#e20b16]"></span>
             <span>Interactive Estimator</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-[#1D2521] font-display">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-[-1.5px] text-[#101114]">
             Instant Building Quote
           </h1>
-          <p className="mt-4 text-sm sm:text-base text-[#6B716D] leading-relaxed font-body">
-            Configure your building type, fine-tune square footage, and select energy packages. Transparent structural pricing in under 2 minutes.
+          <p className="mt-3 text-sm sm:text-base text-[#6b7280] leading-relaxed">
+            Configure your home type, fine-tune square footage, and select energy packages. Transparent pricing in under 2 minutes.
           </p>
 
           {/* Quick trust bar */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs text-[#1D2521]">
-            <span className="flex items-center gap-2 bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-1.5 rounded-full shadow-2xs font-semibold">
-              <Clock className="w-3.5 h-3.5 text-[#B82025]" />
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs text-[#101114]">
+            <span className="flex items-center gap-1.5 bg-[#f6f7f9] border border-[#e7e9ee] px-3.5 py-1.5 rounded-full font-bold">
+              <Clock className="w-3.5 h-3.5 text-[#e20b16]" />
               Takes 2 Minutes
             </span>
-            <span className="flex items-center gap-2 bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-1.5 rounded-full shadow-2xs font-semibold">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#B82025]" />
+            <span className="flex items-center gap-1.5 bg-[#f6f7f9] border border-[#e7e9ee] px-3.5 py-1.5 rounded-full font-bold">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#e20b16]" />
               No Obligation Estimate
             </span>
-            <span className="flex items-center gap-2 bg-[#F7F4EC] border border-[#E5E0D4] px-3.5 py-1.5 rounded-full shadow-2xs font-semibold">
-              <Award className="w-3.5 h-3.5 text-[#B82025]" />
-              2026 Material Index Locked
+            <span className="flex items-center gap-1.5 bg-[#f6f7f9] border border-[#e7e9ee] px-3.5 py-1.5 rounded-full font-bold">
+              <Award className="w-3.5 h-3.5 text-[#e20b16]" />
+              Direct Factory Pricing
             </span>
           </div>
         </div>
@@ -46,16 +46,12 @@ export default function QuotePage() {
         </div>
 
         {/* Assistive footer callout */}
-        <div className="mt-16 text-center text-xs text-[#6B716D]">
+        <div className="mt-14 text-center text-xs text-[#6b7280]">
           Prefer to speak directly with an estimator? Call us at{" "}
-          <a href="tel:+18125954033" className="text-[#B82025] font-bold hover:underline">
-            +1-812-595-4033
+          <a href="tel:+18005551234" className="text-[#e20b16] font-bold hover:underline">
+            (800) 555-1234
           </a>{" "}
-          or Toll-Free at{" "}
-          <a href="tel:+18125954033" className="text-[#B82025] font-bold hover:underline">
-            +1-812-595-4033
-          </a>{" "}
-          (Monday–Friday 7am–6pm).
+          (Monday–Friday 7am–6pm EST).
         </div>
       </div>
     </div>

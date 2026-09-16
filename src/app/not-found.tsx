@@ -5,7 +5,7 @@ import { ArrowRight, Building2, Home } from "lucide-react";
 export default function NotFound() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-white px-4 py-32 text-center">
-      <div className="max-w-md mx-auto space-y-6 flex flex-col items-center">
+      <div className="max-w-lg mx-auto space-y-6 flex flex-col items-center">
         <Link href="/" className="inline-block transition-transform hover:scale-105 mb-2">
           <Image
             src="/newlogo2.png"
@@ -16,33 +16,34 @@ export default function NotFound() {
           />
         </Link>
 
-        <div className="w-16 h-16 rounded-full bg-[#F7F4EC] border border-[#B82025]/40 text-[#B82025] shadow-xs flex items-center justify-center mx-auto">
-          <Building2 className="w-8 h-8" />
+        <div className="w-20 h-20 rounded-full bg-[var(--soft)] border border-[var(--line)] text-[var(--r)] shadow-sm flex items-center justify-center mx-auto">
+          <Building2 className="w-10 h-10" />
         </div>
 
         <div>
-          <div className="text-xs font-bold uppercase tracking-[0.25em] text-[#B82025]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-[var(--r)] text-xs font-bold uppercase tracking-wider mb-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--r)] animate-pulse" />
             404 Error • Structure Not Found
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-[#1D2521] mt-2 font-display">
+          <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-[var(--ink)] mt-2 font-display">
             Off The Blueprint
           </h1>
-          <p className="mt-3 text-xs sm:text-sm text-[#6B716D] leading-relaxed">
-            The architectural cabin, model, or page you are looking for does not exist or has been relocated to another building series.
+          <p className="mt-3 text-sm text-[var(--muted)] leading-relaxed">
+            The architectural model, floor plan, or page you are looking for does not exist or has been relocated to another building series.
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 w-full">
           <Link
             href="/"
-            className="w-full sm:w-auto px-6 py-3 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-sm"
+            className="w-full sm:w-auto px-6 py-3.5 bg-[var(--r)] hover:bg-[var(--r-dark)] text-white text-xs font-bold uppercase tracking-wider rounded-[14px] transition-all flex items-center justify-center gap-2 shadow-sm"
           >
             <Home className="w-4 h-4" />
             <span>Return Home</span>
           </Link>
           <Link
             href="/models"
-            className="w-full sm:w-auto px-6 py-3 bg-[#F7F4EC] hover:bg-[#B82025] hover:text-white text-[#1D2521] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
+            className="w-full sm:w-auto px-6 py-3.5 bg-[var(--soft)] hover:bg-[var(--r)] hover:text-white text-[var(--ink)] border border-[var(--line)] text-xs font-bold uppercase tracking-wider rounded-[14px] transition-all flex items-center justify-center gap-2 shadow-xs"
           >
             <span>Explore Floor Plans</span>
             <ArrowRight className="w-4 h-4" />
@@ -52,4 +53,3 @@ export default function NotFound() {
     </div>
   );
 }
-

@@ -3,19 +3,13 @@
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { 
-  SlidersHorizontal, 
   Search, 
   X, 
   RotateCcw, 
   Building2, 
-  Layers, 
-  Bed, 
-  DollarSign, 
-  Maximize2 
 } from "lucide-react";
 import BuildingCard from "@/components/BuildingCard";
-import SectionHeading from "@/components/SectionHeading";
-import { BUILDING_MODELS, BuildingModel } from "@/data/models";
+import { BUILDING_MODELS } from "@/data/models";
 
 const CATEGORY_TABS = [
   "All",
@@ -153,31 +147,31 @@ export default function ModelsCatalog() {
     minSqft > 0;
 
   return (
-    <div className="min-h-screen bg-white pt-28 pb-24 text-[#1D2521]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white pt-24 pb-20 text-[#101114]">
+      <div className="wrap">
         {/* Page Header */}
-        <div className="py-8 border-b border-[#E5E0D4]">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-[#B82025] mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#B82025]"></span>
+        <div className="py-8 border-b border-[#e7e9ee]">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16] mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#e20b16]"></span>
             <span>Floor Plans & Architectural Catalog</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-[#1D2521] font-display">
-            Explore Floor Plans
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-[-1.5px] text-[#101114]">
+            Explore Floor Plans & Homes
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-[#6B716D] max-w-3xl font-body">
+          <p className="mt-3 text-sm sm:text-base text-[#6b7280] max-w-3xl">
             Discover, compare, and customize factory-built modular homes, prefabs, barndominiums, cabins, ADUs, A-frames, and commercial structures. Filter by bedrooms, bathrooms, square footage, home type, architectural style, and budget.
           </p>
 
           {/* Category Tabs */}
-          <div className="mt-8 flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
+          <div className="mt-7 flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
             {CATEGORY_TABS.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setSelectedCategory(tab)}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm shrink-0 transition-all duration-200 ${
+                className={`px-4 py-2 text-xs font-extrabold uppercase tracking-wider rounded-[9px] shrink-0 transition-all duration-200 cursor-pointer ${
                   selectedCategory === tab
-                    ? "bg-[#B82025] text-white shadow-md"
-                    : "bg-[#F7F4EC] text-[#1D2521] hover:bg-[#B82025] hover:text-white border border-[#E5E0D4] shadow-2xs"
+                    ? "bg-[#e20b16] text-white shadow-sm"
+                    : "bg-[#f6f7f9] text-[#101114] hover:bg-[#e20b16] hover:text-white border border-[#e7e9ee]"
                 }`}
               >
                 {tab}
@@ -187,22 +181,22 @@ export default function ModelsCatalog() {
         </div>
 
         {/* Search & Advanced Filters Bar */}
-        <div className="py-6 border-b border-[#E5E0D4] bg-[#F7F4EC] px-4 sm:px-6 rounded-sm shadow-xs mt-6 space-y-4">
+        <div className="py-5 border border-[#e7e9ee] bg-[#f6f7f9] px-4 sm:px-6 rounded-[14px] shadow-xs mt-6 space-y-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             {/* Search Input */}
             <div className="relative flex-1 max-w-md">
-              <Search className="w-4 h-4 text-[#6B716D] absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-[#6b7280] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search floor plans by name, style, or type..."
-                className="w-full bg-white border border-[#E5E0D4] pl-10 pr-4 py-2.5 text-xs text-[#1D2521] placeholder-[#6B716D] focus:outline-none focus:border-[#B82025] rounded-sm"
+                className="w-full bg-white border border-[#dfe2e7] pl-10 pr-4 py-2.5 text-xs text-[#101114] placeholder-[#9ca3af] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6B716D] hover:text-[#1D2521]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6b7280] hover:text-[#101114]"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
@@ -213,7 +207,7 @@ export default function ModelsCatalog() {
             {isFiltered && (
               <button
                 onClick={handleResetFilters}
-                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-[#B82025] hover:bg-[#B82025] hover:text-white bg-white border border-[#E5E0D4] rounded-sm transition-colors shrink-0"
+                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-[#e20b16] hover:bg-[#e20b16] hover:text-white bg-white border border-[#dfe2e7] rounded-[9px] transition-colors shrink-0 cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Reset All Filters</span>
@@ -224,12 +218,12 @@ export default function ModelsCatalog() {
           {/* Detailed Multi-Filter Controls */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {/* Architectural Style */}
-            <div className="flex flex-col bg-white border border-[#E5E0D4] px-3 py-2 rounded-sm">
-              <span className="text-[10px] text-[#6B716D] uppercase font-bold">Style</span>
+            <div className="flex flex-col bg-white border border-[#dfe2e7] px-3 py-2 rounded-[9px]">
+              <span className="text-[10px] text-[#6b7280] uppercase font-bold">Style</span>
               <select
                 value={selectedStyle}
                 onChange={(e) => setSelectedStyle(e.target.value)}
-                className="bg-transparent text-xs text-[#1D2521] focus:outline-none font-semibold cursor-pointer pt-0.5"
+                className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
                 {ARCHITECTURAL_STYLES.map((st) => (
                   <option key={st} value={st}>{st}</option>
@@ -238,12 +232,12 @@ export default function ModelsCatalog() {
             </div>
 
             {/* Bedrooms Dropdown */}
-            <div className="flex flex-col bg-white border border-[#E5E0D4] px-3 py-2 rounded-sm">
-              <span className="text-[10px] text-[#6B716D] uppercase font-bold">Bedrooms</span>
+            <div className="flex flex-col bg-white border border-[#dfe2e7] px-3 py-2 rounded-[9px]">
+              <span className="text-[10px] text-[#6b7280] uppercase font-bold">Bedrooms</span>
               <select
                 value={bedroomFilter}
                 onChange={(e) => setBedroomFilter(e.target.value)}
-                className="bg-transparent text-xs text-[#1D2521] focus:outline-none font-semibold cursor-pointer pt-0.5"
+                className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
                 <option value="all">Any Beds</option>
                 <option value="1">1+ Bed</option>
@@ -254,12 +248,12 @@ export default function ModelsCatalog() {
             </div>
 
             {/* Bathrooms Dropdown */}
-            <div className="flex flex-col bg-white border border-[#E5E0D4] px-3 py-2 rounded-sm">
-              <span className="text-[10px] text-[#6B716D] uppercase font-bold">Bathrooms</span>
+            <div className="flex flex-col bg-white border border-[#dfe2e7] px-3 py-2 rounded-[9px]">
+              <span className="text-[10px] text-[#6b7280] uppercase font-bold">Bathrooms</span>
               <select
                 value={bathroomFilter}
                 onChange={(e) => setBathroomFilter(e.target.value)}
-                className="bg-transparent text-xs text-[#1D2521] focus:outline-none font-semibold cursor-pointer pt-0.5"
+                className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
                 <option value="all">Any Baths</option>
                 <option value="1">1+ Bath</option>
@@ -269,12 +263,12 @@ export default function ModelsCatalog() {
             </div>
 
             {/* Floors / Stories */}
-            <div className="flex flex-col bg-white border border-[#E5E0D4] px-3 py-2 rounded-sm">
-              <span className="text-[10px] text-[#6B716D] uppercase font-bold">Floors</span>
+            <div className="flex flex-col bg-white border border-[#dfe2e7] px-3 py-2 rounded-[9px]">
+              <span className="text-[10px] text-[#6b7280] uppercase font-bold">Floors</span>
               <select
                 value={storiesFilter}
                 onChange={(e) => setStoriesFilter(e.target.value)}
-                className="bg-transparent text-xs text-[#1D2521] focus:outline-none font-semibold cursor-pointer pt-0.5"
+                className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
                 <option value="all">Any Floors</option>
                 <option value="1">1 Story</option>
@@ -283,12 +277,12 @@ export default function ModelsCatalog() {
             </div>
 
             {/* Min SQ FT Dropdown */}
-            <div className="flex flex-col bg-white border border-[#E5E0D4] px-3 py-2 rounded-sm">
-              <span className="text-[10px] text-[#6B716D] uppercase font-bold">Min Sq Ft</span>
+            <div className="flex flex-col bg-white border border-[#dfe2e7] px-3 py-2 rounded-[9px]">
+              <span className="text-[10px] text-[#6b7280] uppercase font-bold">Min Sq Ft</span>
               <select
                 value={minSqft}
                 onChange={(e) => setMinSqft(Number(e.target.value))}
-                className="bg-transparent text-xs text-[#1D2521] focus:outline-none font-semibold cursor-pointer pt-0.5"
+                className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
                 <option value={0}>Any Size</option>
                 <option value={600}>600+ Sq Ft</option>
@@ -299,12 +293,12 @@ export default function ModelsCatalog() {
             </div>
 
             {/* Max Price Filter */}
-            <div className="flex flex-col bg-white border border-[#E5E0D4] px-3 py-2 rounded-sm">
-              <span className="text-[10px] text-[#6B716D] uppercase font-bold">Max Price</span>
+            <div className="flex flex-col bg-white border border-[#dfe2e7] px-3 py-2 rounded-[9px]">
+              <span className="text-[10px] text-[#6b7280] uppercase font-bold">Max Price</span>
               <select
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
-                className="bg-transparent text-xs text-[#1D2521] focus:outline-none font-semibold cursor-pointer pt-0.5"
+                className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
                 <option value={350000}>All Prices</option>
                 <option value={250000}>Under $250,000</option>
@@ -317,12 +311,12 @@ export default function ModelsCatalog() {
         </div>
 
         {/* Results Counter & Active Criteria */}
-        <div className="py-4 flex items-center justify-between text-xs text-[#6B716D]">
+        <div className="py-4 flex items-center justify-between text-xs text-[#6b7280]">
           <div>
-            Showing <span className="text-[#1D2521] font-bold">{filteredModels.length}</span> of {BUILDING_MODELS.length} architectural models
+            Showing <span className="text-[#101114] font-bold">{filteredModels.length}</span> of {BUILDING_MODELS.length} models
           </div>
           {isFiltered && (
-            <span className="text-[#B82025] font-bold">
+            <span className="text-[#e20b16] font-bold">
               Filtered results active
             </span>
           )}
@@ -330,25 +324,25 @@ export default function ModelsCatalog() {
 
         {/* Product Grid */}
         {filteredModels.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 pt-2">
             {filteredModels.map((model) => (
               <BuildingCard key={model.id} model={model} />
             ))}
           </div>
         ) : (
           /* Empty State */
-          <div className="text-center py-20 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm p-8 space-y-4 shadow-sm">
-            <Building2 className="w-12 h-12 text-[#6B716D] mx-auto" />
-            <h3 className="text-xl font-bold uppercase text-[#1D2521] font-display">
+          <div className="text-center py-16 bg-[#f6f7f9] border border-[#e7e9ee] rounded-[18px] p-8 space-y-3 shadow-sm">
+            <Building2 className="w-12 h-12 text-[#6b7280] mx-auto" />
+            <h3 className="text-lg font-black uppercase text-[#101114]">
               No Architectural Models Match Your Criteria
             </h3>
-            <p className="text-xs sm:text-sm text-[#6B716D] max-w-md mx-auto">
+            <p className="text-xs sm:text-sm text-[#6b7280] max-w-md mx-auto">
               Try adjusting your maximum price, bedroom count, or category tabs to view our full collection of engineered plans.
             </p>
             <div className="pt-2">
               <button
                 onClick={handleResetFilters}
-                className="px-6 py-2.5 bg-[#B82025] text-white text-xs font-bold uppercase tracking-wider rounded-sm hover:bg-[#8F171C] transition-colors shadow-xs"
+                className="btn-primary py-2.5 px-6 text-xs font-bold rounded-[9px]"
               >
                 Reset All Filters
               </button>

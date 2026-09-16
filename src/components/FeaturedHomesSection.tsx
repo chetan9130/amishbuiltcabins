@@ -26,8 +26,8 @@ export default function FeaturedHomesSection() {
   });
 
   return (
-    <section id="featured-homes" className="py-20 bg-white border-b border-[#E5E0D4] text-[#1D2521]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="featured-homes" className="py-20 bg-white border-b border-[var(--line)] text-[var(--ink)]">
+      <div className="wrap">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <SectionHeading
             eyebrow="Architectural Showcase"
@@ -42,10 +42,10 @@ export default function FeaturedHomesSection() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm shrink-0 transition-all duration-200 cursor-pointer ${
+                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full shrink-0 transition-all duration-200 cursor-pointer ${
                   activeTab === tab
-                    ? "bg-[#B82025] text-white shadow-md"
-                    : "bg-[#F7F4EC] text-[#1D2521] hover:bg-[#B82025] hover:text-white border border-[#E5E0D4]"
+                    ? "bg-[var(--r)] text-white shadow-md"
+                    : "bg-[var(--soft)] text-[var(--ink)] hover:bg-[var(--r)] hover:text-white border border-[var(--line)]"
                 }`}
               >
                 {tab === "ADUs & Granny Pods" ? "ADU" : tab}
@@ -62,7 +62,7 @@ export default function FeaturedHomesSection() {
             ))}
           </div>
         ) : (
-          <div className="p-8 text-center bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm text-xs text-[#6B716D]">
+          <div className="p-12 text-center bg-[var(--soft)] border border-[var(--line)] rounded-[18px] text-xs text-[var(--muted)]">
             No featured models currently in this category. View our complete catalog for full listings.
           </div>
         )}
@@ -71,7 +71,7 @@ export default function FeaturedHomesSection() {
         <div className="mt-12 text-center">
           <Link
             href="/models"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors shadow-md"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[var(--r)] hover:bg-[var(--r-dark)] text-white text-xs font-bold uppercase tracking-wider rounded-[14px] transition-all shadow-md"
           >
             <span>Explore All Floor Plans & Models</span>
           </Link>

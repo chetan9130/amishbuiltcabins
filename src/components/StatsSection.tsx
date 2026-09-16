@@ -16,14 +16,14 @@ const STATS: StatItem[] = [
     value: 15,
     suffix: "+",
     label: "Years Experience",
-    sublabel: "Specialized in cabin, tiny home & barndominium engineering",
+    sublabel: "Specialized in cabin, tiny home & modular housing engineering",
     icon: Award,
   },
   {
     value: 500,
     suffix: "+",
     label: "Engineered Builds",
-    sublabel: "Completed residential, agricultural & commercial structures",
+    sublabel: "Completed residential, agricultural & commercial modular structures",
     icon: Building,
   },
   {
@@ -37,7 +37,7 @@ const STATS: StatItem[] = [
     value: 100,
     suffix: "%",
     label: "Structural Commitment",
-    sublabel: "Commercial grade cold-formed and red iron steel backing",
+    sublabel: "Precision factory engineering with 40 to 50 year structural guarantees",
     icon: Shield,
   },
 ];
@@ -64,35 +64,32 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-[#F7F4EC] border-y border-[#E5E0D4] relative overflow-hidden">
-      {/* Subtle background grid */}
-      <div className="absolute inset-0 bg-architectural-grid opacity-30"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+    <section ref={sectionRef} className="py-16 sm:py-20 bg-[#f6f7f9] border-y border-[#e7e9ee] relative overflow-hidden">
+      <div className="wrap relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {STATS.map((stat, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-sm bg-white border border-[#E5E0D4] hover:border-[#B82025] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              className="card p-6 flex flex-col justify-between group hover:-translate-y-1 transition-all bg-white"
             >
-              <div className="flex items-center justify-between pb-4 border-b border-[#F7F4EC]">
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#B82025]">
+              <div className="flex items-center justify-between pb-3 border-b border-[#e7e9ee]">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-[#e20b16]">
                   0{idx + 1}
                 </span>
-                <stat.icon className="w-5 h-5 text-[#6B716D] group-hover:text-[#B82025] transition-colors" />
+                <stat.icon className="w-5 h-5 text-[#6b7280] group-hover:text-[#e20b16] transition-colors" />
               </div>
 
-              <div className="py-6">
-                <div className="text-4xl sm:text-5xl font-black text-[#1D2521] font-display tracking-tight flex items-baseline">
+              <div className="py-5">
+                <div className="text-4xl sm:text-5xl font-black text-[#101114] tracking-tight flex items-baseline">
                   <span>{isVisible ? stat.value : 0}</span>
-                  <span className="text-[#B82025] ml-0.5">{stat.suffix}</span>
+                  <span className="text-[#e20b16] ml-0.5">{stat.suffix}</span>
                 </div>
-                <div className="text-base font-bold uppercase tracking-wider text-[#1D2521] mt-2">
+                <div className="text-sm sm:text-base font-black text-[#101114] mt-2">
                   {stat.label}
                 </div>
               </div>
 
-              <p className="text-xs text-[#6B716D] leading-relaxed font-body">
+              <p className="text-xs text-[#6b7280] leading-relaxed m-0 font-medium">
                 {stat.sublabel}
               </p>
             </div>

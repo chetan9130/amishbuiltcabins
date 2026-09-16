@@ -1,26 +1,12 @@
 import type { Metadata } from "next";
-import { Manrope, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AIBuildAssistant from "@/components/AIBuildAssistant";
 import "./globals.css";
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "ModularHome.com | Modern Modular & Prefab Homes Marketplace",
-  description: "Discover, compare, customize, and request information about factory-built and modular housing solutions including modular homes, prefabs, barndominiums, cabins, ADUs, and custom floor plans.",
+  title: "ModularHome.com | Modern Homes. A Smarter Way to Build.",
+  description: "Explore modular homes, prefab homes, cabins, ADUs, barndominiums, floor plans and custom home options.",
   keywords: [
     "ModularHome.com",
     "Modular Homes",
@@ -46,8 +32,8 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "ModularHome.com | Modern Modular & Prefab Homes Marketplace",
-    description: "Discover, compare, customize, and request information about factory-built and modular housing solutions.",
+    title: "ModularHome.com | Modern Homes. A Smarter Way to Build.",
+    description: "Explore modular homes, prefab homes, cabins, ADUs, barndominiums, floor plans and custom home options.",
     type: "website",
   },
 };
@@ -58,14 +44,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${manrope.variable} ${inter.variable} light scroll-smooth`}>
+    <html lang="en" className="scroll-smooth">
       <head>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=3" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=3" />
         <link rel="shortcut icon" href="/favicon.ico?v=3" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
       </head>
-      <body className="min-h-screen flex flex-col bg-white text-[#1D2521] antialiased selection:bg-[#B82025] selection:text-white">
+      <body className="min-h-screen flex flex-col bg-white text-[#101114] antialiased selection:bg-[#e20b16] selection:text-white">
         <Navbar />
         <main className="flex-1">
           {children}

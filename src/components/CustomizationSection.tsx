@@ -1,21 +1,20 @@
 "use client";
 
 import { 
-  Sliders, 
   Layout, 
+  Grid, 
   Utensils, 
   Bath, 
-  Maximize, 
+  Sun, 
   Home, 
   Layers, 
-  Paintbrush, 
-  Sparkles, 
   Compass, 
-  ShieldCheck, 
-  Sun,
-  Grid,
-  CheckCircle2,
-  Hammer
+  Hammer, 
+  Sparkles, 
+  Sliders, 
+  Maximize, 
+  Paintbrush, 
+  ShieldCheck 
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 
@@ -94,8 +93,8 @@ const CUSTOMIZATION_ITEMS = [
 
 export default function CustomizationSection() {
   return (
-    <section id="customization" className="py-20 bg-[#F7F4EC] border-b border-[#E5E0D4] text-[#1D2521]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="customization" className="py-20 bg-[var(--soft)] border-b border-[var(--line)] text-[var(--ink)]">
+      <div className="wrap">
         <SectionHeading
           eyebrow="Architectural Freedom"
           title="CUSTOMIZE EVERY DETAIL OF YOUR HOME"
@@ -110,16 +109,16 @@ export default function CustomizationSection() {
             return (
               <div
                 key={idx}
-                className="bg-white border border-[#E5E0D4] rounded-sm p-5 space-y-3 hover:border-[#B82025] hover:shadow-md transition-all group duration-200"
+                className="bg-white border border-[var(--line)] rounded-[18px] p-6 space-y-3 hover:border-[var(--r)] hover:shadow-md transition-all group duration-200"
               >
-                <div className="w-10 h-10 rounded-sm bg-[#F7F4EC] group-hover:bg-[#B82025] group-hover:text-white text-[#B82025] flex items-center justify-center transition-colors border border-[#E5E0D4]">
+                <div className="w-11 h-11 rounded-[12px] bg-[var(--soft)] group-hover:bg-[var(--r)] group-hover:text-white text-[var(--r)] flex items-center justify-center transition-colors border border-[var(--line)]">
                   <IconComp className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold uppercase text-[#1D2521] font-display group-hover:text-[#B82025] transition-colors">
+                  <h3 className="text-sm font-bold uppercase text-[var(--ink)] font-display group-hover:text-[var(--r)] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-[#6B716D] mt-1 leading-relaxed font-body">
+                  <p className="text-xs text-[var(--muted)] mt-1 leading-relaxed font-body">
                     {item.desc}
                   </p>
                 </div>
@@ -129,14 +128,14 @@ export default function CustomizationSection() {
         </div>
 
         {/* Bottom Banner */}
-        <div className="mt-12 bg-[#8F171C] text-white p-6 sm:p-8 rounded-sm flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
+        <div className="mt-12 bg-[var(--ink)] text-white p-7 sm:p-9 rounded-[20px] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-white/10">
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="text-lg font-extrabold uppercase font-display">Have Custom Blueprints or Architectural Sketches?</h4>
-            <p className="text-xs text-white/90">Our engineering team can convert your existing floor plans into factory-ready modular blueprints.</p>
+            <h4 className="text-xl font-black uppercase font-display text-white">Have Custom Blueprints or Architectural Sketches?</h4>
+            <p className="text-xs text-white/70">Our engineering team can convert your existing floor plans into factory-ready modular blueprints.</p>
           </div>
           <a
             href="/upload-floor-plan"
-            className="px-6 py-3 bg-white hover:bg-[#F7F4EC] text-[#B82025] text-xs font-bold uppercase tracking-wider rounded-sm shrink-0 transition-colors shadow-sm"
+            className="px-7 py-3.5 bg-[var(--r)] hover:bg-[var(--r-dark)] text-white text-xs font-bold uppercase tracking-wider rounded-[14px] shrink-0 transition-all shadow-md"
           >
             Upload Custom Floor Plan
           </a>

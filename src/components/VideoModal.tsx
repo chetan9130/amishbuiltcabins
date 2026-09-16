@@ -17,22 +17,22 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-4xl bg-white border border-[#E5E0D4] rounded-sm overflow-hidden shadow-2xl"
+        className="relative w-full max-w-4xl bg-white border border-[var(--line)] rounded-[20px] overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top bar */}
-        <div className="flex items-center justify-between px-5 py-3.5 bg-[#B82025] text-white border-b border-[#8F171C]">
+        <div className="flex items-center justify-between px-6 py-4 bg-[var(--ink)] text-white border-b border-white/10">
           <div className="flex items-center gap-3">
-            <span className="px-2 py-0.5 text-[10px] uppercase tracking-widest font-bold bg-white text-[#B82025] rounded-xs shadow-xs">
+            <span className="px-2.5 py-1 text-[10px] uppercase tracking-widest font-bold bg-[var(--r)] text-white rounded-full shadow-xs">
               {video.category}
             </span>
-            <h3 className="text-sm font-bold truncate max-w-md">
+            <h3 className="text-sm font-bold truncate max-w-md text-white">
               {video.title}
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-white/80 hover:text-white hover:bg-white/10 rounded-sm transition-colors"
+            className="p-1.5 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -50,11 +50,11 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
         </div>
 
         {/* Video metadata footer */}
-        <div className="p-5 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <p className="text-xs text-[#6B716D] max-w-xl">
+        <div className="p-6 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <p className="text-xs text-[var(--muted)] max-w-xl leading-relaxed">
             {video.description}
           </p>
-          <div className="flex items-center gap-4 text-xs text-[#1D2521] font-semibold shrink-0">
+          <div className="flex items-center gap-4 text-xs text-[var(--ink)] font-semibold shrink-0">
             <span>Duration: {video.duration}</span>
             <span>•</span>
             <span>{video.views}</span>

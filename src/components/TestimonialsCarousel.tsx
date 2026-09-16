@@ -15,7 +15,7 @@ interface Testimonial {
 const TESTIMONIALS: Testimonial[] = [
   {
     id: "test-1",
-    quote: "Our Homestead Cabin arrived ahead of schedule in Montana. The steel framing precision saved our contractor weeks of work, and the interior warmth and timber accents feel like a true heritage home.",
+    quote: "Our Homestead Cabin arrived ahead of schedule in Montana. The precision saved our contractor weeks of work, and the interior warmth and timber accents feel like a true heritage home.",
     author: "Marcus & Sarah Jenkins",
     location: "Bozeman, Montana",
     buildingType: "The Homestead Cabin",
@@ -53,35 +53,35 @@ export default function TestimonialsCarousel() {
   return (
     <div className="relative">
       {/* Desktop 3-Card Grid */}
-      <div className="hidden lg:grid grid-cols-3 gap-8">
+      <div className="hidden lg:grid grid-cols-3 gap-6">
         {TESTIMONIALS.map((t) => (
           <div
             key={t.id}
-            className="bg-white p-8 rounded-sm border border-[#E5E0D4] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+            className="bg-white p-7 rounded-[20px] border border-[var(--line)] shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
           >
             <div>
               {/* Star Rating */}
-              <div className="flex items-center gap-1 mb-4 text-[#B82025]">
+              <div className="flex items-center gap-1 mb-4 text-[#f59e0b]">
                 {[...Array(t.rating)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
               </div>
 
               {/* Quote */}
-              <p className="text-sm text-[#1D2521] leading-relaxed italic font-body">
+              <p className="text-sm text-[var(--ink)] leading-relaxed italic font-body">
                 &ldquo;{t.quote}&rdquo;
               </p>
             </div>
 
             {/* Author */}
-            <div className="pt-6 mt-6 border-t border-[#F7F4EC] flex items-center justify-between">
+            <div className="pt-6 mt-6 border-t border-[var(--line)] flex items-center justify-between">
               <div>
-                <h4 className="text-sm font-extrabold text-[#1D2521] font-display uppercase tracking-tight">
+                <h4 className="text-sm font-extrabold text-[var(--ink)] font-display uppercase tracking-tight">
                   {t.author}
                 </h4>
-                <p className="text-xs text-[#6B716D]">{t.location}</p>
+                <p className="text-xs text-[var(--muted)]">{t.location}</p>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-[#F7F4EC] text-[#B82025] rounded-xs">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-[var(--soft)] text-[var(--r)] rounded-full">
                 {t.buildingType}
               </span>
             </div>
@@ -91,26 +91,26 @@ export default function TestimonialsCarousel() {
 
       {/* Mobile / Tablet Carousel View */}
       <div className="lg:hidden">
-        <div className="bg-white p-6 sm:p-8 rounded-sm border border-[#E5E0D4] shadow-md flex flex-col justify-between min-h-[260px]">
+        <div className="bg-white p-6 sm:p-8 rounded-[20px] border border-[var(--line)] shadow-md flex flex-col justify-between min-h-[260px]">
           <div>
-            <div className="flex items-center gap-1 mb-4 text-[#B82025]">
+            <div className="flex items-center gap-1 mb-4 text-[#f59e0b]">
               {[...Array(TESTIMONIALS[activeIndex].rating)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-current" />
               ))}
             </div>
-            <p className="text-sm text-[#1D2521] leading-relaxed italic font-body">
+            <p className="text-sm text-[var(--ink)] leading-relaxed italic font-body">
               &ldquo;{TESTIMONIALS[activeIndex].quote}&rdquo;
             </p>
           </div>
 
-          <div className="pt-6 mt-6 border-t border-[#F7F4EC] flex items-center justify-between">
+          <div className="pt-6 mt-6 border-t border-[var(--line)] flex items-center justify-between">
             <div>
-              <h4 className="text-sm font-extrabold text-[#1D2521] font-display uppercase tracking-tight">
+              <h4 className="text-sm font-extrabold text-[var(--ink)] font-display uppercase tracking-tight">
                 {TESTIMONIALS[activeIndex].author}
               </h4>
-              <p className="text-xs text-[#6B716D]">{TESTIMONIALS[activeIndex].location}</p>
+              <p className="text-xs text-[var(--muted)]">{TESTIMONIALS[activeIndex].location}</p>
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-[#F7F4EC] text-[#B82025] rounded-xs">
+            <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-[var(--soft)] text-[var(--r)] rounded-full">
               {TESTIMONIALS[activeIndex].buildingType}
             </span>
           </div>
@@ -121,7 +121,7 @@ export default function TestimonialsCarousel() {
           <button
             onClick={prev}
             aria-label="Previous testimonial"
-            className="w-10 h-10 rounded-full border border-[#E5E0D4] bg-white hover:bg-[#B82025] hover:text-white flex items-center justify-center transition-colors shadow-xs"
+            className="w-10 h-10 rounded-full border border-[var(--line)] bg-white hover:bg-[var(--r)] hover:text-white flex items-center justify-center transition-colors shadow-xs cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -130,7 +130,7 @@ export default function TestimonialsCarousel() {
               <span
                 key={idx}
                 className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                  idx === activeIndex ? "bg-[#B82025]" : "bg-[#E5E0D4]"
+                  idx === activeIndex ? "bg-[var(--r)]" : "bg-[var(--line)]"
                 }`}
               />
             ))}
@@ -138,7 +138,7 @@ export default function TestimonialsCarousel() {
           <button
             onClick={next}
             aria-label="Next testimonial"
-            className="w-10 h-10 rounded-full border border-[#E5E0D4] bg-white hover:bg-[#B82025] hover:text-white flex items-center justify-center transition-colors shadow-xs"
+            className="w-10 h-10 rounded-full border border-[var(--line)] bg-white hover:bg-[var(--r)] hover:text-white flex items-center justify-center transition-colors shadow-xs cursor-pointer"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

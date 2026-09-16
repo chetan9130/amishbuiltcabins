@@ -2,206 +2,158 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { DollarSign, Calculator, Phone, ArrowRight, ShieldAlert, CheckCircle2 } from "lucide-react";
-import SectionHeading from "@/components/SectionHeading";
-import { formatPrice } from "@/utils/currency";
 
 export default function FinancingSection() {
-  const [homeCost, setHomeCost] = useState<number>(150000);
-  const [downPaymentPct, setDownPaymentPct] = useState<number>(20);
-  const [interestRate, setInterestRate] = useState<number>(6.5);
+  const [homePrice, setHomePrice] = useState<number>(200000);
+  const [downPayment, setDownPayment] = useState<number>(20000);
   const [loanTermYears, setLoanTermYears] = useState<number>(30);
+  const [rate, setRate] = useState<number>(6.5);
 
-  // Monthly payment formula calculation
-  const downPaymentAmount = (homeCost * downPaymentPct) / 100;
-  const principal = homeCost - downPaymentAmount;
-  const monthlyRate = interestRate / 100 / 12;
-  const totalPayments = loanTermYears * 12;
+  // Amortization calculation
+  const principal = Math.max(0, homePrice - downPayment);
+  const monthlyRate = rate / 100 / 12;
+  const totalMonths = loanTermYears * 12;
 
   const monthlyPayment = principal > 0 && monthlyRate > 0
     ? Math.round(
-        (principal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments))) /
-          (Math.pow(1 + monthlyRate, totalPayments) - 1)
+        (principal * (monthlyRate * Math.pow(1 + monthlyRate, totalMonths))) /
+          (Math.pow(1 + monthlyRate, totalMonths) - 1)
       )
     : 0;
 
   return (
-    <section id="financing" className="py-20 bg-[#F7F4EC] border-b border-[#E5E0D4] text-[#1D2521]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Flexible Payment Options"
-          title="MAKE YOUR DREAM HOME MORE AFFORDABLE"
-          subtitle="Modular homes are real property installed on permanent foundations. Explore construction loans, standard residential mortgages, and land-and-home financing packages."
-          align="center"
-        />
+    <section className="py-12 sm:py-16 bg-white" id="financing">
+      <div className="wrap">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+          {/* Left: Financing Information */}
+          <div className="space-y-4">
+            <div>
+              <h2 className="text-2xl sm:text-4xl font-black tracking-[-1.3px] text-[#101114] m-0 leading-tight">
+                Financing Your Modular Home
+              </h2>
+              <p className="text-sm sm:text-base text-[#6b7280] mt-1.5 mb-0">
+                Flexible options to make your dream home a reality.
+              </p>
+            </div>
 
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column: Interactive Monthly Payment Calculator (7 cols) */}
-          <div className="lg:col-span-7 bg-white border border-[#E5E0D4] rounded-sm p-6 sm:p-8 space-y-6 shadow-md">
-            <div className="flex items-center gap-3 pb-4 border-b border-[#E5E0D4]">
-              <div className="p-2.5 rounded-sm bg-[#B82025] text-white shadow-xs">
-                <Calculator className="w-5 h-5 text-white" />
+            <div className="space-y-2 text-sm sm:text-base text-[#3f4650] font-semibold py-2">
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-600 font-black">✓</span>
+                <span>Competitive rates</span>
               </div>
-              <div>
-                <h3 className="text-xl font-bold uppercase text-[#1D2521] font-display">
-                  Monthly Payment Calculator
-                </h3>
-                <p className="text-xs text-[#6B716D]">
-                  Adjust home cost, down payment, interest rate, and term length.
-                </p>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-600 font-black">✓</span>
+                <span>Multiple loan options (FHA, VA, Conventional, Construction)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-600 font-black">✓</span>
+                <span>Fast approval process</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-600 font-black">✓</span>
+                <span>Work with trusted modular lenders</span>
               </div>
             </div>
 
-            {/* Range Controls */}
-            <div className="space-y-5">
-              {/* Home Cost */}
-              <div>
-                <div className="flex justify-between text-xs font-bold text-[#1D2521] mb-1">
-                  <span>Estimated Home Cost:</span>
-                  <span className="text-[#B82025] font-black">{formatPrice(homeCost)}</span>
-                </div>
-                <input
-                  type="range"
-                  min={40000}
-                  max={400000}
-                  step={5000}
-                  value={homeCost}
-                  onChange={(e) => setHomeCost(Number(e.target.value))}
-                  className="w-full accent-[#B82025] cursor-pointer"
-                />
-              </div>
-
-              {/* Down Payment */}
-              <div>
-                <div className="flex justify-between text-xs font-bold text-[#1D2521] mb-1">
-                  <span>Down Payment ({downPaymentPct}%):</span>
-                  <span className="text-[#1D2521] font-bold">{formatPrice(downPaymentAmount)}</span>
-                </div>
-                <input
-                  type="range"
-                  min={5}
-                  max={35}
-                  step={5}
-                  value={downPaymentPct}
-                  onChange={(e) => setDownPaymentPct(Number(e.target.value))}
-                  className="w-full accent-[#B82025] cursor-pointer"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {/* Interest Rate */}
-                <div>
-                  <label className="block text-xs font-bold text-[#1D2521] mb-1">
-                    Interest Rate (%)
-                  </label>
-                  <select
-                    value={interestRate}
-                    onChange={(e) => setInterestRate(Number(e.target.value))}
-                    className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3 py-2 text-xs font-semibold text-[#1D2521] rounded-sm cursor-pointer"
-                  >
-                    <option value={5.5}>5.50% APR</option>
-                    <option value={6.0}>6.00% APR</option>
-                    <option value={6.5}>6.50% APR</option>
-                    <option value={7.0}>7.00% APR</option>
-                    <option value={7.5}>7.50% APR</option>
-                  </select>
-                </div>
-
-                {/* Term Years */}
-                <div>
-                  <label className="block text-xs font-bold text-[#1D2521] mb-1">
-                    Loan Term
-                  </label>
-                  <select
-                    value={loanTermYears}
-                    onChange={(e) => setLoanTermYears(Number(e.target.value))}
-                    className="w-full bg-[#F7F4EC] border border-[#E5E0D4] px-3 py-2 text-xs font-semibold text-[#1D2521] rounded-sm cursor-pointer"
-                  >
-                    <option value={15}>15 Years</option>
-                    <option value={30}>30 Years</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* Calculated Result Box */}
-            <div className="p-6 bg-[#8F171C] text-white rounded-sm text-center space-y-2 shadow-inner">
-              <div className="text-xs uppercase font-bold text-white/80 tracking-wider">
-                Estimated Principal & Interest Payment
-              </div>
-              <div className="text-4xl sm:text-5xl font-black font-display text-white">
-                ${monthlyPayment} <span className="text-xs text-white/70 font-normal">/ month</span>
-              </div>
-              <div className="text-[11px] text-white/70 pt-1">
-                Loan Amount: {formatPrice(principal)} over {loanTermYears} years
-              </div>
-            </div>
-
-            {/* Legal Disclaimer */}
-            <div className="p-4 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm text-[11px] text-[#6B716D] leading-relaxed flex items-start gap-3">
-              <ShieldAlert className="w-4 h-4 text-[#B82025] shrink-0 mt-0.5" />
-              <span>
-                Calculated monthly payments are estimates for informational purposes only and do not include property taxes, homeowner insurance, or site utility fees. Final loan approval and interest rates depend on lender underwriting, applicant creditworthiness, and regional loan programs.
-              </span>
+            <div className="pt-2">
+              <Link
+                href="/contact"
+                className="btn-outline py-3 px-6 text-sm font-extrabold rounded-[11px]"
+              >
+                Learn More →
+              </Link>
             </div>
           </div>
 
-          {/* Right Column: Financing Options & Specialist CTA (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white border border-[#E5E0D4] rounded-sm p-6 sm:p-8 space-y-6 shadow-md">
-              <h3 className="text-xl font-bold uppercase text-[#1D2521] font-display">
-                Financing Programs Available
-              </h3>
+          {/* Right: Interactive Mortgage Calculator Card */}
+          <div className="card p-6 sm:p-7 bg-white">
+            <h3 className="text-xl font-black text-[#101114] mb-4">
+              Estimate Your Monthly Payment
+            </h3>
 
-              <div className="space-y-4 text-xs">
-                <div className="p-4 bg-[#F7F4EC] rounded-sm border border-[#E5E0D4] space-y-1">
-                  <div className="font-bold text-[#1D2521] uppercase flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
-                    Single-Close Construction Loans
-                  </div>
-                  <p className="text-[#6B716D] leading-relaxed">
-                    Combines land purchase, site preparation, factory manufacturing, and permanent mortgage into one loan with a single closing transaction.
-                  </p>
-                </div>
-
-                <div className="p-4 bg-[#F7F4EC] rounded-sm border border-[#E5E0D4] space-y-1">
-                  <div className="font-bold text-[#1D2521] uppercase flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
-                    Conventional & Government Mortgages
-                  </div>
-                  <p className="text-[#6B716D] leading-relaxed">
-                    Qualifies for conventional Fannie Mae/Freddie Mac loans, FHA 3.5% down programs, VA 0% down loans for veterans, and USDA rural housing loans.
-                  </p>
-                </div>
-
-                <div className="p-4 bg-[#F7F4EC] rounded-sm border border-[#E5E0D4] space-y-1">
-                  <div className="font-bold text-[#1D2521] uppercase flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
-                    Land & Home Financing Packages
-                  </div>
-                  <p className="text-[#6B716D] leading-relaxed">
-                    Use your existing land equity as down payment or bundle property acquisition with your new modular home build.
-                  </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+              {/* Home Price */}
+              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#e20b16] transition-colors">
+                <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
+                  Home Price
+                </label>
+                <div className="flex items-center gap-1 font-bold text-sm text-[#101114]">
+                  <span>$</span>
+                  <input
+                    type="number"
+                    value={homePrice}
+                    step={5000}
+                    onChange={(e) => setHomePrice(Number(e.target.value))}
+                    className="w-full bg-transparent focus:outline-none"
+                  />
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="space-y-3 pt-2">
-                <a
-                  href="tel:+18125954033"
-                  className="w-full py-3.5 bg-[#8F171C] hover:bg-[#721215] text-white text-xs font-bold uppercase tracking-wider rounded-sm flex items-center justify-center gap-2 transition-colors shadow-xs"
-                >
-                  <Phone className="w-4 h-4 text-white" />
-                  <span>Talk to a Financing Specialist</span>
-                </a>
+              {/* Down Payment */}
+              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#e20b16] transition-colors">
+                <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
+                  Down Payment
+                </label>
+                <div className="flex items-center gap-1 font-bold text-sm text-[#101114]">
+                  <span>$</span>
+                  <input
+                    type="number"
+                    value={downPayment}
+                    step={2500}
+                    onChange={(e) => setDownPayment(Number(e.target.value))}
+                    className="w-full bg-transparent focus:outline-none"
+                  />
+                </div>
+              </div>
 
-                <Link
-                  href="/contact"
-                  className="w-full py-3 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm flex items-center justify-center gap-2 transition-colors shadow-sm"
+              {/* Loan Term */}
+              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#e20b16] transition-colors">
+                <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
+                  Loan Term
+                </label>
+                <select
+                  value={loanTermYears}
+                  onChange={(e) => setLoanTermYears(Number(e.target.value))}
+                  className="w-full bg-transparent font-bold text-sm text-[#101114] focus:outline-none cursor-pointer"
                 >
-                  <span>Explore Preferred Lenders</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                  <option value={30}>30 Years</option>
+                  <option value={20}>20 Years</option>
+                  <option value={15}>15 Years</option>
+                  <option value={10}>10 Years</option>
+                </select>
+              </div>
+
+              {/* Interest Rate */}
+              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#e20b16] transition-colors">
+                <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
+                  Interest Rate
+                </label>
+                <div className="flex items-center gap-1 font-bold text-sm text-[#101114]">
+                  <input
+                    type="number"
+                    step={0.1}
+                    value={rate}
+                    onChange={(e) => setRate(Number(e.target.value))}
+                    className="w-full bg-transparent focus:outline-none"
+                  />
+                  <span>%</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Calculated Monthly Payment Output */}
+            <div className="pt-2 border-t border-[#e7e9ee]">
+              <div className="text-xs sm:text-sm text-[#6b7280] font-semibold">
+                Estimated Monthly Payment
+              </div>
+              <div className="text-3xl sm:text-[35px] font-black text-[#101114] tracking-tight mt-1">
+                ${new Intl.NumberFormat("en-US").format(monthlyPayment)}
+                <span className="text-sm font-semibold text-[#6b7280] ml-1.5 font-normal">
+                  / month
+                </span>
+              </div>
+              <div className="text-[11px] text-[#9ca3af] mt-1">
+                Based on ${new Intl.NumberFormat("en-US").format(principal)} financed over {loanTermYears} years. Taxes & insurance excluded.
               </div>
             </div>
           </div>
