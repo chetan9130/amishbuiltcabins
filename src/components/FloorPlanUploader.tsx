@@ -80,8 +80,8 @@ export default function FloorPlanUploader() {
                 dragActive
                   ? "border-[#B82025] bg-[#F7F4EC]"
                   : file
-                  ? "border-emerald-500/80 bg-[#F7F4EC]"
-                  : "border-[#E5E0D4] bg-[#F7F4EC]/60 hover:border-[#17352A] hover:bg-white"
+                  ? "border-[#B82025] bg-[#F7F4EC]"
+                  : "border-[#E5E0D4] bg-[#F7F4EC]/60 hover:border-[#B82025] hover:bg-white"
               }`}
             >
               <input
@@ -94,7 +94,7 @@ export default function FloorPlanUploader() {
 
               {file ? (
                 <div className="flex flex-col items-center justify-center space-y-3">
-                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-600 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-[#B82025]/10 text-[#B82025] flex items-center justify-center">
                     <FileCheck2 className="w-6 h-6" />
                   </div>
                   <div>
@@ -251,7 +251,7 @@ export default function FloorPlanUploader() {
       ) : (
         /* Submission Success */
         <div className="text-center py-12 space-y-6 animate-in zoom-in-95 duration-300">
-          <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-600 flex items-center justify-center mx-auto">
+          <div className="w-16 h-16 rounded-full bg-[#B82025]/10 border border-[#B82025] text-[#B82025] flex items-center justify-center mx-auto shadow-xs">
             <CheckCircle2 className="w-8 h-8" />
           </div>
 

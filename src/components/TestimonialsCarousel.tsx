@@ -81,7 +81,7 @@ export default function TestimonialsCarousel() {
                 </h4>
                 <p className="text-xs text-[#6B716D]">{t.location}</p>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-[#F7F4EC] text-[#17352A] rounded-xs">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-[#F7F4EC] text-[#B82025] rounded-xs">
                 {t.buildingType}
               </span>
             </div>
@@ -110,7 +110,7 @@ export default function TestimonialsCarousel() {
               </h4>
               <p className="text-xs text-[#6B716D]">{TESTIMONIALS[activeIndex].location}</p>
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-[#F7F4EC] text-[#17352A] rounded-xs">
+            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-[#F7F4EC] text-[#B82025] rounded-xs">
               {TESTIMONIALS[activeIndex].buildingType}
             </span>
           </div>
@@ -121,7 +121,7 @@ export default function TestimonialsCarousel() {
           <button
             onClick={prev}
             aria-label="Previous testimonial"
-            className="w-10 h-10 rounded-full border border-[#E5E0D4] bg-white hover:bg-[#17352A] hover:text-white flex items-center justify-center transition-colors shadow-xs"
+            className="w-10 h-10 rounded-full border border-[#E5E0D4] bg-white hover:bg-[#B82025] hover:text-white flex items-center justify-center transition-colors shadow-xs"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -138,7 +138,7 @@ export default function TestimonialsCarousel() {
           <button
             onClick={next}
             aria-label="Next testimonial"
-            className="w-10 h-10 rounded-full border border-[#E5E0D4] bg-white hover:bg-[#17352A] hover:text-white flex items-center justify-center transition-colors shadow-xs"
+            className="w-10 h-10 rounded-full border border-[#E5E0D4] bg-white hover:bg-[#B82025] hover:text-white flex items-center justify-center transition-colors shadow-xs"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

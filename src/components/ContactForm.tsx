@@ -28,7 +28,7 @@ export default function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="bg-white border border-[#E5E0D4] rounded-sm p-8 sm:p-10 text-center space-y-4 animate-in zoom-in-95 duration-200 shadow-md">
-        <div className="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-600 flex items-center justify-center mx-auto">
+        <div className="w-14 h-14 rounded-full bg-[#B82025]/10 border border-[#B82025] text-[#B82025] flex items-center justify-center mx-auto shadow-xs">
           <CheckCircle2 className="w-7 h-7" />
         </div>
         <h3 className="text-2xl font-black uppercase text-[#1D2521] font-display">
@@ -50,7 +50,7 @@ export default function ContactForm() {
                 message: "",
               });
             }}
-            className="px-5 py-2.5 bg-[#F7F4EC] hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider text-[#1D2521] rounded-sm transition-colors cursor-pointer"
+            className="px-5 py-2.5 bg-[#F7F4EC] hover:bg-[#B82025] hover:text-white border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider text-[#1D2521] rounded-sm transition-colors cursor-pointer"
           >
             Send Another Message
           </button>

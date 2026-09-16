@@ -64,7 +64,7 @@ export default function HowItWorks() {
                     <span className="text-2xl font-black font-display text-[#B82025]">
                       {step.num}
                     </span>
-                    <div className="w-9 h-9 rounded-full bg-[#F7F4EC] group-hover:bg-[#17352A] group-hover:text-white text-[#17352A] flex items-center justify-center transition-colors border border-[#E5E0D4]">
+                    <div className="w-9 h-9 rounded-full bg-[#F7F4EC] group-hover:bg-[#B82025] group-hover:text-white text-[#B82025] flex items-center justify-center transition-colors border border-[#E5E0D4]">
                       <IconComp className="w-4.5 h-4.5" />
                     </div>
                   </div>
@@ -92,7 +92,7 @@ export default function HowItWorks() {
                 key={step.num}
                 className="bg-white border border-[#E5E0D4] rounded-sm p-5 flex items-start gap-4 shadow-xs"
               >
-                <div className="w-10 h-10 rounded-full bg-[#17352A] text-white flex items-center justify-center shrink-0 font-bold font-display text-sm">
+                <div className="w-10 h-10 rounded-full bg-[#B82025] text-white flex items-center justify-center shrink-0 font-bold font-display text-sm shadow-xs">
                   {step.num}
                 </div>
 

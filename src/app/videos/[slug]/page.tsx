@@ -65,7 +65,7 @@ export default async function VideoDetailPage({ params }: VideoDetailPageProps) 
       "name": "ModularHome.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://modularhome.com/newlogo.png"
+        "url": "https://modularhome.com/newlogo2.png"
       }
     }
   };
@@ -104,7 +104,7 @@ export default async function VideoDetailPage({ params }: VideoDetailPageProps) 
             {/* Video Header Info */}
             <div className="space-y-4 pt-2">
               <div className="flex flex-wrap items-center gap-3 text-xs">
-                <span className="px-3 py-1 bg-[#17352A] text-white font-bold uppercase tracking-wider rounded-xs">
+                <span className="px-3 py-1 bg-[#B82025] text-white font-bold uppercase tracking-wider rounded-xs shadow-xs">
                   {video.category}
                 </span>
                 <span className="flex items-center gap-1.5 text-[#6B716D]">
@@ -136,8 +136,8 @@ export default async function VideoDetailPage({ params }: VideoDetailPageProps) 
           {/* Right Sidebar: Related Videos & CTA (4 cols) */}
           <div className="lg:col-span-4 space-y-6">
             {/* CTA Box */}
-            <div className="bg-[#17352A] text-white p-6 rounded-sm shadow-md space-y-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C89446]">
+            <div className="bg-[#8F171C] text-white p-6 rounded-sm shadow-md space-y-4">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">
                 Inspired By This Video?
               </span>
               <h3 className="text-xl font-black uppercase tracking-tight font-display text-white">
@@ -148,7 +148,7 @@ export default async function VideoDetailPage({ params }: VideoDetailPageProps) 
               </p>
               <Link
                 href="/quote"
-                className="w-full py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-sm"
+                className="w-full py-3.5 bg-[#B82025] hover:bg-[#721215] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-sm"
               >
                 <span>GET A QUOTE NOW</span>
                 <ArrowRight className="w-4 h-4" />

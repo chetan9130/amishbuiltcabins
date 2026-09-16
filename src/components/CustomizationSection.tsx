@@ -112,7 +112,7 @@ export default function CustomizationSection() {
                 key={idx}
                 className="bg-white border border-[#E5E0D4] rounded-sm p-5 space-y-3 hover:border-[#B82025] hover:shadow-md transition-all group duration-200"
               >
-                <div className="w-10 h-10 rounded-sm bg-[#F7F4EC] group-hover:bg-[#17352A] group-hover:text-white text-[#B82025] flex items-center justify-center transition-colors border border-[#E5E0D4]">
+                <div className="w-10 h-10 rounded-sm bg-[#F7F4EC] group-hover:bg-[#B82025] group-hover:text-white text-[#B82025] flex items-center justify-center transition-colors border border-[#E5E0D4]">
                   <IconComp className="w-5 h-5" />
                 </div>
                 <div>
@@ -129,14 +129,14 @@ export default function CustomizationSection() {
         </div>
 
         {/* Bottom Banner */}
-        <div className="mt-12 bg-[#17352A] text-white p-6 sm:p-8 rounded-sm flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
+        <div className="mt-12 bg-[#8F171C] text-white p-6 sm:p-8 rounded-sm flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-lg font-extrabold uppercase font-display">Have Custom Blueprints or Architectural Sketches?</h4>
-            <p className="text-xs text-[#F7F4EC]/80">Our engineering team can convert your existing floor plans into factory-ready modular blueprints.</p>
+            <p className="text-xs text-white/90">Our engineering team can convert your existing floor plans into factory-ready modular blueprints.</p>
           </div>
           <a
             href="/upload-floor-plan"
-            className="px-6 py-3 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm shrink-0 transition-colors shadow-sm"
+            className="px-6 py-3 bg-white hover:bg-[#F7F4EC] text-[#B82025] text-xs font-bold uppercase tracking-wider rounded-sm shrink-0 transition-colors shadow-sm"
           >
             Upload Custom Floor Plan
           </a>

@@ -45,7 +45,7 @@ export default function FeaturedHomesSection() {
                 className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm shrink-0 transition-all duration-200 cursor-pointer ${
                   activeTab === tab
                     ? "bg-[#B82025] text-white shadow-md"
-                    : "bg-[#F7F4EC] text-[#1D2521] hover:bg-[#17352A] hover:text-white border border-[#E5E0D4]"
+                    : "bg-[#F7F4EC] text-[#1D2521] hover:bg-[#B82025] hover:text-white border border-[#E5E0D4]"
                 }`}
               >
                 {tab === "ADUs & Granny Pods" ? "ADU" : tab}
@@ -71,7 +71,7 @@ export default function FeaturedHomesSection() {
         <div className="mt-12 text-center">
           <Link
             href="/models"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#17352A] hover:bg-[#234A3A] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors shadow-md"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors shadow-md"
           >
             <span>Explore All Floor Plans & Models</span>
           </Link>

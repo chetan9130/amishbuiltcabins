@@ -16,7 +16,7 @@ export default function VideoCard({ video, onPlay, dark = false }: VideoCardProp
       onClick={() => onPlay(video)}
       className={`group cursor-pointer flex flex-col rounded-sm overflow-hidden transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1 ${
         dark
-          ? "bg-[#234A3A] border border-[#234A3A] hover:border-[#B82025]"
+          ? "bg-[#721215] border border-[#8F171C] hover:border-[#B82025]"
           : "bg-white border border-[#E5E0D4] hover:border-[#B82025]"
       }`}
     >

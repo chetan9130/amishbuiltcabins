@@ -31,7 +31,7 @@ export default function CTASection() {
   };
 
   return (
-    <section id="request-quote" className="py-16 sm:py-24 bg-[#17352A] text-white relative overflow-hidden">
+    <section id="request-quote" className="py-16 sm:py-24 bg-[#8F171C] text-white relative overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 bg-architectural-grid opacity-10 pointer-events-none" />
 
@@ -39,34 +39,34 @@ export default function CTASection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Side Copy */}
           <div className="lg:col-span-5 space-y-6">
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#B82025] bg-black/40 px-3 py-1 rounded-xs border border-white/10 inline-block">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white bg-white/20 px-3 py-1 rounded-xs border border-white/20 inline-block shadow-xs">
               GET STARTED TODAY
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white leading-[1.08] font-display">
               Request a Project Quote
             </h2>
-            <p className="text-sm sm:text-base text-white/80 leading-relaxed font-body">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed font-body">
               Submit your requirements below to receive customized pricing, specs, and timeline estimates for your modular or prefab build.
             </p>
 
             <div className="space-y-4 pt-4 border-t border-white/10">
               <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#B82025] text-white flex items-center justify-center shrink-0 text-xs font-bold mt-0.5">
+                <div className="w-6 h-6 rounded-full bg-white text-[#B82025] flex items-center justify-center shrink-0 text-xs font-bold mt-0.5 shadow-xs">
                   ✓
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-white">Transparent Pricing Sheet</h4>
-                  <p className="text-xs text-white/70">Detailed breakdown of manufacturing, delivery, and option costs.</p>
+                  <p className="text-xs text-white/80">Detailed breakdown of manufacturing, delivery, and option costs.</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#B82025] text-white flex items-center justify-center shrink-0 text-xs font-bold mt-0.5">
+                <div className="w-6 h-6 rounded-full bg-white text-[#B82025] flex items-center justify-center shrink-0 text-xs font-bold mt-0.5 shadow-xs">
                   ✓
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-white">Dedicated Specialist Support</h4>
-                  <p className="text-xs text-white/70">1-on-1 consultation regarding land suitability, foundations & permits.</p>
+                  <p className="text-xs text-white/80">1-on-1 consultation regarding land suitability, foundations & permits.</p>
                 </div>
               </div>
             </div>
@@ -76,14 +76,14 @@ export default function CTASection() {
           <div className="lg:col-span-7">
             {isSubmitted ? (
               <div className="bg-white text-[#1D2521] border border-[#E5E0D4] rounded-xs p-8 sm:p-12 text-center space-y-5 shadow-2xl animate-in zoom-in-95 duration-200">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 rounded-full bg-[#B82025]/10 text-[#B82025] flex items-center justify-center mx-auto shadow-xs">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold uppercase text-[#17352A] font-display">
+                <h3 className="text-2xl sm:text-3xl font-extrabold uppercase text-[#B82025] font-display">
                   Quote Request Submitted!
                 </h3>
                 <p className="text-xs sm:text-sm text-[#6B716D] max-w-lg mx-auto leading-relaxed">
-                  Thank you, <span className="font-bold text-[#17352A]">{form.name}</span>. We have received your request for <span className="font-bold text-[#17352A]">{form.homeType} ({form.interestedModel})</span>. A modular specialist will review your project details and contact you within 1 business day.
+                  Thank you, <span className="font-bold text-[#1D2521]">{form.name}</span>. We have received your request for <span className="font-bold text-[#1D2521]">{form.homeType} ({form.interestedModel})</span>. A modular specialist will review your project details and contact you within 1 business day.
                 </p>
                 <div className="pt-4">
                   <button
@@ -102,7 +102,7 @@ export default function CTASection() {
                         message: "",
                       });
                     }}
-                    className="px-6 py-3 bg-[#17352A] hover:bg-[#B82025] text-white text-xs font-bold uppercase tracking-wider rounded-xs transition-colors cursor-pointer"
+                    className="px-6 py-3 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-xs transition-colors cursor-pointer shadow-sm"
                   >
                     Submit Another Request
                   </button>
@@ -110,7 +110,7 @@ export default function CTASection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white text-[#1D2521] border border-[#E5E0D4] rounded-xs p-6 sm:p-8 space-y-4 shadow-2xl">
-                <h3 className="text-xl font-bold uppercase text-[#17352A] font-display pb-2 border-b border-[#E5E0D4]">
+                <h3 className="text-xl font-bold uppercase text-[#1D2521] font-display pb-2 border-b border-[#E5E0D4]">
                   Project Requirements Form
                 </h3>
 

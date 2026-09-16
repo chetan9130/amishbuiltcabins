@@ -191,7 +191,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                 <div className="grid grid-cols-2 gap-3">
                   <a
                     href="tel:+18125954033"
-                    className="py-3 bg-white hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] text-[#1D2521] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
+                    className="py-3 bg-white hover:bg-[#B82025] hover:text-white border border-[#E5E0D4] text-[#1D2521] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#B82025]" />
                     <span>Call +1-812-595-4033</span>
@@ -199,7 +199,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
 
                   <Link
                     href="/upload-floor-plan"
-                    className="py-3 bg-white hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] text-[#1D2521] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
+                    className="py-3 bg-white hover:bg-[#B82025] hover:text-white border border-[#E5E0D4] text-[#1D2521] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2"
                   >
                     <span>Upload Plan</span>
                   </Link>
@@ -245,7 +245,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                 </div>
                 <button
                   onClick={() => setFloorPlanExpanded(true)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#1D2521] bg-[#F7F4EC] hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] rounded-sm transition-colors shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#1D2521] bg-[#F7F4EC] hover:bg-[#B82025] hover:text-white border border-[#E5E0D4] rounded-sm transition-colors shadow-xs"
                 >
                   <Maximize2 className="w-3.5 h-3.5" />
                   <span>Enlarge Blueprint</span>
@@ -357,28 +357,28 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
-                  <div className="text-xs uppercase font-bold text-[#17352A]">Climate-Controlled Manufacturing</div>
+                  <div className="text-xs uppercase font-bold text-[#1D2521]">Climate-Controlled Manufacturing</div>
                   <p className="text-xs text-[#6B716D] leading-relaxed">
                     Built in indoor facilities protected from moisture, rain, and UV degradation. Ensures zero warping, tight tolerances, and superior structural integrity.
                   </p>
                 </div>
 
                 <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
-                  <div className="text-xs uppercase font-bold text-[#17352A]">Engineered Building Code Standards</div>
+                  <div className="text-xs uppercase font-bold text-[#1D2521]">Engineered Building Code Standards</div>
                   <p className="text-xs text-[#6B716D] leading-relaxed">
                     Compliant with IRC, IBC, and regional energy code standards. Includes wet-stamped county engineering calculation packets ready for local permitting.
                   </p>
                 </div>
 
                 <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
-                  <div className="text-xs uppercase font-bold text-[#17352A]">High Thermal Envelope</div>
+                  <div className="text-xs uppercase font-bold text-[#1D2521]">High Thermal Envelope</div>
                   <p className="text-xs text-[#6B716D] leading-relaxed">
                     High R-value wall and roof insulation options, thermal break barriers, and double-pane Low-E argon insulated windows for low heating & cooling costs.
                   </p>
                 </div>
 
                 <div className="p-5 rounded-sm bg-[#F7F4EC] border border-[#E5E0D4] space-y-2">
-                  <div className="text-xs uppercase font-bold text-[#17352A]">Severe Weather Certification</div>
+                  <div className="text-xs uppercase font-bold text-[#1D2521]">Severe Weather Certification</div>
                   <p className="text-xs text-[#6B716D] leading-relaxed">
                     Engineered for high wind zones (up to {model.windRating}) and heavy alpine snow loads (up to {model.snowLoad}). Covered by our {model.warranty}.
                   </p>
@@ -513,9 +513,9 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
 
                   <a
                     href="tel:+18125954033"
-                    className="w-full py-3 bg-[#17352A] hover:bg-[#234A3A] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
+                    className="w-full py-3 bg-[#8F171C] hover:bg-[#721215] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
                   >
-                    <Phone className="w-3.5 h-3.5 text-[#C89446]" />
+                    <Phone className="w-3.5 h-3.5 text-white" />
                     <span>Call +1-812-595-4033</span>
                   </a>
 
@@ -572,10 +572,10 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
         <div className="flex items-center gap-2">
           <a
             href="tel:+18125954033"
-            className="p-2.5 bg-[#17352A] text-white rounded-sm hover:bg-[#234A3A] transition-colors shrink-0"
+            className="p-2.5 bg-[#B82025] text-white rounded-sm hover:bg-[#8F171C] transition-colors shrink-0"
             aria-label="Call +1-812-595-4033"
           >
-            <Phone className="w-4 h-4 text-[#C89446]" />
+            <Phone className="w-4 h-4 text-white" />
           </a>
           <Link
             href="/quote"

@@ -42,7 +42,7 @@ export default function ResourcesPage() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-[#17352A] text-white text-[10px] font-bold uppercase px-3 py-1 rounded-xs border border-white/20">
+                  <div className="absolute top-3 left-3 bg-[#B82025] text-white text-[10px] font-bold uppercase px-3 py-1 rounded-xs border border-white/20 shadow-xs">
                     {article.category}
                   </div>
                 </div>
@@ -76,10 +76,10 @@ export default function ResourcesPage() {
               <div className="p-6 pt-0">
                 <Link
                   href="/quote"
-                  className="w-full py-3 bg-[#17352A] hover:bg-[#234A3A] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
+                  className="w-full py-3 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
                 >
                   <span>Request Custom Pricing For This Build Type</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#C89446]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-white" />
                 </Link>
               </div>
             </div>

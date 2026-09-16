@@ -45,7 +45,7 @@ export default function ResourcesSection() {
                     sizes="(max-width: 640px) 100vw, 25vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-[#17352A] text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-xs border border-white/20">
+                  <div className="absolute top-3 left-3 bg-[#B82025] text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-xs border border-white/20">
                     {article.category}
                   </div>
                 </div>

@@ -101,7 +101,7 @@ export default function QuoteWizard() {
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ["#B82025", "#17352A", "#8F171C", "#F7F4EC"],
+        colors: ["#B82025", "#8F171C", "#721215", "#F7F4EC"],
       });
     } catch {
       // Fallback
@@ -189,7 +189,7 @@ export default function QuoteWizard() {
                         className={`cursor-pointer relative p-5 rounded-sm border transition-all duration-300 flex items-start gap-4 ${
                           isSelected
                             ? "bg-[#F7F4EC] border-[#B82025] shadow-sm ring-1 ring-[#B82025]"
-                            : "bg-white border-[#E5E0D4] hover:border-[#17352A] hover:bg-[#F7F4EC]/50"
+                            : "bg-white border-[#E5E0D4] hover:border-[#B82025] hover:bg-[#F7F4EC]/50"
                         }`}
                       >
                         <div
@@ -247,7 +247,7 @@ export default function QuoteWizard() {
                         className={`cursor-pointer rounded-sm border overflow-hidden transition-all duration-300 ${
                           isSelected
                             ? "bg-[#F7F4EC] border-[#B82025] ring-1 ring-[#B82025] shadow-md"
-                            : "bg-white border-[#E5E0D4] hover:border-[#17352A]"
+                            : "bg-white border-[#E5E0D4] hover:border-[#B82025]"
                         }`}
                       >
                         <div className="relative aspect-[16/10] w-full bg-[#F7F4EC]">
@@ -348,7 +348,7 @@ export default function QuoteWizard() {
                         className={`px-3 py-1 text-xs font-semibold rounded-xs border transition-colors ${
                           sqft === preset
                             ? "bg-[#B82025] text-white border-[#B82025]"
-                            : "bg-white text-[#1D2521] border-[#E5E0D4] hover:bg-[#17352A] hover:text-white"
+                            : "bg-white text-[#1D2521] border-[#E5E0D4] hover:bg-[#B82025] hover:text-white"
                         }`}
                       >
                         {preset} SQ FT
@@ -384,7 +384,7 @@ export default function QuoteWizard() {
                         className={`cursor-pointer p-4 rounded-sm border transition-all duration-200 flex items-start justify-between gap-4 ${
                           isSelected
                             ? "bg-[#F7F4EC] border-[#B82025] shadow-xs"
-                            : "bg-white border-[#E5E0D4] hover:border-[#17352A]"
+                            : "bg-white border-[#E5E0D4] hover:border-[#B82025]"
                         }`}
                       >
                         <div className="flex items-start gap-3">
@@ -598,7 +598,7 @@ export default function QuoteWizard() {
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="px-5 py-2.5 bg-[#F7F4EC] hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider text-[#1D2521] rounded-sm transition-colors flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 bg-[#F7F4EC] hover:bg-[#B82025] hover:text-white border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider text-[#1D2521] rounded-sm transition-colors flex items-center gap-2 cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Back
@@ -622,7 +622,7 @@ export default function QuoteWizard() {
         ) : (
           /* SUCCESS STATE */
           <div className="text-center py-12 px-4 max-w-xl mx-auto space-y-6 animate-in zoom-in-95 duration-300">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
+            <div className="w-16 h-16 rounded-full bg-[#B82025]/10 border border-[#B82025] text-[#B82025] flex items-center justify-center mx-auto shadow-sm">
               <CheckCircle2 className="w-8 h-8" />
             </div>
 

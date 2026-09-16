@@ -84,7 +84,7 @@ export default function VideosClient() {
                   className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm transition-all duration-200 cursor-pointer ${
                     selectedCategory === cat
                       ? "bg-[#B82025] text-white shadow-md"
-                      : "bg-[#F7F4EC] text-[#1D2521] hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] shadow-xs"
+                      : "bg-[#F7F4EC] text-[#1D2521] hover:bg-[#B82025] hover:text-white border border-[#E5E0D4] shadow-xs"
                   }`}
                 >
                   {cat}

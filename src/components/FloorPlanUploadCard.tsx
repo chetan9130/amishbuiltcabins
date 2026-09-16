@@ -58,12 +58,12 @@ export default function FloorPlanUploadCard() {
           className={`mt-6 border-2 border-dashed rounded-sm p-8 sm:p-10 text-center transition-colors ${
             isDragging
               ? "border-[#B82025] bg-[#F7F4EC]"
-              : "border-[#E5E0D4] hover:border-[#17352A] bg-[#F7F4EC]/60"
+              : "border-[#E5E0D4] hover:border-[#B82025] bg-[#F7F4EC]/60"
           }`}
         >
           {uploaded ? (
             <div className="space-y-3">
-              <CheckCircle2 className="w-10 h-10 text-[#234A3A] mx-auto" />
+              <CheckCircle2 className="w-10 h-10 text-[#B82025] mx-auto" />
               <div className="text-sm font-bold text-[#1D2521]">
                 Floor Plan Received!
               </div>
@@ -106,7 +106,7 @@ export default function FloorPlanUploadCard() {
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
                 <label
                   htmlFor="plan-file-input"
-                  className="px-4 py-2 bg-white border border-[#E5E0D4] hover:border-[#17352A] text-[#1D2521] text-xs font-bold uppercase tracking-wider rounded-sm cursor-pointer transition-colors shadow-2xs"
+                  className="px-4 py-2 bg-white border border-[#E5E0D4] hover:border-[#B82025] text-[#1D2521] text-xs font-bold uppercase tracking-wider rounded-sm cursor-pointer transition-colors shadow-2xs"
                 >
                   Browse Files
                 </label>

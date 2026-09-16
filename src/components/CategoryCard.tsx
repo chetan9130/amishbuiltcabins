@@ -17,7 +17,7 @@ export default function CategoryCard({ id, title, tagline, image, href, cta }: C
   const ctaText = cta || `View ${title}`;
 
   return (
-    <div className="group relative bg-white border border-[#E5E0D4] rounded-xs overflow-hidden flex flex-row sm:flex-col transition-all duration-300 hover:shadow-md hover:border-[#17352A]">
+    <div className="group relative bg-white border border-[#E5E0D4] rounded-xs overflow-hidden flex flex-row sm:flex-col transition-all duration-300 hover:shadow-md hover:border-[#B82025]">
       {/* Image Container */}
       <div className="relative w-28 xs:w-36 sm:w-full aspect-[4/3] shrink-0 overflow-hidden bg-[#F7F4EC]">
         <Image
@@ -32,7 +32,7 @@ export default function CategoryCard({ id, title, tagline, image, href, cta }: C
       {/* Card Content */}
       <div className="p-3.5 sm:p-5 flex-1 flex flex-col justify-between text-left space-y-2 sm:space-y-3 bg-white">
         <div>
-          <h3 className="text-sm sm:text-base md:text-lg font-bold tracking-tight text-[#17352A] group-hover:text-[#B82025] transition-colors font-display">
+          <h3 className="text-sm sm:text-base md:text-lg font-bold tracking-tight text-[#1D2521] group-hover:text-[#B82025] transition-colors font-display">
             {title}
           </h3>
           <p className="text-xs text-[#6B716D] mt-0.5 sm:mt-1 line-clamp-2 leading-snug sm:leading-relaxed font-body">

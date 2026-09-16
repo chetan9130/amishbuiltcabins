@@ -13,7 +13,7 @@ export default function BuildingCard({ model, priority = false }: BuildingCardPr
   const formattedSqFt = new Intl.NumberFormat("en-US").format(model.sqft);
 
   return (
-    <div className="group flex flex-col bg-white border border-[#E5E0D4] hover:border-[#17352A] rounded-xs overflow-hidden transition-all duration-300 hover:shadow-md">
+    <div className="group flex flex-col bg-white border border-[#E5E0D4] hover:border-[#B82025] rounded-xs overflow-hidden transition-all duration-300 hover:shadow-md">
       {/* Image Viewport */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F7F4EC]">
         <Image
@@ -29,7 +29,7 @@ export default function BuildingCard({ model, priority = false }: BuildingCardPr
       {/* Content Area */}
       <div className="p-4 flex-1 flex flex-col justify-between space-y-3 bg-white">
         <div>
-          <h3 className="text-base sm:text-lg font-bold tracking-tight text-[#17352A] group-hover:text-[#B82025] transition-colors font-display">
+          <h3 className="text-base sm:text-lg font-bold tracking-tight text-[#1D2521] group-hover:text-[#B82025] transition-colors font-display">
             {model.name}
           </h3>
           <p className="text-xs text-[#6B716D] font-medium mt-1">

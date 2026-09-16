@@ -230,11 +230,11 @@ export default function AdminVideoManager() {
   return (
     <div className="space-y-8 text-[#1D2521]">
       {/* 1. TOP HEADER BANNER */}
-      <div className="bg-[#17352A] text-white p-6 sm:p-8 rounded-sm shadow-md space-y-4">
+      <div className="bg-[#8F171C] text-white p-6 sm:p-8 rounded-sm shadow-md space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#C89446] mb-2">
-              <Sparkles className="w-4 h-4 text-[#B82025]" />
+              <Sparkles className="w-4 h-4 text-white" />
               <span>Automatic Channel Synchronization</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight font-display">
@@ -248,7 +248,7 @@ export default function AdminVideoManager() {
           <div className="flex items-center gap-3 shrink-0">
             <button
               onClick={() => setAddModalOpen(true)}
-              className="px-4 py-2.5 bg-white text-[#17352A] hover:bg-[#F7F4EC] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center gap-1.5 shadow-sm"
+              className="px-4 py-2.5 bg-white text-[#8F171C] hover:bg-[#F7F4EC] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center gap-1.5 shadow-sm cursor-pointer"
             >
               <Plus className="w-4 h-4 text-[#B82025]" />
               <span>Add YouTube Video</span>
@@ -257,7 +257,7 @@ export default function AdminVideoManager() {
             <button
               onClick={handleManualSync}
               disabled={isSyncing}
-              className="px-5 py-2.5 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-extrabold uppercase tracking-wider rounded-sm transition-colors flex items-center gap-2 shadow-md disabled:opacity-50"
+              className="px-5 py-2.5 bg-[#B82025] hover:bg-[#721215] text-white text-xs font-extrabold uppercase tracking-wider rounded-sm transition-colors flex items-center gap-2 shadow-md disabled:opacity-50 cursor-pointer"
             >
               <RefreshCw className={`w-4 h-4 ${isSyncing ? "animate-spin" : ""}`} />
               <span>{isSyncing ? "Syncing..." : "Sync YouTube Videos Now"}</span>
@@ -269,12 +269,12 @@ export default function AdminVideoManager() {
           <div
             className={`p-3 rounded-sm border text-xs font-medium flex items-center gap-2 animate-in fade-in duration-200 ${
               syncMessage.type === "success"
-                ? "bg-emerald-950/80 border-emerald-500 text-emerald-200"
+                ? "bg-[#721215] border-[#B82025] text-white"
                 : "bg-red-950/80 border-red-500 text-red-200"
             }`}
           >
             {syncMessage.type === "success" ? (
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
             ) : (
               <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
             )}
@@ -288,7 +288,7 @@ export default function AdminVideoManager() {
         <div className="p-4 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm space-y-1 shadow-2xs">
           <div className="text-[10px] font-bold uppercase tracking-wider text-[#6B716D]">Last Sync Status</div>
           <div className="text-base font-bold text-[#1D2521] flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#B82025]"></span>
             <span>{stats?.status === "never" ? "Never Synced" : stats?.status === "error" ? "Failed Sync" : "Active & Synced"}</span>
           </div>
           <div className="text-[11px] text-[#6B716D]">
@@ -312,7 +312,7 @@ export default function AdminVideoManager() {
 
         <div className="p-4 bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm space-y-1 shadow-2xs">
           <div className="text-[10px] font-bold uppercase tracking-wider text-[#6B716D]">Auto Sync Mode</div>
-          <div className="text-base font-bold text-[#17352A]">ON (Scheduled)</div>
+          <div className="text-base font-bold text-[#B82025]">ON (Scheduled)</div>
           <div className="text-[11px] text-[#6B716D]">Frequency: Every 1 Hour</div>
         </div>
       </div>
@@ -366,7 +366,7 @@ export default function AdminVideoManager() {
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-[#17352A] text-white uppercase text-[10px] font-bold tracking-wider">
+                <tr className="bg-[#8F171C] text-white uppercase text-[10px] font-bold tracking-wider">
                   <th className="py-3 px-4">Video</th>
                   <th className="py-3 px-4">YouTube ID</th>
                   <th className="py-3 px-4">Category</th>
@@ -435,13 +435,13 @@ export default function AdminVideoManager() {
                         onClick={() => handleTogglePublish(video.id, video.isPublished)}
                         className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider inline-flex items-center gap-1 transition-colors cursor-pointer ${
                           video.isPublished
-                            ? "bg-emerald-100 text-emerald-800 border border-emerald-300"
+                            ? "bg-red-50 text-[#B82025] border border-red-200"
                             : "bg-gray-100 text-gray-600 border border-gray-300"
                         }`}
                       >
                         {video.isPublished ? (
                           <>
-                            <Eye className="w-3 h-3 text-emerald-600" />
+                            <Eye className="w-3 h-3 text-[#B82025]" />
                             <span>Published</span>
                           </>
                         ) : (
@@ -459,7 +459,7 @@ export default function AdminVideoManager() {
                           href={`/videos/${video.youtubeVideoId}`}
                           target="_blank"
                           title="View on Website"
-                          className="p-1.5 text-[#17352A] hover:text-[#B82025] hover:bg-[#F7F4EC] rounded-2xs transition-colors"
+                          className="p-1.5 text-[#1D2521] hover:text-[#B82025] hover:bg-[#F7F4EC] rounded-2xs transition-colors"
                         >
                           <Eye className="w-4 h-4" />
                         </Link>
@@ -469,7 +469,7 @@ export default function AdminVideoManager() {
                           target="_blank"
                           rel="noreferrer"
                           title="Open on YouTube"
-                          className="p-1.5 text-[#17352A] hover:text-[#B82025] hover:bg-[#F7F4EC] rounded-2xs transition-colors"
+                          className="p-1.5 text-[#1D2521] hover:text-[#B82025] hover:bg-[#F7F4EC] rounded-2xs transition-colors"
                         >
                           <ExternalLink className="w-4 h-4" />
                         </a>
@@ -525,7 +525,7 @@ export default function AdminVideoManager() {
                 type="button"
                 onClick={handleFetchUrl}
                 disabled={isFetchingUrl || !pastedUrl.trim()}
-                className="px-4 py-2 bg-[#17352A] hover:bg-[#234A3A] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors shrink-0 disabled:opacity-50 cursor-pointer"
+                className="px-4 py-2 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors shrink-0 disabled:opacity-50 cursor-pointer shadow-xs"
               >
                 {isFetchingUrl ? "Fetching..." : "Fetch Video"}
               </button>
@@ -586,7 +586,7 @@ export default function AdminVideoManager() {
                       onClick={() => setManualPublish(!manualPublish)}
                       className={`w-full py-1.5 text-xs font-bold uppercase tracking-wider rounded-2xs border transition-colors ${
                         manualPublish
-                          ? "bg-emerald-600 text-white border-emerald-600"
+                          ? "bg-[#B82025] text-white border-[#B82025]"
                           : "bg-gray-200 text-gray-700 border-gray-300"
                       }`}
                     >

@@ -21,9 +21,9 @@ export default function VideoModal({ video, onClose }: VideoModalProps) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top bar */}
-        <div className="flex items-center justify-between px-5 py-3.5 bg-[#17352A] text-white border-b border-[#234A3A]">
+        <div className="flex items-center justify-between px-5 py-3.5 bg-[#B82025] text-white border-b border-[#8F171C]">
           <div className="flex items-center gap-3">
-            <span className="px-2 py-0.5 text-[10px] uppercase tracking-widest font-bold bg-[#B82025] text-white rounded-xs">
+            <span className="px-2 py-0.5 text-[10px] uppercase tracking-widest font-bold bg-white text-[#B82025] rounded-xs shadow-xs">
               {video.category}
             </span>
             <h3 className="text-sm font-bold truncate max-w-md">

@@ -143,7 +143,7 @@ export default function AIBuildAssistant() {
         aria-label="Open AI Housing Assistant"
         className={`fixed bottom-6 right-6 z-40 p-3.5 rounded-full shadow-2xl transition-all duration-300 flex items-center gap-2.5 ${
           isOpen
-            ? "bg-[#17352A] text-white rotate-90"
+            ? "bg-[#8F171C] text-white rotate-90"
             : "bg-[#B82025] hover:bg-[#8F171C] text-white hover:scale-105"
         }`}
       >
@@ -163,11 +163,11 @@ export default function AIBuildAssistant() {
       {isOpen && (
         <div className="fixed bottom-20 right-4 sm:right-6 z-40 w-[calc(100vw-2rem)] sm:w-[380px] h-[520px] max-h-[80vh] bg-white border border-[#E5E0D4] rounded-sm shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
           {/* Header */}
-          <div className="bg-[#17352A] text-white px-4 py-3.5 border-b border-[#234A3A] flex items-center justify-between">
+          <div className="bg-[#B82025] text-white px-4 py-3.5 border-b border-[#8F171C] flex items-center justify-between shadow-xs">
             <div className="flex items-center gap-2.5">
               <div className="h-8 px-2 rounded-xs bg-white flex items-center justify-center overflow-hidden border border-white/20 shrink-0 shadow-xs">
                 <Image
-                  src="/newlogo.png"
+                  src="/newlogo2.png"
                   alt="ModularHome.com"
                   width={80}
                   height={28}
@@ -178,8 +178,8 @@ export default function AIBuildAssistant() {
                 <div className="text-xs font-bold uppercase tracking-wider">
                   ModularHome Advisor
                 </div>
-                <div className="text-[10px] text-white/70 flex items-center gap-1.5 font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <div className="text-[10px] text-white/90 flex items-center gap-1.5 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
                   Online • AI Housing Advisor
                 </div>
               </div>

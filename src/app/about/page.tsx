@@ -240,11 +240,11 @@ export default function AboutPage() {
             </div>
 
             <div className="lg:col-span-6">
-              <div className="bg-[#17352A] text-white p-8 sm:p-10 rounded-sm space-y-6 shadow-xl">
+              <div className="bg-[#8F171C] text-white p-8 sm:p-10 rounded-sm space-y-6 shadow-xl">
                 <h3 className="text-2xl font-black uppercase tracking-tight font-display text-white">
                   Need Help With Site Prep & Consultation?
                 </h3>
-                <p className="text-sm text-white/80 leading-relaxed font-body">
+                <p className="text-sm text-white/90 leading-relaxed font-body">
                   Contact our Scottsburg, Indiana team directly for personalized project consultation, foundation specifications, delivery logistics, and financing options.
                 </p>
 
@@ -259,7 +259,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-white/60 uppercase font-bold w-20">Direct:</span>
-                    <a href="tel:+18125954033" className="font-bold text-[#C89446] hover:underline">+1-812-595-4033</a>
+                    <a href="tel:+18125954033" className="font-bold text-white hover:underline">+1-812-595-4033</a>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-white/60 uppercase font-bold w-20">Toll-Free:</span>

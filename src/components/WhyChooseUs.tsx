@@ -81,7 +81,7 @@ export default function WhyChooseUs() {
                 key={idx}
                 className="bg-[#F7F4EC] border border-[#E5E0D4] rounded-sm p-6 space-y-3 hover:border-[#B82025] hover:shadow-md transition-all group duration-200"
               >
-                <div className="w-12 h-12 rounded-sm bg-white text-[#B82025] border border-[#E5E0D4] flex items-center justify-center group-hover:bg-[#17352A] group-hover:text-white transition-colors shadow-2xs">
+                <div className="w-12 h-12 rounded-sm bg-white text-[#B82025] border border-[#E5E0D4] flex items-center justify-center group-hover:bg-[#B82025] group-hover:text-white transition-colors shadow-2xs">
                   <IconComp className="w-6 h-6" />
                 </div>
                 <div>

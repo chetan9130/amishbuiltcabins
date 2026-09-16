@@ -8,7 +8,7 @@ export default function NotFound() {
       <div className="max-w-md mx-auto space-y-6 flex flex-col items-center">
         <Link href="/" className="inline-block transition-transform hover:scale-105 mb-2">
           <Image
-            src="/newlogo.png"
+            src="/newlogo2.png"
             alt="ModularHome.com"
             width={180}
             height={56}
@@ -42,7 +42,7 @@ export default function NotFound() {
           </Link>
           <Link
             href="/models"
-            className="w-full sm:w-auto px-6 py-3 bg-[#F7F4EC] hover:bg-[#17352A] hover:text-white text-[#1D2521] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
+            className="w-full sm:w-auto px-6 py-3 bg-[#F7F4EC] hover:bg-[#B82025] hover:text-white text-[#1D2521] border border-[#E5E0D4] text-xs font-bold uppercase tracking-wider rounded-sm transition-colors flex items-center justify-center gap-2 shadow-xs"
           >
             <span>Explore Floor Plans</span>
             <ArrowRight className="w-4 h-4" />

@@ -113,9 +113,9 @@ export default function ContactPage() {
               <div className="grid grid-cols-2 gap-2.5 pt-2">
                 <a
                   href="tel:+18125954033"
-                  className="px-4 py-3 bg-[#17352A] hover:bg-[#234A3A] text-white text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                  className="px-4 py-3 bg-[#8F171C] hover:bg-[#721215] text-white text-xs font-bold uppercase tracking-wider rounded-sm text-center transition-colors flex items-center justify-center gap-1.5 shadow-sm"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#C89446]" />
+                  <Phone className="w-3.5 h-3.5 text-white" />
                   <span>Call Us</span>
                 </a>
                 <a

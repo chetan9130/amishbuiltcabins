@@ -35,10 +35,10 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: "/newlogo.png" },
+      { url: "/newlogo2.png" },
     ],
-    shortcut: "/newlogo.png",
-    apple: "/newlogo.png",
+    shortcut: "/newlogo2.png",
+    apple: "/newlogo2.png",
   },
   openGraph: {
     title: "ModularHome.com | Modern Modular & Prefab Homes Marketplace",

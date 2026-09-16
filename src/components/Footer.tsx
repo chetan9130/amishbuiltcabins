@@ -27,7 +27,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center group shrink-0">
               <div className="relative h-10 sm:h-12 w-auto flex items-center transition-transform group-hover:scale-105">
                 <Image
-                  src="/newlogo.png"
+                  src="/newlogo2.png"
                   alt="ModularHome.com"
                   width={160}
                   height={50}
@@ -126,7 +126,7 @@ export default function Footer() {
               Get the latest updates, new floor plans and special offers.
             </p>
             {subscribed ? (
-              <div className="p-2.5 bg-[#F7F4EC] border border-[#E5E0D4] rounded-xs text-xs text-[#17352A]">
+              <div className="p-2.5 bg-[#F7F4EC] border border-[#E5E0D4] rounded-xs text-xs text-[#B82025] font-semibold">
                 ✓ Thank you for subscribing!
               </div>
             ) : (
@@ -151,9 +151,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar (Dark Green matching Header Top Utility Bar #17352A) */}
-      <div className="bg-[#17352A] text-white/80 border-t border-[#234A3A]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      {/* Bottom Bar (Brand Red matching Header Top Utility Bar #B82025) */}
+      <div className="bg-[#B82025] text-white/90 border-t border-[#8F171C]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium">
           <p>© {new Date().getFullYear()} ModularHome.com. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/contact" className="hover:text-white transition-colors">Privacy Policy</Link>

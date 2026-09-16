@@ -127,7 +127,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[520px] sm:min-h-[580px] lg:min-h-[640px] flex items-center justify-center overflow-hidden bg-[#17352A] pt-28 pb-12 sm:pt-32 sm:pb-16">
+      <section className="relative min-h-[520px] sm:min-h-[580px] lg:min-h-[640px] flex items-center justify-center overflow-hidden bg-[#B82025] pt-28 pb-12 sm:pt-32 sm:pb-16">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -139,15 +139,15 @@ export default function HomePage() {
             className="object-cover object-center filter brightness-[0.78] contrast-[1.05]"
           />
           {/* Subtle vignette & left gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent w-full md:w-[75%]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#8F171C]/90 via-black/50 to-transparent w-full md:w-[75%]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40 pointer-events-none" />
         </div>
 
         {/* Hero Overlay Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl text-left">
             {/* Small Eyebrow */}
-            <div className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-white/90 mb-3 bg-[#17352A]/80 px-3 py-1 rounded-xs backdrop-blur-xs border border-white/10">
+            <div className="inline-block text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-white mb-3 bg-[#B82025]/90 px-3 py-1 rounded-xs backdrop-blur-xs border border-white/20 shadow-xs">
               MODULAR & PREFAB HOUSING MARKETPLACE
             </div>
 
@@ -165,7 +165,7 @@ export default function HomePage() {
             </p>
 
             {/* Supporting Description */}
-            <p className="mt-3 text-xs sm:text-sm text-white/85 leading-relaxed font-body max-w-xl">
+            <p className="mt-3 text-xs sm:text-sm text-white/90 leading-relaxed font-body max-w-xl">
               Factory-built precision engineered for permanent installation, vacation living, or additional dwelling units. Crafted for your land, your lifestyle, and your budget.
             </p>
 
@@ -206,11 +206,11 @@ export default function HomePage() {
       </section>
 
       {/* 2. INTRODUCTION / COMPANY POSITIONING BENEFITS STRIP */}
-      <section className="bg-[#17352A] text-white py-4 sm:py-5 border-y border-[#234A3A]">
+      <section className="bg-[#8F171C] text-white py-4 sm:py-5 border-y border-[#721215]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 p-2">
-              <div className="w-9 h-9 rounded-full bg-[#B82025] flex items-center justify-center text-white shrink-0 shadow-sm">
+              <div className="w-9 h-9 rounded-full bg-white text-[#B82025] flex items-center justify-center shrink-0 shadow-sm">
                 <Award className="w-4 h-4" />
               </div>
               <span className="text-xs sm:text-sm font-bold text-white font-display">
@@ -219,7 +219,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 p-2 border-l border-white/10 sm:border-l-0">
-              <div className="w-9 h-9 rounded-full bg-[#B82025] flex items-center justify-center text-white shrink-0 shadow-sm">
+              <div className="w-9 h-9 rounded-full bg-white text-[#B82025] flex items-center justify-center shrink-0 shadow-sm">
                 <Sliders className="w-4 h-4" />
               </div>
               <span className="text-xs sm:text-sm font-bold text-white font-display">
@@ -228,7 +228,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 p-2 border-t sm:border-t-0 border-white/10">
-              <div className="w-9 h-9 rounded-full bg-[#B82025] flex items-center justify-center text-white shrink-0 shadow-sm">
+              <div className="w-9 h-9 rounded-full bg-white text-[#B82025] flex items-center justify-center shrink-0 shadow-sm">
                 <Truck className="w-4 h-4" />
               </div>
               <span className="text-xs sm:text-sm font-bold text-white font-display">
@@ -237,7 +237,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 p-2 border-t sm:border-t-0 border-l border-white/10 sm:border-l-0">
-              <div className="w-9 h-9 rounded-full bg-[#B82025] flex items-center justify-center text-white shrink-0 shadow-sm">
+              <div className="w-9 h-9 rounded-full bg-white text-[#B82025] flex items-center justify-center shrink-0 shadow-sm">
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <span className="text-xs sm:text-sm font-bold text-white font-display">
@@ -255,7 +255,7 @@ export default function HomePage() {
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#B82025]">
               MODULAR HOUSING CATEGORIES
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#17352A] mt-1 font-display">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1D2521] mt-1 font-display">
               Explore Home Categories
             </h2>
             <p className="text-xs sm:text-sm text-[#6B716D] mt-2 leading-relaxed">
@@ -297,7 +297,7 @@ export default function HomePage() {
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#B82025]">
                 POPULAR DESIGNS
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#17352A] mt-1 font-display">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1D2521] mt-1 font-display">
                 Featured Floor Plans
               </h2>
               <p className="text-xs sm:text-sm text-[#6B716D] mt-1">
@@ -323,7 +323,7 @@ export default function HomePage() {
           {/* Instant Quote + Upload Floor Plan Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
             {/* Left Column: Instant Quote */}
-            <div className="relative rounded-xs overflow-hidden bg-[#17352A] text-white p-8 sm:p-10 flex flex-col justify-between min-h-[320px] shadow-sm">
+            <div className="relative rounded-xs overflow-hidden bg-[#8F171C] text-white p-8 sm:p-10 flex flex-col justify-between min-h-[320px] shadow-sm">
               <div className="absolute inset-0 z-0 opacity-25">
                 <Image
                   src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
@@ -348,7 +348,7 @@ export default function HomePage() {
               <div className="relative z-10 pt-6">
                 <Link
                   href="/quote"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#B82025] hover:bg-[#8F171C] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xs transition-colors shadow-md"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#B82025] hover:bg-[#721215] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xs transition-colors shadow-md"
                 >
                   <span>Start Custom Quote</span>
                   <ArrowRight className="w-4 h-4" />
@@ -361,7 +361,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-architectural-grid opacity-30 pointer-events-none" />
 
               <div className="relative z-10 space-y-3">
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#17352A] font-display">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#1D2521] font-display">
                   Upload Custom Blueprint
                 </h3>
                 <p className="text-xs sm:text-sm text-[#6B716D] leading-relaxed">
@@ -388,24 +388,24 @@ export default function HomePage() {
                       dragActive
                         ? "border-[#B82025] bg-[#F7F4EC]"
                         : uploadedFile
-                        ? "border-[#17352A] bg-[#F7F4EC]/50"
-                        : "border-[#E5E0D4] hover:border-[#17352A] bg-[#F7F4EC]/30"
+                        ? "border-[#B82025] bg-[#F7F4EC]/50"
+                        : "border-[#E5E0D4] hover:border-[#B82025] bg-[#F7F4EC]/30"
                     }`}
                   >
-                    <div className="w-9 h-9 rounded-full bg-[#17352A]/10 text-[#17352A] mx-auto flex items-center justify-center mb-2">
+                    <div className="w-9 h-9 rounded-full bg-[#B82025]/10 text-[#B82025] mx-auto flex items-center justify-center mb-2">
                       <UploadCloud className="w-5 h-5 text-[#B82025]" />
                     </div>
 
                     {uploadedFile ? (
                       <div className="space-y-1">
-                        <p className="text-xs font-bold text-[#17352A]">{uploadedFile.name}</p>
+                        <p className="text-xs font-bold text-[#1D2521]">{uploadedFile.name}</p>
                         <p className="text-[11px] text-[#6B716D]">
                           {(uploadedFile.size / (1024 * 1024)).toFixed(2)} MB • Ready to send
                         </p>
                       </div>
                     ) : (
                       <div className="space-y-1">
-                        <p className="text-xs font-bold text-[#17352A]">
+                        <p className="text-xs font-bold text-[#1D2521]">
                           Tap to select or drop floor plan
                         </p>
                         <p className="text-[11px] text-[#6B716D]">
@@ -416,8 +416,8 @@ export default function HomePage() {
                   </div>
 
                   {uploadSuccess && (
-                    <div className="mt-3 p-2 bg-green-50 border border-green-200 text-green-800 text-xs rounded-xs flex items-center gap-2">
-                      <Check className="w-4 h-4 text-green-600 shrink-0" />
+                    <div className="mt-3 p-2 bg-red-50 border border-red-200 text-red-800 text-xs rounded-xs flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#B82025] shrink-0" />
                       <span>Blueprint received! Our engineering team will follow up.</span>
                     </div>
                   )}
@@ -448,23 +448,23 @@ export default function HomePage() {
       <LocationAvailability />
 
       {/* 11. VIDEO HIGHLIGHTS */}
-      <section className="py-12 sm:py-16 bg-[#17352A] text-white">
+      <section className="py-12 sm:py-16 bg-[#8F171C] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8 sm:mb-10">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#B82025]">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#F7F4EC]">
                 PROJECT TOURS
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1 font-display">
                 See Our Homes in Action
               </h2>
-              <p className="text-xs sm:text-sm text-white/70 mt-1">
+              <p className="text-xs sm:text-sm text-white/80 mt-1">
                 Video walk-throughs of completed modular homes, cabins, and barndominiums.
               </p>
             </div>
             <Link
               href="/videos"
-              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-[#B82025] transition-colors shrink-0"
+              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white hover:text-[#F7F4EC] transition-colors shrink-0"
             >
               <span>View Video Library</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -476,7 +476,7 @@ export default function HomePage() {
               <div
                 key={vid.id}
                 onClick={() => setSelectedVideo(vid)}
-                className="group cursor-pointer bg-[#234A3A] border border-[#234A3A] hover:border-[#B82025] rounded-xs overflow-hidden transition-all duration-300 flex flex-col shadow-sm"
+                className="group cursor-pointer bg-[#721215] border border-[#8F171C] hover:border-white rounded-xs overflow-hidden transition-all duration-300 flex flex-col shadow-sm"
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/40">
                   <Image
@@ -501,7 +501,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="p-4 flex-1 flex items-center">
-                  <h3 className="text-sm font-bold text-white group-hover:text-[#B82025] transition-colors line-clamp-2 font-display">
+                  <h3 className="text-sm font-bold text-white group-hover:text-[#F7F4EC] transition-colors line-clamp-2 font-display">
                     {vid.title}
                   </h3>
                 </div>
@@ -518,7 +518,7 @@ export default function HomePage() {
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#B82025]">
               HOMEOWNER STORIES
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#17352A] mt-1 font-display">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1D2521] mt-1 font-display">
               What Our Customers Say
             </h2>
             <p className="text-xs sm:text-sm text-[#6B716D] mt-1">
@@ -548,7 +548,7 @@ export default function HomePage() {
                     <Image src={t.avatar} alt={t.name} fill className="object-cover" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-[#17352A] font-display">{t.name}</h4>
+                    <h4 className="text-xs font-bold text-[#1D2521] font-display">{t.name}</h4>
                     <p className="text-[11px] text-[#6B716D]">{t.location}</p>
                   </div>
                 </div>
@@ -573,7 +573,7 @@ export default function HomePage() {
                   <Image src={testimonials[testimonialIndex].avatar} alt={testimonials[testimonialIndex].name} fill className="object-cover" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-[#17352A] font-display">{testimonials[testimonialIndex].name}</h4>
+                  <h4 className="text-xs font-bold text-[#1D2521] font-display">{testimonials[testimonialIndex].name}</h4>
                   <p className="text-[11px] text-[#6B716D]">{testimonials[testimonialIndex].location}</p>
                 </div>
               </div>
@@ -582,7 +582,7 @@ export default function HomePage() {
             <div className="flex items-center justify-center gap-4 mt-4">
               <button
                 onClick={() => setTestimonialIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))}
-                className="w-8 h-8 rounded-full bg-white border border-[#E5E0D4] flex items-center justify-center text-[#17352A]"
+                className="w-8 h-8 rounded-full bg-white border border-[#E5E0D4] flex items-center justify-center text-[#1D2521] hover:text-[#B82025] transition-colors cursor-pointer"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -596,7 +596,7 @@ export default function HomePage() {
               </div>
               <button
                 onClick={() => setTestimonialIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))}
-                className="w-8 h-8 rounded-full bg-white border border-[#E5E0D4] flex items-center justify-center text-[#17352A]"
+                className="w-8 h-8 rounded-full bg-white border border-[#E5E0D4] flex items-center justify-center text-[#1D2521] hover:text-[#B82025] transition-colors cursor-pointer"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>

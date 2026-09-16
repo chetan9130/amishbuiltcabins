@@ -39,8 +39,8 @@ export default function FinancingSection() {
           {/* Left Column: Interactive Monthly Payment Calculator (7 cols) */}
           <div className="lg:col-span-7 bg-white border border-[#E5E0D4] rounded-sm p-6 sm:p-8 space-y-6 shadow-md">
             <div className="flex items-center gap-3 pb-4 border-b border-[#E5E0D4]">
-              <div className="p-2.5 rounded-sm bg-[#17352A] text-white">
-                <Calculator className="w-5 h-5 text-[#C89446]" />
+              <div className="p-2.5 rounded-sm bg-[#B82025] text-white shadow-xs">
+                <Calculator className="w-5 h-5 text-white" />
               </div>
               <div>
                 <h3 className="text-xl font-bold uppercase text-[#1D2521] font-display">
@@ -125,11 +125,11 @@ export default function FinancingSection() {
             </div>
 
             {/* Calculated Result Box */}
-            <div className="p-6 bg-[#17352A] text-white rounded-sm text-center space-y-2 shadow-inner">
+            <div className="p-6 bg-[#8F171C] text-white rounded-sm text-center space-y-2 shadow-inner">
               <div className="text-xs uppercase font-bold text-white/80 tracking-wider">
                 Estimated Principal & Interest Payment
               </div>
-              <div className="text-4xl sm:text-5xl font-black font-display text-[#C89446]">
+              <div className="text-4xl sm:text-5xl font-black font-display text-white">
                 ${monthlyPayment} <span className="text-xs text-white/70 font-normal">/ month</span>
               </div>
               <div className="text-[11px] text-white/70 pt-1">
@@ -155,7 +155,7 @@ export default function FinancingSection() {
 
               <div className="space-y-4 text-xs">
                 <div className="p-4 bg-[#F7F4EC] rounded-sm border border-[#E5E0D4] space-y-1">
-                  <div className="font-bold text-[#17352A] uppercase flex items-center gap-2">
+                  <div className="font-bold text-[#1D2521] uppercase flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
                     Single-Close Construction Loans
                   </div>
@@ -165,7 +165,7 @@ export default function FinancingSection() {
                 </div>
 
                 <div className="p-4 bg-[#F7F4EC] rounded-sm border border-[#E5E0D4] space-y-1">
-                  <div className="font-bold text-[#17352A] uppercase flex items-center gap-2">
+                  <div className="font-bold text-[#1D2521] uppercase flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
                     Conventional & Government Mortgages
                   </div>
@@ -175,7 +175,7 @@ export default function FinancingSection() {
                 </div>
 
                 <div className="p-4 bg-[#F7F4EC] rounded-sm border border-[#E5E0D4] space-y-1">
-                  <div className="font-bold text-[#17352A] uppercase flex items-center gap-2">
+                  <div className="font-bold text-[#1D2521] uppercase flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#B82025]" />
                     Land & Home Financing Packages
                   </div>
@@ -189,9 +189,9 @@ export default function FinancingSection() {
               <div className="space-y-3 pt-2">
                 <a
                   href="tel:+18125954033"
-                  className="w-full py-3.5 bg-[#17352A] hover:bg-[#234A3A] text-white text-xs font-bold uppercase tracking-wider rounded-sm flex items-center justify-center gap-2 transition-colors shadow-xs"
+                  className="w-full py-3.5 bg-[#8F171C] hover:bg-[#721215] text-white text-xs font-bold uppercase tracking-wider rounded-sm flex items-center justify-center gap-2 transition-colors shadow-xs"
                 >
-                  <Phone className="w-4 h-4 text-[#C89446]" />
+                  <Phone className="w-4 h-4 text-white" />
                   <span>Talk to a Financing Specialist</span>
                 </a>
 

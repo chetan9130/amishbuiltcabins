@@ -108,8 +108,8 @@ export default function LocationAvailability() {
         <div className="mt-8 max-w-4xl mx-auto bg-white border border-[#E5E0D4] rounded-sm p-6 space-y-6 shadow-sm">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#E5E0D4]">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#17352A] text-white flex items-center justify-center shrink-0 font-bold">
-                <MapPin className="w-5 h-5 text-[#C89446]" />
+              <div className="w-10 h-10 rounded-full bg-[#B82025] text-white flex items-center justify-center shrink-0 font-bold shadow-xs">
+                <MapPin className="w-5 h-5 text-white" />
               </div>
               <div>
                 <div className="text-xs text-[#6B716D] uppercase font-bold">Active Region:</div>
@@ -119,7 +119,7 @@ export default function LocationAvailability() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-sm">
+            <div className="flex items-center gap-2 text-xs font-bold text-[#B82025] bg-red-50 border border-red-200 px-3 py-1.5 rounded-sm">
               <CheckCircle2 className="w-4 h-4" />
               <span>Factory Delivery Available to {activeStateObj.state}</span>
             </div>
@@ -162,7 +162,7 @@ export default function LocationAvailability() {
                       <div className="text-xs font-extrabold text-[#B82025] pt-1">Starting at {formatPrice(adjustedPrice)}</div>
                     </div>
                     <div className="p-3 pt-0">
-                      <Link href={`/buildings/${home.slug}`} className="block w-full text-center text-[11px] font-bold uppercase py-1.5 bg-white border border-[#E5E0D4] hover:bg-[#17352A] hover:text-white rounded-xs transition-colors">
+                      <Link href={`/buildings/${home.slug}`} className="block w-full text-center text-[11px] font-bold uppercase py-1.5 bg-white border border-[#E5E0D4] hover:bg-[#B82025] hover:text-white rounded-xs transition-colors">
                         View Details
                       </Link>
                     </div>

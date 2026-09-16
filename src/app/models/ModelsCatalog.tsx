@@ -177,7 +177,7 @@ export default function ModelsCatalog() {
                 className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm shrink-0 transition-all duration-200 ${
                   selectedCategory === tab
                     ? "bg-[#B82025] text-white shadow-md"
-                    : "bg-[#F7F4EC] text-[#1D2521] hover:bg-[#17352A] hover:text-white border border-[#E5E0D4] shadow-2xs"
+                    : "bg-[#F7F4EC] text-[#1D2521] hover:bg-[#B82025] hover:text-white border border-[#E5E0D4] shadow-2xs"
                 }`}
               >
                 {tab}
@@ -213,7 +213,7 @@ export default function ModelsCatalog() {
             {isFiltered && (
               <button
                 onClick={handleResetFilters}
-                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-[#B82025] hover:bg-[#17352A] hover:text-white bg-white border border-[#E5E0D4] rounded-sm transition-colors shrink-0"
+                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-[#B82025] hover:bg-[#B82025] hover:text-white bg-white border border-[#E5E0D4] rounded-sm transition-colors shrink-0"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Reset All Filters</span>
