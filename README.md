@@ -1,1164 +1,1277 @@
-I want you to recreate the website from the provided reference HTML file
-inside my EXISTING PROJECT.
+# MODULARHOME.COM — PHASE 1 IMPLEMENTATION
 
-IMPORTANT:
-DO NOT create a new project.
+## ADMIN BACKEND + CMS FOUNDATION
 
-The attached HTML file is the visual/layout reference and source of truth for the website structure.
+You are working on the existing **SteelWeb / ModularHome** project.
 
-The existing project is the actual project that must be modified.
+This is **PHASE 1 ONLY**.
 
-============================================================
-1. FIRST INSPECT THE EXISTING PROJECT
-============================================================
+Do NOT implement Phase 2 or Phase 3 features yet.
 
-Before writing code:
+Do NOT rebuild the existing website from scratch.
 
-1. Inspect the complete project structure.
-2. Identify the framework.
-3. Identify whether it uses Next.js/React.
-4. Inspect package.json.
-5. Inspect the current homepage.
-6. Inspect existing components.
-7. Inspect existing CSS/Tailwind configuration.
-8. Inspect existing assets/images.
-9. Inspect existing routing.
-10. Inspect existing backend/API code.
-11. Identify which components can be reused.
+The purpose of this phase is to build a secure, production-ready **Admin Backend + CMS foundation** so the ModularHome website can be managed without modifying source code.
 
-DO NOT blindly overwrite the project.
+---
 
-Preserve:
-- existing backend
-- existing APIs
-- existing database
-- existing authentication
-- existing routes
-- existing components that are still useful
+# 1. CLIENT PHASE 1 REQUIREMENT
 
-The current task is primarily to build the FRONTEND/UI.
+Phase 1 must provide:
 
-============================================================
-2. REFERENCE HTML
-============================================================
+* Secure admin login
+* Authenticated administration area
+* Protected admin routes
+* Secure session handling
+* Role-ready architecture
+* Admin dashboard
+* Global website settings
+* Page management
+* Section management
+* Product/Home Model management
+* Collection management
+* Blog management
+* SEO management
+* Lead data structure
+* Quotation data structure
 
-Use the attached HTML file as the main visual and structural reference.
+The Phase 1 acceptance criteria are:
 
-The reference contains a complete ModularHome-style building website with:
+1. Admin can log in securely.
+2. Logo/global settings can be changed without code changes.
+3. Core pages and configured sections can be edited from admin.
+4. Products, collections and blogs can be created/edited from admin.
+5. SEO fields are available for key content types.
+6. Lead/quotation data structures are ready for Phase 3 integrations.
 
-- top utility bar
-- sticky navigation
-- hero section
-- trust/benefit cards
-- home search/filter section
-- home categories
-- available homes
-- budget categories
-- homes near you
-- trending homes
-- customization section
-- floor plans
-- quote form
-- how-it-works
-- financing section
-- payment calculator
-- video section
-- testimonials
-- latest resources/blog
-- final CTA
-- footer
-- responsive mobile behavior
+Do not mark Phase 1 complete until all six acceptance criteria are satisfied.
 
-Recreate the SAME overall structure and visual hierarchy.
+---
 
-Do not simply paste the HTML into the project.
+# 2. FIRST — AUDIT THE EXISTING PROJECT
 
-Convert it into proper reusable React/Next.js components.
+Before modifying anything, inspect the entire existing codebase.
 
-============================================================
-3. IMPORTANT BRANDING CHANGE
-============================================================
+Inspect:
 
-The reference HTML uses ModularHome.com branding.
+* `package.json`
+* `src/app`
+* `src/components`
+* `src/lib`
+* `src/data`
+* `src/types`
+* `src/utils`
+* API routes
+* Admin routes
+* Existing authentication
+* Existing admin video dashboard
+* Product/model data
+* Collection data
+* Blog data
+* SEO implementation
+* Quote Wizard
+* Contact forms
+* YouTube/video store
 
-DO NOT use ModularHome.com branding in the final website.
+Pay particular attention to:
 
-Use the existing project's actual company branding/logo/content if available.
+* `globals.css`
+* `layout.tsx`
+* `page.tsx`
+* `Navbar.tsx`
+* `QuoteWizard.tsx`
+* `videoStore.ts`
+* existing admin components
+* existing API routes
 
-The reference HTML's branding, company name, contact details and content should be treated as PLACEHOLDER content.
+DO NOT duplicate existing functionality.
 
-The existing project's building/cabin company identity should be used instead.
+Reuse existing components, types, utilities and styling wherever possible.
 
-============================================================
-4. DESIGN STYLE
-============================================================
+---
 
-Create a premium modern building/home website.
+# 3. CREATE A PHASE 1 CHECKLIST
 
-Visual style:
+Before implementation, internally classify existing functionality as:
 
-- clean
-- professional
-- architectural
-- premium
-- trustworthy
-- conversion focused
-- image-heavy
-- modern construction aesthetic
+* COMPLETE
+* PARTIALLY COMPLETE
+* MISSING
 
-Primary colors:
+Then implement only what is required for Phase 1.
 
-RED:
-#E20B16
+Do not unnecessarily modify already-working public frontend functionality.
 
-DARK:
-#101114
+---
 
-WHITE:
-#FFFFFF
+# 4. DATABASE ARCHITECTURE
 
-LIGHT GRAY:
-#F6F7F9
+Phase 1 requires a proper persistent data layer.
 
-BORDER:
-#E7E9EE
+Do NOT use JSON files as the primary production database.
 
-MUTED:
-#6B7280
+The database must be designed to support the CMS and future Phase 3 functionality.
 
-Use red for:
-- CTA buttons
-- prices
-- active navigation
-- important links
-- small accents
+Create appropriate models/tables/collections for:
 
-Keep the overall page mostly white/light with strong red CTA elements.
+### Admin
 
-============================================================
-5. TYPOGRAPHY
-============================================================
+* AdminUser
+* Role/session information
 
-Use:
+### Website
 
-Inter / Manrope / DM Sans
+* GlobalSettings
+* Page
+* PageSection
 
-Headings:
-font-weight 700–900
+### Catalog
 
-Body:
-400–500
+* Product
+* Collection
+* ProductCollection relationship
 
-Use large bold headings.
+### Content
 
-Keep typography similar to the reference HTML.
+* Blog
+* BlogCategory/Tag where required
 
-Do not use futuristic fonts.
+### SEO
 
-============================================================
-6. GLOBAL CONTAINER
-============================================================
+SEO fields should be available on:
 
-Use a maximum content width around:
+* Product
+* Collection
+* Page
+* Blog
 
-1440px
+### Future-ready structures
 
-with responsive horizontal padding.
+Create data structures for:
 
-Desktop:
-28–40px
+* Lead
+* Quotation
 
-Tablet:
-24px
+These do not need full Phase 3 workflows yet.
 
-Mobile:
-16px
+Use the database technology already present in the project if it is suitable.
 
-Maintain consistent spacing throughout the website.
+If there is no production database, choose a suitable persistent database that works correctly with the existing Next.js architecture.
 
-============================================================
-7. TOP BAR
-============================================================
+Do not introduce unnecessary database complexity.
 
-Create a slim top utility bar.
+---
 
-Desktop:
+# 5. DATABASE REQUIREMENTS
 
-LEFT:
-- Social links
-- Facebook
-- Instagram
-- YouTube
-- Trust message
+Use proper relationships.
 
-RIGHT:
-- Financing
-- Blog
-- Customer Reviews
-- Track Order
+Example conceptual structure:
 
-Mobile:
-Hide the desktop utility bar.
+```text
+AdminUser
+   │
+   └── Authentication / Roles
 
-============================================================
-8. NAVBAR
-============================================================
+GlobalSettings
 
-Create a sticky header.
+Page
+   │
+   └── PageSection[]
 
-Desktop:
+Product
+   │
+   └── Collection[]
 
-LEFT:
-Existing project logo.
+Collection
 
-CENTER:
-Navigation links.
+Blog
+
+Lead
+
+Quotation
+```
+
+Use stable IDs.
+
+Add:
+
+* createdAt
+* updatedAt
+
+where appropriate.
+
+Use indexes for commonly searched fields such as:
+
+* slug
+* email
+* status
+* published
+* createdAt
+
+Ensure slugs are unique where required.
+
+---
+
+# 6. ADMIN AUTHENTICATION
+
+Implement secure admin authentication.
+
+Required:
+
+* Login page
+* Logout
+* Session management
+* Protected admin routes
+* Protected admin APIs
+* Unauthorized response
+* Authentication middleware/server checks
+
+Protect:
+
+```text
+/admin/*
+/api/admin/*
+```
+
+Do NOT simply hide pages from unauthenticated users.
+
+Every admin API must verify authentication server-side.
+
+Use secure HTTP-only cookies/session mechanisms where appropriate.
+
+Do not expose passwords or authentication secrets to the client.
+
+Never store plaintext passwords.
+
+Use secure password hashing if implementing username/password authentication.
+
+---
+
+# 7. ROLE-READY ARCHITECTURE
+
+The client requires role-ready architecture.
+
+At minimum design the system so future roles can be introduced.
 
 Example:
 
-Modular Homes
-Prefab Homes
-Barndominiums
-House Kits
-Tiny Homes
-Cabins
-ADUs
-Floor Plans
+```text
+ADMIN
+EDITOR
+```
 
-RIGHT:
-Phone number
-Get a Quote
+For Phase 1, it is acceptable if only ADMIN is active.
 
-Use a white background.
+However, authorization should be structured so additional roles can be added later without rewriting the authentication system.
 
-Add:
-- subtle border
-- backdrop blur
-- sticky positioning
+---
 
-Mobile:
+# 8. ADMIN DASHBOARD
 
-LEFT:
-Logo
+Create a professional admin dashboard.
 
-RIGHT:
-Phone/call button
-Hamburger
+Dashboard navigation should include:
 
-Clicking hamburger opens a mobile menu.
+```text
+Dashboard
 
-============================================================
-9. HERO SECTION
-============================================================
+Website
+ ├── Global Settings
+ ├── Pages
+ └── Sections
 
-Create a large full-width hero.
+Catalog
+ ├── Products
+ └── Collections
 
-Use a high-quality building/home image.
+Content
+ └── Blogs
 
-Hero should have:
+SEO
 
-- background image
-- dark gradient overlay
-- large heading
-- description
-- two CTA buttons
+Leads
+
+Quotations
+
+Settings
+```
+
+Leads and Quotations are Phase 3 modules, but Phase 1 should establish their database/data foundation.
+
+Do not implement complete AI lead generation or quotation workflows yet.
+
+---
+
+# 9. ADMIN DASHBOARD OVERVIEW
+
+Create useful dashboard summary cards.
+
+For example:
+
+* Total Products
+* Total Collections
+* Total Pages
+* Published Blogs
+* Draft Blogs
+* Leads
+* Quotations
+
+These should come from the database.
+
+Do not hard-code numbers.
+
+---
+
+# 10. GLOBAL SETTINGS CMS
+
+Create a complete Global Settings module.
+
+Admin must be able to edit:
+
+### Branding
+
+* Logo
+* Favicon
+* Company name
+
+### Contact
+
+* Phone
+* Email
+* Address
+
+### Social
+
+* Social media links
+
+### Announcement
+
+* Announcement/top bar content
+* Enable/disable announcement if appropriate
+
+### Header
+
+* Navigation/menu configuration
+
+### Footer
+
+* Footer content
+* Footer links
+* Social links
+
+### CTA
+
+* Reusable CTA labels
+* CTA links where configured
+
+### SEO
+
+* Default SEO title
+* Default meta description
+* Default site information
+
+All changes must be persisted to the database.
+
+---
+
+# 11. PUBLIC WEBSITE CONNECTION
+
+The public website must be able to consume GlobalSettings.
+
+For example:
+
+```text
+Database
+   ↓
+GlobalSettings
+   ↓
+Server/API
+   ↓
+Navbar / Footer / Header / SEO
+```
+
+Do not require source-code changes when the admin changes:
+
+* Logo
+* Company name
+* Phone
+* Email
+* Social links
+* Announcement
+* Navigation
+* Footer
+
+---
+
+# 12. PAGE MANAGEMENT
+
+Create a Page CMS.
+
+Admin must be able to:
+
+* Create page
+* Edit page
+* Publish page
+* Unpublish page
+* Delete/archive page
+* Edit slug
+* Edit SEO fields
+
+Page fields:
+
+* Title
+* Subtitle
+* Body/content
+* Slug
+* Status
+* Featured image if applicable
+* SEO title
+* Meta description
+* Canonical URL where appropriate
+
+---
+
+# 13. SECTION MANAGEMENT
+
+Pages must support reusable sections.
+
+Admin should be able to manage supported section types such as:
+
+* Hero
+* Feature
+* Product
+* Collection
+* Trust
+* Gallery
+* FAQ
+* Testimonials
+* CTA
+* Rich content
+* Video
+
+Each section should support appropriate fields.
+
+For example:
+
+### Hero
+
+* Heading
+* Subtitle
+* Image
+* Video
+* CTA text
+* CTA link
+
+### Feature
+
+* Heading
+* Description
+* Image
+* Features
+
+### CTA
+
+* Heading
+* Description
+* Button text
+* Button link
+
+---
+
+# 14. SECTION VISIBILITY
+
+Admin must be able to:
+
+* Show section
+* Hide section
+* Reorder sections
+
+Use an ordering field such as:
+
+```text
+order: 1
+order: 2
+order: 3
+```
+
+The public frontend should render sections according to the saved order.
+
+Hidden sections must not appear publicly.
+
+---
+
+# 15. PRODUCT / HOME MODEL CMS
+
+Create complete product management.
+
+Admin capabilities:
+
+* Create
+* Edit
+* Publish
+* Unpublish
+* Archive/delete
+* Feature
+* Change display order
+
+Product fields:
+
+```text
+Name
+Slug
+Description
+Short Description
+Images
+Gallery
+Price
+Pricing fields
+Specifications
+Features
+Options
+Published
+Featured
+Display Order
+```
+
+SEO:
+
+```text
+SEO Title
+Meta Description
+Image Alt Text
+Canonical URL where required
+```
+
+---
+
+# 16. PRODUCT FRONTEND DATA
+
+Do not redesign the product frontend.
+
+Instead, prepare it so existing product pages can eventually consume database data.
+
+Current/static model data may remain temporarily if required for Phase 1, but create the database/API architecture so Phase 2 can replace it with migrated Shopify data.
+
+Do not break existing product pages.
+
+---
+
+# 17. COLLECTION CMS
+
+Admin must be able to:
+
+* Create collection
+* Edit collection
+* Publish/unpublish if required
+* Archive/delete
+* Assign products
+* Change display order
+* Mark featured
+
+Fields:
+
+```text
+Name
+Slug
+Description
+Banner Image
+Collection Image
+Products
+Display Order
+Featured
+Status
+```
+
+SEO:
+
+```text
+SEO Title
+Meta Description
+Image Alt Text
+```
+
+---
+
+# 18. PRODUCT ↔ COLLECTION RELATIONSHIP
+
+Implement proper product-to-collection relationships.
+
+Admin must be able to:
+
+```text
+Collection
+   ↓
+Select Products
+```
+
+and:
+
+```text
+Product
+   ↓
+Assign Collections
+```
+
+Ensure the relationship is stored correctly in the database.
+
+---
+
+# 19. BLOG CMS
+
+Create/complete the Blog CMS.
+
+Admin must be able to:
+
+* Create
+* Edit
+* Publish
+* Unpublish
+* Archive/delete
+
+Fields:
+
+```text
+Title
+Slug
+Featured Image
+Content
+Author
+Publish Date
+Status
+Categories
+Tags
+Embedded Video
+```
+
+SEO:
+
+```text
+SEO Title
+Meta Description
+Image Alt Text
+Canonical URL
+```
+
+---
+
+# 20. BLOG EDITOR
+
+Use a suitable content editor for blog content.
+
+The editor must support practical rich content such as:
+
+* Headings
+* Paragraphs
+* Lists
+* Links
+* Images
+* Embedded YouTube/video where required
+
+Do not introduce a complex editor unless necessary.
+
+Keep the admin editing experience simple.
+
+---
+
+# 21. SEO MANAGEMENT
+
+Create reusable SEO fields.
+
+At minimum:
+
+```text
+SEO Title
+Meta Description
+Slug
+Image Alt Text
+Canonical URL
+```
+
+Apply to:
+
+* Products
+* Collections
+* Pages
+* Blogs
+
+Do not implement the complete Shopify redirect migration in Phase 1.
+
+That belongs to Phase 2.
+
+---
+
+# 22. SEO VALIDATION
+
+Add reasonable admin validation:
+
+* SEO title length warning
+* Meta description length warning
+* Missing alt text warning
+* Duplicate slug prevention
+
+Do not block publishing unnecessarily unless a field is truly required.
+
+---
+
+# 23. LEAD DATA FOUNDATION
+
+Phase 1 must prepare the lead structure for Phase 3.
+
+Create a Lead model/table supporting:
+
+```text
+Name
+Email
+Phone
+Location
+Enquiry Details
+Source
+Status
+Notes
+Created At
+Updated At
+```
+
+Possible source values:
+
+```text
+CONTACT_FORM
+AI_CHAT
+QUOTE
+WEBSITE
+```
+
+Possible future statuses:
+
+```text
+NEW
+CONTACTED
+QUALIFIED
+QUOTE_SENT
+FOLLOW_UP
+WON
+LOST
+```
+
+Do not implement the full AI lead-generation workflow in Phase 1.
+
+Only create the data foundation and basic admin readiness if appropriate.
+
+---
+
+# 24. QUOTATION DATA FOUNDATION
+
+Create a quotation data structure for Phase 3.
+
+Support future fields such as:
+
+```text
+Customer
+Contact Details
+Selected Model
+Dimensions
+Square Footage
+Options
+Pricing Inputs
+Estimated Amount
+Requirements
+Status
+Source
+Created At
+Updated At
+```
+
+Do not implement AI quotation logic yet.
+
+Do not modify the existing QuoteWizard unnecessarily.
+
+Phase 3 will connect the QuoteWizard to this structure.
+
+---
+
+# 25. API ARCHITECTURE
+
+Create clean API endpoints for admin operations.
+
+Conceptually:
+
+```text
+/api/admin/auth/*
+/api/admin/settings
+/api/admin/pages
+/api/admin/pages/[id]
+/api/admin/products
+/api/admin/products/[id]
+/api/admin/collections
+/api/admin/collections/[id]
+/api/admin/blogs
+/api/admin/blogs/[id]
+/api/admin/leads
+/api/admin/quotations
+```
+
+Use appropriate HTTP methods:
+
+```text
+GET
+POST
+PUT/PATCH
+DELETE
+```
+
+Every admin endpoint must verify authentication.
+
+---
+
+# 26. API VALIDATION
+
+Validate all incoming data server-side.
+
+Validate:
+
+* Required fields
+* Email format
+* URLs
+* Slugs
+* Prices
+* IDs
+* Status values
+* Enum values
+
+Never trust client-side validation alone.
+
+Return consistent JSON responses.
 
 Example structure:
 
-MODERN. AFFORDABLE. BUILT FOR LIFE.
-
-MODULAR HOMES
-FOR A BETTER TOMORROW
-
-Explore beautiful homes, floor plans and flexible options designed around your lifestyle, location and budget.
-
-Buttons:
-
-GET A QUOTE →
-
-BROWSE HOMES
-
-Hero height:
-
-Desktop:
-560–650px
-
-Mobile:
-500–620px
-
-Text should remain readable over the image.
-
-============================================================
-10. TRUST / BENEFITS
-============================================================
-
-Immediately below hero.
-
-Create four cards:
-
-Faster Build Times
-Lower Costs
-Energy Efficient
-Nationwide Delivery
-
-Use icons.
-
-Desktop:
-4 columns
-
-Tablet:
-2 columns
-
-Mobile:
-2 columns
-
-Cards should have:
-- white background
-- border
-- subtle shadow
-- rounded corners
-
-============================================================
-11. FIND YOUR PERFECT HOME
-============================================================
-
-Create a search/filter card.
-
-Heading:
-
-Find Your Perfect Home
-
-Subheading:
-
-Search homes based on your requirements.
-
-Filters:
-
-Home Type
-Budget
-Bedrooms
-Bathrooms
-Location
-
-Button:
-
-Search Homes →
-
-Desktop:
-6-column style layout.
-
-Mobile:
-Stack filters vertically.
-
-Make the controls visually functional even if they use mock data initially.
-
-============================================================
-12. SHOP BY HOME TYPE
-============================================================
-
-Create a light-gray section.
-
-Heading:
-
-Shop by Home Type
-
-Subheading:
-
-Explore our most popular home categories.
-
-Create category cards for:
-
-- Modular Homes
-- Prefab Homes
-- Barndominiums
-- House Kits
-- Tiny Homes
-- Cabins
-- ADUs
-- Park Models
-- A-Frames
-- Commercial
-
-Desktop:
-5-column grid.
-
-Tablet:
-3 columns.
-
-Mobile:
-2 columns or horizontally scrollable cards.
-
-Each card:
-
-Image
-Category name
-Arrow
-
-Use large high-quality building images.
-
-============================================================
-13. HOMES / BUILDINGS AVAILABLE
-============================================================
-
-Heading:
-
-Homes Available Right Now
-
-Subheading:
-
-Move-in ready and quick-ship homes.
-
-Create product cards.
-
-Each product:
-
-Image
-Badge
-Name
-Bedrooms
-Bathrooms
-Square footage
-Price
-View Home button
-
-Example:
-
-The Aspen
-3 Bed | 2 Bath | 1,586 Sq Ft
-$189,000
-
-Use mock data.
-
-Create at least 8 products.
-
-Desktop:
-5-column layout where space permits.
-
-Tablet:
-3 columns.
-
-Mobile:
-1 column.
-
-============================================================
-14. BUDGET SECTION
-============================================================
-
-Create:
-
-Find a Home in Your Budget
-
-Cards:
-
-Under $75K
-$75K – $150K
-$150K – $250K
-$250K+
-
-Each card:
-- image
-- budget
-- short description
-
-============================================================
-15. HOMES NEAR YOU
-============================================================
-
-Create a location section.
-
-LEFT:
-ZIP code search.
-
-CENTER:
-Map placeholder.
-
-RIGHT:
-Nationwide delivery information.
-
-Include:
-
-Delivered to your site
-Professional installation
-Nationwide availability
-
-CTA:
-
-Learn More →
-
-For now, the map can be a styled placeholder.
-
-Keep architecture ready for Google Maps or another map API later.
-
-============================================================
-16. TRENDING HOMES
-============================================================
-
-Create another product grid.
-
-Heading:
-
-Trending Homes
-
-Show 5 products.
-
-Use the same reusable ProductCard component.
-
-Do NOT duplicate component code.
-
-============================================================
-17. CUSTOMIZATION
-============================================================
-
-Create a split section.
-
-LEFT:
-Large interior/building image.
-
-RIGHT:
-
-Customize Your Dream Home
-
-Description.
-
-Features:
-
-✓ Multiple floor plans
-✓ Premium finishes
-✓ Energy-efficient options
-✓ Expert support
-
-CTA:
-
-Start Customizing →
-
-============================================================
-18. FLOOR PLANS
-============================================================
-
-Create:
-
-Floor Plans & House Plans
-
-Display floor-plan cards.
-
-Each:
-
-Floor plan preview
-Bedrooms
-Bathrooms
-Square footage
-View Plan button
-
-Use a realistic floor-plan visual or existing assets.
-
-============================================================
-19. QUOTE SECTION
-============================================================
-
-Create a large quote form.
-
-Heading:
-
-Get Your Custom Quote
-
-Fields:
-
-Full Name
-Email Address
-Phone Number
-State
-Home Type
-Budget
-Project Details
-Floor Plan Upload
-
-Button:
-
-Submit Quote →
-
-Frontend only for now.
-
-Implement:
-- validation
-- loading state
-- success state
-- error state
-
-Do not connect to backend unless existing API already supports it.
-
-============================================================
-20. HOW IT WORKS
-============================================================
-
-Create five steps:
-
-1. Browse
-2. Quote
-3. Customize
-4. Build
-5. Deliver
-
-Use numbered circles.
-
-Desktop:
-horizontal layout.
-
-Mobile:
-vertical layout.
-
-============================================================
-21. FINANCING
-============================================================
-
-Create:
-
-Financing Your Modular Home
-
-Benefits:
-
-✓ Competitive rates
-✓ Multiple loan options
-✓ Fast approval process
-✓ Trusted lenders
-
-CTA:
-
-Learn More →
-
-Right side:
-
-Estimate Your Monthly Payment
-
-Fields:
-
-Home Price
-Down Payment
-Loan Term
-Rate
-
-Show:
-
-Estimated Monthly Payment
-
-Make the calculator actually work on the frontend.
-
-When values change, calculate an approximate monthly payment using the standard loan payment formula.
-
-Do not hardcode the final value.
-
-============================================================
-22. VIDEO SECTION
-============================================================
-
-Create:
-
-Watch Our Home Tours
-
-Display video cards.
-
-Each card:
-
-Thumbnail
-Play button
-Title
-
-Use:
-
-- building tours
-- interior tours
-- construction
-- barndominiums
-- customer stories
-
-Clicking a video should open a modal or YouTube embed.
-
-For now, use mock YouTube video IDs if real IDs are not available.
-
-IMPORTANT:
-
-Create the video component in a way that later supports automatic YouTube synchronization.
-
-Future architecture:
-
-YouTube
-↓
-Backend sync
-↓
-Database
-↓
-API
-↓
-VideoSection
-
-Do not expose YouTube API keys in frontend.
-
-============================================================
-23. TESTIMONIALS
-============================================================
-
-Create:
-
-What Our Customers Say
-
-Three testimonial cards.
-
-Each:
-
-Stars
-Customer quote
-Customer name
-Location
-
-Desktop:
-3 columns.
-
-Mobile:
-Carousel or one card at a time.
-
-Use subtle animations.
-
-============================================================
-24. LATEST NEWS / RESOURCES
-============================================================
-
-Create:
-
-Latest News & Resources
-
-Three article cards.
-
-Each:
-
-Image
-Title
-Category/date
-Read More →
-
-Use reusable ArticleCard.
-
-============================================================
-25. FINAL CTA
-============================================================
-
-Create a large visual CTA.
-
-Background:
-High-quality home/building image.
-
-Overlay:
-
-Ready to Build Your Dream Home?
-
-Get a personalized quote and take the first step today.
-
-Button:
-
-Get a Quote →
-
-============================================================
-26. FOOTER
-============================================================
-
-Create a professional multi-column footer.
-
-Column 1:
-Logo
-Description
-Social icons
-
-Column 2:
-Quick Links
-
-Column 3:
-Home Types & Resources
-
-Column 4:
-Contact Us
-
-Include:
-
-Phone
-Email
-Location
-
-Newsletter:
-
-Email input
-Join button
-
-Bottom:
-
-Copyright
-Privacy Policy
-Terms
-Sitemap
-
-Mobile:
-Stack columns vertically.
-
-============================================================
-27. RESPONSIVE DESIGN
-============================================================
-
-The website MUST be responsive.
-
-Test:
-
-375px
-390px
-768px
-1024px
-1280px
-1440px
-
-Desktop:
-- large hero
-- multi-column grids
-- horizontal navigation
-- spacious layout
-
-Tablet:
-- reduce columns
-- maintain visual hierarchy
-
-Mobile:
-- hamburger navigation
-- stacked sections
-- horizontal/compact cards where appropriate
-- full-width buttons
-- smaller typography
-- reduced spacing
-- touch-friendly controls
-
-NO horizontal overflow.
-
-============================================================
-28. COMPONENT ARCHITECTURE
-============================================================
-
-Create reusable components.
-
-Suggested:
-
-components/
-├── Header/
-├── TopBar/
-├── Navbar/
-├── MobileMenu/
-├── Hero/
-├── TrustBar/
-├── HomeSearch/
-├── CategoryCard/
-├── CategoryGrid/
-├── ProductCard/
-├── ProductGrid/
-├── BudgetCard/
-├── LocationSection/
-├── CustomizeSection/
-├── FloorPlanCard/
-├── QuoteForm/
-├── HowItWorks/
-├── FinancingCalculator/
-├── VideoCard/
-├── VideoSection/
-├── TestimonialCard/
-├── Testimonials/
-├── ArticleCard/
-├── Resources/
-├── CTASection/
-└── Footer/
-
-Use shared Button, Card, SectionHeading and Container components if appropriate.
-
-============================================================
-29. MOCK DATA
-============================================================
-
-Create centralized mock data.
-
-Example:
-
-data/
-├── homes.ts
-├── categories.ts
-├── floorPlans.ts
-├── videos.ts
-├── testimonials.ts
-└── articles.ts
-
-Do not hardcode product information directly inside JSX.
-
-Example:
-
+```text
 {
-  id: "aspen",
-  name: "The Aspen",
-  category: "Modular Home",
-  image: "...",
-  bedrooms: 3,
-  bathrooms: 2,
-  sqft: 1586,
-  price: 189000
+  success: true,
+  data: ...
 }
+```
 
-============================================================
-30. ROUTES
-============================================================
+or:
 
-Homepage:
+```text
+{
+  success: false,
+  error: {
+    message: "...",
+    code: "..."
+  }
+}
+```
 
-/
+Do not expose internal errors or secrets.
 
-Prepare architecture for:
+---
 
-/homes
-/homes/[slug]
-/floor-plans
-/floor-plans/[slug]
-/videos
-/videos/[slug]
-/quote
-/about
-/contact
+# 27. ADMIN UI STATES
 
-The homepage should be the primary focus.
+Every admin CRUD interface should include:
 
-============================================================
-31. INTERACTIONS
-============================================================
+* Loading state
+* Empty state
+* Success state
+* Error state
+* Confirmation for destructive operations
 
-Implement functional frontend interactions:
+Prevent accidental deletion.
 
-- Mobile menu
-- Sticky navbar
-- Search filters
-- Product filtering
-- Category filtering
-- Quote form validation
-- File selection
-- Financing calculator
-- Video modal
-- Testimonial carousel
-- Newsletter success state
-- Smooth scrolling
-- Hover effects
+Use confirmation dialogs for destructive actions.
 
-Do not leave obvious dead buttons.
+---
 
-============================================================
-32. ANIMATIONS
-============================================================
+# 28. IMAGE / MEDIA HANDLING
 
-Use subtle animations.
+For Phase 1, create the media architecture needed by:
 
-Hero:
-- fade in
-- slide up
+* Logo
+* Favicon
+* Product images
+* Collection images
+* Blog images
+* Page images
 
-Cards:
-- slight hover lift
-- image zoom
+Do not store large images as base64 in the database.
 
-Buttons:
-- arrow movement
+Use appropriate storage architecture.
 
-Sections:
-- scroll reveal
+If external media storage credentials are not available, create a clean abstraction and document the required configuration.
 
-Navbar:
-- smooth sticky transition
+---
 
-Do NOT overuse animations.
+# 29. EXISTING YOUTUBE ADMIN
 
-The website must remain fast.
+Do not remove the existing YouTube/video management system.
 
-============================================================
-33. IMAGES
-============================================================
+Keep it working.
 
-Use existing project assets first.
+If it is currently independent from the CMS, leave the Phase 3 automation integration for later.
 
-If suitable assets don't exist, use high-quality placeholders temporarily.
+Only make changes required to support the Phase 1 admin architecture.
 
-Prefer:
+---
 
-- modular homes
-- cabins
-- barndominiums
-- steel buildings
-- tiny homes
-- modern homes
-- architectural interiors
-- construction
-- floor plans
+# 30. EXISTING FRONTEND
 
-Images must:
-- maintain aspect ratio
-- use object-cover
-- be responsive
-- be optimized
+Do not redesign the frontend in Phase 1.
 
-============================================================
-34. SEO
-============================================================
+Preserve:
+
+* Playfair Display
+* Manrope
+* Existing responsive layout
+* Existing animations
+* Existing Quote Wizard
+* Existing AI assistant UI
+* Existing video pages
+* Existing navigation design
+
+Only connect frontend elements to GlobalSettings where practical without destabilizing the existing site.
+
+---
+
+# 31. BRAND REQUIREMENT
+
+The final ModularHome site must use the client's approved warm orange/light neutral brand direction.
+
+Do not introduce red as the primary brand color.
+
+However, do not perform a full Phase 2 visual redesign during Phase 1.
+
+Only ensure the CMS/admin design does not establish a conflicting primary brand identity.
+
+---
+
+# 32. SECURITY REQUIREMENTS
 
 Implement:
 
-- proper title
-- meta description
-- Open Graph metadata
-- semantic HTML
-- H1/H2 hierarchy
-- image alt text
-- canonical-ready URLs
-- sitemap-ready structure
+* Secure authentication
+* Password hashing if applicable
+* Protected routes
+* Protected APIs
+* HTTP-only session cookies where applicable
+* CSRF protection where applicable
+* Input validation
+* Authorization checks
+* Rate limiting for login
+* Secure environment variables
 
-Do not use the reference site's exact SEO text.
+Never:
 
-Use the existing company's information.
+* hard-code credentials
+* expose secrets
+* trust client-side authorization
+* expose database credentials
+* return sensitive server errors
 
-============================================================
-35. ACCESSIBILITY
-============================================================
+---
 
-Implement:
+# 33. ENVIRONMENT VARIABLES
 
-- semantic HTML
-- accessible navigation
-- keyboard support
-- focus states
-- form labels
-- alt text
-- accessible buttons
-- sufficient contrast
+Create/update:
 
-============================================================
-36. PERFORMANCE
-============================================================
+`.env.example`
 
-Optimize for:
+Include variable names only.
 
-- fast initial load
-- optimized images
-- lazy loading below fold
-- minimal JavaScript
-- reusable components
-- no unnecessary dependencies
-- no layout shift
-- responsive images
+For example:
 
-============================================================
-37. VERY IMPORTANT: REFERENCE MATCH
-============================================================
+```text
+DATABASE_URL=
+AUTH_SECRET=
+ADMIN_SESSION_SECRET=
+STORAGE_URL=
+STORAGE_ACCESS_KEY=
+STORAGE_SECRET_KEY=
+```
 
-The attached HTML is the design reference.
+Use only variables actually required by the selected architecture.
 
-Match its:
+Never place real secrets in the repository.
 
-- section order
-- spacing
-- card proportions
-- typography hierarchy
-- CTA placement
-- grid layouts
-- hero proportions
-- navigation structure
-- footer structure
-- responsive behavior
-- overall visual density
+---
 
-However:
+# 34. DATABASE SEEDING
 
-DO NOT simply copy/paste the HTML.
+Create safe development seed data if useful.
 
-Convert the design into a clean modern component-based implementation.
+Seed:
 
-============================================================
-38. EXISTING PROJECT INTEGRATION
-============================================================
+* One development admin
+* Sample global settings
+* Sample page
+* Sample sections
+* Sample product
+* Sample collection
+* Sample blog
 
-If the existing project already has:
+Clearly distinguish development seed data from production data.
 
-Navbar
-Footer
-Product components
-API services
-Database models
-Authentication
-Images
-Design system
+Do not allow sample/dummy content to accidentally become production content.
 
-reuse them where possible.
+---
 
-Do not create duplicate implementations.
+# 35. MIGRATION COMPATIBILITY
 
-If existing backend functionality exists, don't break it.
+Prepare the schema so Phase 2 can import Shopify data.
 
-If backend functionality is not ready, use mock data.
+Do not implement the complete Shopify migration now.
 
-============================================================
-39. FINAL TESTING
-============================================================
+Ensure the following fields can be mapped later:
 
-After implementation:
+* Product handle
+* Collection
+* Blog slug
+* SEO metadata
+* Images
+* Product relationships
 
-1. Start the development server.
-2. Open homepage.
-3. Check console.
-4. Check desktop at 1440px.
-5. Check mobile at 375px.
-6. Check tablet.
-7. Test navbar.
-8. Test mobile menu.
-9. Test every CTA.
-10. Test filters.
-11. Test product cards.
-12. Test quote form.
-13. Test file upload UI.
-14. Test calculator.
-15. Test video modal.
-16. Test testimonials.
-17. Test newsletter.
-18. Check footer.
-19. Check image loading.
-20. Check for horizontal overflow.
-21. Fix all console errors.
-22. Fix all visual spacing issues.
+---
 
-============================================================
-40. FINAL DESIGN GOAL
-============================================================
+# 36. TESTING
 
-The finished website should feel like a polished,
-production-quality American building/home company website.
+After implementation, test every Phase 1 module.
 
-It should NOT look like:
+### Authentication
 
-- a basic HTML template
-- a SaaS dashboard
-- a generic AI-generated website
-- a simple Bootstrap page
+* Login works
+* Invalid login rejected
+* Logout works
+* Unauthenticated admin access rejected
+* Unauthenticated admin API rejected
 
-It should look like a real commercial website with:
+### Global Settings
 
-PREMIUM IMAGERY
-+
-STRONG TYPOGRAPHY
-+
-CLEAN WHITE SPACE
-+
-RED CTA ACCENTS
-+
-PROFESSIONAL PRODUCT CARDS
-+
-HIGH-CONVERSION SECTIONS
-+
-EXCELLENT MOBILE RESPONSIVENESS
+* Create/update settings
+* Save
+* Reload
+* Verify persistence
 
-Most importantly:
+### Pages
 
-BUILD THIS INSIDE THE EXISTING PROJECT.
+* Create
+* Edit
+* Publish
+* Unpublish
+* Delete/archive
+* Slug validation
 
-DO NOT CREATE A NEW PROJECT.
+### Sections
 
-Use the attached HTML reference as the structural and visual source of truth, while adapting the branding and content to the existing project.
+* Create
+* Edit
+* Hide/show
+* Reorder
+
+### Products
+
+* Create
+* Edit
+* Publish/unpublish
+* Images
+* SEO
+* Collections
+
+### Collections
+
+* Create
+* Edit
+* Product assignment
+
+### Blogs
+
+* Create
+* Edit
+* Publish/unpublish
+* SEO
+
+### Leads
+
+* Database record can be created
+* Fields persist
+
+### Quotations
+
+* Database structure works
+* Records can be stored
+
+---
+
+# 37. RESPONSIVE ADMIN
+
+Admin should work correctly on:
+
+* Desktop
+* Tablet
+* Mobile
+
+Prioritize desktop because it is the primary CMS environment, but do not allow the interface to become unusable on smaller screens.
+
+---
+
+# 38. CODE QUALITY
+
+Maintain:
+
+* TypeScript
+* Clean component structure
+* Reusable components
+* Reusable API utilities
+* Proper types
+* No unnecessary duplication
+* No dead code
+* No console errors
+* No TypeScript errors
+
+Do not silently ignore existing errors.
+
+If you encounter an existing unrelated issue, document it.
+
+---
+
+# 39. DO NOT IMPLEMENT THESE IN PHASE 1
+
+Do NOT implement the following unless required to make Phase 1 function:
+
+* Shopify migration
+* 301 migration redirects
+* Complete AI chatbot backend
+* AI lead-generation workflow
+* YouTube-to-blog AI automation
+* Payment gateway
+* Floor-plan e-commerce
+* Cart/checkout
+* Digital downloads
+* Order management
+* Final production deployment
+* Training video
+
+These belong to Phase 2/3.
+
+---
+
+# 40. PHASE 1 ACCEPTANCE TEST
+
+Before declaring Phase 1 complete, verify:
+
+### Acceptance 1
+
+Admin can securely log in.
+
+### Acceptance 2
+
+Admin can change:
+
+* Logo
+* Global settings
+* Contact information
+* Navigation
+* Footer
+
+without changing code.
+
+### Acceptance 3
+
+Admin can manage:
+
+* Pages
+* Sections
+* Section visibility
+* Section order
+
+without code changes.
+
+### Acceptance 4
+
+Admin can:
+
+* Create/edit products
+* Create/edit collections
+* Create/edit blogs
+
+### Acceptance 5
+
+SEO fields are available for:
+
+* Products
+* Collections
+* Pages
+* Blogs
+
+### Acceptance 6
+
+Lead and quotation database structures are ready for Phase 3.
+
+---
+
+# 41. FINAL PHASE 1 REPORT
+
+After implementation, provide a concise report containing:
+
+## COMPLETED
+
+List every Phase 1 requirement implemented.
+
+## PARTIALLY COMPLETED
+
+List anything requiring external credentials or client input.
+
+## NOT COMPLETED
+
+Only list genuinely unfinished Phase 1 work.
+
+## DATABASE
+
+Describe the implemented models/tables.
+
+## API
+
+List the implemented admin API routes.
+
+## AUTHENTICATION
+
+Explain how admin authentication/protection works.
+
+## TESTING
+
+List the tests performed and results.
+
+## ENVIRONMENT VARIABLES
+
+List required `.env` variable names.
+
+## PHASE 2 PREPARATION
+
+Briefly explain what has been prepared for:
+
+* Shopify migration
+* Frontend data integration
+* SEO migration
+
+Do not implement Phase 2 features yet.
+
+---
+
+# FINAL INSTRUCTION
+
+Work directly on the existing SteelWeb project.
+
+First inspect.
+
+Then implement.
+
+Then test.
+
+Do not just provide a plan.
+
+Do not rebuild working components unnecessarily.
+
+Do not mark requirements complete without verifying them.
+
+Keep the existing public website functional throughout the implementation.
+
+The final Phase 1 result should be a **secure, database-backed, manageable ModularHome Admin CMS foundation ready for Phase 2 Shopify migration and frontend integration.*

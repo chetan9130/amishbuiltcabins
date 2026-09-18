@@ -7,8 +7,11 @@ import {
   upsertVideo, 
   readSyncStats 
 } from "@/lib/videoStore";
+import { requireAdminAuth } from "@/lib/auth";
 
 export async function GET(request: NextRequest) {
+  const authResult = await requireAdminAuth();
+  if (authResult instanceof NextResponse) return authResult;
   try {
     const { searchParams } = new URL(request.url);
     const category = searchParams.get("category") || undefined;
@@ -32,6 +35,9 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const authResult = await requireAdminAuth();
+  if (authResult instanceof NextResponse) return authResult;
+
   try {
     const body = await request.json();
     const { action, id, category, isPublished, videoData } = body;
