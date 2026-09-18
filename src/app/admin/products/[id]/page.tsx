@@ -10,9 +10,7 @@ import {
   AlertCircle,
   CheckCircle2,
   Search,
-  Sparkles,
-  Home,
-  Image as ImageIcon,
+  ImageIcon,
   FolderOpen,
 } from "lucide-react";
 
@@ -36,7 +34,10 @@ export default function AdminEditProductPage() {
         if (collJson.success) setCollections(collJson.data || []);
         if (prodJson.success) {
           const p = prodJson.data;
-          const assignedIds = p.collections?.map((c: any) => c.collectionId || c.collection?.id) || [];
+          const assignedIds =
+            p.collectionIds ||
+            p.collections?.map((c: any) => c._id || c.collectionId || c.collection?.id || c.id) ||
+            [];
           setProduct({
             ...p,
             collectionIds: assignedIds,
@@ -86,18 +87,18 @@ export default function AdminEditProductPage() {
 
   if (isLoading) {
     return (
-      <div className="py-20 text-center text-gray-500 text-xs flex flex-col items-center gap-2">
-        <Loader2 className="w-6 h-6 animate-spin text-[#e20b16]" />
-        <span>Loading product details...</span>
+      <div className="py-24 text-center text-[#6b7280] text-xs flex flex-col items-center gap-2 font-medium">
+        <Loader2 className="w-8 h-8 animate-spin text-[#e20b16]" />
+        <span>Loading product model details...</span>
       </div>
     );
   }
 
   if (!product) {
     return (
-      <div className="text-center py-20">
-        <p className="text-sm text-gray-600">Product not found.</p>
-        <Link href="/admin/products" className="text-xs font-bold text-[#e20b16] mt-2 inline-block">
+      <div className="text-center py-20 bg-white rounded-[18px] border border-[#e7e9ee] p-8">
+        <p className="text-sm font-bold text-[#101114]">Product model not found.</p>
+        <Link href="/admin/products" className="text-xs font-bold text-[#e20b16] mt-3 inline-block hover:underline">
           ← Back to Catalog
         </Link>
       </div>
@@ -107,19 +108,19 @@ export default function AdminEditProductPage() {
   return (
     <form onSubmit={handleSave} className="space-y-6 animate-in fade-in pb-12">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e9ee] pb-5">
         <div className="flex items-center gap-3">
           <Link
             href="/admin/products"
-            className="p-2 rounded-xl text-gray-600 hover:text-black hover:bg-gray-100 transition-colors"
+            className="p-2.5 rounded-xl border border-[#d5d9e0] bg-white text-[#101114] hover:bg-[#f6f7f9] transition-all shadow-2xs"
           >
             <ArrowLeft className="w-5 h-5" />
           </Link>
           <div>
-            <h1 className="text-2xl font-black text-[#101114] tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#101114] font-serif">
               Edit Model: {product.name}
             </h1>
-            <p className="text-xs text-gray-500 font-mono mt-0.5">
+            <p className="text-xs text-[#6b7280] font-mono mt-0.5">
               Slug: /models/{product.slug}
             </p>
           </div>
@@ -128,7 +129,7 @@ export default function AdminEditProductPage() {
         <button
           type="submit"
           disabled={isSaving}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
         >
           {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
           <span>Save Changes</span>
@@ -155,43 +156,44 @@ export default function AdminEditProductPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left 2 Columns */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
               Model Identification & Pricing
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Model Name *</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Model Name *</label>
                 <input
                   type="text"
                   required
                   value={product.name || ""}
                   onChange={(e) => setProduct({ ...product, name: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Slug / URL Identifier *</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Slug / URL Identifier *</label>
                 <input
                   type="text"
                   required
                   value={product.slug || ""}
                   onChange={(e) => setProduct({ ...product, slug: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs font-mono text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Category</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Category</label>
                 <select
-                  value={product.category || "Modular Homes"}
+                  value={product.category || "Residential"}
                   onChange={(e) => setProduct({ ...product, category: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 >
+                  <option value="Residential">Residential</option>
                   <option value="Modular Homes">Modular Homes</option>
                   <option value="Prefab Homes">Prefab Homes</option>
                   <option value="Barndominiums">Barndominiums</option>
@@ -205,120 +207,120 @@ export default function AdminEditProductPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Starting Price ($) *</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Starting Price ($) *</label>
                 <input
                   type="number"
                   required
                   value={product.startingPrice || 0}
                   onChange={(e) => setProduct({ ...product, startingPrice: Number(e.target.value) })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 font-bold focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold font-serif focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Square Footage (Sq Ft)</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Square Footage (Sq Ft)</label>
                 <input
                   type="number"
                   value={product.sqft || 0}
                   onChange={(e) => setProduct({ ...product, sqft: Number(e.target.value) })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">Tagline</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">Tagline</label>
               <input
                 type="text"
                 value={product.tagline || ""}
                 onChange={(e) => setProduct({ ...product, tagline: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">Full Description</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">Full Description</label>
               <textarea
                 rows={4}
                 value={product.description || ""}
                 onChange={(e) => setProduct({ ...product, description: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
           </div>
 
           {/* Specs */}
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
               Room Dimensions & Structural Specs
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Bedrooms</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Bedrooms</label>
                 <input
                   type="number"
                   value={product.bedrooms || 0}
                   onChange={(e) => setProduct({ ...product, bedrooms: Number(e.target.value) })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Bathrooms</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Bathrooms</label>
                 <input
                   type="number"
                   value={product.bathrooms || 0}
                   onChange={(e) => setProduct({ ...product, bathrooms: Number(e.target.value) })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Stories</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Stories</label>
                 <input
                   type="number"
                   value={product.stories || 1}
                   onChange={(e) => setProduct({ ...product, stories: Number(e.target.value) })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Dimensions</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Dimensions</label>
                 <input
                   type="text"
                   value={product.dimensions || ""}
                   onChange={(e) => setProduct({ ...product, dimensions: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Frame Engineering</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Frame Engineering</label>
                 <input
                   type="text"
                   value={product.frameType || ""}
                   onChange={(e) => setProduct({ ...product, frameType: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
             </div>
           </div>
 
           {/* SEO Metadata Box */}
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
               <Search className="w-4 h-4 text-[#e20b16]" />
               <span>Product SEO Metadata</span>
             </div>
 
             <div>
-              <div className="flex justify-between items-center mb-1">
-                <label className="text-xs font-bold text-gray-700">SEO Title</label>
-                <span className={`text-[10px] ${product.seoTitle?.length > 60 ? "text-amber-600 font-bold" : "text-gray-400"}`}>
+              <div className="flex justify-between items-center mb-1.5">
+                <label className="text-xs font-bold text-[#101114]">SEO Title</label>
+                <span className={`text-[10px] ${product.seoTitle?.length > 60 ? "text-amber-600 font-bold" : "text-[#6b7280]"}`}>
                   {product.seoTitle?.length || 0} / 60 chars
                 </span>
               </div>
@@ -326,14 +328,14 @@ export default function AdminEditProductPage() {
                 type="text"
                 value={product.seoTitle || ""}
                 onChange={(e) => setProduct({ ...product, seoTitle: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
 
             <div>
-              <div className="flex justify-between items-center mb-1">
-                <label className="text-xs font-bold text-gray-700">Meta Description</label>
-                <span className={`text-[10px] ${product.metaDescription?.length > 160 ? "text-amber-600 font-bold" : "text-gray-400"}`}>
+              <div className="flex justify-between items-center mb-1.5">
+                <label className="text-xs font-bold text-[#101114]">Meta Description</label>
+                <span className={`text-[10px] ${product.metaDescription?.length > 160 ? "text-amber-600 font-bold" : "text-[#6b7280]"}`}>
                   {product.metaDescription?.length || 0} / 160 chars
                 </span>
               </div>
@@ -341,7 +343,7 @@ export default function AdminEditProductPage() {
                 rows={2}
                 value={product.metaDescription || ""}
                 onChange={(e) => setProduct({ ...product, metaDescription: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
           </div>
@@ -350,82 +352,85 @@ export default function AdminEditProductPage() {
         {/* Right 1 Column */}
         <div className="space-y-6">
           {/* Media Links */}
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
               <ImageIcon className="w-4 h-4 text-[#e20b16]" />
               <span>Media & Visual Assets</span>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">Primary Image URL *</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">Primary Image URL *</label>
               <input
                 type="text"
                 required
                 value={product.primaryImage || ""}
                 onChange={(e) => setProduct({ ...product, primaryImage: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">Floor Plan Preview URL</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">Floor Plan Preview URL</label>
               <input
                 type="text"
                 value={product.floorPlanImage || ""}
                 onChange={(e) => setProduct({ ...product, floorPlanImage: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">YouTube Walkthrough URL</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">YouTube Walkthrough URL</label>
               <input
                 type="text"
                 value={product.videoUrl || ""}
                 onChange={(e) => setProduct({ ...product, videoUrl: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
           </div>
 
           {/* Collection Assignments */}
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
               <FolderOpen className="w-4 h-4 text-[#e20b16]" />
               <span>Assign to Collections</span>
             </div>
 
             <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
-              {collections.map((c) => (
-                <label
-                  key={c.id}
-                  className="flex items-center gap-2 text-xs text-gray-700 font-semibold cursor-pointer hover:bg-gray-50 p-1.5 rounded-lg"
-                >
-                  <input
-                    type="checkbox"
-                    checked={product.collectionIds?.includes(c.id)}
-                    onChange={() => handleCollectionToggle(c.id)}
-                    className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
-                  />
-                  <span>{c.name}</span>
-                </label>
-              ))}
+              {collections.map((c) => {
+                const cId = c._id || c.id;
+                return (
+                  <label
+                    key={cId}
+                    className="flex items-center gap-2.5 text-xs text-[#101114] font-bold cursor-pointer hover:bg-[#f6f7f9] p-2 rounded-xl transition-colors"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={product.collectionIds?.includes(cId)}
+                      onChange={() => handleCollectionToggle(cId)}
+                      className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
+                    />
+                    <span>{c.name}</span>
+                  </label>
+                );
+              })}
             </div>
           </div>
 
           {/* Status & Featured */}
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-3">
-            <label className="flex items-center gap-2 text-xs font-bold text-gray-900 cursor-pointer">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-3">
+            <label className="flex items-center gap-2.5 text-xs font-bold text-[#101114] cursor-pointer">
               <input
                 type="checkbox"
                 checked={!!product.isPublished}
                 onChange={(e) => setProduct({ ...product, isPublished: e.target.checked })}
                 className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
               />
-              <span>Published (Visible on Public Site)</span>
+              <span>Published (Live in Model Catalog)</span>
             </label>
 
-            <label className="flex items-center gap-2 text-xs font-bold text-gray-900 cursor-pointer">
+            <label className="flex items-center gap-2.5 text-xs font-bold text-[#101114] cursor-pointer">
               <input
                 type="checkbox"
                 checked={!!product.isFeatured}

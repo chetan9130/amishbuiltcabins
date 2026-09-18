@@ -228,46 +228,46 @@ export default function AdminVideoManager() {
   });
 
   return (
-    <div className="space-y-8 text-[var(--ink)]">
+    <div className="space-y-6 text-[#101114] animate-in fade-in">
       {/* 1. TOP HEADER BANNER */}
-      <div className="bg-[var(--ink)] text-white p-6 sm:p-8 rounded-[22px] shadow-lg space-y-4 border border-white/10">
+      <div className="bg-[#101114] text-white p-6 sm:p-8 rounded-[22px] shadow-[0_20px_45px_rgba(16,17,20,0.15)] space-y-4 border border-[#101114]">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--r)] mb-2">
-              <Sparkles className="w-4 h-4 text-[var(--r)]" />
+            <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#e20b16] mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#e20b16]" />
               <span>Automatic Channel Synchronization</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight font-display">
+            <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight">
               YouTube Video Manager
             </h1>
-            <p className="text-xs sm:text-sm text-white/70 mt-1 max-w-2xl font-body">
+            <p className="text-xs sm:text-sm text-white/70 mt-1 max-w-2xl font-sans">
               Automatically sync videos from your YouTube channel directly to your website. Videos uploaded on YouTube appear automatically without manual website post creation.
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
             <button
               onClick={() => setAddModalOpen(true)}
-              className="px-4 py-2.5 bg-white text-[var(--ink)] hover:bg-[var(--soft)] text-xs font-bold uppercase tracking-wider rounded-[12px] transition-colors flex items-center gap-1.5 shadow-sm cursor-pointer"
+              className="px-4 py-2.5 bg-white text-[#101114] hover:bg-[#f6f7f9] text-xs font-bold uppercase tracking-wider rounded-xl transition-colors flex items-center gap-1.5 shadow-2xs cursor-pointer"
             >
-              <Plus className="w-4 h-4 text-[var(--r)]" />
-              <span>Add YouTube Video</span>
+              <Plus className="w-4 h-4 text-[#e20b16]" />
+              <span>Add Video</span>
             </button>
 
             <button
               onClick={handleManualSync}
               disabled={isSyncing}
-              className="px-5 py-2.5 bg-[var(--r)] hover:bg-[var(--r-dark)] text-white text-xs font-extrabold uppercase tracking-wider rounded-[12px] transition-all flex items-center gap-2 shadow-md disabled:opacity-50 cursor-pointer"
+              className="px-5 py-2.5 bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-2 shadow-sm disabled:opacity-50 cursor-pointer"
             >
               <RefreshCw className={`w-4 h-4 ${isSyncing ? "animate-spin" : ""}`} />
-              <span>{isSyncing ? "Syncing..." : "Sync YouTube Videos Now"}</span>
+              <span>{isSyncing ? "Syncing..." : "Sync YouTube Now"}</span>
             </button>
           </div>
         </div>
 
         {syncMessage && (
           <div
-            className={`p-3.5 rounded-[12px] border text-xs font-medium flex items-center gap-2 animate-in fade-in duration-200 ${
+            className={`p-3.5 rounded-xl border text-xs font-medium flex items-center gap-2 animate-in fade-in duration-200 ${
               syncMessage.type === "success"
                 ? "bg-emerald-950/80 border-emerald-500 text-emerald-200"
                 : "bg-red-950/80 border-red-500 text-red-200"
@@ -284,48 +284,48 @@ export default function AdminVideoManager() {
       </div>
 
       {/* 2. SYNC STATS & CONFIGURATION OVERVIEW */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="p-5 bg-[var(--soft)] border border-[var(--line)] rounded-[18px] space-y-1 shadow-xs">
-          <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--muted)]">Last Sync Status</div>
-          <div className="text-base font-bold text-[var(--ink)] flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[var(--r)]"></span>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="p-5 bg-white border border-[#e7e9ee] rounded-[18px] space-y-1 shadow-[0_12px_35px_rgba(16,24,40,0.04)]">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-[#6b7280]">Last Sync Status</div>
+          <div className="text-base font-bold text-[#101114] flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#e20b16]"></span>
             <span>{stats?.status === "never" ? "Never Synced" : stats?.status === "error" ? "Failed Sync" : "Active & Synced"}</span>
           </div>
-          <div className="text-[11px] text-[var(--muted)]">
+          <div className="text-[11px] text-[#6b7280]">
             {stats?.lastSyncAt
               ? new Date(stats.lastSyncAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })
               : "Click Sync to fetch latest videos"}
           </div>
         </div>
 
-        <div className="p-5 bg-[var(--soft)] border border-[var(--line)] rounded-[18px] space-y-1 shadow-xs">
-          <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--muted)]">Videos Found</div>
-          <div className="text-2xl font-black text-[var(--ink)]">{videos.length}</div>
-          <div className="text-[11px] text-[var(--muted)]">{videos.filter(v => v.isPublished).length} published on website</div>
+        <div className="p-5 bg-white border border-[#e7e9ee] rounded-[18px] space-y-1 shadow-[0_12px_35px_rgba(16,24,40,0.04)]">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-[#6b7280]">Videos Found</div>
+          <div className="text-2xl font-serif font-bold text-[#101114]">{videos.length}</div>
+          <div className="text-[11px] text-[#6b7280]">{videos.filter(v => v.isPublished).length} published on website</div>
         </div>
 
-        <div className="p-5 bg-[var(--soft)] border border-[var(--line)] rounded-[18px] space-y-1 shadow-xs">
-          <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--muted)]">New Videos Added</div>
-          <div className="text-2xl font-black text-[var(--r)]">{stats?.newVideosAdded || 0}</div>
-          <div className="text-[11px] text-[var(--muted)]">From last channel sync</div>
+        <div className="p-5 bg-white border border-[#e7e9ee] rounded-[18px] space-y-1 shadow-[0_12px_35px_rgba(16,24,40,0.04)]">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-[#6b7280]">New Videos Added</div>
+          <div className="text-2xl font-serif font-bold text-[#e20b16]">{stats?.newVideosAdded || 0}</div>
+          <div className="text-[11px] text-[#6b7280]">From last channel sync</div>
         </div>
 
-        <div className="p-5 bg-[var(--soft)] border border-[var(--line)] rounded-[18px] space-y-1 shadow-xs">
-          <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--muted)]">Auto Sync Mode</div>
-          <div className="text-base font-bold text-[var(--r)]">ON (Scheduled)</div>
-          <div className="text-[11px] text-[var(--muted)]">Frequency: Every 1 Hour</div>
+        <div className="p-5 bg-white border border-[#e7e9ee] rounded-[18px] space-y-1 shadow-[0_12px_35px_rgba(16,24,40,0.04)]">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-[#6b7280]">Auto Sync Mode</div>
+          <div className="text-base font-bold text-[#e20b16]">ON (Scheduled)</div>
+          <div className="text-[11px] text-[#6b7280]">Frequency: Every 1 Hour</div>
         </div>
       </div>
 
       {/* 3. FILTER & SEARCH STRIP */}
-      <div className="p-4 bg-white border border-[var(--line)] rounded-[18px] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
-        <div className="flex items-center gap-2 w-full sm:w-auto">
-          <Filter className="w-4 h-4 text-[var(--r)]" />
-          <span className="text-xs font-bold uppercase text-[var(--ink)]">Category:</span>
+      <div className="p-5 bg-white border border-[#e7e9ee] rounded-[18px] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_12px_35px_rgba(16,24,40,0.04)]">
+        <div className="flex items-center gap-3 w-full sm:w-auto">
+          <Filter className="w-4 h-4 text-[#e20b16]" />
+          <span className="text-xs font-bold uppercase tracking-wider text-[#101114]">Category:</span>
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="bg-[var(--soft)] border border-[var(--line)] px-3 py-2 text-xs text-[var(--ink)] rounded-[10px] focus:outline-none focus:border-[var(--r)] cursor-pointer"
+            className="bg-[#f6f7f9] border border-[#d5d9e0] px-3.5 py-2.5 text-xs text-[#101114] font-bold rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] cursor-pointer"
           >
             <option value="All">All Categories ({videos.length})</option>
             {categoriesList.map((cat) => (
@@ -336,37 +336,38 @@ export default function AdminVideoManager() {
           </select>
         </div>
 
-        <div className="relative w-full sm:w-72">
-          <Search className="w-3.5 h-3.5 text-[var(--muted)] absolute left-3.5 top-1/2 -translate-y-1/2" />
+        <div className="relative w-full sm:w-80">
+          <Search className="w-4 h-4 text-[#6b7280] absolute left-3.5 top-3" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search by title or video ID..."
-            className="w-full bg-[var(--soft)] border border-[var(--line)] pl-9 pr-3 py-2 text-xs text-[var(--ink)] rounded-full focus:outline-none focus:border-[var(--r)]"
+            className="w-full bg-[#f6f7f9] border border-[#d5d9e0] pl-10 pr-4 py-2.5 text-xs text-[#101114] font-medium rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
           />
         </div>
       </div>
 
       {/* 4. VIDEO MANAGEMENT TABLE */}
-      <div className="bg-white border border-[var(--line)] rounded-[20px] shadow-sm overflow-hidden">
+      <div className="bg-white border border-[#e7e9ee] rounded-[18px] shadow-[0_12px_35px_rgba(16,24,40,0.04)] overflow-hidden">
         {isLoading ? (
-          <div className="p-12 text-center text-xs text-[var(--muted)]">
-            Loading video database...
+          <div className="p-16 text-center text-xs text-[#6b7280] flex flex-col items-center gap-2">
+            <RefreshCw className="w-5 h-5 animate-spin text-[#e20b16]" />
+            <span>Loading video database...</span>
           </div>
         ) : filteredVideos.length === 0 ? (
-          <div className="p-12 text-center space-y-3">
-            <VideoIcon className="w-8 h-8 text-[var(--muted)] mx-auto" />
-            <div className="text-sm font-bold text-[var(--ink)]">No Videos Found</div>
-            <p className="text-xs text-[var(--muted)] max-w-sm mx-auto">
-              Click &ldquo;Sync YouTube Videos Now&rdquo; to fetch videos from your configured YouTube channel or add a video manually.
+          <div className="p-16 text-center space-y-3">
+            <VideoIcon className="w-8 h-8 text-[#6b7280] mx-auto" />
+            <div className="text-sm font-serif font-bold text-[#101114]">No Videos Found</div>
+            <p className="text-xs text-[#6b7280] max-w-sm mx-auto">
+              Click &ldquo;Sync YouTube Now&rdquo; to fetch videos from your configured YouTube channel or add a video manually.
             </p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-[var(--ink)] text-white uppercase text-[10px] font-bold tracking-wider">
+                <tr className="bg-[#f6f7f9] border-b border-[#e7e9ee] text-[#6b7280] uppercase text-[10px] font-bold tracking-wider">
                   <th className="py-3.5 px-4">Video</th>
                   <th className="py-3.5 px-4">YouTube ID</th>
                   <th className="py-3.5 px-4">Category</th>
@@ -375,116 +376,119 @@ export default function AdminVideoManager() {
                   <th className="py-3.5 px-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--line)]">
-                {filteredVideos.map((video) => (
-                  <tr key={video.id} className="hover:bg-[var(--soft)]/60 transition-colors">
-                    <td className="py-3 px-4">
-                      <div className="flex items-center gap-3">
-                        <div className="relative w-20 aspect-[16/10] bg-gray-100 rounded-[8px] overflow-hidden shrink-0 border border-[var(--line)]">
-                          <Image
-                            src={video.thumbnail}
-                            alt={video.title}
-                            fill
-                            className="object-cover"
-                          />
-                          <div className="absolute bottom-0.5 right-0.5 bg-black/80 text-white text-[9px] px-1 py-0.5 font-bold rounded-[4px]">
-                            {video.duration}
+              <tbody className="divide-y divide-[#e7e9ee]">
+                {filteredVideos.map((video) => {
+                  const vId = video.id || (video as any)._id;
+                  return (
+                    <tr key={vId} className="hover:bg-[#f6f7f9]/60 transition-colors">
+                      <td className="py-3.5 px-4">
+                        <div className="flex items-center gap-3.5">
+                          <div className="relative w-20 aspect-[16/10] bg-[#f6f7f9] rounded-xl overflow-hidden shrink-0 border border-[#e7e9ee]">
+                            <Image
+                              src={video.thumbnail}
+                              alt={video.title}
+                              fill
+                              className="object-cover"
+                            />
+                            <div className="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1.5 py-0.5 font-bold rounded-md">
+                              {video.duration}
+                            </div>
+                          </div>
+                          <div>
+                            <div className="font-bold text-[#101114] line-clamp-1 max-w-xs sm:max-w-md font-sans">
+                              {video.title}
+                            </div>
+                            <div className="text-[11px] text-[#6b7280] mt-0.5">
+                              {video.views} • {video.date}
+                            </div>
                           </div>
                         </div>
-                        <div>
-                          <div className="font-bold text-[var(--ink)] line-clamp-1 max-w-xs sm:max-w-md">
-                            {video.title}
-                          </div>
-                          <div className="text-[11px] text-[var(--muted)]">
-                            {video.views} • {video.date}
-                          </div>
-                        </div>
-                      </div>
-                    </td>
+                      </td>
 
-                    <td className="py-3 px-4 font-mono text-xs text-[var(--ink)]">
-                      {video.youtubeVideoId}
-                    </td>
+                      <td className="py-3.5 px-4 font-mono text-xs text-[#101114]">
+                        {video.youtubeVideoId}
+                      </td>
 
-                    <td className="py-3 px-4">
-                      <select
-                        value={video.category}
-                        onChange={(e) =>
-                          handleCategoryChange(video.id, e.target.value as VideoCategory)
-                        }
-                        className="bg-white border border-[var(--line)] px-2.5 py-1.5 text-xs text-[var(--ink)] rounded-[8px] focus:outline-none focus:border-[var(--r)] font-semibold cursor-pointer"
-                      >
-                        {categoriesList.map((cat) => (
-                          <option key={cat} value={cat}>
-                            {cat}
-                          </option>
-                        ))}
-                      </select>
-                    </td>
-
-                    <td className="py-3 px-4 text-[var(--muted)]">
-                      {new Date(video.publishedAt).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
-                    </td>
-
-                    <td className="py-3 px-4 text-center">
-                      <button
-                        onClick={() => handleTogglePublish(video.id, video.isPublished)}
-                        className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider inline-flex items-center gap-1 transition-colors cursor-pointer ${
-                          video.isPublished
-                            ? "bg-red-50 text-[var(--r)] border border-red-200"
-                            : "bg-gray-100 text-gray-600 border border-gray-300"
-                        }`}
-                      >
-                        {video.isPublished ? (
-                          <>
-                            <Eye className="w-3 h-3 text-[var(--r)]" />
-                            <span>Published</span>
-                          </>
-                        ) : (
-                          <>
-                            <EyeOff className="w-3 h-3 text-gray-500" />
-                            <span>Hidden</span>
-                          </>
-                        )}
-                      </button>
-                    </td>
-
-                    <td className="py-3 px-4 text-right">
-                      <div className="flex items-center justify-end gap-2">
-                        <Link
-                          href={`/videos/${video.youtubeVideoId}`}
-                          target="_blank"
-                          title="View on Website"
-                          className="p-1.5 text-[var(--ink)] hover:text-[var(--r)] hover:bg-[var(--soft)] rounded-[6px] transition-colors"
+                      <td className="py-3.5 px-4">
+                        <select
+                          value={video.category}
+                          onChange={(e) =>
+                            handleCategoryChange(vId, e.target.value as VideoCategory)
+                          }
+                          className="bg-[#f6f7f9] border border-[#d5d9e0] px-3 py-1.5 text-xs text-[#101114] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-bold cursor-pointer"
                         >
-                          <Eye className="w-4 h-4" />
-                        </Link>
+                          {categoriesList.map((cat) => (
+                            <option key={cat} value={cat}>
+                              {cat}
+                            </option>
+                          ))}
+                        </select>
+                      </td>
 
-                        <a
-                          href={video.youtubeUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          title="Open on YouTube"
-                          className="p-1.5 text-[var(--ink)] hover:text-[var(--r)] hover:bg-[var(--soft)] rounded-[6px] transition-colors"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
+                      <td className="py-3.5 px-4 text-[#6b7280] text-[11px]">
+                        {new Date(video.publishedAt).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </td>
 
+                      <td className="py-3.5 px-4 text-center">
                         <button
-                          onClick={() => handleDeleteLocal(video.id, video.title)}
-                          title="Remove Local Record (Does not delete on YouTube)"
-                          className="p-1.5 text-red-600 hover:bg-red-50 rounded-[6px] transition-colors cursor-pointer"
+                          onClick={() => handleTogglePublish(vId, video.isPublished)}
+                          className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-colors cursor-pointer ${
+                            video.isPublished
+                              ? "bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100"
+                              : "bg-[#f6f7f9] text-[#6b7280] border border-[#d5d9e0] hover:bg-[#e7e9ee]"
+                          }`}
                         >
-                          <Trash2 className="w-4 h-4" />
+                          {video.isPublished ? (
+                            <>
+                              <Eye className="w-3 h-3 text-emerald-600" />
+                              <span>Published</span>
+                            </>
+                          ) : (
+                            <>
+                              <EyeOff className="w-3 h-3 text-[#6b7280]" />
+                              <span>Hidden</span>
+                            </>
+                          )}
                         </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
+                      </td>
+
+                      <td className="py-3.5 px-4 text-right">
+                        <div className="flex items-center justify-end gap-1.5">
+                          <Link
+                            href={`/videos/${video.youtubeVideoId}`}
+                            target="_blank"
+                            title="View on Website"
+                            className="p-2 text-[#101114] hover:text-[#e20b16] hover:bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl transition-colors"
+                          >
+                            <Eye className="w-3.5 h-3.5" />
+                          </Link>
+
+                          <a
+                            href={video.youtubeUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            title="Open on YouTube"
+                            className="p-2 text-[#101114] hover:text-[#e20b16] hover:bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl transition-colors"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+
+                          <button
+                            onClick={() => handleDeleteLocal(vId, video.title)}
+                            title="Remove Local Record (Does not delete on YouTube)"
+                            className="p-2 text-[#6b7280] hover:text-[#e20b16] hover:bg-red-50 border border-transparent hover:border-red-200 rounded-xl transition-colors cursor-pointer"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -493,55 +497,56 @@ export default function AdminVideoManager() {
 
       {/* 5. ADD YOUTUBE VIDEO BY URL MODAL */}
       {addModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs animate-in fade-in duration-200">
-          <div className="relative max-w-lg w-full bg-white border border-[var(--line)] rounded-[20px] p-6 sm:p-7 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-[var(--line)]">
-              <h3 className="text-base font-black uppercase text-[var(--ink)] font-display flex items-center gap-2">
-                <Plus className="w-4 h-4 text-[var(--r)]" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
+          <div className="relative max-w-lg w-full bg-white border border-[#e7e9ee] rounded-[22px] p-6 sm:p-7 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-[#e7e9ee]">
+              <h3 className="text-base font-serif font-bold text-[#101114] flex items-center gap-2">
+                <Plus className="w-4 h-4 text-[#e20b16]" />
                 Add YouTube Video by URL
               </h3>
               <button
                 onClick={() => setAddModalOpen(false)}
-                className="p-1.5 text-[var(--muted)] hover:text-[var(--ink)] rounded-full cursor-pointer"
+                className="p-1.5 rounded-xl text-[#6b7280] hover:text-[#101114] hover:bg-[#f6f7f9] cursor-pointer"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
-            <p className="text-xs text-[var(--muted)] leading-relaxed">
-              Paste a YouTube video URL (e.g. <span className="font-mono text-[var(--ink)]">https://www.youtube.com/watch?v=...</span>) to extract metadata and publish it to the website.
+            <p className="text-xs text-[#6b7280] leading-relaxed">
+              Paste a YouTube video URL (e.g. <span className="font-mono text-[#101114]">https://www.youtube.com/watch?v=...</span>) to extract metadata and publish it to the website.
             </p>
 
             {/* URL Input Form */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2.5">
               <input
                 type="text"
                 value={pastedUrl}
                 onChange={(e) => setPastedUrl(e.target.value)}
-                placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                className="w-full bg-[var(--soft)] border border-[var(--line)] px-4 py-2.5 text-xs text-[var(--ink)] focus:outline-none focus:border-[var(--r)] rounded-[12px]"
+                placeholder="https://www.youtube.com/watch?v=..."
+                className="w-full bg-[#f6f7f9] border border-[#d5d9e0] px-4 py-2.5 text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] rounded-xl"
               />
               <button
                 type="button"
                 onClick={handleFetchUrl}
                 disabled={isFetchingUrl || !pastedUrl.trim()}
-                className="px-4 py-2.5 bg-[var(--r)] hover:bg-[var(--r-dark)] text-white text-xs font-bold uppercase tracking-wider rounded-[12px] transition-all shrink-0 disabled:opacity-50 cursor-pointer shadow-xs"
+                className="px-5 py-2.5 bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shrink-0 disabled:opacity-50 cursor-pointer shadow-xs"
               >
-                {isFetchingUrl ? "Fetching..." : "Fetch Video"}
+                {isFetchingUrl ? "Fetching..." : "Fetch"}
               </button>
             </div>
 
             {fetchError && (
-              <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-[10px]">
-                {fetchError}
+              <div className="p-3 bg-red-50 border border-red-200 text-red-900 text-xs rounded-xl flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0 text-[#e20b16]" />
+                <span>{fetchError}</span>
               </div>
             )}
 
             {/* Fetched Preview */}
             {fetchedVideo && (
-              <div className="p-4 bg-[var(--soft)] border border-[var(--line)] rounded-[16px] space-y-3 animate-in zoom-in-95 duration-150">
+              <div className="p-4 bg-[#f6f7f9] border border-[#e7e9ee] rounded-[16px] space-y-3 animate-in zoom-in-95 duration-150">
                 <div className="flex items-start gap-3">
-                  <div className="relative w-24 aspect-[16/10] bg-gray-200 rounded-[8px] overflow-hidden shrink-0 border border-[var(--line)]">
+                  <div className="relative w-24 aspect-[16/10] bg-gray-200 rounded-xl overflow-hidden shrink-0 border border-[#e7e9ee]">
                     <Image
                       src={fetchedVideo.thumbnail || ""}
                       alt={fetchedVideo.title || "Video Preview"}
@@ -550,24 +555,24 @@ export default function AdminVideoManager() {
                     />
                   </div>
                   <div className="space-y-1">
-                    <div className="text-xs font-bold text-[var(--ink)] leading-tight">
+                    <div className="text-xs font-bold text-[#101114] leading-tight font-sans">
                       {fetchedVideo.title}
                     </div>
-                    <div className="text-[11px] text-[var(--muted)]">
+                    <div className="text-[11px] text-[#6b7280]">
                       Duration: {fetchedVideo.duration} • ID: {fetchedVideo.youtubeVideoId}
                     </div>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 pt-2 border-t border-[var(--line)]">
+                <div className="grid grid-cols-2 gap-3 pt-2 border-t border-[#e7e9ee]">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase text-[var(--ink)] mb-1">
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-[#101114] mb-1">
                       Website Category
                     </label>
                     <select
                       value={manualCategory}
                       onChange={(e) => setManualCategory(e.target.value as VideoCategory)}
-                      className="w-full bg-white border border-[var(--line)] px-2.5 py-1.5 text-xs text-[var(--ink)] rounded-[8px] focus:outline-none focus:border-[var(--r)]"
+                      className="w-full bg-white border border-[#d5d9e0] px-3 py-1.5 text-xs text-[#101114] font-bold rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e20b16] cursor-pointer"
                     >
                       {categoriesList.map((cat) => (
                         <option key={cat} value={cat}>
@@ -578,16 +583,16 @@ export default function AdminVideoManager() {
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-bold uppercase text-[var(--ink)] mb-1">
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-[#101114] mb-1">
                       Website Visibility
                     </label>
                     <button
                       type="button"
                       onClick={() => setManualPublish(!manualPublish)}
-                      className={`w-full py-1.5 text-xs font-bold uppercase tracking-wider rounded-[8px] border transition-colors cursor-pointer ${
+                      className={`w-full py-1.5 text-xs font-bold uppercase tracking-wider rounded-xl border transition-colors cursor-pointer ${
                         manualPublish
-                          ? "bg-[var(--r)] text-white border-[var(--r)]"
-                          : "bg-gray-200 text-gray-700 border-gray-300"
+                          ? "bg-[#e20b16] text-white border-[#e20b16]"
+                          : "bg-white text-[#6b7280] border-[#d5d9e0]"
                       }`}
                     >
                       {manualPublish ? "Published" : "Hidden (Draft)"}
@@ -597,11 +602,11 @@ export default function AdminVideoManager() {
               </div>
             )}
 
-            <div className="pt-3 flex items-center justify-end gap-2 border-t border-[var(--line)]">
+            <div className="pt-3 flex items-center justify-end gap-2 border-t border-[#e7e9ee]">
               <button
                 type="button"
                 onClick={() => setAddModalOpen(false)}
-                className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold uppercase tracking-wider rounded-[10px] transition-colors cursor-pointer"
+                className="px-4 py-2 bg-white hover:bg-[#f6f7f9] text-[#101114] border border-[#d5d9e0] text-xs font-bold uppercase tracking-wider rounded-xl transition-colors cursor-pointer"
               >
                 Cancel
               </button>
@@ -609,7 +614,7 @@ export default function AdminVideoManager() {
                 type="button"
                 onClick={handleSaveManualVideo}
                 disabled={!fetchedVideo}
-                className="px-5 py-2 bg-[var(--r)] hover:bg-[var(--r-dark)] text-white text-xs font-bold uppercase tracking-wider rounded-[10px] transition-all disabled:opacity-50 cursor-pointer shadow-xs"
+                className="px-5 py-2 bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all disabled:opacity-50 cursor-pointer shadow-xs"
               >
                 Publish To Website
               </button>

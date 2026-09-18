@@ -200,12 +200,12 @@ function SectionsManager() {
   return (
     <div className="space-y-6 animate-in fade-in">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e9ee] pb-5">
         <div>
-          <h1 className="text-2xl font-black text-[#101114] tracking-tight">
+          <h1 className="text-2xl font-serif font-bold text-[#101114] tracking-tight">
             Page Section Manager
           </h1>
-          <p className="text-xs text-gray-500 mt-1">
+          <p className="text-xs text-[#6b7280] mt-1">
             Reorder, toggle visibility, and configure dynamic content modules on your pages.
           </p>
         </div>
@@ -213,7 +213,7 @@ function SectionsManager() {
         <button
           onClick={() => setAddModalOpen(true)}
           disabled={!selectedPageId}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>Add Section</span>
@@ -221,54 +221,54 @@ function SectionsManager() {
       </div>
 
       {/* Page Selector Bar */}
-      <div className="bg-white p-4 rounded-2xl border border-[#e5e7eb] shadow-xs flex flex-col sm:flex-row items-center justify-between gap-3">
-        <div className="flex items-center gap-2 w-full sm:w-auto">
-          <span className="text-xs font-bold text-gray-700">Select Page:</span>
+      <div className="bg-white p-5 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-3 w-full sm:w-auto">
+          <span className="text-xs font-bold text-[#101114] uppercase tracking-wider">Select Page:</span>
           <select
             value={selectedPageId}
             onChange={(e) => setSelectedPageId(e.target.value)}
-            className="px-3.5 py-2 rounded-xl border border-gray-200 text-xs bg-white text-gray-900 font-bold focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+            className="px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] cursor-pointer"
           >
             {pages.map((p) => (
-              <option key={p.id} value={p.id}>
+              <option key={p.id || p._id} value={p.id || p._id}>
                 {p.title} (/{p.slug === "home" ? "" : p.slug})
               </option>
             ))}
           </select>
         </div>
 
-        <div className="text-xs text-gray-500">
-          Showing <span className="font-bold text-gray-900">{sections.length}</span> configured sections
+        <div className="text-xs text-[#6b7280] font-medium">
+          Showing <span className="font-bold text-[#101114]">{sections.length}</span> configured sections
         </div>
       </div>
 
       {/* Sections List */}
-      <div className="bg-white rounded-2xl border border-[#e5e7eb] shadow-xs overflow-hidden">
+      <div className="bg-white rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] overflow-hidden">
         {isLoading ? (
-          <div className="py-16 text-center text-gray-500 text-xs flex flex-col items-center gap-2">
+          <div className="py-16 text-center text-[#6b7280] text-xs flex flex-col items-center gap-2">
             <Loader2 className="w-6 h-6 animate-spin text-[#e20b16]" />
             <span>Loading sections...</span>
           </div>
         ) : sections.length === 0 ? (
-          <div className="py-16 text-center text-gray-400 text-xs">
+          <div className="py-16 text-center text-[#6b7280] text-xs">
             No sections configured for this page yet. Click &quot;Add Section&quot; above to create one.
           </div>
         ) : (
-          <div className="divide-y divide-gray-100">
+          <div className="divide-y divide-[#e7e9ee]">
             {sections.map((sec, idx) => (
               <div
-                key={sec.id}
-                className={`p-4 flex items-center justify-between gap-4 transition-colors ${
-                  sec.isVisible ? "hover:bg-gray-50/60" : "bg-gray-50/40 opacity-60"
+                key={sec.id || sec._id}
+                className={`p-4 sm:p-5 flex items-center justify-between gap-4 transition-colors ${
+                  sec.isVisible ? "hover:bg-[#f6f7f9]/60" : "bg-[#f6f7f9]/40 opacity-60"
                 }`}
               >
                 {/* Left: Reorder arrows + Order badge + Title */}
-                <div className="flex items-center gap-3 min-w-0">
+                <div className="flex items-center gap-3.5 min-w-0">
                   <div className="flex flex-col gap-1">
                     <button
                       onClick={() => handleMove(idx, "up")}
                       disabled={idx === 0}
-                      className="p-1 rounded text-gray-400 hover:text-black disabled:opacity-20 hover:bg-gray-200 transition-colors"
+                      className="p-1 rounded-lg text-[#6b7280] hover:text-[#101114] disabled:opacity-20 hover:bg-[#e7e9ee] transition-colors cursor-pointer"
                       title="Move Up"
                     >
                       <ArrowUp className="w-3.5 h-3.5" />
@@ -276,28 +276,28 @@ function SectionsManager() {
                     <button
                       onClick={() => handleMove(idx, "down")}
                       disabled={idx === sections.length - 1}
-                      className="p-1 rounded text-gray-400 hover:text-black disabled:opacity-20 hover:bg-gray-200 transition-colors"
+                      className="p-1 rounded-lg text-[#6b7280] hover:text-[#101114] disabled:opacity-20 hover:bg-[#e7e9ee] transition-colors cursor-pointer"
                       title="Move Down"
                     >
                       <ArrowDown className="w-3.5 h-3.5" />
                     </button>
                   </div>
 
-                  <div className="w-7 h-7 rounded-lg bg-gray-100 font-mono text-xs font-bold flex items-center justify-center text-gray-700 shrink-0">
+                  <div className="w-8 h-8 rounded-xl bg-[#f6f7f9] border border-[#d5d9e0] font-mono text-xs font-bold flex items-center justify-center text-[#101114] shrink-0">
                     {sec.order}
                   </div>
 
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded-md bg-gray-900 text-white font-mono text-[9px] font-bold uppercase tracking-wider">
+                      <span className="px-2 py-0.5 rounded-md bg-[#101114] text-white font-mono text-[9px] font-bold uppercase tracking-wider">
                         {sec.type}
                       </span>
-                      <span className="font-bold text-xs text-gray-900 truncate">
+                      <span className="font-bold text-xs text-[#101114] truncate font-sans">
                         {sec.title || "(Untitled Section)"}
                       </span>
                     </div>
                     {sec.subtitle && (
-                      <p className="text-[11px] text-gray-500 truncate mt-0.5">
+                      <p className="text-[11px] text-[#6b7280] truncate mt-0.5">
                         {sec.subtitle}
                       </p>
                     )}
@@ -307,20 +307,20 @@ function SectionsManager() {
                 {/* Right: Actions */}
                 <div className="flex items-center gap-2 shrink-0">
                   <button
-                    onClick={() => handleToggleVisibility(sec.id, sec.isVisible)}
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+                    onClick={() => handleToggleVisibility(sec.id || sec._id, sec.isVisible)}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
                       sec.isVisible
-                        ? "bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
-                        : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+                        ? "bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100"
+                        : "bg-[#f6f7f9] text-[#6b7280] border border-[#d5d9e0] hover:bg-[#e7e9ee]"
                     }`}
                   >
-                    {sec.isVisible ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+                    {sec.isVisible ? <Eye className="w-3.5 h-3.5 text-emerald-600" /> : <EyeOff className="w-3.5 h-3.5 text-[#6b7280]" />}
                     <span>{sec.isVisible ? "Visible" : "Hidden"}</span>
                   </button>
 
                   <button
-                    onClick={() => handleDelete(sec.id)}
-                    className="p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
+                    onClick={() => handleDelete(sec.id || sec._id)}
+                    className="p-2 rounded-xl text-[#6b7280] hover:text-[#e20b16] hover:bg-red-50 transition-colors cursor-pointer"
                     title="Delete Section"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -335,14 +335,14 @@ function SectionsManager() {
       {/* Add Section Modal */}
       {addModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-gray-200 animate-in zoom-in-95 space-y-4">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-              <h3 className="text-sm font-black uppercase tracking-wider text-gray-900">
+          <div className="bg-white rounded-[22px] max-w-lg w-full p-6 sm:p-7 shadow-2xl border border-[#e7e9ee] animate-in zoom-in-95 space-y-4">
+            <div className="flex items-center justify-between border-b border-[#e7e9ee] pb-3">
+              <h3 className="text-base font-serif font-bold text-[#101114]">
                 Add Section to Page
               </h3>
               <button
                 onClick={() => setAddModalOpen(false)}
-                className="p-1 rounded-lg text-gray-400 hover:text-black"
+                className="p-1.5 rounded-xl text-[#6b7280] hover:text-[#101114] hover:bg-[#f6f7f9] cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -350,11 +350,11 @@ function SectionsManager() {
 
             <form onSubmit={handleAddSection} className="space-y-4 text-xs">
               <div>
-                <label className="block font-bold text-gray-700 mb-1">Section Type *</label>
+                <label className="block font-bold text-[#101114] mb-1.5">Section Type *</label>
                 <select
                   value={newSection.type}
                   onChange={(e) => setNewSection({ ...newSection, type: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-gray-900 font-bold focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] cursor-pointer"
                 >
                   {SECTION_TYPES.map((t) => (
                     <option key={t.value} value={t.value}>
@@ -365,50 +365,50 @@ function SectionsManager() {
               </div>
 
               <div>
-                <label className="block font-bold text-gray-700 mb-1">Heading / Title</label>
+                <label className="block font-bold text-[#101114] mb-1.5">Heading / Title</label>
                 <input
                   type="text"
                   value={newSection.title}
                   onChange={(e) => setNewSection({ ...newSection, title: e.target.value })}
                   placeholder="e.g. Modern. Affordable. Built For Life."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-gray-700 mb-1">Subtitle</label>
+                <label className="block font-bold text-[#101114] mb-1.5">Subtitle</label>
                 <input
                   type="text"
                   value={newSection.subtitle}
                   onChange={(e) => setNewSection({ ...newSection, subtitle: e.target.value })}
                   placeholder="e.g. Explore factory-built homes with premium finishes."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-gray-700 mb-1">Config Content (Optional JSON / Text)</label>
+                <label className="block font-bold text-[#101114] mb-1.5">Config Content (Optional JSON / Text)</label>
                 <textarea
                   rows={4}
                   value={newSection.content}
                   onChange={(e) => setNewSection({ ...newSection, content: e.target.value })}
                   placeholder="Enter JSON config or additional rich text payload..."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 font-mono text-[11px] text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] font-mono text-[11px] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
-              <div className="pt-2 flex justify-end gap-2 border-t border-gray-100">
+              <div className="pt-3 flex justify-end gap-2 border-t border-[#e7e9ee]">
                 <button
                   type="button"
                   onClick={() => setAddModalOpen(false)}
-                  className="px-4 py-2 rounded-xl text-gray-600 font-bold hover:bg-gray-100"
+                  className="px-4 py-2.5 rounded-xl text-[#101114] font-bold hover:bg-[#f6f7f9] border border-[#d5d9e0] cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isAdding}
-                  className="px-5 py-2 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white font-bold disabled:opacity-50 flex items-center gap-1.5"
+                  className="px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white font-bold disabled:opacity-50 flex items-center gap-1.5 cursor-pointer shadow-xs"
                 >
                   {isAdding && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   <span>Add Section</span>
@@ -424,7 +424,7 @@ function SectionsManager() {
 
 export default function AdminSectionsPage() {
   return (
-    <Suspense fallback={<div className="py-16 text-center text-gray-400 text-xs">Loading sections manager...</div>}>
+    <Suspense fallback={<div className="py-16 text-center text-[#6b7280] text-xs">Loading sections manager...</div>}>
       <SectionsManager />
     </Suspense>
   );

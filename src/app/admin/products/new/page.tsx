@@ -8,11 +8,8 @@ import {
   Save,
   Loader2,
   AlertCircle,
-  CheckCircle2,
   Search,
-  Sparkles,
-  Home,
-  Image as ImageIcon,
+  ImageIcon,
   FolderOpen,
 } from "lucide-react";
 
@@ -27,7 +24,7 @@ export default function AdminNewProductPage() {
     slug: "",
     tagline: "",
     description: "",
-    category: "Modular Homes",
+    category: "Residential",
     series: "Signature Luxury Series",
     architecturalStyle: "Modern Architectural",
     sqft: 1500,
@@ -115,19 +112,19 @@ export default function AdminNewProductPage() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6 animate-in fade-in pb-12">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e9ee] pb-5">
         <div className="flex items-center gap-3">
           <Link
             href="/admin/products"
-            className="p-2 rounded-xl text-gray-600 hover:text-black hover:bg-gray-100 transition-colors"
+            className="p-2.5 rounded-xl border border-[#d5d9e0] bg-white text-[#101114] hover:bg-[#f6f7f9] transition-all shadow-2xs"
           >
             <ArrowLeft className="w-5 h-5" />
           </Link>
           <div>
-            <h1 className="text-2xl font-black text-[#101114] tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#101114] font-serif">
               Create New Home Model
             </h1>
-            <p className="text-xs text-gray-500 mt-0.5">
+            <p className="text-xs sm:text-sm text-[#6b7280] mt-0.5 font-medium">
               Add a new modular home or building model to the catalog database.
             </p>
           </div>
@@ -136,7 +133,7 @@ export default function AdminNewProductPage() {
         <button
           type="submit"
           disabled={isSaving}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
         >
           {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
           <span>Create Model</span>
@@ -145,7 +142,7 @@ export default function AdminNewProductPage() {
 
       {error && (
         <div className="p-4 rounded-xl bg-red-50 text-red-800 border border-red-200 text-xs font-semibold flex items-center gap-2">
-          <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
+          <AlertCircle className="w-4 h-4 shrink-0 text-[#e20b16]" />
           <span>{error}</span>
         </div>
       )}
@@ -154,45 +151,46 @@ export default function AdminNewProductPage() {
         {/* Left 2 Columns */}
         <div className="lg:col-span-2 space-y-6">
           {/* General Information */}
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
               Model Identification & Pricing
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Model Name *</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Model Name *</label>
                 <input
                   type="text"
                   required
                   value={form.name}
                   onChange={(e) => handleNameChange(e.target.value)}
-                  placeholder="e.g. The Aspen"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  placeholder="e.g. Apex 2400 Steel Villa"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Slug / URL Identifier *</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Slug / URL Identifier *</label>
                 <input
                   type="text"
                   required
                   value={form.slug}
                   onChange={(e) => setForm({ ...form, slug: e.target.value })}
-                  placeholder="the-aspen"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs font-mono text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  placeholder="apex-2400"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Category</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Category</label>
                 <select
                   value={form.category}
                   onChange={(e) => setForm({ ...form, category: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 >
+                  <option value="Residential">Residential</option>
                   <option value="Modular Homes">Modular Homes</option>
                   <option value="Prefab Homes">Prefab Homes</option>
                   <option value="Barndominiums">Barndominiums</option>
@@ -206,123 +204,123 @@ export default function AdminNewProductPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Starting Price ($) *</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Starting Price ($) *</label>
                 <input
                   type="number"
                   required
                   value={form.startingPrice}
                   onChange={(e) => setForm({ ...form, startingPrice: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 font-bold focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold font-serif focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Square Footage (Sq Ft)</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Square Footage (Sq Ft)</label>
                 <input
                   type="number"
                   value={form.sqft}
                   onChange={(e) => setForm({ ...form, sqft: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">Tagline</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">Tagline</label>
               <input
                 type="text"
                 value={form.tagline}
                 onChange={(e) => setForm({ ...form, tagline: e.target.value })}
-                placeholder="e.g. Modern Scandinavian-inspired open plan residence."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                placeholder="e.g. Flagship 3-Bedroom Single Story Steel Residence"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">Full Description</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">Full Description</label>
               <textarea
                 rows={4}
                 value={form.description}
                 onChange={(e) => setForm({ ...form, description: e.target.value })}
-                placeholder="Describe architectural features, layouts, engineering, and craftsmanship..."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                placeholder="Describe architectural features, engineering tolerances, layouts, and energy ratings..."
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
           </div>
 
           {/* Specifications Grid */}
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
               Room Dimensions & Structural Specs
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Bedrooms</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Bedrooms</label>
                 <input
                   type="number"
                   value={form.bedrooms}
                   onChange={(e) => setForm({ ...form, bedrooms: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Bathrooms</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Bathrooms</label>
                 <input
                   type="number"
                   value={form.bathrooms}
                   onChange={(e) => setForm({ ...form, bathrooms: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Stories / Levels</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Stories / Levels</label>
                 <input
                   type="number"
                   value={form.stories}
                   onChange={(e) => setForm({ ...form, stories: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Dimensions</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Dimensions</label>
                 <input
                   type="text"
                   value={form.dimensions}
                   onChange={(e) => setForm({ ...form, dimensions: e.target.value })}
-                  placeholder="30' x 40'"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  placeholder="60' x 40'"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">Frame Engineering</label>
+                <label className="block text-xs font-bold text-[#101114] mb-1.5">Frame Engineering</label>
                 <input
                   type="text"
                   value={form.frameType}
                   onChange={(e) => setForm({ ...form, frameType: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
                 />
               </div>
             </div>
           </div>
 
           {/* SEO Metadata Box */}
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
               <Search className="w-4 h-4 text-[#e20b16]" />
               <span>Product SEO Metadata</span>
             </div>
 
             <div>
-              <div className="flex justify-between items-center mb-1">
-                <label className="text-xs font-bold text-gray-700">SEO Title</label>
-                <span className={`text-[10px] ${form.seoTitle?.length > 60 ? "text-amber-600 font-bold" : "text-gray-400"}`}>
+              <div className="flex justify-between items-center mb-1.5">
+                <label className="text-xs font-bold text-[#101114]">SEO Title</label>
+                <span className={`text-[10px] ${form.seoTitle?.length > 60 ? "text-amber-600 font-bold" : "text-[#6b7280]"}`}>
                   {form.seoTitle?.length || 0} / 60 chars
                 </span>
               </div>
@@ -330,14 +328,14 @@ export default function AdminNewProductPage() {
                 type="text"
                 value={form.seoTitle}
                 onChange={(e) => setForm({ ...form, seoTitle: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
 
             <div>
-              <div className="flex justify-between items-center mb-1">
-                <label className="text-xs font-bold text-gray-700">Meta Description</label>
-                <span className={`text-[10px] ${form.metaDescription?.length > 160 ? "text-amber-600 font-bold" : "text-gray-400"}`}>
+              <div className="flex justify-between items-center mb-1.5">
+                <label className="text-xs font-bold text-[#101114]">Meta Description</label>
+                <span className={`text-[10px] ${form.metaDescription?.length > 160 ? "text-amber-600 font-bold" : "text-[#6b7280]"}`}>
                   {form.metaDescription?.length || 0} / 160 chars
                 </span>
               </div>
@@ -345,7 +343,7 @@ export default function AdminNewProductPage() {
                 rows={2}
                 value={form.metaDescription}
                 onChange={(e) => setForm({ ...form, metaDescription: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
           </div>
@@ -354,92 +352,95 @@ export default function AdminNewProductPage() {
         {/* Right 1 Column */}
         <div className="space-y-6">
           {/* Media Links */}
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
               <ImageIcon className="w-4 h-4 text-[#e20b16]" />
               <span>Media & Visual Assets</span>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">Primary Image URL *</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">Primary Image URL *</label>
               <input
                 type="text"
                 required
                 value={form.primaryImage}
                 onChange={(e) => setForm({ ...form, primaryImage: e.target.value })}
                 placeholder="https://images.unsplash.com/..."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">Floor Plan Preview URL</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">Floor Plan Preview URL</label>
               <input
                 type="text"
                 value={form.floorPlanImage}
                 onChange={(e) => setForm({ ...form, floorPlanImage: e.target.value })}
                 placeholder="https://images.unsplash.com/..."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">YouTube Walkthrough URL</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">YouTube Walkthrough URL</label>
               <input
                 type="text"
                 value={form.videoUrl}
                 onChange={(e) => setForm({ ...form, videoUrl: e.target.value })}
                 placeholder="https://www.youtube.com/watch?v=..."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
               />
             </div>
           </div>
 
           {/* Collection Assignments */}
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
               <FolderOpen className="w-4 h-4 text-[#e20b16]" />
               <span>Assign to Collections</span>
             </div>
 
             <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
-              {collections.map((c) => (
-                <label
-                  key={c.id}
-                  className="flex items-center gap-2 text-xs text-gray-700 font-semibold cursor-pointer hover:bg-gray-50 p-1.5 rounded-lg"
-                >
-                  <input
-                    type="checkbox"
-                    checked={form.collectionIds.includes(c.id)}
-                    onChange={() => handleCollectionToggle(c.id)}
-                    className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
-                  />
-                  <span>{c.name}</span>
-                </label>
-              ))}
+              {collections.map((c) => {
+                const cId = c._id || c.id;
+                return (
+                  <label
+                    key={cId}
+                    className="flex items-center gap-2.5 text-xs text-[#101114] font-bold cursor-pointer hover:bg-[#f6f7f9] p-2 rounded-xl transition-colors"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={form.collectionIds.includes(cId)}
+                      onChange={() => handleCollectionToggle(cId)}
+                      className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
+                    />
+                    <span>{c.name}</span>
+                  </label>
+                );
+              })}
             </div>
           </div>
 
           {/* Status & Featured */}
-          <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-3">
-            <label className="flex items-center gap-2 text-xs font-bold text-gray-900 cursor-pointer">
+          <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-3">
+            <label className="flex items-center gap-2.5 text-xs font-bold text-[#101114] cursor-pointer">
               <input
                 type="checkbox"
                 checked={form.isPublished}
                 onChange={(e) => setForm({ ...form, isPublished: e.target.checked })}
                 className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
               />
-              <span>Published (Visible on Public Site)</span>
+              <span>Published (Live in Model Catalog)</span>
             </label>
 
-            <label className="flex items-center gap-2 text-xs font-bold text-gray-900 cursor-pointer">
+            <label className="flex items-center gap-2.5 text-xs font-bold text-[#101114] cursor-pointer">
               <input
                 type="checkbox"
                 checked={form.isFeatured}
                 onChange={(e) => setForm({ ...form, isFeatured: e.target.checked })}
                 className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
               />
-              <span>Featured on Homepage Carousel</span>
+              <span>Featured on Homepage Showcase</span>
             </label>
           </div>
         </div>
