@@ -13,17 +13,14 @@ import {
   FolderOpen,
   BookOpen,
   Video,
-  Search,
   Users,
   FileSpreadsheet,
-  Settings,
   LogOut,
   Menu,
   X,
   ExternalLink,
   ChevronRight,
-  ShieldAlert,
-  Sparkles,
+  ShieldCheck,
 } from "lucide-react";
 
 interface AdminUser {
@@ -77,7 +74,7 @@ export default function AdminLayout({
 
   const navSections = [
     {
-      group: "Core",
+      group: "Overview",
       items: [
         { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
       ],
@@ -87,34 +84,34 @@ export default function AdminLayout({
       items: [
         { label: "Global Settings", href: "/admin/settings", icon: Globe },
         { label: "Pages", href: "/admin/pages", icon: FileText },
-        { label: "Sections", href: "/admin/sections", icon: Layers },
+        { label: "Page Sections", href: "/admin/sections", icon: Layers },
       ],
     },
     {
-      group: "Catalog",
+      group: "Catalogue",
       items: [
-        { label: "Products / Models", href: "/admin/products", icon: Home },
+        { label: "Models & Products", href: "/admin/products", icon: Home },
         { label: "Collections", href: "/admin/collections", icon: FolderOpen },
       ],
     },
     {
       group: "Content & Media",
       items: [
-        { label: "Blogs & Guides", href: "/admin/blogs", icon: BookOpen },
-        { label: "Video Manager", href: "/admin/videos", icon: Video },
+        { label: "Blogs & Articles", href: "/admin/blogs", icon: BookOpen },
+        { label: "YouTube Manager", href: "/admin/videos", icon: Video },
       ],
     },
     {
-      group: "Phase 3 Pipeline",
+      group: "Inquiries & CRM",
       items: [
-        { label: "Leads & Inquiries", href: "/admin/leads", icon: Users },
+        { label: "Leads & Prospects", href: "/admin/leads", icon: Users },
         { label: "Quotations", href: "/admin/quotations", icon: FileSpreadsheet },
       ],
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#f3f4f7] flex text-[#101114]">
+    <div className="min-h-screen bg-[#f6f7f9] flex text-[#101114]">
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
         <div
@@ -125,24 +122,21 @@ export default function AdminLayout({
 
       {/* Sidebar Navigation */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#111317] text-white flex flex-col transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#101114] text-white flex flex-col transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Brand Header */}
-        <div className="h-16 flex items-center justify-between px-5 border-b border-white/10">
-          <Link href="/admin" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#e20b16] flex items-center justify-center font-bold text-white text-sm shadow-sm">
-              M
-            </div>
-            <div>
-              <span className="font-bold tracking-tight text-sm text-white block">
-                ModularHome
-              </span>
-              <span className="text-[10px] uppercase tracking-wider text-gray-400 block -mt-0.5">
-                Admin CMS v1.0
-              </span>
-            </div>
+        <div className="h-18 flex items-center justify-between px-5 border-b border-white/10 bg-[#0c0d10]">
+          <Link href="/admin" className="flex items-center gap-3">
+            <Image
+              src="/newlogo2.png"
+              alt="ModularHome Logo"
+              width={140}
+              height={32}
+              className="h-7 w-auto object-contain brightness-0 invert"
+              priority
+            />
           </Link>
           <button
             onClick={() => setSidebarOpen(false)}
@@ -153,10 +147,10 @@ export default function AdminLayout({
         </div>
 
         {/* Navigation Items */}
-        <div className="flex-1 overflow-y-auto py-4 px-3 space-y-6">
+        <div className="flex-1 overflow-y-auto py-5 px-3 space-y-6">
           {navSections.map((group) => (
             <div key={group.group}>
-              <div className="px-3 text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-2">
+              <div className="px-3 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400 mb-2">
                 {group.group}
               </div>
               <div className="space-y-1">
@@ -172,15 +166,15 @@ export default function AdminLayout({
                       key={item.href}
                       href={item.href}
                       onClick={() => setSidebarOpen(false)}
-                      className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
+                      className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                         isActive
-                          ? "bg-[#e20b16] text-white shadow-sm"
+                          ? "bg-[#e20b16] text-white shadow-md shadow-red-950/40"
                           : "text-gray-300 hover:text-white hover:bg-white/5"
                       }`}
                     >
                       <Icon className={`w-4 h-4 ${isActive ? "text-white" : "text-gray-400"}`} />
                       <span className="flex-1">{item.label}</span>
-                      {isActive && <ChevronRight className="w-3.5 h-3.5 opacity-60" />}
+                      {isActive && <ChevronRight className="w-3.5 h-3.5 opacity-75" />}
                     </Link>
                   );
                 })}
@@ -190,21 +184,21 @@ export default function AdminLayout({
         </div>
 
         {/* Footer Admin Info & Logout */}
-        <div className="p-3 border-t border-white/10 bg-[#0c0d10]">
-          <div className="flex items-center justify-between p-2 rounded-xl bg-white/5 border border-white/5">
+        <div className="p-3 border-t border-white/10 bg-[#0a0b0d]">
+          <div className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/5">
             <div className="min-w-0 flex-1 pr-2">
               <div className="text-xs font-bold text-white truncate">
                 {user?.name || "Administrator"}
               </div>
-              <div className="text-[10px] text-gray-400 truncate flex items-center gap-1">
+              <div className="text-[10px] text-gray-400 truncate flex items-center gap-1.5 mt-0.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
-                <span>{user?.role || "ADMIN"}</span>
+                <span className="uppercase tracking-wider font-semibold">{user?.role || "ADMIN"}</span>
               </div>
             </div>
             <button
               onClick={handleLogout}
               title="Sign Out"
-              className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-white/10 transition-colors"
+              className="p-2 rounded-lg text-gray-400 hover:text-red-400 hover:bg-white/10 transition-colors cursor-pointer"
             >
               <LogOut className="w-4 h-4" />
             </button>
@@ -215,16 +209,22 @@ export default function AdminLayout({
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Top Sticky Bar */}
-        <header className="h-16 bg-white border-b border-[#e5e7eb] sticky top-0 z-30 flex items-center justify-between px-4 sm:px-6 lg:px-8 shadow-xs">
+        <header className="h-18 bg-white border-b border-[#e7e9ee] sticky top-0 z-30 flex items-center justify-between px-4 sm:px-6 lg:px-8 shadow-[0_2px_12px_rgba(16,24,40,0.03)]">
           <div className="flex items-center gap-3">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="lg:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100"
+              className="lg:hidden p-2 rounded-xl text-gray-600 hover:bg-[#f6f7f9] border border-[#e7e9ee]"
             >
               <Menu className="w-5 h-5" />
             </button>
-            <div className="text-xs font-semibold text-gray-500 hidden sm:block">
-              Environment: <span className="text-emerald-600 font-bold">Phase 1 Database-Backed</span>
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-red-50 text-[#e20b16] border border-red-200 text-[11px] font-bold uppercase tracking-wider">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>Admin CMS</span>
+              </span>
+              <span className="text-xs text-[#6b7280] hidden md:inline font-medium">
+                • Precision Steel Modular Management
+              </span>
             </div>
           </div>
 
@@ -232,10 +232,10 @@ export default function AdminLayout({
             <Link
               href="/"
               target="_blank"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-gray-200 text-xs font-bold text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border border-[#d5d9e0] hover:bg-[#f6f7f9] text-xs font-bold text-[#101114] shadow-2xs transition-all"
             >
-              <span>View Live Site</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <span>View Live Website</span>
+              <ExternalLink className="w-3.5 h-3.5 text-[#e20b16]" />
             </Link>
           </div>
         </header>

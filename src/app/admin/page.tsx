@@ -14,11 +14,8 @@ import {
   Globe,
   Layers,
   Video,
-  Clock,
   CheckCircle2,
-  AlertCircle,
   Loader2,
-  TrendingUp,
 } from "lucide-react";
 
 export default function AdminDashboardPage() {
@@ -46,9 +43,9 @@ export default function AdminDashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-gray-500 space-y-3">
+      <div className="flex flex-col items-center justify-center py-24 text-[#6b7280] space-y-3">
         <Loader2 className="w-8 h-8 animate-spin text-[#e20b16]" />
-        <span className="text-xs font-semibold">Loading Admin Dashboard...</span>
+        <span className="text-xs font-bold uppercase tracking-wider">Loading Admin Dashboard...</span>
       </div>
     );
   }
@@ -66,89 +63,86 @@ export default function AdminDashboardPage() {
 
   const statCards = [
     {
-      label: "Products / Models",
+      label: "Home Models",
       value: metrics.totalProducts,
-      subtext: "Catalog models in database",
+      subtext: "Precision steel catalog models",
       href: "/admin/products",
       icon: Home,
-      color: "text-blue-600",
-      bg: "bg-blue-50",
+      accent: "border-l-4 border-l-[#e20b16]",
     },
     {
       label: "Collections",
       value: metrics.totalCollections,
-      subtext: "Categorized housing lines",
+      subtext: "Architectural series & groupings",
       href: "/admin/collections",
       icon: FolderOpen,
-      color: "text-indigo-600",
-      bg: "bg-indigo-50",
+      accent: "border-l-4 border-l-[#101114]",
     },
     {
       label: "Core Pages",
       value: metrics.totalPages,
-      subtext: "Editable CMS pages",
+      subtext: "Dynamic editable CMS pages",
       href: "/admin/pages",
       icon: FileText,
-      color: "text-amber-600",
-      bg: "bg-amber-50",
+      accent: "border-l-4 border-l-amber-600",
     },
     {
-      label: "Published Blogs",
+      label: "Articles & Guides",
       value: metrics.publishedBlogs,
-      subtext: "Educational articles & guides",
+      subtext: "Published construction articles",
       href: "/admin/blogs",
       icon: BookOpen,
-      color: "text-emerald-600",
-      bg: "bg-emerald-50",
+      accent: "border-l-4 border-l-emerald-600",
     },
     {
-      label: "Total Leads",
+      label: "Inbound Leads",
       value: metrics.totalLeads,
       subtext: `${metrics.newLeads} new unread inquiries`,
       href: "/admin/leads",
       icon: Users,
-      color: "text-rose-600",
-      bg: "bg-rose-50",
+      accent: "border-l-4 border-l-[#e20b16]",
     },
     {
-      label: "Quotations",
+      label: "Quote Requests",
       value: metrics.totalQuotations,
       subtext: `${metrics.pendingQuotations} pending review`,
       href: "/admin/quotations",
       icon: FileSpreadsheet,
-      color: "text-purple-600",
-      bg: "bg-purple-50",
+      accent: "border-l-4 border-l-indigo-600",
     },
   ];
 
   return (
     <div className="space-y-8 animate-in fade-in">
-      {/* Header Banner */}
-      <div className="bg-gradient-to-r from-[#101114] to-[#1c1e24] rounded-2xl p-6 sm:p-8 text-white shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-white/10">
-        <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-            <CheckCircle2 className="w-3.5 h-3.5" />
-            <span>Phase 1 CMS Active</span>
+      {/* Header Banner with Original Brand Aesthetic */}
+      <div className="bg-[#101114] rounded-[18px] p-6 sm:p-8 text-white shadow-[0_12px_35px_rgba(16,24,40,0.1)] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-white/10 relative overflow-hidden">
+        {/* Subtle accent glow */}
+        <div className="absolute right-0 top-0 w-80 h-80 bg-red-600/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="space-y-2 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 text-red-300 text-xs font-bold uppercase tracking-wider">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#e20b16]" />
+            <span>ModularHome CMS Online</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-            ModularHome Control Center
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-serif">
+            Management Control Center
           </h1>
-          <p className="text-xs sm:text-sm text-gray-300 max-w-xl">
-            Manage your global branding, catalog products, collections, pages, sections, blogs, and customer inquiries from one central hub.
+          <p className="text-xs sm:text-sm text-gray-300 max-w-xl font-medium">
+            Oversee your precision steel models, global branding, architectural series, custom pages, and customer quotation pipeline.
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-2.5 shrink-0">
+        <div className="flex flex-wrap gap-3 shrink-0 relative z-10">
           <Link
             href="/admin/products/new"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
           >
             <Plus className="w-4 h-4" />
-            <span>New Product</span>
+            <span>Add New Model</span>
           </Link>
           <Link
             href="/admin/settings"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider border border-white/10 transition-all"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider border border-white/10 transition-all"
           >
             <Globe className="w-4 h-4" />
             <span>Settings</span>
@@ -164,24 +158,24 @@ export default function AdminDashboardPage() {
             <Link
               key={card.label}
               href={card.href}
-              className="bg-white p-5 rounded-2xl border border-[#e5e7eb] shadow-xs hover:shadow-md hover:border-gray-300 transition-all group relative overflow-hidden"
+              className={`bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] hover:shadow-[0_16px_40px_rgba(16,24,40,0.08)] hover:border-[#d5d9e0] transition-all group relative overflow-hidden ${card.accent}`}
             >
               <div className="flex items-start justify-between">
-                <div className={`p-3 rounded-xl ${card.bg} ${card.color}`}>
-                  <Icon className="w-6 h-6" />
+                <div className="p-3 rounded-xl bg-[#f6f7f9] text-[#101114] border border-[#e7e9ee] group-hover:bg-red-50 group-hover:text-[#e20b16] transition-colors">
+                  <Icon className="w-5 h-5" />
                 </div>
-                <div className="p-1 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+                <div className="p-1 text-[#6b7280] group-hover:text-[#e20b16] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
               <div className="mt-4">
-                <div className="text-3xl font-black text-[#101114] tracking-tight">
+                <div className="text-3xl font-black text-[#101114] tracking-tight font-serif">
                   {card.value}
                 </div>
-                <div className="text-xs font-bold text-gray-700 mt-1 uppercase tracking-wider">
+                <div className="text-xs font-bold text-[#101114] mt-1 uppercase tracking-wider">
                   {card.label}
                 </div>
-                <div className="text-[11px] text-gray-500 mt-0.5">
+                <div className="text-[11px] text-[#6b7280] mt-0.5 font-medium">
                   {card.subtext}
                 </div>
               </div>
@@ -191,51 +185,51 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Quick Access Section Links */}
-      <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs">
-        <h2 className="text-sm font-black uppercase tracking-wider text-[#101114] mb-4">
-          Quick Management Shortcuts
+      <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)]">
+        <h2 className="text-base font-bold tracking-tight text-[#101114] font-serif mb-4">
+          Quick Management Navigation
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
           <Link
             href="/admin/settings"
-            className="p-3.5 rounded-xl bg-gray-50 hover:bg-gray-100 text-center text-xs font-bold text-gray-800 transition-colors border border-gray-100 flex flex-col items-center gap-2"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
-            <Globe className="w-5 h-5 text-gray-600" />
+            <Globe className="w-5 h-5" />
             <span>Global Settings</span>
           </Link>
           <Link
             href="/admin/sections"
-            className="p-3.5 rounded-xl bg-gray-50 hover:bg-gray-100 text-center text-xs font-bold text-gray-800 transition-colors border border-gray-100 flex flex-col items-center gap-2"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
-            <Layers className="w-5 h-5 text-gray-600" />
+            <Layers className="w-5 h-5" />
             <span>Page Sections</span>
           </Link>
           <Link
             href="/admin/products"
-            className="p-3.5 rounded-xl bg-gray-50 hover:bg-gray-100 text-center text-xs font-bold text-gray-800 transition-colors border border-gray-100 flex flex-col items-center gap-2"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
-            <Home className="w-5 h-5 text-gray-600" />
+            <Home className="w-5 h-5" />
             <span>Home Models</span>
           </Link>
           <Link
             href="/admin/collections"
-            className="p-3.5 rounded-xl bg-gray-50 hover:bg-gray-100 text-center text-xs font-bold text-gray-800 transition-colors border border-gray-100 flex flex-col items-center gap-2"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
-            <FolderOpen className="w-5 h-5 text-gray-600" />
+            <FolderOpen className="w-5 h-5" />
             <span>Collections</span>
           </Link>
           <Link
             href="/admin/blogs"
-            className="p-3.5 rounded-xl bg-gray-50 hover:bg-gray-100 text-center text-xs font-bold text-gray-800 transition-colors border border-gray-100 flex flex-col items-center gap-2"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
-            <BookOpen className="w-5 h-5 text-gray-600" />
+            <BookOpen className="w-5 h-5" />
             <span>Blog Articles</span>
           </Link>
           <Link
             href="/admin/videos"
-            className="p-3.5 rounded-xl bg-gray-50 hover:bg-gray-100 text-center text-xs font-bold text-gray-800 transition-colors border border-gray-100 flex flex-col items-center gap-2"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
-            <Video className="w-5 h-5 text-gray-600" />
+            <Video className="w-5 h-5" />
             <span>YouTube Sync</span>
           </Link>
         </div>
@@ -244,13 +238,13 @@ export default function AdminDashboardPage() {
       {/* Two Column Grid: Recent Leads & Recent Quotes */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Leads */}
-        <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-          <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+        <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+          <div className="flex items-center justify-between border-b border-[#e7e9ee] pb-3.5">
             <div>
-              <h3 className="text-sm font-black uppercase tracking-wider text-[#101114]">
+              <h3 className="text-base font-bold tracking-tight text-[#101114] font-serif">
                 Recent Inquiries & Leads
               </h3>
-              <p className="text-[11px] text-gray-500">Intake from contact form & AI chat</p>
+              <p className="text-xs text-[#6b7280]">Intake from contact form, chat & floor plan uploads</p>
             </div>
             <Link
               href="/admin/leads"
@@ -264,37 +258,37 @@ export default function AdminDashboardPage() {
             {data?.recentLeads?.length > 0 ? (
               data.recentLeads.map((lead: any) => (
                 <div
-                  key={lead.id}
-                  className="p-3 rounded-xl bg-gray-50 border border-gray-100 flex items-start justify-between gap-3 text-xs"
+                  key={lead._id || lead.id}
+                  className="p-3.5 rounded-xl bg-[#f6f7f9] border border-[#e7e9ee] flex items-start justify-between gap-3 text-xs"
                 >
                   <div>
-                    <div className="font-bold text-gray-900">{lead.name}</div>
-                    <div className="text-gray-500 text-[11px]">{lead.email} {lead.phone && `• ${lead.phone}`}</div>
+                    <div className="font-bold text-[#101114]">{lead.name}</div>
+                    <div className="text-[#6b7280] text-[11px] font-medium">{lead.email} {lead.phone && `• ${lead.phone}`}</div>
                     {lead.enquiryDetails && (
-                      <div className="text-gray-600 text-[11px] mt-1 line-clamp-1 italic">
+                      <div className="text-[#101114] text-[11px] mt-1 line-clamp-1 italic">
                         &ldquo;{lead.enquiryDetails}&rdquo;
                       </div>
                     )}
                   </div>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-emerald-100 text-emerald-700 shrink-0">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
                     {lead.status}
                   </span>
                 </div>
               ))
             ) : (
-              <div className="text-xs text-gray-400 text-center py-6">No leads recorded yet.</div>
+              <div className="text-xs text-[#6b7280] text-center py-6">No leads recorded yet.</div>
             )}
           </div>
         </div>
 
         {/* Recent Quotations */}
-        <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-          <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+        <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+          <div className="flex items-center justify-between border-b border-[#e7e9ee] pb-3.5">
             <div>
-              <h3 className="text-sm font-black uppercase tracking-wider text-[#101114]">
+              <h3 className="text-base font-bold tracking-tight text-[#101114] font-serif">
                 Recent Quote Submissions
               </h3>
-              <p className="text-[11px] text-gray-500">Calculator estimations from QuoteWizard</p>
+              <p className="text-xs text-[#6b7280]">Calculator estimations from Instant Quote Wizard</p>
             </div>
             <Link
               href="/admin/quotations"
@@ -308,12 +302,12 @@ export default function AdminDashboardPage() {
             {data?.recentQuotations?.length > 0 ? (
               data.recentQuotations.map((quote: any) => (
                 <div
-                  key={quote.id}
-                  className="p-3 rounded-xl bg-gray-50 border border-gray-100 flex items-start justify-between gap-3 text-xs"
+                  key={quote._id || quote.id}
+                  className="p-3.5 rounded-xl bg-[#f6f7f9] border border-[#e7e9ee] flex items-start justify-between gap-3 text-xs"
                 >
                   <div>
-                    <div className="font-bold text-gray-900">{quote.customerName}</div>
-                    <div className="text-gray-500 text-[11px]">
+                    <div className="font-bold text-[#101114]">{quote.customerName}</div>
+                    <div className="text-[#6b7280] text-[11px] font-medium">
                       {quote.modelName || "Custom Model"} • {quote.sqft ? `${quote.sqft} sq ft` : "Custom Size"}
                     </div>
                     {quote.estimatedAmount && (
@@ -322,13 +316,13 @@ export default function AdminDashboardPage() {
                       </div>
                     )}
                   </div>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-amber-100 text-amber-700 shrink-0">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-amber-50 text-amber-700 border border-amber-200 shrink-0">
                     {quote.status}
                   </span>
                 </div>
               ))
             ) : (
-              <div className="text-xs text-gray-400 text-center py-6">No quote requests recorded yet.</div>
+              <div className="text-xs text-[#6b7280] text-center py-6">No quote requests recorded yet.</div>
             )}
           </div>
         </div>

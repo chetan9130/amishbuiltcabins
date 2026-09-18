@@ -45,9 +45,9 @@ function LoginForm() {
   };
 
   return (
-    <div className="bg-[#14161c] py-8 px-6 sm:px-10 shadow-2xl rounded-2xl border border-white/10 backdrop-blur-xl">
+    <div className="bg-white py-8 px-6 sm:px-10 shadow-[0_12px_35px_rgba(16,24,40,0.08)] rounded-[18px] border border-[#e7e9ee]">
       {error && (
-        <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 flex items-start gap-3 text-red-400 text-xs animate-in fade-in">
+        <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 flex items-start gap-3 text-[#e20b16] text-xs animate-in fade-in font-medium">
           <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
           <span>{error}</span>
         </div>
@@ -55,11 +55,11 @@ function LoginForm() {
 
       <form className="space-y-5" onSubmit={handleSubmit}>
         <div>
-          <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+          <label className="block text-xs font-bold text-[#101114] uppercase tracking-wider mb-2">
             Administrator Email
           </label>
           <div className="relative rounded-xl shadow-xs">
-            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#6b7280]">
               <Mail className="h-4 w-4" />
             </div>
             <input
@@ -68,19 +68,19 @@ function LoginForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="admin@modularhome.com"
-              className="block w-full pl-10 pr-4 py-3 bg-[#0d0e12] border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#e20b16] focus:border-transparent transition-all"
+              className="block w-full pl-10 pr-4 py-3 bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl text-[#101114] text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#e20b16] focus:bg-white transition-all font-medium"
             />
           </div>
         </div>
 
         <div>
           <div className="flex items-center justify-between mb-2">
-            <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-[#101114] uppercase tracking-wider">
               Password
             </label>
           </div>
           <div className="relative rounded-xl shadow-xs">
-            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#6b7280]">
               <Lock className="h-4 w-4" />
             </div>
             <input
@@ -89,7 +89,7 @@ function LoginForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••••••"
-              className="block w-full pl-10 pr-4 py-3 bg-[#0d0e12] border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#e20b16] focus:border-transparent transition-all"
+              className="block w-full pl-10 pr-4 py-3 bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl text-[#101114] text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#e20b16] focus:bg-white transition-all font-medium"
             />
           </div>
         </div>
@@ -98,7 +98,7 @@ function LoginForm() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 border border-transparent rounded-xl shadow-sm text-sm font-bold text-white bg-[#e20b16] hover:bg-[#c50812] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#e20b16] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl shadow-sm text-sm font-bold text-white bg-[#e20b16] hover:bg-[#c50812] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#e20b16] disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
           >
             {isLoading ? (
               <>
@@ -115,11 +115,11 @@ function LoginForm() {
         </div>
       </form>
 
-      <div className="mt-6 pt-6 border-t border-white/10 text-center">
-        <p className="text-xs text-gray-400">
-          Default Development Credentials:
+      <div className="mt-6 pt-6 border-t border-[#e7e9ee] text-center">
+        <p className="text-xs text-[#6b7280]">
+          Development Credentials:
         </p>
-        <p className="text-xs text-gray-300 font-mono mt-1 bg-black/40 py-1 px-2 rounded-md inline-block border border-white/5">
+        <p className="text-xs text-[#101114] font-mono mt-1.5 bg-[#f6f7f9] py-1.5 px-3 rounded-lg inline-block border border-[#e7e9ee] font-bold">
           admin@modularhome.com / Admin@ModularHome2026!
         </p>
       </div>
@@ -129,37 +129,37 @@ function LoginForm() {
 
 export default function AdminLoginPage() {
   return (
-    <div className="min-h-screen bg-[#0d0e12] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden selection:bg-[#e20b16] selection:text-white">
-      {/* Subtle Background Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-red-600/10 rounded-full blur-[140px] pointer-events-none" />
+    <div className="min-h-screen bg-[#f6f7f9] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden selection:bg-[#e20b16] selection:text-white">
+      {/* Decorative top pattern */}
+      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#a0060e] via-[#e20b16] to-[#c50812]" />
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10 text-center">
         <Link href="/" className="inline-block mb-4 hover:opacity-90 transition-opacity">
-          <div className="bg-white/10 border border-white/20 p-3 rounded-2xl inline-flex items-center gap-3 backdrop-blur-md">
+          <div className="bg-white border border-[#e7e9ee] p-3 rounded-2xl inline-flex items-center gap-3 shadow-[0_12px_35px_rgba(16,24,40,0.06)]">
             <Image
               src="/newlogo2.png"
               alt="ModularHome Logo"
               width={160}
               height={36}
-              className="h-7 w-auto object-contain brightness-0 invert"
+              className="h-8 w-auto object-contain"
               priority
             />
           </div>
         </Link>
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-2">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-[#e20b16] text-xs font-bold uppercase tracking-wider mb-2">
           <ShieldCheck className="w-3.5 h-3.5" />
           <span>Secure Admin Portal</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white font-sans">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#101114] font-serif">
           Sign In to Management
         </h2>
-        <p className="mt-1.5 text-xs sm:text-sm text-gray-400">
+        <p className="mt-1.5 text-xs sm:text-sm text-[#6b7280]">
           ModularHome CMS & Production Backend Control
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md relative z-10">
-        <Suspense fallback={<div className="text-white text-center py-8">Loading login...</div>}>
+        <Suspense fallback={<div className="text-[#101114] text-center py-8 font-medium">Loading login...</div>}>
           <LoginForm />
         </Suspense>
       </div>

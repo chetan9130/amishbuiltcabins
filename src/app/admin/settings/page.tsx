@@ -9,11 +9,7 @@ import {
   AlertCircle,
   Loader2,
   Phone,
-  Mail,
-  MapPin,
   Megaphone,
-  Navigation,
-  FileText,
   Search,
   Sparkles,
   Link as LinkIcon,
@@ -96,9 +92,9 @@ export default function AdminSettingsPage() {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-gray-500 space-y-3">
+      <div className="flex flex-col items-center justify-center py-24 text-[#6b7280] space-y-3">
         <Loader2 className="w-8 h-8 animate-spin text-[#e20b16]" />
-        <span className="text-xs font-semibold">Loading Global Settings...</span>
+        <span className="text-xs font-bold uppercase tracking-wider">Loading Global Settings...</span>
       </div>
     );
   }
@@ -106,20 +102,20 @@ export default function AdminSettingsPage() {
   return (
     <form onSubmit={handleSave} className="space-y-8 animate-in fade-in pb-12">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#e7e9ee] pb-5">
         <div>
-          <h1 className="text-2xl font-black text-[#101114] tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#101114] font-serif">
             Global Website Settings
           </h1>
-          <p className="text-xs text-gray-500 mt-1">
-            Configure site-wide branding, contact info, top announcement, navigation links, and SEO defaults without modifying source code.
+          <p className="text-xs sm:text-sm text-[#6b7280] mt-1 font-medium">
+            Configure site-wide branding, direct contact info, announcement banner bar, social media links, and SEO defaults.
           </p>
         </div>
 
         <button
           type="submit"
           disabled={isSaving}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
         >
           {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
           <span>Save Settings</span>
@@ -145,32 +141,32 @@ export default function AdminSettingsPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* 1. Branding Section */}
-        <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+        <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
             <Globe className="w-4 h-4 text-[#e20b16]" />
             <span>Company Branding</span>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Company Name</label>
+            <label className="block text-xs font-bold text-[#101114] mb-1.5">Company Name</label>
             <input
               type="text"
               value={settings.companyName || ""}
               onChange={(e) => setSettings({ ...settings, companyName: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Logo Image URL</label>
+            <label className="block text-xs font-bold text-[#101114] mb-1.5">Logo Image URL</label>
             <input
               type="text"
               value={settings.logoUrl || ""}
               onChange={(e) => setSettings({ ...settings, logoUrl: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
             />
             {settings.logoUrl && (
-              <div className="mt-2 p-3 bg-gray-900 rounded-xl inline-block border border-gray-800">
+              <div className="mt-2.5 p-3 bg-[#101114] rounded-xl inline-block border border-[#e7e9ee]">
                 <Image
                   src={settings.logoUrl}
                   alt="Logo Preview"
@@ -183,62 +179,62 @@ export default function AdminSettingsPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Favicon URL</label>
+            <label className="block text-xs font-bold text-[#101114] mb-1.5">Favicon URL</label>
             <input
               type="text"
               value={settings.faviconUrl || ""}
               onChange={(e) => setSettings({ ...settings, faviconUrl: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
             />
           </div>
         </div>
 
         {/* 2. Contact Information */}
-        <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+        <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
             <Phone className="w-4 h-4 text-[#e20b16]" />
             <span>Direct Contact Information</span>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Phone Number</label>
+            <label className="block text-xs font-bold text-[#101114] mb-1.5">Phone Number</label>
             <input
               type="text"
               value={settings.phone || ""}
               onChange={(e) => setSettings({ ...settings, phone: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Public Email Address</label>
+            <label className="block text-xs font-bold text-[#101114] mb-1.5">Public Email Address</label>
             <input
               type="email"
               value={settings.email || ""}
               onChange={(e) => setSettings({ ...settings, email: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Physical Address / Headquarters</label>
+            <label className="block text-xs font-bold text-[#101114] mb-1.5">Physical Address / Headquarters</label>
             <input
               type="text"
               value={settings.address || ""}
               onChange={(e) => setSettings({ ...settings, address: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
             />
           </div>
         </div>
 
         {/* 3. Top Announcement Banner */}
-        <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-          <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900">
+        <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+          <div className="flex items-center justify-between border-b border-[#e7e9ee] pb-3">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114]">
               <Megaphone className="w-4 h-4 text-[#e20b16]" />
               <span>Announcement Top Bar</span>
             </div>
-            <label className="flex items-center gap-2 text-xs font-bold text-gray-700 cursor-pointer">
+            <label className="flex items-center gap-2 text-xs font-bold text-[#101114] cursor-pointer">
               <input
                 type="checkbox"
                 checked={!!settings.announcementEnabled}
@@ -250,37 +246,37 @@ export default function AdminSettingsPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Banner Announcement Text</label>
+            <label className="block text-xs font-bold text-[#101114] mb-1.5">Banner Announcement Text</label>
             <input
               type="text"
               value={settings.announcementText || ""}
               onChange={(e) => setSettings({ ...settings, announcementText: e.target.value })}
               placeholder="Direct Factory Modular & Prefab Home Builder • 2026 Models Released"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Banner Target Link</label>
+            <label className="block text-xs font-bold text-[#101114] mb-1.5">Banner Target Link</label>
             <input
               type="text"
               value={settings.announcementLink || ""}
               onChange={(e) => setSettings({ ...settings, announcementLink: e.target.value })}
               placeholder="/buildings"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
             />
           </div>
         </div>
 
         {/* 4. Social Media Links */}
-        <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+        <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
             <LinkIcon className="w-4 h-4 text-[#e20b16]" />
             <span>Social Media Channels</span>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Facebook URL</label>
+            <label className="block text-xs font-bold text-[#101114] mb-1.5">Facebook URL</label>
             <input
               type="text"
               value={settings.socialLinks?.facebook || ""}
@@ -291,12 +287,12 @@ export default function AdminSettingsPage() {
                 })
               }
               placeholder="https://facebook.com/modularhome"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Instagram URL</label>
+            <label className="block text-xs font-bold text-[#101114] mb-1.5">Instagram URL</label>
             <input
               type="text"
               value={settings.socialLinks?.instagram || ""}
@@ -307,12 +303,12 @@ export default function AdminSettingsPage() {
                 })
               }
               placeholder="https://instagram.com/modularhome"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">YouTube Channel URL</label>
+            <label className="block text-xs font-bold text-[#101114] mb-1.5">YouTube Channel URL</label>
             <input
               type="text"
               value={settings.socialLinks?.youtube || ""}
@@ -323,72 +319,72 @@ export default function AdminSettingsPage() {
                 })
               }
               placeholder="https://youtube.com/@modularhome"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
             />
           </div>
         </div>
 
         {/* 5. Default SEO Meta */}
-        <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4 lg:col-span-2">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+        <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4 lg:col-span-2">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
             <Search className="w-4 h-4 text-[#e20b16]" />
             <span>Default Global SEO Metadata</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">
                 Default Meta Title ({settings.defaultSeoTitle?.length || 0}/60 chars)
               </label>
               <input
                 type="text"
                 value={settings.defaultSeoTitle || ""}
                 onChange={(e) => setSettings({ ...settings, defaultSeoTitle: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">
                 Default Meta Description ({settings.defaultMetaDescription?.length || 0}/160 chars)
               </label>
               <textarea
                 rows={3}
                 value={settings.defaultMetaDescription || ""}
                 onChange={(e) => setSettings({ ...settings, defaultMetaDescription: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
               />
             </div>
           </div>
         </div>
 
         {/* 6. Main CTA Button */}
-        <div className="bg-white p-6 rounded-2xl border border-[#e5e7eb] shadow-xs space-y-4 lg:col-span-2">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-900 border-b border-gray-100 pb-3">
+        <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4 lg:col-span-2">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
             <Sparkles className="w-4 h-4 text-[#e20b16]" />
             <span>Primary Global CTA Configuration</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">CTA Button Label</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">CTA Button Label</label>
               <input
                 type="text"
                 value={settings.ctaLabel || ""}
                 onChange={(e) => setSettings({ ...settings, ctaLabel: e.target.value })}
                 placeholder="Get Your Free Quote"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">CTA Destination URL</label>
+              <label className="block text-xs font-bold text-[#101114] mb-1.5">CTA Destination URL</label>
               <input
                 type="text"
                 value={settings.ctaLink || ""}
                 onChange={(e) => setSettings({ ...settings, ctaLink: e.target.value })}
                 placeholder="/quote"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-medium"
               />
             </div>
           </div>
