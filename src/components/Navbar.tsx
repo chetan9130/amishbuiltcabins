@@ -150,39 +150,39 @@ function NavbarContent() {
       {/* ========================================================================= */}
       {/* 1. TOP ANNOUNCEMENT & UTILITY BAR (DARK SLEEK RIBBON) */}
       {/* ========================================================================= */}
-      <div className="bg-[#0f1218] text-white text-[12px] border-b border-[#1c222e] select-none">
-        <div className="wrap py-2 flex flex-col md:flex-row items-center justify-between gap-2">
+      <div className="bg-[#0f1218] text-white text-[12px] border-b border-[#1c222e] select-none w-full">
+        <div className="wrap py-1.5 sm:py-2 flex items-center justify-between gap-2">
           {/* Left: Phone & Support Email */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 text-gray-300">
+          <div className="flex items-center gap-2 sm:gap-4 text-gray-300 overflow-hidden">
             {/* Phone Number - Prominent & High Impact */}
             <a
               href="tel:+18125954033"
-              className="inline-flex items-center gap-2 hover:text-[#fcb907] transition-all text-sm sm:text-[15px] lg:text-[16px] font-extrabold text-white group"
+              className="inline-flex items-center gap-1.5 sm:gap-2 hover:text-[#fcb907] transition-all text-xs sm:text-[14px] lg:text-[15px] font-extrabold text-white group shrink-0"
             >
-              <span className="w-6 sm:w-6.5 h-6 sm:h-6.5 rounded-full bg-[#fcb907] text-[#101114] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#e5a706] transition-transform shadow-xs">
-                <PhoneCall className="w-3.5 h-3.5 stroke-[2.5]" />
+              <span className="w-5 sm:w-6 h-5 sm:h-6 rounded-full bg-[#fcb907] text-[#101114] flex items-center justify-center group-hover:scale-105 group-hover:bg-[#e5a706] transition-transform shadow-xs shrink-0">
+                <PhoneCall className="w-2.5 sm:w-3 h-2.5 sm:h-3 stroke-[2.5]" />
               </span>
-              <span className="tracking-tight text-white group-hover:text-[#fcb907] transition-colors">
+              <span className="tracking-tight text-white group-hover:text-[#fcb907] transition-colors whitespace-nowrap">
                 812-595-4033
               </span>
             </a>
 
-            <span className="text-[#fcb907]/40 text-[10px] hidden sm:inline">●</span>
+            <span className="text-[#fcb907]/40 text-[10px] hidden xs:inline">●</span>
 
             {/* Email Link */}
             <a
               href="mailto:support@modularhome.com"
-              className="inline-flex items-center gap-1.5 hover:text-[#fcb907] transition-colors text-[11.5px] sm:text-[12px] text-gray-300 group"
+              className="hidden xs:inline-flex items-center gap-1.5 hover:text-[#fcb907] transition-colors text-[11px] sm:text-[12px] text-gray-300 group truncate"
             >
-              <svg className="w-3 h-3 fill-current text-[#fcb907] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="w-3 h-3 fill-current text-[#fcb907] group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
               </svg>
-              <span>support@modularhome.com</span>
+              <span className="truncate">support@modularhome.com</span>
             </a>
           </div>
 
           {/* Right: Quick Portal Links & Social Media Icons */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <div className="hidden lg:flex items-center gap-3 text-[11.5px] text-gray-400 font-medium">
               <Link href="/upload-floor-plan" className="hover:text-[#fcb907] transition-colors">
                 Upload Plans
@@ -197,8 +197,8 @@ function NavbarContent() {
               </Link>
             </div>
 
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10.5px] font-bold tracking-wider uppercase text-gray-400 mr-1 hidden sm:inline">
+            <div className="hidden sm:flex items-center gap-1.5">
+              <span className="text-[10.5px] font-bold tracking-wider uppercase text-gray-400 mr-1 hidden md:inline">
                 FOLLOW US:
               </span>
 
@@ -255,38 +255,48 @@ function NavbarContent() {
               </a>
             </div>
           </div>
+
+          {/* Mobile Contact Quick Action */}
+          <Link
+            href="/contact"
+            className="sm:hidden text-gray-300 hover:text-[#fcb907] text-[11px] font-medium flex items-center gap-1"
+          >
+            <span>Contact</span>
+          </Link>
         </div>
       </div>
 
       {/* ========================================================================= */}
       {/* 2. STICKY TWO-TIER ARCHITECTURAL HEADER */}
       {/* ========================================================================= */}
-      <header className="sticky top-0 z-50 bg-white/98 backdrop-blur-md shadow-xs transition-shadow">
+      <header className="sticky top-0 z-50 bg-white/98 backdrop-blur-md shadow-xs transition-shadow w-full">
         
         {/* --- ROW 1: BRAND LOGO + GLOBAL SEARCH + CTAs --- */}
-        <div className="border-b border-[#f0f2f5]">
-          <div className="wrap h-[68px] sm:h-[74px] flex items-center justify-between gap-3 sm:gap-6">
+        <div className="border-b border-[#f0f2f5] w-full">
+          <div className="wrap h-[58px] sm:h-[68px] md:h-[74px] flex items-center justify-between gap-2 sm:gap-6">
             
-            {/* Mobile Hamburger Toggle */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 -ml-1 text-[#101114] hover:text-[#d97706] rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
-              aria-label="Toggle Menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            {/* Left: Mobile Hamburger Toggle + Logo */}
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden p-1.5 -ml-1 text-[#101114] hover:text-[#d97706] rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+                aria-label="Toggle Menu"
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+              </button>
 
-            {/* Brand Logo */}
-            <Link href="/" className="flex items-center group select-none shrink-0">
-              <Image
-                src="/finallogo.avif"
-                alt="ModularHome.com"
-                width={210}
-                height={48}
-                priority
-                className="h-8 sm:h-9 md:h-9.5 w-auto object-contain hover:opacity-90 transition-opacity"
-              />
-            </Link>
+              {/* Brand Logo */}
+              <Link href="/" className="flex items-center group select-none shrink-0">
+                <Image
+                  src="/finallogo.avif"
+                  alt="ModularHome.com"
+                  width={210}
+                  height={48}
+                  priority
+                  className="h-6 sm:h-8 md:h-9 w-auto max-w-[130px] sm:max-w-[180px] md:max-w-none object-contain hover:opacity-90 transition-opacity"
+                />
+              </Link>
+            </div>
 
             {/* Center: Search / Explore Bar */}
             <div className="hidden md:flex flex-1 max-w-xl mx-2 lg:mx-4">
@@ -309,7 +319,7 @@ function NavbarContent() {
             </div>
 
             {/* Right: Quick Features & Main CTA Button */}
-            <div className="flex items-center gap-2.5 sm:gap-4 shrink-0">
+            <div className="flex items-center gap-2 sm:gap-4 shrink-0">
               <Link
                 href="/upload-floor-plan"
                 className="hidden xl:inline-flex items-center gap-1.5 text-xs font-bold text-[#101114] hover:text-[#d97706] py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors"
@@ -320,10 +330,11 @@ function NavbarContent() {
 
               <Link
                 href="#quote"
-                className="inline-flex items-center gap-1.5 bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] font-black py-2.5 sm:py-3 px-4 sm:px-5 text-xs sm:text-[13px] tracking-tight rounded-xl shadow-xs hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-150 whitespace-nowrap"
+                className="inline-flex items-center gap-1 sm:gap-1.5 bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] font-black py-1.5 sm:py-2.5 px-2.5 sm:px-4 text-[11.5px] sm:text-xs md:text-[13px] tracking-tight rounded-lg sm:rounded-xl shadow-xs hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-150 whitespace-nowrap shrink-0"
               >
-                <span>Get a Free Quote</span>
-                <ArrowRight className="w-4 h-4" />
+                <span className="hidden xs:inline">Get a Free Quote</span>
+                <span className="xs:hidden">Quote</span>
+                <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
               </Link>
             </div>
           </div>
