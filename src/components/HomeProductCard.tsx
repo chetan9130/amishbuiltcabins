@@ -35,7 +35,7 @@ export default function HomeProductCard({ product }: HomeProductCardProps) {
     <div className="card overflow-hidden group hover:-translate-y-1 transition-all flex flex-col justify-between relative bg-white">
       {/* Optional Badge */}
       {product.badge && (
-        <span className="absolute top-3 left-3 z-10 bg-[#e20b16] text-white px-2.5 py-1 rounded-[8px] text-[11px] font-extrabold shadow-sm">
+        <span className="absolute top-3 left-3 z-10 bg-[#fcb907] text-[#101114] px-2.5 py-1 rounded-[8px] text-[11px] font-black shadow-sm tracking-tight">
           {product.badge}
         </span>
       )}
@@ -54,22 +54,23 @@ export default function HomeProductCard({ product }: HomeProductCardProps) {
       {/* Card Body */}
       <div className="p-4 flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="text-base sm:text-lg font-black text-[#101114] mb-1 group-hover:text-[#e20b16] transition-colors">
+          <h3 className="text-base sm:text-lg font-black text-[#101114] mb-1 group-hover:text-[#d97706] transition-colors">
             {product.name}
           </h3>
           <div className="text-[13px] text-[#6b7280] font-medium">
             {metaString}
           </div>
-          <div className="text-[21px] text-[#e20b16] font-black my-2.5">
-            {formattedPrice}
+          <div className="text-[21px] text-[#101114] font-black my-2.5 flex items-baseline gap-1">
+            <span className="text-[#d97706]">{formattedPrice}</span>
           </div>
         </div>
 
         <Link
           href={href}
-          className="btn-primary w-full py-2.5 px-3.5 text-[13px] font-extrabold rounded-[9px] text-center justify-center mt-2 shadow-xs"
+          className="w-full py-2.5 px-3.5 text-[13px] font-black rounded-[9px] text-center justify-center mt-2 bg-[#0f1218] hover:bg-[#fcb907] text-white hover:text-[#101114] transition-all duration-200 shadow-xs flex items-center gap-1.5"
         >
-          View Home →
+          <span>View Home</span>
+          <span>→</span>
         </Link>
       </div>
     </div>

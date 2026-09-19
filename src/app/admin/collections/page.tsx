@@ -120,7 +120,7 @@ export default function AdminCollectionsPage() {
 
         <button
           onClick={() => setCreateModalOpen(true)}
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-bold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>New Collection</span>
@@ -130,7 +130,7 @@ export default function AdminCollectionsPage() {
       {/* Collections Grid */}
       {isLoading ? (
         <div className="py-24 text-center text-[#6b7280] text-xs flex flex-col items-center gap-2 font-medium">
-          <Loader2 className="w-6 h-6 animate-spin text-[#e20b16]" />
+          <Loader2 className="w-6 h-6 animate-spin text-[#d97706]" />
           <span>Loading collections...</span>
         </div>
       ) : collections.length === 0 ? (
@@ -192,7 +192,7 @@ export default function AdminCollectionsPage() {
                   <div className="pt-4 border-t border-[#e7e9ee] flex items-center justify-between">
                     <Link
                       href={`/admin/collections/${collId}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#e20b16] hover:underline"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#d97706] hover:underline"
                     >
                       <Edit2 className="w-3.5 h-3.5" />
                       <span>Edit & Assign Models</span>
@@ -200,7 +200,7 @@ export default function AdminCollectionsPage() {
 
                     <button
                       onClick={() => handleDelete(collId, coll.name)}
-                      className="p-2 rounded-xl text-[#6b7280] hover:text-[#e20b16] hover:bg-red-50 transition-colors cursor-pointer"
+                      className="p-2 rounded-xl text-[#6b7280] hover:text-[#d97706] hover:bg-red-50 transition-colors cursor-pointer"
                       title="Delete Collection"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -231,7 +231,7 @@ export default function AdminCollectionsPage() {
 
             {createError && (
               <div className="p-3.5 rounded-xl bg-red-50 text-red-700 text-xs font-semibold flex items-center gap-2 border border-red-200">
-                <AlertCircle className="w-4 h-4 shrink-0 text-[#e20b16]" />
+                <AlertCircle className="w-4 h-4 shrink-0 text-[#d97706]" />
                 <span>{createError}</span>
               </div>
             )}
@@ -249,7 +249,7 @@ export default function AdminCollectionsPage() {
                     setCreateForm({ ...createForm, name, slug });
                   }}
                   placeholder="e.g. Modern Minimalist Series"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -261,7 +261,7 @@ export default function AdminCollectionsPage() {
                   value={createForm.slug}
                   onChange={(e) => setCreateForm({ ...createForm, slug: e.target.value })}
                   placeholder="modern-minimalist"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] font-mono text-[11px] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] font-mono text-[11px] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -272,7 +272,7 @@ export default function AdminCollectionsPage() {
                   value={createForm.tagline}
                   onChange={(e) => setCreateForm({ ...createForm, tagline: e.target.value })}
                   placeholder="e.g. Clean architectural lines with panoramic glass walls."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -283,7 +283,7 @@ export default function AdminCollectionsPage() {
                   value={createForm.image}
                   onChange={(e) => setCreateForm({ ...createForm, image: e.target.value })}
                   placeholder="https://images.unsplash.com/..."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -298,7 +298,7 @@ export default function AdminCollectionsPage() {
                 <button
                   type="submit"
                   disabled={isCreating}
-                  className="px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white font-bold disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] font-bold disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
                 >
                   {isCreating && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   <span>Create Collection</span>

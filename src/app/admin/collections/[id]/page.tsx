@@ -85,7 +85,7 @@ export default function AdminEditCollectionPage() {
   if (isLoading) {
     return (
       <div className="py-24 text-center text-[#6b7280] text-xs flex flex-col items-center gap-2 font-medium">
-        <Loader2 className="w-8 h-8 animate-spin text-[#e20b16]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#d97706]" />
         <span>Loading collection data...</span>
       </div>
     );
@@ -95,7 +95,7 @@ export default function AdminEditCollectionPage() {
     return (
       <div className="text-center py-20 bg-white rounded-[18px] border border-[#e7e9ee] p-8">
         <p className="text-sm font-bold text-[#101114]">Collection not found.</p>
-        <Link href="/admin/collections" className="text-xs font-bold text-[#e20b16] mt-3 inline-block hover:underline">
+        <Link href="/admin/collections" className="text-xs font-bold text-[#d97706] mt-3 inline-block hover:underline">
           ← Back to Collections
         </Link>
       </div>
@@ -126,7 +126,7 @@ export default function AdminEditCollectionPage() {
         <button
           type="submit"
           disabled={isSaving}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
         >
           {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
           <span>Save Collection</span>
@@ -166,7 +166,7 @@ export default function AdminEditCollectionPage() {
                   required
                   value={collection.name || ""}
                   onChange={(e) => setCollection({ ...collection, name: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -177,7 +177,7 @@ export default function AdminEditCollectionPage() {
                   required
                   value={collection.slug || ""}
                   onChange={(e) => setCollection({ ...collection, slug: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
             </div>
@@ -188,7 +188,7 @@ export default function AdminEditCollectionPage() {
                 type="text"
                 value={collection.tagline || ""}
                 onChange={(e) => setCollection({ ...collection, tagline: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -198,7 +198,7 @@ export default function AdminEditCollectionPage() {
                 rows={3}
                 value={collection.description || ""}
                 onChange={(e) => setCollection({ ...collection, description: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -207,7 +207,7 @@ export default function AdminEditCollectionPage() {
           <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
             <div className="flex items-center justify-between border-b border-[#e7e9ee] pb-3">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114]">
-                <Home className="w-4 h-4 text-[#e20b16]" />
+                <Home className="w-4 h-4 text-[#d97706]" />
                 <span>Assigned Home Models ({selectedProductIds.length})</span>
               </div>
             </div>
@@ -222,7 +222,7 @@ export default function AdminEditCollectionPage() {
                     onClick={() => handleProductToggle(pId)}
                     className={`p-3.5 rounded-xl border flex items-center gap-3 cursor-pointer transition-all ${
                       isSelected
-                        ? "border-[#e20b16] bg-red-50/50 text-[#101114] shadow-2xs"
+                        ? "border-[#fcb907] bg-red-50/50 text-[#101114] shadow-2xs"
                         : "border-[#e7e9ee] bg-[#f6f7f9] text-[#6b7280] hover:border-[#d5d9e0] hover:bg-white"
                     }`}
                   >
@@ -242,7 +242,7 @@ export default function AdminEditCollectionPage() {
                     </div>
                     <div
                       className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 ${
-                        isSelected ? "bg-[#e20b16] text-white" : "border border-[#d5d9e0] bg-white"
+                        isSelected ? "bg-[#fcb907] text-white" : "border border-[#d5d9e0] bg-white"
                       }`}
                     >
                       {isSelected && <Check className="w-3.5 h-3.5" />}
@@ -256,7 +256,7 @@ export default function AdminEditCollectionPage() {
           {/* SEO Metadata Box */}
           <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
-              <Search className="w-4 h-4 text-[#e20b16]" />
+              <Search className="w-4 h-4 text-[#d97706]" />
               <span>Collection SEO Metadata</span>
             </div>
 
@@ -266,7 +266,7 @@ export default function AdminEditCollectionPage() {
                 type="text"
                 value={collection.seoTitle || ""}
                 onChange={(e) => setCollection({ ...collection, seoTitle: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -276,7 +276,7 @@ export default function AdminEditCollectionPage() {
                 rows={2}
                 value={collection.metaDescription || ""}
                 onChange={(e) => setCollection({ ...collection, metaDescription: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function AdminEditCollectionPage() {
                 type="text"
                 value={collection.image || ""}
                 onChange={(e) => setCollection({ ...collection, image: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
               {collection.image && (
                 <div className="mt-2.5 relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-[#e7e9ee]">
@@ -310,7 +310,7 @@ export default function AdminEditCollectionPage() {
                 type="text"
                 value={collection.bannerImage || ""}
                 onChange={(e) => setCollection({ ...collection, bannerImage: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -325,7 +325,7 @@ export default function AdminEditCollectionPage() {
               <select
                 value={collection.status || "PUBLISHED"}
                 onChange={(e) => setCollection({ ...collection, status: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               >
                 <option value="PUBLISHED">Published</option>
                 <option value="DRAFT">Draft</option>
@@ -337,7 +337,7 @@ export default function AdminEditCollectionPage() {
                 type="checkbox"
                 checked={!!collection.isFeatured}
                 onChange={(e) => setCollection({ ...collection, isFeatured: e.target.checked })}
-                className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
+                className="w-4 h-4 text-[#d97706] rounded-sm focus:ring-[#fcb907]"
               />
               <span>Featured on Homepage</span>
             </label>

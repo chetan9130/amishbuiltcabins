@@ -66,7 +66,7 @@ export default function FloorPlanUploader() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Drag and Drop Zone */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16] mb-2.5">
+            <label className="block text-xs font-bold uppercase tracking-[0.2em] text-[#d97706] mb-2.5">
               1. Floor Plan Document (PDF, PNG, JPG or CAD)
             </label>
 
@@ -78,10 +78,10 @@ export default function FloorPlanUploader() {
               onClick={() => inputRef.current?.click()}
               className={`cursor-pointer relative border-2 border-dashed rounded-[14px] p-8 text-center transition-all duration-300 ${
                 dragActive
-                  ? "border-[#e20b16] bg-[#f6f7f9]"
+                  ? "border-[#fcb907] bg-[#fdfaf2]"
                   : file
-                  ? "border-[#e20b16] bg-[#f6f7f9]"
-                  : "border-[#dfe2e7] bg-[#f6f7f9]/60 hover:border-[#e20b16] hover:bg-white"
+                  ? "border-[#fcb907] bg-[#fdfaf2]"
+                  : "border-[#dfe2e7] bg-[#f6f7f9]/60 hover:border-[#fcb907] hover:bg-white"
               }`}
             >
               <input
@@ -94,7 +94,7 @@ export default function FloorPlanUploader() {
 
               {file ? (
                 <div className="flex flex-col items-center justify-center space-y-2">
-                  <div className="w-12 h-12 rounded-full bg-[#e20b16]/10 text-[#e20b16] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-[#fcb907]/15 text-[#d97706] flex items-center justify-center">
                     <FileCheck2 className="w-6 h-6" />
                   </div>
                   <div>
@@ -109,14 +109,14 @@ export default function FloorPlanUploader() {
                       e.stopPropagation();
                       setFile(null);
                     }}
-                    className="text-xs text-[#e20b16] hover:underline font-bold pt-1"
+                    className="text-xs text-[#d97706] hover:underline font-bold pt-1"
                   >
                     Change File
                   </button>
                 </div>
               ) : (
                 <div className="flex flex-col items-center justify-center space-y-2">
-                  <div className="w-12 h-12 rounded-full bg-[#e20b16]/10 text-[#e20b16] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-[#fcb907]/15 text-[#d97706] flex items-center justify-center">
                     <UploadCloud className="w-6 h-6" />
                   </div>
                   <div>
@@ -134,7 +134,7 @@ export default function FloorPlanUploader() {
 
           {/* Contact & Project Specifics */}
           <div className="space-y-4">
-            <label className="block text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+            <label className="block text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
               2. Project & Contact Information
             </label>
 
@@ -149,7 +149,7 @@ export default function FloorPlanUploader() {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder="John Doe"
-                  className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                  className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
                 />
               </div>
 
@@ -163,7 +163,7 @@ export default function FloorPlanUploader() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder="support@modularhome.com"
-                  className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                  className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
                 />
               </div>
 
@@ -177,7 +177,7 @@ export default function FloorPlanUploader() {
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   placeholder="+1-812-595-4033"
-                  className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                  className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
                 />
               </div>
 
@@ -191,7 +191,7 @@ export default function FloorPlanUploader() {
                   value={form.zip}
                   onChange={(e) => setForm({ ...form, zip: e.target.value })}
                   placeholder="e.g. 78701"
-                  className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                  className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
                 />
               </div>
             </div>
@@ -205,7 +205,7 @@ export default function FloorPlanUploader() {
                 value={form.approximateSqFt}
                 onChange={(e) => setForm({ ...form, approximateSqFt: e.target.value })}
                 placeholder="e.g. 1,600 sq ft"
-                className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
               />
             </div>
 
@@ -218,7 +218,7 @@ export default function FloorPlanUploader() {
                 value={form.description}
                 onChange={(e) => setForm({ ...form, description: e.target.value })}
                 placeholder="Detail any desired ceiling heights, porch overhangs, exterior finish materials, or timeline goals..."
-                className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
               />
             </div>
           </div>
@@ -241,14 +241,14 @@ export default function FloorPlanUploader() {
           </div>
 
           <div className="flex items-center justify-center gap-2 text-xs text-[#6b7280]">
-            <Shield className="w-3.5 h-3.5 text-[#e20b16]" />
+            <Shield className="w-3.5 h-3.5 text-[#fcb907]" />
             <span>Your architectural documents and contact details are 100% confidential.</span>
           </div>
         </form>
       ) : (
         /* Success Screen */
         <div className="text-center py-10 space-y-4 animate-in zoom-in-95 duration-200">
-          <div className="w-16 h-16 rounded-full bg-[#e20b16]/10 text-[#e20b16] flex items-center justify-center mx-auto">
+          <div className="w-16 h-16 rounded-full bg-[#fcb907]/15 text-[#d97706] flex items-center justify-center mx-auto">
             <CheckCircle2 className="w-8 h-8 text-emerald-600" />
           </div>
           <h3 className="text-2xl font-black uppercase text-[#101114]">

@@ -12,8 +12,8 @@ export default function UploadFloorPlanPage() {
       <div className="wrap">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16] mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#e20b16]"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#d97706] mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#fcb907]"></span>
             <span>Custom Engineering Intake</span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-[-1.5px] text-[#101114]">
@@ -40,7 +40,7 @@ export default function UploadFloorPlanPage() {
 
               <div className="space-y-3.5 text-xs text-[#6b7280]">
                 <div className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-[#e20b16] text-white font-bold flex items-center justify-center shrink-0 shadow-xs text-xs">
+                  <span className="w-6 h-6 rounded-full bg-[#fcb907] text-[#101114] font-black flex items-center justify-center shrink-0 shadow-xs text-xs">
                     1
                   </span>
                   <div>
@@ -50,7 +50,7 @@ export default function UploadFloorPlanPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-[#e20b16] text-white font-bold flex items-center justify-center shrink-0 shadow-xs text-xs">
+                  <span className="w-6 h-6 rounded-full bg-[#fcb907] text-[#101114] font-black flex items-center justify-center shrink-0 shadow-xs text-xs">
                     2
                   </span>
                   <div>
@@ -60,7 +60,7 @@ export default function UploadFloorPlanPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-[#e20b16] text-white font-bold flex items-center justify-center shrink-0 shadow-xs text-xs">
+                  <span className="w-6 h-6 rounded-full bg-[#fcb907] text-[#101114] font-black flex items-center justify-center shrink-0 shadow-xs text-xs">
                     3
                   </span>
                   <div>
@@ -72,11 +72,11 @@ export default function UploadFloorPlanPage() {
 
               <div className="pt-3 border-t border-[#e7e9ee] space-y-2 text-[11px] text-[#6b7280]">
                 <div className="flex items-center gap-2 text-[#101114] font-semibold">
-                  <FileCheck className="w-4 h-4 text-[#e20b16]" />
+                  <FileCheck className="w-4 h-4 text-[#d97706]" />
                   <span>Accepted: PDF, PNG, JPG, DWG, DXF</span>
                 </div>
                 <div className="flex items-center gap-2 text-[#101114] font-semibold">
-                  <Clock className="w-4 h-4 text-[#e20b16]" />
+                  <Clock className="w-4 h-4 text-[#d97706]" />
                   <span>Turnaround: 24–48 Business Hours</span>
                 </div>
               </div>
@@ -86,7 +86,7 @@ export default function UploadFloorPlanPage() {
               <span className="font-bold text-[#101114] block">Need help drafting from scratch?</span>
               <p className="m-0 leading-relaxed">
                 If you don&apos;t have drawings yet, you can also browse our{" "}
-                <a href="/buildings" className="text-[#e20b16] hover:underline font-bold">
+                <a href="/buildings" className="text-[#d97706] hover:underline font-bold">
                   pre-engineered architectural floor plans
                 </a>{" "}
                 which come complete with stamped structural calculations.

@@ -44,7 +44,7 @@ export default function AdminDashboardPage() {
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-24 text-[#6b7280] space-y-3">
-        <Loader2 className="w-8 h-8 animate-spin text-[#e20b16]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#d97706]" />
         <span className="text-xs font-bold uppercase tracking-wider">Loading Admin Dashboard...</span>
       </div>
     );
@@ -68,7 +68,7 @@ export default function AdminDashboardPage() {
       subtext: "Precision steel catalog models",
       href: "/admin/products",
       icon: Home,
-      accent: "border-l-4 border-l-[#e20b16]",
+      accent: "border-l-4 border-l-[#fcb907]",
     },
     {
       label: "Collections",
@@ -100,7 +100,7 @@ export default function AdminDashboardPage() {
       subtext: `${metrics.newLeads} new unread inquiries`,
       href: "/admin/leads",
       icon: Users,
-      accent: "border-l-4 border-l-[#e20b16]",
+      accent: "border-l-4 border-l-[#fcb907]",
     },
     {
       label: "Quote Requests",
@@ -121,7 +121,7 @@ export default function AdminDashboardPage() {
 
         <div className="space-y-2 relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 text-red-300 text-xs font-bold uppercase tracking-wider">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#e20b16]" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#d97706]" />
             <span>ModularHome CMS Online</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-serif">
@@ -135,7 +135,7 @@ export default function AdminDashboardPage() {
         <div className="flex flex-wrap gap-3 shrink-0 relative z-10">
           <Link
             href="/admin/products/new"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
           >
             <Plus className="w-4 h-4" />
             <span>Add New Model</span>
@@ -161,10 +161,10 @@ export default function AdminDashboardPage() {
               className={`bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] hover:shadow-[0_16px_40px_rgba(16,24,40,0.08)] hover:border-[#d5d9e0] transition-all group relative overflow-hidden ${card.accent}`}
             >
               <div className="flex items-start justify-between">
-                <div className="p-3 rounded-xl bg-[#f6f7f9] text-[#101114] border border-[#e7e9ee] group-hover:bg-red-50 group-hover:text-[#e20b16] transition-colors">
+                <div className="p-3 rounded-xl bg-[#f6f7f9] text-[#101114] border border-[#e7e9ee] group-hover:bg-red-50 group-hover:text-[#d97706] transition-colors">
                   <Icon className="w-5 h-5" />
                 </div>
-                <div className="p-1 text-[#6b7280] group-hover:text-[#e20b16] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+                <div className="p-1 text-[#6b7280] group-hover:text-[#d97706] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
@@ -192,42 +192,42 @@ export default function AdminDashboardPage() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
           <Link
             href="/admin/settings"
-            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#d97706] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
             <Globe className="w-5 h-5" />
             <span>Global Settings</span>
           </Link>
           <Link
             href="/admin/sections"
-            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#d97706] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
             <Layers className="w-5 h-5" />
             <span>Page Sections</span>
           </Link>
           <Link
             href="/admin/products"
-            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#d97706] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
             <Home className="w-5 h-5" />
             <span>Home Models</span>
           </Link>
           <Link
             href="/admin/collections"
-            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#d97706] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
             <FolderOpen className="w-5 h-5" />
             <span>Collections</span>
           </Link>
           <Link
             href="/admin/blogs"
-            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#d97706] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
             <BookOpen className="w-5 h-5" />
             <span>Blog Articles</span>
           </Link>
           <Link
             href="/admin/videos"
-            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#e20b16] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
+            className="p-4 rounded-xl bg-[#f6f7f9] hover:bg-red-50 text-center text-xs font-bold text-[#101114] hover:text-[#d97706] transition-all border border-[#e7e9ee] hover:border-red-200 flex flex-col items-center gap-2.5"
           >
             <Video className="w-5 h-5" />
             <span>YouTube Sync</span>
@@ -248,7 +248,7 @@ export default function AdminDashboardPage() {
             </div>
             <Link
               href="/admin/leads"
-              className="text-xs font-bold text-[#e20b16] hover:underline"
+              className="text-xs font-bold text-[#d97706] hover:underline"
             >
               View All →
             </Link>
@@ -292,7 +292,7 @@ export default function AdminDashboardPage() {
             </div>
             <Link
               href="/admin/quotations"
-              className="text-xs font-bold text-[#e20b16] hover:underline"
+              className="text-xs font-bold text-[#d97706] hover:underline"
             >
               View All →
             </Link>
@@ -311,7 +311,7 @@ export default function AdminDashboardPage() {
                       {quote.modelName || "Custom Model"} • {quote.sqft ? `${quote.sqft} sq ft` : "Custom Size"}
                     </div>
                     {quote.estimatedAmount && (
-                      <div className="text-[#e20b16] font-bold text-xs mt-1">
+                      <div className="text-[#d97706] font-bold text-xs mt-1">
                         Est: ${quote.estimatedAmount.toLocaleString()}
                       </div>
                     )}

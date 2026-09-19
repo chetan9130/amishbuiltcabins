@@ -109,7 +109,7 @@ export default function AdminQuotationsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by customer, email, or model..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
           />
           <Search className="w-4 h-4 text-[#6b7280] absolute left-3 top-3" />
         </form>
@@ -135,7 +135,7 @@ export default function AdminQuotationsPage() {
       <div className="bg-white rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] overflow-hidden">
         {isLoading ? (
           <div className="py-16 text-center text-[#6b7280] text-xs flex flex-col items-center gap-2">
-            <Loader2 className="w-6 h-6 animate-spin text-[#e20b16]" />
+            <Loader2 className="w-6 h-6 animate-spin text-[#d97706]" />
             <span>Loading quote records...</span>
           </div>
         ) : quotations.length === 0 ? (
@@ -165,7 +165,7 @@ export default function AdminQuotationsPage() {
                         <div className="font-bold text-[#101114] font-sans">{quote.customerName}</div>
                         <div className="text-[11px] text-[#6b7280] flex items-center gap-1.5 mt-0.5">
                           <Mail className="w-3 h-3 text-[#6b7280]" />
-                          <a href={`mailto:${quote.customerEmail}`} className="hover:text-[#e20b16] hover:underline">
+                          <a href={`mailto:${quote.customerEmail}`} className="hover:text-[#d97706] hover:underline">
                             {quote.customerEmail}
                           </a>
                         </div>
@@ -178,7 +178,7 @@ export default function AdminQuotationsPage() {
                       </td>
                       <td className="py-3.5 px-4">
                         <div className="font-bold text-[#101114] flex items-center gap-1.5">
-                          <Home className="w-3.5 h-3.5 text-[#e20b16]" />
+                          <Home className="w-3.5 h-3.5 text-[#d97706]" />
                           <span>{quote.modelName || "Custom Configuration"}</span>
                         </div>
                         <div className="text-[11px] text-[#6b7280] font-mono">
@@ -194,7 +194,7 @@ export default function AdminQuotationsPage() {
                         )}
                       </td>
                       <td className="py-3.5 px-4">
-                        <span className="font-bold text-sm text-[#e20b16] font-mono">
+                        <span className="font-bold text-sm text-[#d97706] font-mono">
                           {quote.estimatedAmount ? `$${quote.estimatedAmount.toLocaleString()}` : "Pending Estimate"}
                         </span>
                       </td>
@@ -202,7 +202,7 @@ export default function AdminQuotationsPage() {
                         <select
                           value={quote.status}
                           onChange={(e) => handleStatusChange(qId, e.target.value)}
-                          className={`px-3 py-1.5 rounded-xl text-[10px] font-bold uppercase border cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#e20b16] ${
+                          className={`px-3 py-1.5 rounded-xl text-[10px] font-bold uppercase border cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#fcb907] ${
                             quote.status === "PENDING"
                               ? "bg-amber-50 text-amber-800 border-amber-200"
                               : quote.status === "ACCEPTED"
@@ -232,7 +232,7 @@ export default function AdminQuotationsPage() {
                       <td className="py-3.5 px-4 text-right">
                         <button
                           onClick={() => handleDelete(qId, quote.customerName)}
-                          className="p-2 rounded-xl text-[#6b7280] hover:text-[#e20b16] hover:bg-red-50 border border-transparent hover:border-red-200 transition-colors cursor-pointer"
+                          className="p-2 rounded-xl text-[#6b7280] hover:text-[#d97706] hover:bg-red-50 border border-transparent hover:border-red-200 transition-colors cursor-pointer"
                           title="Delete Quote"
                         >
                           <Trash2 className="w-3.5 h-3.5" />

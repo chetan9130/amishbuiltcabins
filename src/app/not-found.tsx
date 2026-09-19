@@ -8,21 +8,21 @@ export default function NotFound() {
       <div className="max-w-lg mx-auto space-y-6 flex flex-col items-center">
         <Link href="/" className="inline-block transition-transform hover:scale-105 mb-2">
           <Image
-            src="/newlogo2.png"
+            src="/finallogo.avif"
             alt="ModularHome.com"
-            width={240}
-            height={60}
-            className="h-14 sm:h-16 w-auto object-contain mx-auto"
+            width={200}
+            height={46}
+            className="h-8 sm:h-9 w-auto object-contain mx-auto"
           />
         </Link>
 
-        <div className="w-20 h-20 rounded-full bg-[var(--soft)] border border-[var(--line)] text-[var(--r)] shadow-sm flex items-center justify-center mx-auto">
+        <div className="w-20 h-20 rounded-full bg-amber-50 border border-amber-200 text-[#d97706] shadow-sm flex items-center justify-center mx-auto">
           <Building2 className="w-10 h-10" />
         </div>
 
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-[var(--r)] text-xs font-bold uppercase tracking-wider mb-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--r)] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-[#d97706] text-xs font-bold uppercase tracking-wider mb-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#fcb907] animate-pulse" />
             404 Error • Structure Not Found
           </div>
           <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-[var(--ink)] mt-2 font-display">
@@ -36,14 +36,14 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 w-full">
           <Link
             href="/"
-            className="w-full sm:w-auto px-6 py-3.5 bg-[var(--r)] hover:bg-[var(--r-dark)] text-white text-xs font-bold uppercase tracking-wider rounded-[14px] transition-all flex items-center justify-center gap-2 shadow-sm"
+            className="w-full sm:w-auto px-6 py-3.5 bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-black uppercase tracking-wider rounded-[14px] transition-all flex items-center justify-center gap-2 shadow-sm"
           >
             <Home className="w-4 h-4" />
             <span>Return Home</span>
           </Link>
           <Link
-            href="/models"
-            className="w-full sm:w-auto px-6 py-3.5 bg-[var(--soft)] hover:bg-[var(--r)] hover:text-white text-[var(--ink)] border border-[var(--line)] text-xs font-bold uppercase tracking-wider rounded-[14px] transition-all flex items-center justify-center gap-2 shadow-xs"
+            href="/buildings"
+            className="w-full sm:w-auto px-6 py-3.5 bg-[var(--soft)] hover:bg-[#0f1218] hover:text-white text-[var(--ink)] border border-[var(--line)] text-xs font-bold uppercase tracking-wider rounded-[14px] transition-all flex items-center justify-center gap-2 shadow-xs"
           >
             <span>Explore Floor Plans</span>
             <ArrowRight className="w-4 h-4" />

@@ -142,7 +142,7 @@ export default function HomePage() {
             <h1 className="text-4xl sm:text-6xl lg:text-[68px] font-black tracking-[-2.5px] sm:tracking-[-3px] text-white leading-[0.98] sm:leading-[0.96] mb-4 sm:mb-5">
               Modular Homes
               <br />
-              For A Better <span className="text-[#ff3b44]">Tomorrow</span>
+              For A Better <span className="text-[#fcb907]">Tomorrow</span>
             </h1>
 
             <p className="text-base sm:text-[19px] text-white/90 leading-[1.55] max-w-xl mb-7 sm:mb-8 font-normal">
@@ -152,13 +152,13 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <Link
                 href="#quote"
-                className="btn-primary py-3.5 px-6 text-sm sm:text-base font-extrabold rounded-[11px] shadow-lg text-center"
+                className="bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] py-3.5 px-6 text-sm sm:text-base font-black rounded-[11px] shadow-lg text-center transition-all hover:shadow-xl hover:-translate-y-0.5"
               >
                 Get a Quote →
               </Link>
               <Link
                 href="#homes"
-                className="btn-outline py-3.5 px-6 text-sm sm:text-base font-extrabold rounded-[11px] bg-white/95 text-[#101114] hover:bg-white text-center"
+                className="btn-outline py-3.5 px-6 text-sm sm:text-base font-extrabold rounded-[11px] bg-white/95 text-[#101114] hover:bg-white text-center hover:border-[#fcb907]"
               >
                 Browse Homes
               </Link>
@@ -190,7 +190,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/buildings"
-              className="text-[#e20b16] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
+              className="text-[#d97706] hover:text-[#b45309] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
             >
               View All Homes →
             </Link>
@@ -225,7 +225,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/buildings"
-              className="text-[#e20b16] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
+              className="text-[#d97706] hover:text-[#b45309] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
             >
               View Trending Homes →
             </Link>

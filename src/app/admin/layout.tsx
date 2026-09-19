@@ -130,11 +130,11 @@ export default function AdminLayout({
         <div className="h-18 flex items-center justify-between px-5 border-b border-white/10 bg-[#0c0d10]">
           <Link href="/admin" className="flex items-center gap-3">
             <Image
-              src="/newlogo2.png"
+              src="/finallogo.avif"
               alt="ModularHome Logo"
               width={140}
               height={32}
-              className="h-7 w-auto object-contain brightness-0 invert"
+              className="h-7 sm:h-8 w-auto object-contain bg-white/95 px-2 py-1 rounded-md"
               priority
             />
           </Link>
@@ -168,7 +168,7 @@ export default function AdminLayout({
                       onClick={() => setSidebarOpen(false)}
                       className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                         isActive
-                          ? "bg-[#e20b16] text-white shadow-md shadow-red-950/40"
+                          ? "bg-[#fcb907] text-white shadow-md shadow-red-950/40"
                           : "text-gray-300 hover:text-white hover:bg-white/5"
                       }`}
                     >
@@ -218,7 +218,7 @@ export default function AdminLayout({
               <Menu className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-red-50 text-[#e20b16] border border-red-200 text-[11px] font-bold uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-red-50 text-[#d97706] border border-red-200 text-[11px] font-bold uppercase tracking-wider">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>Admin CMS</span>
               </span>
@@ -235,7 +235,7 @@ export default function AdminLayout({
               className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border border-[#d5d9e0] hover:bg-[#f6f7f9] text-xs font-bold text-[#101114] shadow-2xs transition-all"
             >
               <span>View Live Website</span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#e20b16]" />
+              <ExternalLink className="w-3.5 h-3.5 text-[#d97706]" />
             </Link>
           </div>
         </header>

@@ -133,7 +133,7 @@ export default function AdminNewProductPage() {
         <button
           type="submit"
           disabled={isSaving}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
         >
           {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
           <span>Create Model</span>
@@ -142,7 +142,7 @@ export default function AdminNewProductPage() {
 
       {error && (
         <div className="p-4 rounded-xl bg-red-50 text-red-800 border border-red-200 text-xs font-semibold flex items-center gap-2">
-          <AlertCircle className="w-4 h-4 shrink-0 text-[#e20b16]" />
+          <AlertCircle className="w-4 h-4 shrink-0 text-[#d97706]" />
           <span>{error}</span>
         </div>
       )}
@@ -165,7 +165,7 @@ export default function AdminNewProductPage() {
                   value={form.name}
                   onChange={(e) => handleNameChange(e.target.value)}
                   placeholder="e.g. Apex 2400 Steel Villa"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -177,7 +177,7 @@ export default function AdminNewProductPage() {
                   value={form.slug}
                   onChange={(e) => setForm({ ...form, slug: e.target.value })}
                   placeholder="apex-2400"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
             </div>
@@ -188,7 +188,7 @@ export default function AdminNewProductPage() {
                 <select
                   value={form.category}
                   onChange={(e) => setForm({ ...form, category: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 >
                   <option value="Residential">Residential</option>
                   <option value="Modular Homes">Modular Homes</option>
@@ -210,7 +210,7 @@ export default function AdminNewProductPage() {
                   required
                   value={form.startingPrice}
                   onChange={(e) => setForm({ ...form, startingPrice: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold font-serif focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold font-serif focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -220,7 +220,7 @@ export default function AdminNewProductPage() {
                   type="number"
                   value={form.sqft}
                   onChange={(e) => setForm({ ...form, sqft: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
             </div>
@@ -232,7 +232,7 @@ export default function AdminNewProductPage() {
                 value={form.tagline}
                 onChange={(e) => setForm({ ...form, tagline: e.target.value })}
                 placeholder="e.g. Flagship 3-Bedroom Single Story Steel Residence"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -243,7 +243,7 @@ export default function AdminNewProductPage() {
                 value={form.description}
                 onChange={(e) => setForm({ ...form, description: e.target.value })}
                 placeholder="Describe architectural features, engineering tolerances, layouts, and energy ratings..."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -261,7 +261,7 @@ export default function AdminNewProductPage() {
                   type="number"
                   value={form.bedrooms}
                   onChange={(e) => setForm({ ...form, bedrooms: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -271,7 +271,7 @@ export default function AdminNewProductPage() {
                   type="number"
                   value={form.bathrooms}
                   onChange={(e) => setForm({ ...form, bathrooms: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -281,7 +281,7 @@ export default function AdminNewProductPage() {
                   type="number"
                   value={form.stories}
                   onChange={(e) => setForm({ ...form, stories: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
             </div>
@@ -294,7 +294,7 @@ export default function AdminNewProductPage() {
                   value={form.dimensions}
                   onChange={(e) => setForm({ ...form, dimensions: e.target.value })}
                   placeholder="60' x 40'"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -304,7 +304,7 @@ export default function AdminNewProductPage() {
                   type="text"
                   value={form.frameType}
                   onChange={(e) => setForm({ ...form, frameType: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
             </div>
@@ -313,7 +313,7 @@ export default function AdminNewProductPage() {
           {/* SEO Metadata Box */}
           <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
-              <Search className="w-4 h-4 text-[#e20b16]" />
+              <Search className="w-4 h-4 text-[#d97706]" />
               <span>Product SEO Metadata</span>
             </div>
 
@@ -328,7 +328,7 @@ export default function AdminNewProductPage() {
                 type="text"
                 value={form.seoTitle}
                 onChange={(e) => setForm({ ...form, seoTitle: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -343,7 +343,7 @@ export default function AdminNewProductPage() {
                 rows={2}
                 value={form.metaDescription}
                 onChange={(e) => setForm({ ...form, metaDescription: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -354,7 +354,7 @@ export default function AdminNewProductPage() {
           {/* Media Links */}
           <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
-              <ImageIcon className="w-4 h-4 text-[#e20b16]" />
+              <ImageIcon className="w-4 h-4 text-[#d97706]" />
               <span>Media & Visual Assets</span>
             </div>
 
@@ -366,7 +366,7 @@ export default function AdminNewProductPage() {
                 value={form.primaryImage}
                 onChange={(e) => setForm({ ...form, primaryImage: e.target.value })}
                 placeholder="https://images.unsplash.com/..."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -377,7 +377,7 @@ export default function AdminNewProductPage() {
                 value={form.floorPlanImage}
                 onChange={(e) => setForm({ ...form, floorPlanImage: e.target.value })}
                 placeholder="https://images.unsplash.com/..."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -388,7 +388,7 @@ export default function AdminNewProductPage() {
                 value={form.videoUrl}
                 onChange={(e) => setForm({ ...form, videoUrl: e.target.value })}
                 placeholder="https://www.youtube.com/watch?v=..."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -396,7 +396,7 @@ export default function AdminNewProductPage() {
           {/* Collection Assignments */}
           <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
-              <FolderOpen className="w-4 h-4 text-[#e20b16]" />
+              <FolderOpen className="w-4 h-4 text-[#d97706]" />
               <span>Assign to Collections</span>
             </div>
 
@@ -412,7 +412,7 @@ export default function AdminNewProductPage() {
                       type="checkbox"
                       checked={form.collectionIds.includes(cId)}
                       onChange={() => handleCollectionToggle(cId)}
-                      className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
+                      className="w-4 h-4 text-[#d97706] rounded-sm focus:ring-[#fcb907]"
                     />
                     <span>{c.name}</span>
                   </label>
@@ -428,7 +428,7 @@ export default function AdminNewProductPage() {
                 type="checkbox"
                 checked={form.isPublished}
                 onChange={(e) => setForm({ ...form, isPublished: e.target.checked })}
-                className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
+                className="w-4 h-4 text-[#d97706] rounded-sm focus:ring-[#fcb907]"
               />
               <span>Published (Live in Model Catalog)</span>
             </label>
@@ -438,7 +438,7 @@ export default function AdminNewProductPage() {
                 type="checkbox"
                 checked={form.isFeatured}
                 onChange={(e) => setForm({ ...form, isFeatured: e.target.checked })}
-                className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
+                className="w-4 h-4 text-[#d97706] rounded-sm focus:ring-[#fcb907]"
               />
               <span>Featured on Homepage Showcase</span>
             </label>

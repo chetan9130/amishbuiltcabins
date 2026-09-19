@@ -82,7 +82,7 @@ export default function QuoteAndStepsSection() {
                   required
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#e20b16] transition-colors"
+                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#fcb907] focus:ring-1 focus:ring-[#fcb907] transition-all"
                 />
 
                 <input
@@ -91,7 +91,7 @@ export default function QuoteAndStepsSection() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#e20b16] transition-colors"
+                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#fcb907] focus:ring-1 focus:ring-[#fcb907] transition-all"
                 />
 
                 <input
@@ -100,13 +100,13 @@ export default function QuoteAndStepsSection() {
                   required
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#e20b16] transition-colors"
+                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#fcb907] focus:ring-1 focus:ring-[#fcb907] transition-all"
                 />
 
                 <select
                   value={state}
                   onChange={(e) => setState(e.target.value)}
-                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#e20b16] transition-colors cursor-pointer"
+                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#fcb907] focus:ring-1 focus:ring-[#fcb907] transition-all cursor-pointer"
                 >
                   <option value="Select State">Select State</option>
                   <option value="Texas">Texas</option>
@@ -123,7 +123,7 @@ export default function QuoteAndStepsSection() {
                 <select
                   value={homeType}
                   onChange={(e) => setHomeType(e.target.value)}
-                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#e20b16] transition-colors cursor-pointer"
+                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#fcb907] focus:ring-1 focus:ring-[#fcb907] transition-all cursor-pointer"
                 >
                   <option value="Select Home Type">Select Home Type</option>
                   <option value="Modular Home">Modular Home</option>
@@ -138,7 +138,7 @@ export default function QuoteAndStepsSection() {
                 <select
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
-                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#e20b16] transition-colors cursor-pointer"
+                  className="w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] focus:outline-none focus:border-[#fcb907] focus:ring-1 focus:ring-[#fcb907] transition-all cursor-pointer"
                 >
                   <option value="Select Budget">Select Budget</option>
                   <option value="Under $75K">Under $75K</option>
@@ -151,12 +151,12 @@ export default function QuoteAndStepsSection() {
                   placeholder="Project details, preferred size, timeline, etc."
                   value={details}
                   onChange={(e) => setDetails(e.target.value)}
-                  className="sm:col-span-2 w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] min-h-[95px] focus:outline-none focus:border-[#e20b16] transition-colors resize-y"
+                  className="sm:col-span-2 w-full p-3.5 border border-[#d8dce3] rounded-[9px] bg-white text-[#101114] min-h-[95px] focus:outline-none focus:border-[#fcb907] focus:ring-1 focus:ring-[#fcb907] transition-all resize-y"
                 />
 
                 <div className="sm:col-span-2">
-                  <label className="flex items-center gap-2 w-full p-3 border border-dashed border-[#d8dce3] hover:border-[#e20b16] rounded-[9px] cursor-pointer text-xs text-[#6b7280] transition-colors bg-[#f8f9fa]">
-                    <UploadCloud className="w-4 h-4 text-[#e20b16] shrink-0" />
+                  <label className="flex items-center gap-2 w-full p-3 border border-dashed border-[#d8dce3] hover:border-[#fcb907] rounded-[9px] cursor-pointer text-xs text-[#6b7280] transition-colors bg-[#f8f9fa]">
+                    <UploadCloud className="w-4 h-4 text-[#d97706] shrink-0" />
                     <span className="truncate">
                       {fileName ? `Attached: ${fileName}` : "Attach Blueprint or Sketches (PDF, JPG, PNG)"}
                     </span>
@@ -172,7 +172,7 @@ export default function QuoteAndStepsSection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="sm:col-span-2 btn-primary w-full py-3.5 text-sm font-extrabold rounded-[11px] shadow-sm flex items-center justify-center gap-2"
+                  className="sm:col-span-2 bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] w-full py-3.5 text-sm font-black rounded-[11px] shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
@@ -200,8 +200,8 @@ export default function QuoteAndStepsSection() {
               {/* 5 Steps Numbered Process Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-2 mt-4">
                 {steps.map((st) => (
-                  <div key={st.num} className="text-center p-3 sm:p-2 bg-[#f8f9fa] rounded-xl border border-[#e7e9ee]">
-                    <div className="w-[38px] h-[38px] rounded-full bg-[#e20b16] text-white flex items-center justify-center font-black text-sm mx-auto mb-2 shadow-xs">
+                  <div key={st.num} className="text-center p-3 sm:p-2 bg-[#f8f9fa] rounded-xl border border-[#e7e9ee] hover:border-[#fcb907]/50 transition-colors">
+                    <div className="w-[38px] h-[38px] rounded-full bg-[#fcb907] text-[#101114] flex items-center justify-center font-black text-sm mx-auto mb-2 shadow-xs">
                       {st.num}
                     </div>
                     <h3 className="block text-sm font-black text-[#101114] m-0">

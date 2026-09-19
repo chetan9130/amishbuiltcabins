@@ -67,7 +67,7 @@ export const update = mutation({
       const id = await ctx.db.insert("globalSettings", {
         key: "default",
         companyName: args.companyName || "ModularHome.com",
-        logoUrl: args.logoUrl || "/newlogo2.png",
+        logoUrl: args.logoUrl || "/finallogo.avif",
         faviconUrl: args.faviconUrl || "/favicon.ico",
         phone: args.phone || "+1 (812) 595-4033",
         email: args.email || "contact@modularhome.com",

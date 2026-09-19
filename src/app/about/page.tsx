@@ -22,13 +22,13 @@ export default function AboutPage() {
       <section className="relative py-16 sm:py-20 overflow-hidden bg-gradient-to-b from-[#f6f7f9] to-white">
         <div className="wrap">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16] mb-3">
-              <span className="w-2 h-2 rounded-full bg-[#e20b16]"></span>
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#d97706] mb-3">
+              <span className="w-2 h-2 rounded-full bg-[#fcb907]"></span>
               <span>ModularHome.com • About Our Company</span>
             </div>
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-[-2px] text-[#101114] leading-[0.95]">
               Building A Better <br />
-              <span className="text-[#e20b16]">Way To Live.</span>
+              <span className="text-[#d97706]">Way To Live.</span>
             </h1>
             <p className="mt-4 text-base sm:text-lg text-[#101114] font-semibold italic">
               &ldquo;Discover, Compare & Customize Your Modular Home.&rdquo;
@@ -48,7 +48,7 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             <div className="lg:col-span-6 space-y-5">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                 <span>Our Heritage & Innovation</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#101114]">
@@ -102,7 +102,7 @@ export default function AboutPage() {
       <section className="py-20 bg-[#f6f7f9] border-t border-[#e7e9ee]">
         <div className="wrap">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
               Why Choose ModularHome.com
             </span>
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#101114] mt-2">
@@ -112,7 +112,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div className="card p-6 bg-white space-y-3">
-              <div className="w-12 h-12 rounded-[11px] bg-[#e20b16]/10 text-[#e20b16] flex items-center justify-center font-bold text-xl">
+              <div className="w-12 h-12 rounded-[11px] bg-[#fcb907]/15 text-[#d97706] flex items-center justify-center font-bold text-xl">
                 ⌂
               </div>
               <h3 className="text-lg font-black text-[#101114]">
@@ -124,7 +124,7 @@ export default function AboutPage() {
             </div>
 
             <div className="card p-6 bg-white space-y-3">
-              <div className="w-12 h-12 rounded-[11px] bg-[#e20b16]/10 text-[#e20b16] flex items-center justify-center font-bold text-xl">
+              <div className="w-12 h-12 rounded-[11px] bg-[#fcb907]/15 text-[#d97706] flex items-center justify-center font-bold text-xl">
                 $
               </div>
               <h3 className="text-lg font-black text-[#101114]">
@@ -136,7 +136,7 @@ export default function AboutPage() {
             </div>
 
             <div className="card p-6 bg-white space-y-3">
-              <div className="w-12 h-12 rounded-[11px] bg-[#e20b16]/10 text-[#e20b16] flex items-center justify-center font-bold text-xl">
+              <div className="w-12 h-12 rounded-[11px] bg-[#fcb907]/15 text-[#d97706] flex items-center justify-center font-bold text-xl">
                 ✓
               </div>
               <h3 className="text-lg font-black text-[#101114]">

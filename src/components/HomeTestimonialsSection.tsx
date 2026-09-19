@@ -36,7 +36,7 @@ export default function HomeTestimonialsSection() {
           </div>
           <Link
             href="/about"
-            className="text-[#e20b16] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
+            className="text-[#d97706] hover:text-[#b45309] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
           >
             View All Reviews →
           </Link>
@@ -50,7 +50,7 @@ export default function HomeTestimonialsSection() {
               className="card p-6 flex flex-col justify-between bg-white hover:-translate-y-1 transition-all"
             >
               <div>
-                <div className="text-[#f5a000] text-xl font-bold tracking-wider mb-3">
+                <div className="text-[#fcb907] text-xl font-bold tracking-wider mb-3">
                   {rev.stars}
                 </div>
                 <p className="text-sm sm:text-base text-[#101114] font-medium leading-relaxed italic mb-4">

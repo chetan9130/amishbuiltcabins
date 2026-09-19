@@ -213,7 +213,7 @@ function SectionsManager() {
         <button
           onClick={() => setAddModalOpen(true)}
           disabled={!selectedPageId}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>Add Section</span>
@@ -227,7 +227,7 @@ function SectionsManager() {
           <select
             value={selectedPageId}
             onChange={(e) => setSelectedPageId(e.target.value)}
-            className="px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] cursor-pointer"
+            className="px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907] cursor-pointer"
           >
             {pages.map((p) => (
               <option key={p.id || p._id} value={p.id || p._id}>
@@ -246,7 +246,7 @@ function SectionsManager() {
       <div className="bg-white rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] overflow-hidden">
         {isLoading ? (
           <div className="py-16 text-center text-[#6b7280] text-xs flex flex-col items-center gap-2">
-            <Loader2 className="w-6 h-6 animate-spin text-[#e20b16]" />
+            <Loader2 className="w-6 h-6 animate-spin text-[#d97706]" />
             <span>Loading sections...</span>
           </div>
         ) : sections.length === 0 ? (
@@ -320,7 +320,7 @@ function SectionsManager() {
 
                   <button
                     onClick={() => handleDelete(sec.id || sec._id)}
-                    className="p-2 rounded-xl text-[#6b7280] hover:text-[#e20b16] hover:bg-red-50 transition-colors cursor-pointer"
+                    className="p-2 rounded-xl text-[#6b7280] hover:text-[#d97706] hover:bg-red-50 transition-colors cursor-pointer"
                     title="Delete Section"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -354,7 +354,7 @@ function SectionsManager() {
                 <select
                   value={newSection.type}
                   onChange={(e) => setNewSection({ ...newSection, type: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] cursor-pointer"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907] cursor-pointer"
                 >
                   {SECTION_TYPES.map((t) => (
                     <option key={t.value} value={t.value}>
@@ -371,7 +371,7 @@ function SectionsManager() {
                   value={newSection.title}
                   onChange={(e) => setNewSection({ ...newSection, title: e.target.value })}
                   placeholder="e.g. Modern. Affordable. Built For Life."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -382,7 +382,7 @@ function SectionsManager() {
                   value={newSection.subtitle}
                   onChange={(e) => setNewSection({ ...newSection, subtitle: e.target.value })}
                   placeholder="e.g. Explore factory-built homes with premium finishes."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -393,7 +393,7 @@ function SectionsManager() {
                   value={newSection.content}
                   onChange={(e) => setNewSection({ ...newSection, content: e.target.value })}
                   placeholder="Enter JSON config or additional rich text payload..."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] font-mono text-[11px] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] font-mono text-[11px] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -408,7 +408,7 @@ function SectionsManager() {
                 <button
                   type="submit"
                   disabled={isAdding}
-                  className="px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white font-bold disabled:opacity-50 flex items-center gap-1.5 cursor-pointer shadow-xs"
+                  className="px-5 py-2.5 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] font-bold disabled:opacity-50 flex items-center gap-1.5 cursor-pointer shadow-xs"
                 >
                   {isAdding && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   <span>Add Section</span>

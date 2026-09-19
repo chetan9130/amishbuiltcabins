@@ -55,7 +55,7 @@ export default function HomeSearchBox({ onFilterChange }: HomeSearchBoxProps) {
 
           <form onSubmit={handleSearch} className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-[repeat(5,1fr)_180px] gap-3">
             {/* 1. Home Type */}
-            <div className="border border-[#dfe2e7] rounded-[11px] p-3 sm:px-3.5 sm:py-2.5 bg-white flex flex-col justify-center focus-within:border-[#e20b16] transition-colors">
+            <div className="border border-[#dfe2e7] rounded-[11px] p-3 sm:px-3.5 sm:py-2.5 bg-white flex flex-col justify-center focus-within:border-[#fcb907] focus-within:ring-1 focus-within:ring-[#fcb907] transition-all">
               <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
                 Home Type
               </label>
@@ -76,7 +76,7 @@ export default function HomeSearchBox({ onFilterChange }: HomeSearchBoxProps) {
             </div>
 
             {/* 2. Budget */}
-            <div className="border border-[#dfe2e7] rounded-[11px] p-3 sm:px-3.5 sm:py-2.5 bg-white flex flex-col justify-center focus-within:border-[#e20b16] transition-colors">
+            <div className="border border-[#dfe2e7] rounded-[11px] p-3 sm:px-3.5 sm:py-2.5 bg-white flex flex-col justify-center focus-within:border-[#fcb907] focus-within:ring-1 focus-within:ring-[#fcb907] transition-all">
               <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
                 Budget
               </label>
@@ -94,7 +94,7 @@ export default function HomeSearchBox({ onFilterChange }: HomeSearchBoxProps) {
             </div>
 
             {/* 3. Bedrooms */}
-            <div className="border border-[#dfe2e7] rounded-[11px] p-3 sm:px-3.5 sm:py-2.5 bg-white flex flex-col justify-center focus-within:border-[#e20b16] transition-colors">
+            <div className="border border-[#dfe2e7] rounded-[11px] p-3 sm:px-3.5 sm:py-2.5 bg-white flex flex-col justify-center focus-within:border-[#fcb907] focus-within:ring-1 focus-within:ring-[#fcb907] transition-all">
               <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
                 Bedrooms
               </label>
@@ -112,7 +112,7 @@ export default function HomeSearchBox({ onFilterChange }: HomeSearchBoxProps) {
             </div>
 
             {/* 4. Bathrooms */}
-            <div className="border border-[#dfe2e7] rounded-[11px] p-3 sm:px-3.5 sm:py-2.5 bg-white flex flex-col justify-center focus-within:border-[#e20b16] transition-colors">
+            <div className="border border-[#dfe2e7] rounded-[11px] p-3 sm:px-3.5 sm:py-2.5 bg-white flex flex-col justify-center focus-within:border-[#fcb907] focus-within:ring-1 focus-within:ring-[#fcb907] transition-all">
               <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
                 Bathrooms
               </label>
@@ -129,7 +129,7 @@ export default function HomeSearchBox({ onFilterChange }: HomeSearchBoxProps) {
             </div>
 
             {/* 5. Location */}
-            <div className="border border-[#dfe2e7] rounded-[11px] p-3 sm:px-3.5 sm:py-2.5 bg-white flex flex-col justify-center focus-within:border-[#e20b16] transition-colors">
+            <div className="border border-[#dfe2e7] rounded-[11px] p-3 sm:px-3.5 sm:py-2.5 bg-white flex flex-col justify-center focus-within:border-[#fcb907] focus-within:ring-1 focus-within:ring-[#fcb907] transition-all">
               <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
                 Location
               </label>
@@ -145,7 +145,7 @@ export default function HomeSearchBox({ onFilterChange }: HomeSearchBoxProps) {
             {/* Search Button */}
             <button
               type="submit"
-              className="btn-primary w-full h-[52px] sm:h-auto min-h-[50px] font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 rounded-[11px]"
+              className="bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] font-black w-full h-[52px] sm:h-auto min-h-[50px] text-sm sm:text-base flex items-center justify-center gap-2 rounded-[11px] transition-all shadow-sm hover:shadow-md cursor-pointer"
             >
               <span>Search Homes</span>
               <span>→</span>

@@ -91,6 +91,16 @@ export const CATEGORIES = [
     cta: "View Tiny Homes",
   },
   {
+    id: "Park Models",
+    title: "Park Models",
+    tagline: "Resort-grade RV & park model modular homes.",
+    description: "Architectural park model homes designed for seasonal, recreational, or resort living communities.",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+    count: 4,
+    href: "/buildings?category=Park+Models",
+    cta: "View Park Models",
+  },
+  {
     id: "Cabins",
     title: "Cabins",
     tagline: "Rustic, modern, and mountain-style log cabins.",

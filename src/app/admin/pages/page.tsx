@@ -128,7 +128,7 @@ export default function AdminPagesPage() {
 
         <button
           onClick={() => setCreateModalOpen(true)}
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-bold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>Create New Page</span>
@@ -143,7 +143,7 @@ export default function AdminPagesPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by title or slug..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
           />
           <Search className="w-4 h-4 text-[#6b7280] absolute left-3 top-3" />
         </form>
@@ -153,7 +153,7 @@ export default function AdminPagesPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-2 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+            className="px-3 py-2 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
           >
             <option value="ALL">All Statuses</option>
             <option value="PUBLISHED">Published</option>
@@ -167,7 +167,7 @@ export default function AdminPagesPage() {
       <div className="bg-white rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] overflow-hidden">
         {isLoading ? (
           <div className="py-24 text-center text-[#6b7280] text-xs flex flex-col items-center gap-2 font-medium">
-            <Loader2 className="w-6 h-6 animate-spin text-[#e20b16]" />
+            <Loader2 className="w-6 h-6 animate-spin text-[#d97706]" />
             <span>Loading pages...</span>
           </div>
         ) : pages.length === 0 ? (
@@ -206,7 +206,7 @@ export default function AdminPagesPage() {
                       <td className="py-4 px-4">
                         <Link
                           href={`/admin/sections?pageId=${pageId}`}
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-red-50 text-[#e20b16] border border-red-200 font-bold hover:bg-red-100 transition-colors"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-red-50 text-[#d97706] border border-red-200 font-bold hover:bg-red-100 transition-colors"
                         >
                           <Layers className="w-3.5 h-3.5" />
                           <span>{page.sectionCount || page._count?.sections || 0} Sections</span>
@@ -238,7 +238,7 @@ export default function AdminPagesPage() {
                         </Link>
                         <button
                           onClick={() => handleDeletePage(pageId, page.title)}
-                          className="p-2 rounded-xl text-[#6b7280] hover:text-[#e20b16] hover:bg-red-50 border border-transparent hover:border-red-200 inline-block transition-all cursor-pointer"
+                          className="p-2 rounded-xl text-[#6b7280] hover:text-[#d97706] hover:bg-red-50 border border-transparent hover:border-red-200 inline-block transition-all cursor-pointer"
                           title="Delete Page"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -271,7 +271,7 @@ export default function AdminPagesPage() {
 
             {createError && (
               <div className="p-3.5 rounded-xl bg-red-50 text-red-700 text-xs font-semibold flex items-center gap-2 border border-red-200">
-                <AlertCircle className="w-4 h-4 shrink-0 text-[#e20b16]" />
+                <AlertCircle className="w-4 h-4 shrink-0 text-[#d97706]" />
                 <span>{createError}</span>
               </div>
             )}
@@ -289,7 +289,7 @@ export default function AdminPagesPage() {
                     setCreateForm({ ...createForm, title, slug, seoTitle: `${title} | ModularHome.com` });
                   }}
                   placeholder="e.g. Precision Engineering Guide"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -301,7 +301,7 @@ export default function AdminPagesPage() {
                   value={createForm.slug}
                   onChange={(e) => setCreateForm({ ...createForm, slug: e.target.value })}
                   placeholder="e.g. engineering-guide"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-mono text-[11px] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-mono text-[11px] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -312,7 +312,7 @@ export default function AdminPagesPage() {
                   value={createForm.subtitle}
                   onChange={(e) => setCreateForm({ ...createForm, subtitle: e.target.value })}
                   placeholder="Brief descriptive subtitle"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -321,7 +321,7 @@ export default function AdminPagesPage() {
                 <select
                   value={createForm.status}
                   onChange={(e) => setCreateForm({ ...createForm, status: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 >
                   <option value="PUBLISHED">Published</option>
                   <option value="DRAFT">Draft</option>
@@ -339,7 +339,7 @@ export default function AdminPagesPage() {
                 <button
                   type="submit"
                   disabled={isCreating}
-                  className="px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white font-bold disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] font-bold disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
                 >
                   {isCreating && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   <span>Create Page</span>

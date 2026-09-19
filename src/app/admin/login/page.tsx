@@ -47,7 +47,7 @@ function LoginForm() {
   return (
     <div className="bg-white py-8 px-6 sm:px-10 shadow-[0_12px_35px_rgba(16,24,40,0.08)] rounded-[18px] border border-[#e7e9ee]">
       {error && (
-        <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 flex items-start gap-3 text-[#e20b16] text-xs animate-in fade-in font-medium">
+        <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 flex items-start gap-3 text-[#d97706] text-xs animate-in fade-in font-medium">
           <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
           <span>{error}</span>
         </div>
@@ -68,7 +68,7 @@ function LoginForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="admin@modularhome.com"
-              className="block w-full pl-10 pr-4 py-3 bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl text-[#101114] text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#e20b16] focus:bg-white transition-all font-medium"
+              className="block w-full pl-10 pr-4 py-3 bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl text-[#101114] text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#fcb907] focus:bg-white transition-all font-medium"
             />
           </div>
         </div>
@@ -89,7 +89,7 @@ function LoginForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••••••"
-              className="block w-full pl-10 pr-4 py-3 bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl text-[#101114] text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#e20b16] focus:bg-white transition-all font-medium"
+              className="block w-full pl-10 pr-4 py-3 bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl text-[#101114] text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#fcb907] focus:bg-white transition-all font-medium"
             />
           </div>
         </div>
@@ -98,7 +98,7 @@ function LoginForm() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl shadow-sm text-sm font-bold text-white bg-[#e20b16] hover:bg-[#c50812] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#e20b16] disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl shadow-sm text-sm font-black text-[#101114] bg-[#fcb907] hover:bg-[#e5a706] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#fcb907] disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
           >
             {isLoading ? (
               <>
@@ -129,24 +129,24 @@ function LoginForm() {
 
 export default function AdminLoginPage() {
   return (
-    <div className="min-h-screen bg-[#f6f7f9] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden selection:bg-[#e20b16] selection:text-white">
+    <div className="min-h-screen bg-[#f6f7f9] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden selection:bg-[#fcb907] selection:text-[#101114]">
       {/* Decorative top pattern */}
-      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#a0060e] via-[#e20b16] to-[#c50812]" />
+      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#d97706] via-[#fcb907] to-[#b45309]" />
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10 text-center">
         <Link href="/" className="inline-block mb-4 hover:opacity-90 transition-opacity">
-          <div className="bg-white border border-[#e7e9ee] p-3 rounded-2xl inline-flex items-center gap-3 shadow-[0_12px_35px_rgba(16,24,40,0.06)]">
+          <div className="bg-white border border-[#e7e9ee] p-2.5 rounded-2xl inline-flex items-center gap-3 shadow-[0_12px_35px_rgba(16,24,40,0.06)]">
             <Image
-              src="/newlogo2.png"
+              src="/finallogo.avif"
               alt="ModularHome Logo"
               width={160}
               height={36}
-              className="h-8 w-auto object-contain"
+              className="h-7 sm:h-8 w-auto object-contain"
               priority
             />
           </div>
         </Link>
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-[#e20b16] text-xs font-bold uppercase tracking-wider mb-2">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-[#d97706] text-xs font-bold uppercase tracking-wider mb-2">
           <ShieldCheck className="w-3.5 h-3.5" />
           <span>Secure Admin Portal</span>
         </div>

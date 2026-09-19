@@ -18,7 +18,7 @@ export const seedDatabase = mutation({
       await ctx.db.insert("globalSettings", {
         key: "default",
         companyName: "ModularHome",
-        logoUrl: "/images/logo.png",
+        logoUrl: "/finallogo.avif",
         faviconUrl: "/favicon.ico",
         phone: "+1 (800) 555-MODU",
         email: "info@modularhome.com",

@@ -101,7 +101,7 @@ export default function AdminBlogsPage() {
 
         <Link
           href="/admin/blogs/new"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-bold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>Write New Article</span>
@@ -116,7 +116,7 @@ export default function AdminBlogsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by title or excerpt..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
           />
           <Search className="w-4 h-4 text-[#6b7280] absolute left-3 top-3" />
         </form>
@@ -140,7 +140,7 @@ export default function AdminBlogsPage() {
       <div className="bg-white rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] overflow-hidden">
         {isLoading ? (
           <div className="py-16 text-center text-[#6b7280] text-xs flex flex-col items-center gap-2">
-            <Loader2 className="w-6 h-6 animate-spin text-[#e20b16]" />
+            <Loader2 className="w-6 h-6 animate-spin text-[#d97706]" />
             <span>Loading articles...</span>
           </div>
         ) : blogs.length === 0 ? (
@@ -221,7 +221,7 @@ export default function AdminBlogsPage() {
                         </Link>
                         <button
                           onClick={() => handleDelete(bId, blog.title)}
-                          className="p-2 rounded-xl text-[#6b7280] hover:text-[#e20b16] hover:bg-red-50 border border-transparent hover:border-red-200 inline-block transition-colors cursor-pointer"
+                          className="p-2 rounded-xl text-[#6b7280] hover:text-[#d97706] hover:bg-red-50 border border-transparent hover:border-red-200 inline-block transition-colors cursor-pointer"
                           title="Delete Article"
                         >
                           <Trash2 className="w-3.5 h-3.5" />

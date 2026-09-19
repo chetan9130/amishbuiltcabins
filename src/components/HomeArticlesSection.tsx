@@ -37,7 +37,7 @@ export default function HomeArticlesSection() {
           </div>
           <Link
             href="/resources"
-            className="text-[#e20b16] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
+            className="text-[#d97706] hover:text-[#b45309] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
           >
             View All Articles →
           </Link>
@@ -61,7 +61,7 @@ export default function HomeArticlesSection() {
                 />
               </div>
               <div className="p-4 sm:p-5">
-                <h3 className="text-base sm:text-lg font-black text-[#101114] mb-1.5 group-hover:text-[#e20b16] transition-colors leading-snug">
+                <h3 className="text-base sm:text-lg font-black text-[#101114] mb-1.5 group-hover:text-[#d97706] transition-colors leading-snug">
                   {art.title}
                 </h3>
                 <div className="text-xs text-[#6b7280] font-semibold">

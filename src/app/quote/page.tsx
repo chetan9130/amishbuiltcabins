@@ -12,8 +12,8 @@ export default function QuotePage() {
       <div className="wrap">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16] mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#e20b16]"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#d97706] mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#fcb907]"></span>
             <span>Interactive Estimator</span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-[-1.5px] text-[#101114]">
@@ -26,15 +26,15 @@ export default function QuotePage() {
           {/* Quick trust bar */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs text-[#101114]">
             <span className="flex items-center gap-1.5 bg-[#f6f7f9] border border-[#e7e9ee] px-3.5 py-1.5 rounded-full font-bold">
-              <Clock className="w-3.5 h-3.5 text-[#e20b16]" />
+              <Clock className="w-3.5 h-3.5 text-[#d97706]" />
               Takes 2 Minutes
             </span>
             <span className="flex items-center gap-1.5 bg-[#f6f7f9] border border-[#e7e9ee] px-3.5 py-1.5 rounded-full font-bold">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#e20b16]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#d97706]" />
               No Obligation Estimate
             </span>
             <span className="flex items-center gap-1.5 bg-[#f6f7f9] border border-[#e7e9ee] px-3.5 py-1.5 rounded-full font-bold">
-              <Award className="w-3.5 h-3.5 text-[#e20b16]" />
+              <Award className="w-3.5 h-3.5 text-[#d97706]" />
               Direct Factory Pricing
             </span>
           </div>
@@ -48,7 +48,7 @@ export default function QuotePage() {
         {/* Assistive footer callout */}
         <div className="mt-14 text-center text-xs text-[#6b7280]">
           Prefer to speak directly with an estimator? Call us at{" "}
-          <a href="tel:+18125954033" className="text-[#e20b16] font-bold hover:underline">
+          <a href="tel:+18125954033" className="text-[#d97706] font-bold hover:underline">
             +1-812-595-4033
           </a>{" "}
           (Monday–Friday 7am–6pm EST).

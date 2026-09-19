@@ -112,7 +112,7 @@ export default function AdminProductsPage() {
 
         <Link
           href="/admin/products/new"
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
+          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
         >
           <Plus className="w-4 h-4" />
           <span>Add New Model</span>
@@ -127,7 +127,7 @@ export default function AdminProductsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by name, slug, or keyword..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
           />
           <Search className="w-4 h-4 text-[#6b7280] absolute left-3 top-3" />
         </form>
@@ -138,7 +138,7 @@ export default function AdminProductsPage() {
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="px-3 py-2 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="px-3 py-2 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
             >
               <option value="ALL">All Categories</option>
               {categories.map((c) => (
@@ -154,7 +154,7 @@ export default function AdminProductsPage() {
             <select
               value={publishFilter}
               onChange={(e) => setPublishFilter(e.target.value)}
-              className="px-3 py-2 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+              className="px-3 py-2 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
             >
               <option value="ALL">All</option>
               <option value="PUBLISHED">Published</option>
@@ -168,7 +168,7 @@ export default function AdminProductsPage() {
       <div className="bg-white rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] overflow-hidden">
         {isLoading ? (
           <div className="py-16 text-center text-[#6b7280] text-xs flex flex-col items-center gap-2 font-medium">
-            <Loader2 className="w-6 h-6 animate-spin text-[#e20b16]" />
+            <Loader2 className="w-6 h-6 animate-spin text-[#d97706]" />
             <span>Loading product catalog...</span>
           </div>
         ) : products.length === 0 ? (
@@ -243,7 +243,7 @@ export default function AdminProductsPage() {
                         </Link>
                         <button
                           onClick={() => handleDelete(prodId, prod.name)}
-                          className="p-2 rounded-xl text-[#6b7280] hover:text-[#e20b16] hover:bg-red-50 border border-transparent hover:border-red-200 inline-block transition-all cursor-pointer"
+                          className="p-2 rounded-xl text-[#6b7280] hover:text-[#d97706] hover:bg-red-50 border border-transparent hover:border-red-200 inline-block transition-all cursor-pointer"
                           title="Delete Model"
                         >
                           <Trash2 className="w-4 h-4" />

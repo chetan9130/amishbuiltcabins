@@ -59,10 +59,10 @@ export default function BudgetSection() {
                 />
               </div>
               <div className="p-4 bg-white">
-                <h3 className="text-lg font-black text-[#101114] mb-1 group-hover:text-[#e20b16] transition-colors">
+                <h3 className="text-lg font-black text-[#101114] mb-1 group-hover:text-[#d97706] transition-colors">
                   {tier.range}
                 </h3>
-                <div className="text-[13px] text-[#6b7280] font-medium group-hover:text-[#101114] transition-colors">
+                <div className="text-[13px] text-[#6b7280] font-medium group-hover:text-[#d97706] transition-colors">
                   {tier.label}
                 </div>
               </div>

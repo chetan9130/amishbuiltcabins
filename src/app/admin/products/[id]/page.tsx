@@ -88,7 +88,7 @@ export default function AdminEditProductPage() {
   if (isLoading) {
     return (
       <div className="py-24 text-center text-[#6b7280] text-xs flex flex-col items-center gap-2 font-medium">
-        <Loader2 className="w-8 h-8 animate-spin text-[#e20b16]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#d97706]" />
         <span>Loading product model details...</span>
       </div>
     );
@@ -98,7 +98,7 @@ export default function AdminEditProductPage() {
     return (
       <div className="text-center py-20 bg-white rounded-[18px] border border-[#e7e9ee] p-8">
         <p className="text-sm font-bold text-[#101114]">Product model not found.</p>
-        <Link href="/admin/products" className="text-xs font-bold text-[#e20b16] mt-3 inline-block hover:underline">
+        <Link href="/admin/products" className="text-xs font-bold text-[#d97706] mt-3 inline-block hover:underline">
           ← Back to Catalog
         </Link>
       </div>
@@ -129,7 +129,7 @@ export default function AdminEditProductPage() {
         <button
           type="submit"
           disabled={isSaving}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
         >
           {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
           <span>Save Changes</span>
@@ -169,7 +169,7 @@ export default function AdminEditProductPage() {
                   required
                   value={product.name || ""}
                   onChange={(e) => setProduct({ ...product, name: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -180,7 +180,7 @@ export default function AdminEditProductPage() {
                   required
                   value={product.slug || ""}
                   onChange={(e) => setProduct({ ...product, slug: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
             </div>
@@ -191,7 +191,7 @@ export default function AdminEditProductPage() {
                 <select
                   value={product.category || "Residential"}
                   onChange={(e) => setProduct({ ...product, category: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 >
                   <option value="Residential">Residential</option>
                   <option value="Modular Homes">Modular Homes</option>
@@ -213,7 +213,7 @@ export default function AdminEditProductPage() {
                   required
                   value={product.startingPrice || 0}
                   onChange={(e) => setProduct({ ...product, startingPrice: Number(e.target.value) })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold font-serif focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold font-serif focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -223,7 +223,7 @@ export default function AdminEditProductPage() {
                   type="number"
                   value={product.sqft || 0}
                   onChange={(e) => setProduct({ ...product, sqft: Number(e.target.value) })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
             </div>
@@ -234,7 +234,7 @@ export default function AdminEditProductPage() {
                 type="text"
                 value={product.tagline || ""}
                 onChange={(e) => setProduct({ ...product, tagline: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -244,7 +244,7 @@ export default function AdminEditProductPage() {
                 rows={4}
                 value={product.description || ""}
                 onChange={(e) => setProduct({ ...product, description: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -262,7 +262,7 @@ export default function AdminEditProductPage() {
                   type="number"
                   value={product.bedrooms || 0}
                   onChange={(e) => setProduct({ ...product, bedrooms: Number(e.target.value) })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -272,7 +272,7 @@ export default function AdminEditProductPage() {
                   type="number"
                   value={product.bathrooms || 0}
                   onChange={(e) => setProduct({ ...product, bathrooms: Number(e.target.value) })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -282,7 +282,7 @@ export default function AdminEditProductPage() {
                   type="number"
                   value={product.stories || 1}
                   onChange={(e) => setProduct({ ...product, stories: Number(e.target.value) })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
             </div>
@@ -294,7 +294,7 @@ export default function AdminEditProductPage() {
                   type="text"
                   value={product.dimensions || ""}
                   onChange={(e) => setProduct({ ...product, dimensions: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
 
@@ -304,7 +304,7 @@ export default function AdminEditProductPage() {
                   type="text"
                   value={product.frameType || ""}
                   onChange={(e) => setProduct({ ...product, frameType: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
                 />
               </div>
             </div>
@@ -313,7 +313,7 @@ export default function AdminEditProductPage() {
           {/* SEO Metadata Box */}
           <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
-              <Search className="w-4 h-4 text-[#e20b16]" />
+              <Search className="w-4 h-4 text-[#d97706]" />
               <span>Product SEO Metadata</span>
             </div>
 
@@ -328,7 +328,7 @@ export default function AdminEditProductPage() {
                 type="text"
                 value={product.seoTitle || ""}
                 onChange={(e) => setProduct({ ...product, seoTitle: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -343,7 +343,7 @@ export default function AdminEditProductPage() {
                 rows={2}
                 value={product.metaDescription || ""}
                 onChange={(e) => setProduct({ ...product, metaDescription: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -354,7 +354,7 @@ export default function AdminEditProductPage() {
           {/* Media Links */}
           <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
-              <ImageIcon className="w-4 h-4 text-[#e20b16]" />
+              <ImageIcon className="w-4 h-4 text-[#d97706]" />
               <span>Media & Visual Assets</span>
             </div>
 
@@ -365,7 +365,7 @@ export default function AdminEditProductPage() {
                 required
                 value={product.primaryImage || ""}
                 onChange={(e) => setProduct({ ...product, primaryImage: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -375,7 +375,7 @@ export default function AdminEditProductPage() {
                 type="text"
                 value={product.floorPlanImage || ""}
                 onChange={(e) => setProduct({ ...product, floorPlanImage: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -385,7 +385,7 @@ export default function AdminEditProductPage() {
                 type="text"
                 value={product.videoUrl || ""}
                 onChange={(e) => setProduct({ ...product, videoUrl: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -393,7 +393,7 @@ export default function AdminEditProductPage() {
           {/* Collection Assignments */}
           <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#101114] border-b border-[#e7e9ee] pb-3">
-              <FolderOpen className="w-4 h-4 text-[#e20b16]" />
+              <FolderOpen className="w-4 h-4 text-[#d97706]" />
               <span>Assign to Collections</span>
             </div>
 
@@ -409,7 +409,7 @@ export default function AdminEditProductPage() {
                       type="checkbox"
                       checked={product.collectionIds?.includes(cId)}
                       onChange={() => handleCollectionToggle(cId)}
-                      className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
+                      className="w-4 h-4 text-[#d97706] rounded-sm focus:ring-[#fcb907]"
                     />
                     <span>{c.name}</span>
                   </label>
@@ -425,7 +425,7 @@ export default function AdminEditProductPage() {
                 type="checkbox"
                 checked={!!product.isPublished}
                 onChange={(e) => setProduct({ ...product, isPublished: e.target.checked })}
-                className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
+                className="w-4 h-4 text-[#d97706] rounded-sm focus:ring-[#fcb907]"
               />
               <span>Published (Live in Model Catalog)</span>
             </label>
@@ -435,7 +435,7 @@ export default function AdminEditProductPage() {
                 type="checkbox"
                 checked={!!product.isFeatured}
                 onChange={(e) => setProduct({ ...product, isFeatured: e.target.checked })}
-                className="w-4 h-4 text-[#e20b16] rounded-sm focus:ring-[#e20b16]"
+                className="w-4 h-4 text-[#d97706] rounded-sm focus:ring-[#fcb907]"
               />
               <span>Featured on Homepage</span>
             </label>

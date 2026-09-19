@@ -73,16 +73,16 @@ export default function StatsSection() {
               className="card p-6 flex flex-col justify-between group hover:-translate-y-1 transition-all bg-white"
             >
               <div className="flex items-center justify-between pb-3 border-b border-[#e7e9ee]">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-[#e20b16]">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-[#d97706]">
                   0{idx + 1}
                 </span>
-                <stat.icon className="w-5 h-5 text-[#6b7280] group-hover:text-[#e20b16] transition-colors" />
+                <stat.icon className="w-5 h-5 text-[#6b7280] group-hover:text-[#fcb907] transition-colors" />
               </div>
 
               <div className="py-5">
                 <div className="text-4xl sm:text-5xl font-black text-[#101114] tracking-tight flex items-baseline">
                   <span>{isVisible ? stat.value : 0}</span>
-                  <span className="text-[#e20b16] ml-0.5">{stat.suffix}</span>
+                  <span className="text-[#d97706] ml-0.5">{stat.suffix}</span>
                 </div>
                 <div className="text-sm sm:text-base font-black text-[#101114] mt-2">
                   {stat.label}

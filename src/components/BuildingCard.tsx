@@ -29,22 +29,22 @@ export default function BuildingCard({ model, priority = false }: BuildingCardPr
       {/* Content Area */}
       <div className="p-4 flex-1 flex flex-col justify-between space-y-2.5 bg-white">
         <div>
-          <h3 className="text-base sm:text-lg font-black tracking-tight text-[#101114] group-hover:text-[#e20b16] transition-colors">
+          <h3 className="text-base sm:text-lg font-black tracking-tight text-[#101114] group-hover:text-[#d97706] transition-colors">
             {model.name}
           </h3>
           <p className="text-xs text-[#6b7280] font-medium mt-1">
             {formattedSqFt} sq ft | {model.bedrooms} Bed | {model.bathrooms} Bath
           </p>
-          <div className="text-lg sm:text-[21px] font-black text-[#e20b16] mt-2">
+          <div className="text-lg sm:text-[21px] font-black text-[#d97706] mt-2">
             {formattedPrice}
           </div>
         </div>
 
-        {/* Red View Details Button */}
+        {/* View Details Button */}
         <div className="pt-2">
           <Link
             href={`/buildings/${model.slug}`}
-            className="btn-primary w-full py-2.5 px-4 text-xs font-extrabold rounded-[9px] text-center justify-center shadow-xs"
+            className="w-full py-2.5 px-4 text-xs font-black rounded-[9px] text-center justify-center bg-[#0f1218] hover:bg-[#fcb907] text-white hover:text-[#101114] transition-all duration-200 shadow-xs flex items-center gap-1.5"
           >
             <span>View Details →</span>
           </Link>

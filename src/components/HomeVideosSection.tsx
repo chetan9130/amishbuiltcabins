@@ -90,7 +90,7 @@ export default function HomeVideosSection({ videos = DEFAULT_VIDEOS }: HomeVideo
             </div>
             <Link
               href="/videos"
-              className="text-[#e20b16] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
+              className="text-[#d97706] hover:text-[#b45309] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
             >
               View All Videos →
             </Link>
@@ -113,7 +113,7 @@ export default function HomeVideosSection({ videos = DEFAULT_VIDEOS }: HomeVideo
 
               {/* Play Button Overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black/40 group-hover:bg-[#e20b16] text-white flex items-center justify-center text-2xl sm:text-3xl pl-1 transition-all duration-300 backdrop-blur-xs shadow-2xl group-hover:scale-110">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black/50 group-hover:bg-[#fcb907] text-white group-hover:text-[#101114] flex items-center justify-center text-2xl sm:text-3xl pl-1 transition-all duration-300 backdrop-blur-xs shadow-2xl group-hover:scale-110">
                   ▶
                 </div>
               </div>
@@ -143,7 +143,7 @@ export default function HomeVideosSection({ videos = DEFAULT_VIDEOS }: HomeVideo
 
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-black/40 group-hover:bg-[#e20b16] text-white flex items-center justify-center text-lg pl-0.5 transition-all duration-300 backdrop-blur-xs shadow-lg group-hover:scale-110">
+                  <div className="w-12 h-12 rounded-full bg-black/50 group-hover:bg-[#fcb907] text-white group-hover:text-[#101114] flex items-center justify-center text-lg pl-0.5 transition-all duration-300 backdrop-blur-xs shadow-lg group-hover:scale-110">
                     ▶
                   </div>
                 </div>

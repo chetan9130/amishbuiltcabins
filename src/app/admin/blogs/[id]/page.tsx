@@ -79,7 +79,7 @@ export default function AdminEditBlogPage() {
   if (isLoading) {
     return (
       <div className="py-20 text-center text-gray-500 text-xs flex flex-col items-center gap-2">
-        <Loader2 className="w-6 h-6 animate-spin text-[#e20b16]" />
+        <Loader2 className="w-6 h-6 animate-spin text-[#d97706]" />
         <span>Loading article data...</span>
       </div>
     );
@@ -89,7 +89,7 @@ export default function AdminEditBlogPage() {
     return (
       <div className="text-center py-20">
         <p className="text-sm text-gray-600">Blog not found.</p>
-        <Link href="/admin/blogs" className="text-xs font-bold text-[#e20b16] mt-2 inline-block">
+        <Link href="/admin/blogs" className="text-xs font-bold text-[#d97706] mt-2 inline-block">
           ← Back to Blogs
         </Link>
       </div>
@@ -120,7 +120,7 @@ export default function AdminEditBlogPage() {
         <button
           type="submit"
           disabled={isSaving}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
         >
           {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
           <span>Save Changes</span>
@@ -138,7 +138,7 @@ export default function AdminEditBlogPage() {
           {message.type === "success" ? (
             <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
           ) : (
-            <AlertCircle className="w-4 h-4 text-[#e20b16] shrink-0" />
+            <AlertCircle className="w-4 h-4 text-[#d97706] shrink-0" />
           )}
           <span>{message.text}</span>
         </div>
@@ -159,7 +159,7 @@ export default function AdminEditBlogPage() {
                 required
                 value={blog.title || ""}
                 onChange={(e) => setBlog({ ...blog, title: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -170,7 +170,7 @@ export default function AdminEditBlogPage() {
                 required
                 value={blog.slug || ""}
                 onChange={(e) => setBlog({ ...blog, slug: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] font-mono text-[11px] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] font-mono text-[11px] text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -180,7 +180,7 @@ export default function AdminEditBlogPage() {
                 rows={2}
                 value={blog.excerpt || ""}
                 onChange={(e) => setBlog({ ...blog, excerpt: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -191,7 +191,7 @@ export default function AdminEditBlogPage() {
                 required
                 value={blog.content || ""}
                 onChange={(e) => setBlog({ ...blog, content: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] font-mono text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] font-mono text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -199,7 +199,7 @@ export default function AdminEditBlogPage() {
           {/* SEO Metadata */}
           <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
             <div className="flex items-center gap-2 text-sm font-serif font-bold text-[#101114] border-b border-[#e7e9ee] pb-3">
-              <Search className="w-4 h-4 text-[#e20b16]" />
+              <Search className="w-4 h-4 text-[#d97706]" />
               <span>Blog SEO Metadata</span>
             </div>
 
@@ -214,7 +214,7 @@ export default function AdminEditBlogPage() {
                 type="text"
                 value={blog.seoTitle || ""}
                 onChange={(e) => setBlog({ ...blog, seoTitle: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -229,7 +229,7 @@ export default function AdminEditBlogPage() {
                 rows={2}
                 value={blog.metaDescription || ""}
                 onChange={(e) => setBlog({ ...blog, metaDescription: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -247,7 +247,7 @@ export default function AdminEditBlogPage() {
               <select
                 value={blog.status || "PUBLISHED"}
                 onChange={(e) => setBlog({ ...blog, status: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] cursor-pointer"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907] cursor-pointer"
               >
                 <option value="PUBLISHED">Published</option>
                 <option value="DRAFT">Draft</option>
@@ -261,7 +261,7 @@ export default function AdminEditBlogPage() {
                 type="text"
                 value={blog.author || ""}
                 onChange={(e) => setBlog({ ...blog, author: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -271,7 +271,7 @@ export default function AdminEditBlogPage() {
                 type="text"
                 value={categoriesText}
                 onChange={(e) => setCategoriesText(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -281,7 +281,7 @@ export default function AdminEditBlogPage() {
                 type="text"
                 value={tagsText}
                 onChange={(e) => setTagsText(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -297,7 +297,7 @@ export default function AdminEditBlogPage() {
                 type="text"
                 value={blog.featuredImage || ""}
                 onChange={(e) => setBlog({ ...blog, featuredImage: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -307,7 +307,7 @@ export default function AdminEditBlogPage() {
                 type="text"
                 value={blog.embeddedVideoUrl || ""}
                 onChange={(e) => setBlog({ ...blog, embeddedVideoUrl: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>

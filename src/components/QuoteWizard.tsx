@@ -95,7 +95,7 @@ export default function QuoteWizard() {
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ["#e20b16", "#c50812", "#101114", "#f6f7f9"],
+        colors: ["#fcb907", "#d97706", "#101114", "#f6f7f9"],
       });
     } catch {
       // Fallback
@@ -127,13 +127,13 @@ export default function QuoteWizard() {
               <div
                 className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-300 ${
                   step === s.num
-                    ? "bg-[#e20b16] text-white shadow-sm"
+                    ? "bg-[#fcb907] text-[#101114] shadow-sm"
                     : step > s.num
-                    ? "bg-white text-[#e20b16] border border-[#e20b16]"
+                    ? "bg-white text-[#d97706] border border-[#fcb907]"
                     : "bg-white text-[#6b7280] border border-[#e7e9ee]"
                 }`}
               >
-                {step > s.num ? <Check className="w-4 h-4 text-[#e20b16]" /> : s.num}
+                {step > s.num ? <Check className="w-4 h-4 text-[#d97706]" /> : s.num}
               </div>
               <span
                 className={`hidden md:block text-[11px] uppercase tracking-wider mt-2 font-bold ${
@@ -155,7 +155,7 @@ export default function QuoteWizard() {
             {step === 1 && (
               <div className="space-y-5 animate-in fade-in duration-200">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                     Step 01 of 06
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114] mt-1">
@@ -182,14 +182,14 @@ export default function QuoteWizard() {
                         }}
                         className={`cursor-pointer relative p-4.5 rounded-[11px] border transition-all duration-300 flex items-start gap-3.5 ${
                           isSelected
-                            ? "bg-[#f6f7f9] border-[#e20b16] ring-1 ring-[#e20b16] shadow-xs"
-                            : "bg-white border-[#e7e9ee] hover:border-[#e20b16]"
+                            ? "bg-[#f6f7f9] border-[#fcb907] ring-1 ring-[#fcb907] shadow-xs"
+                            : "bg-white border-[#e7e9ee] hover:border-[#fcb907]"
                         }`}
                       >
                         <div
                           className={`w-5 h-5 rounded-full border mt-0.5 flex items-center justify-center shrink-0 ${
                             isSelected
-                              ? "border-[#e20b16] bg-[#e20b16] text-white"
+                              ? "border-[#fcb907] bg-[#fcb907] text-[#101114]"
                               : "border-[#6b7280]"
                           }`}
                         >
@@ -214,14 +214,14 @@ export default function QuoteWizard() {
             {step === 2 && (
               <div className="space-y-5 animate-in fade-in duration-200">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                     Step 02 of 06
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114] mt-1">
                     Select Base Architectural Model
                   </h3>
                   <p className="text-xs sm:text-sm text-[#6b7280] mt-1">
-                    Showing available models under <span className="text-[#e20b16] font-bold">{category}</span>.
+                    Showing available models under <span className="text-[#d97706] font-bold">{category}</span>.
                   </p>
                 </div>
 
@@ -237,8 +237,8 @@ export default function QuoteWizard() {
                         }}
                         className={`cursor-pointer rounded-[11px] border overflow-hidden transition-all duration-300 ${
                           isSelected
-                            ? "bg-[#f6f7f9] border-[#e20b16] ring-1 ring-[#e20b16] shadow-md"
-                            : "bg-white border-[#e7e9ee] hover:border-[#e20b16]"
+                            ? "bg-[#f6f7f9] border-[#fcb907] ring-1 ring-[#fcb907] shadow-md"
+                            : "bg-white border-[#e7e9ee] hover:border-[#fcb907]"
                         }`}
                       >
                         <div className="relative aspect-[16/10] w-full bg-[#f6f7f9]">
@@ -256,7 +256,7 @@ export default function QuoteWizard() {
 
                         <div className="p-3.5 space-y-1">
                           <div className="flex items-center justify-between">
-                            <span className="text-[10px] font-bold uppercase text-[#e20b16]">
+                            <span className="text-[10px] font-bold uppercase text-[#d97706]">
                               {m.series}
                             </span>
                             <span className="text-xs text-[#6b7280] font-semibold">
@@ -281,7 +281,7 @@ export default function QuoteWizard() {
             {step === 3 && (
               <div className="space-y-6 animate-in fade-in duration-200 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                     Step 03 of 06
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114] mt-1">
@@ -306,7 +306,7 @@ export default function QuoteWizard() {
                     <div className="text-5xl sm:text-6xl font-black text-[#101114]">
                       {new Intl.NumberFormat("en-US").format(sqft)}
                     </div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-[#e20b16] mt-1.5">
+                    <div className="text-xs font-bold uppercase tracking-widest text-[#d97706] mt-1.5">
                       SQUARE FEET
                     </div>
                   </div>
@@ -320,7 +320,7 @@ export default function QuoteWizard() {
                       step={50}
                       value={sqft}
                       onChange={(e) => setSqft(Number(e.target.value))}
-                      className="w-full accent-[#e20b16] cursor-pointer"
+                      className="w-full accent-[#fcb907] cursor-pointer"
                     />
                     <div className="flex justify-between text-xs text-[#6b7280]">
                       <span>400 SQ FT (Compact)</span>
@@ -338,8 +338,8 @@ export default function QuoteWizard() {
                         onClick={() => setSqft(preset)}
                         className={`px-3 py-1 text-xs font-bold rounded-[6px] border transition-colors cursor-pointer ${
                           sqft === preset
-                            ? "bg-[#e20b16] text-white border-[#e20b16]"
-                            : "bg-white text-[#101114] border-[#dfe2e7] hover:bg-[#e20b16] hover:text-white"
+                            ? "bg-[#fcb907] text-[#101114] border-[#fcb907]"
+                            : "bg-white text-[#101114] border-[#dfe2e7] hover:bg-[#fcb907] hover:text-[#101114]"
                         }`}
                       >
                         {preset} SQ FT
@@ -354,7 +354,7 @@ export default function QuoteWizard() {
             {step === 4 && (
               <div className="space-y-5 animate-in fade-in duration-200">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                     Step 04 of 06
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114] mt-1">
@@ -374,15 +374,15 @@ export default function QuoteWizard() {
                         onClick={() => toggleOption(opt.id)}
                         className={`cursor-pointer p-4 rounded-[11px] border transition-all duration-200 flex items-start justify-between gap-3.5 ${
                           isSelected
-                            ? "bg-[#f6f7f9] border-[#e20b16] shadow-xs"
-                            : "bg-white border-[#e7e9ee] hover:border-[#e20b16]"
+                            ? "bg-[#f6f7f9] border-[#fcb907] shadow-xs"
+                            : "bg-white border-[#e7e9ee] hover:border-[#fcb907]"
                         }`}
                       >
                         <div className="flex items-start gap-3">
                           <div
                             className={`w-5 h-5 rounded-[4px] border mt-0.5 flex items-center justify-center shrink-0 ${
                               isSelected
-                                ? "border-[#e20b16] bg-[#e20b16] text-white"
+                                ? "border-[#fcb907] bg-[#fcb907] text-[#101114]"
                                 : "border-[#6b7280]"
                             }`}
                           >
@@ -398,7 +398,7 @@ export default function QuoteWizard() {
                           </div>
                         </div>
 
-                        <div className="text-xs font-bold text-[#e20b16] shrink-0">
+                        <div className="text-xs font-bold text-[#d97706] shrink-0">
                           +{formatCurrency(opt.price)}
                         </div>
                       </div>
@@ -412,7 +412,7 @@ export default function QuoteWizard() {
             {step === 5 && (
               <div className="space-y-5 animate-in fade-in duration-200 max-w-3xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                     Step 05 of 06
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114] mt-1">
@@ -429,7 +429,7 @@ export default function QuoteWizard() {
                     <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#6b7280]">
                       Estimated Home Cost
                     </span>
-                    <div className="text-4xl sm:text-6xl font-black text-[#e20b16] mt-1">
+                    <div className="text-4xl sm:text-6xl font-black text-[#d97706] mt-1">
                       {formatCurrency(calculation.totalEstimate)}
                     </div>
                     <div className="text-xs text-[#101114] font-bold mt-1">
@@ -452,7 +452,7 @@ export default function QuoteWizard() {
                       return (
                         <div key={optId} className="flex justify-between text-xs text-[#6b7280]">
                           <span>+ {opt.name}</span>
-                          <span className="text-[#e20b16] font-bold">+{formatCurrency(opt.price)}</span>
+                          <span className="text-[#d97706] font-bold">+{formatCurrency(opt.price)}</span>
                         </div>
                       );
                     })}
@@ -460,7 +460,7 @@ export default function QuoteWizard() {
 
                   {/* Disclaimer */}
                   <div className="p-3.5 bg-white border border-[#e7e9ee] rounded-[9px] text-[11px] text-[#6b7280] leading-relaxed flex items-start gap-2.5 shadow-xs">
-                    <ShieldAlert className="w-4 h-4 text-[#e20b16] shrink-0 mt-0.5" />
+                    <ShieldAlert className="w-4 h-4 text-[#d97706] shrink-0 mt-0.5" />
                     <span>
                       This is an estimated price. Final pricing may vary based on delivery distance, site soil conditions, regional snow/wind engineering calculations, and interior finish selections.
                     </span>
@@ -473,7 +473,7 @@ export default function QuoteWizard() {
             {step === 6 && (
               <form onSubmit={handleSubmit} className="space-y-5 animate-in fade-in duration-200 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                     Step 06 of 06
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114] mt-1">
@@ -495,7 +495,7 @@ export default function QuoteWizard() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. John Anderson"
-                      className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                      className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
                     />
                   </div>
 
@@ -509,7 +509,7 @@ export default function QuoteWizard() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="support@modularhome.com"
-                      className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                      className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
                     />
                   </div>
 
@@ -523,7 +523,7 @@ export default function QuoteWizard() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+1-812-595-4033"
-                      className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                      className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
                     />
                   </div>
 
@@ -537,7 +537,7 @@ export default function QuoteWizard() {
                       value={formData.zip}
                       onChange={(e) => setFormData({ ...formData, zip: e.target.value })}
                       placeholder="e.g. 78701"
-                      className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                      className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
                     />
                   </div>
                 </div>
@@ -549,7 +549,7 @@ export default function QuoteWizard() {
                   <select
                     value={formData.timeline}
                     onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                    className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px] cursor-pointer"
+                    className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px] cursor-pointer"
                   >
                     <option value="Ready Immediately">Ready Immediately (Have Land & Permits)</option>
                     <option value="3-6 months">3 to 6 months</option>
@@ -567,7 +567,7 @@ export default function QuoteWizard() {
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     placeholder="Tell us about your property, crane access or desired custom modifications..."
-                    className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                    className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
                   />
                 </div>
 
@@ -613,19 +613,19 @@ export default function QuoteWizard() {
         ) : (
           /* SUCCESS STATE */
           <div className="text-center py-10 px-4 max-w-xl mx-auto space-y-5 animate-in zoom-in-95 duration-300">
-            <div className="w-16 h-16 rounded-full bg-[#e20b16]/10 text-[#e20b16] flex items-center justify-center mx-auto shadow-sm">
+            <div className="w-16 h-16 rounded-full bg-[#fcb907]/15 text-[#d97706] flex items-center justify-center mx-auto shadow-sm">
               <CheckCircle2 className="w-8 h-8 text-emerald-600" />
             </div>
 
             <div>
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                 Quote Request Received
               </div>
               <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114] mt-1">
                 Estimate Successfully Generated
               </h3>
               <p className="text-xs sm:text-sm text-[#6b7280] mt-1 leading-relaxed">
-                Thank you, <span className="text-[#101114] font-bold">{formData.name || "friend"}</span>. We have generated an initial structural estimate for your <span className="text-[#e20b16] font-bold">{sqft} SQ FT {selectedModel.name}</span>.
+                Thank you, <span className="text-[#101114] font-bold">{formData.name || "friend"}</span>. We have generated an initial structural estimate for your <span className="text-[#d97706] font-bold">{sqft} SQ FT {selectedModel.name}</span>.
               </p>
             </div>
 
@@ -636,7 +636,7 @@ export default function QuoteWizard() {
               </div>
               <div className="flex justify-between text-xs text-[#6b7280]">
                 <span>Estimated Shell Cost:</span>
-                <span className="font-bold text-[#e20b16] text-sm">{formatCurrency(calculation.totalEstimate)}</span>
+                <span className="font-bold text-[#d97706] text-sm">{formatCurrency(calculation.totalEstimate)}</span>
               </div>
               <div className="flex justify-between text-xs text-[#6b7280]">
                 <span>Recipient:</span>

@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/newlogo2.png",
+        url: "/finallogo.avif",
         width: 1200,
         height: 630,
         alt: "ModularHome.com Logo",
@@ -76,7 +76,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico?v=3" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
       </head>
-      <body className={`min-h-screen flex flex-col bg-white text-[#101114] antialiased selection:bg-[#e20b16] selection:text-white ${manrope.className}`}>
+      <body className={`min-h-screen flex flex-col bg-white text-[#101114] antialiased selection:bg-[#fcb907] selection:text-[#101114] ${manrope.className}`}>
         <Navbar />
         <main className="flex-1">
           {children}

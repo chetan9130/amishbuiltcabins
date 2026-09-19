@@ -141,10 +141,10 @@ export default function AIBuildAssistant() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Open AI Housing Assistant"
-        className={`fixed bottom-6 right-6 z-40 p-4 rounded-full shadow-2xl transition-all duration-300 flex items-center gap-2.5 cursor-pointer ${
+        className={`fixed bottom-6 right-6 z-40 p-3.5 sm:p-4 rounded-full shadow-2xl transition-all duration-300 flex items-center gap-2.5 cursor-pointer ${
           isOpen
-            ? "bg-[var(--ink)] text-white rotate-90"
-            : "bg-[var(--r)] hover:bg-[var(--r-dark)] text-white hover:scale-105"
+            ? "bg-[#101114] text-[#fcb907] rotate-90"
+            : "bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] hover:scale-105"
         }`}
       >
         {isOpen ? (
@@ -152,7 +152,7 @@ export default function AIBuildAssistant() {
         ) : (
           <>
             <MessageSquare className="w-5 h-5" />
-            <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline-block pr-1">
+            <span className="text-xs font-black uppercase tracking-wider hidden sm:inline-block pr-1">
               Housing Advisor
             </span>
           </>
@@ -167,7 +167,7 @@ export default function AIBuildAssistant() {
             <div className="flex items-center gap-3">
               <div className="h-8 px-2.5 rounded-[8px] bg-white flex items-center justify-center overflow-hidden shrink-0 shadow-xs">
                 <Image
-                  src="/newlogo2.png"
+                  src="/finallogo.avif"
                   alt="ModularHome.com"
                   width={80}
                   height={28}

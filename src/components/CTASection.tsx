@@ -22,7 +22,7 @@ export default function CTASection() {
           <div className="relative z-10 shrink-0">
             <Link
               href="#quote"
-              className="btn-primary py-3.5 px-7 text-sm sm:text-base font-extrabold rounded-[11px] w-full md:w-auto shadow-lg hover:scale-105"
+              className="bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] py-3.5 px-7 text-sm sm:text-base font-black rounded-[11px] w-full md:w-auto shadow-lg hover:scale-105 transition-all inline-block text-center"
             >
               Get a Quote →
             </Link>

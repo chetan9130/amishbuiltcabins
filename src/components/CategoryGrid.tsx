@@ -86,7 +86,7 @@ export default function CategoryGrid() {
           </div>
           <Link
             href="/buildings"
-            className="text-[#e20b16] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
+            className="text-[#d97706] hover:text-[#b45309] font-extrabold text-sm sm:text-base hover:underline whitespace-nowrap self-start sm:self-auto"
           >
             View All Home Types →
           </Link>
@@ -110,7 +110,7 @@ export default function CategoryGrid() {
                 />
               </div>
               <div className="p-3.5 bg-white flex items-center justify-between">
-                <h3 className="text-sm sm:text-[15px] font-extrabold text-[#101114] group-hover:text-[#e20b16] transition-colors m-0">
+                <h3 className="text-sm sm:text-[15px] font-extrabold text-[#101114] group-hover:text-[#d97706] transition-colors m-0">
                   {cat.name} →
                 </h3>
               </div>

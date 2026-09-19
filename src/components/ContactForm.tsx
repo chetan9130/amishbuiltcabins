@@ -28,7 +28,7 @@ export default function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="card p-8 sm:p-10 text-center space-y-4 animate-in zoom-in-95 duration-200 bg-white">
-        <div className="w-14 h-14 rounded-full bg-[#e20b16]/10 text-[#e20b16] flex items-center justify-center mx-auto shadow-xs">
+        <div className="w-14 h-14 rounded-full bg-[#fcb907]/15 text-[#d97706] flex items-center justify-center mx-auto shadow-xs">
           <CheckCircle2 className="w-8 h-8 text-emerald-600" />
         </div>
         <h3 className="text-2xl font-black uppercase text-[#101114]">
@@ -61,7 +61,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="card p-6 sm:p-8 space-y-4 bg-white text-[#101114]">
-      <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+      <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
         Direct Housing Consultation
       </div>
       <h3 className="text-xl sm:text-2xl font-black text-[#101114] m-0">
@@ -79,7 +79,7 @@ export default function ContactForm() {
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             placeholder="John Doe"
-            className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+            className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
           />
         </div>
 
@@ -93,7 +93,7 @@ export default function ContactForm() {
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             placeholder="support@modularhome.com"
-            className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+            className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
           />
         </div>
 
@@ -107,7 +107,7 @@ export default function ContactForm() {
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
             placeholder="+1-812-595-4033"
-            className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+            className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
           />
         </div>
 
@@ -121,7 +121,7 @@ export default function ContactForm() {
             value={form.zip}
             onChange={(e) => setForm({ ...form, zip: e.target.value })}
             placeholder="e.g. 78701"
-            className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+            className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
           />
         </div>
       </div>
@@ -133,7 +133,7 @@ export default function ContactForm() {
         <select
           value={form.interest}
           onChange={(e) => setForm({ ...form, interest: e.target.value })}
-          className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px] cursor-pointer"
+          className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px] cursor-pointer"
         >
           <option value="Modular Homes">Modular Homes</option>
           <option value="Prefab Homes">Prefab Homes</option>
@@ -158,7 +158,7 @@ export default function ContactForm() {
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           placeholder="Describe your site location, desired square footage, timeline, and questions for our advisors..."
-          className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+          className="w-full bg-[#f6f7f9] border border-[#dfe2e7] px-3.5 py-2.5 text-xs text-[#101114] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
         />
       </div>
 
@@ -180,7 +180,7 @@ export default function ContactForm() {
       </div>
 
       <div className="flex items-center justify-center gap-2 text-xs text-[#6b7280] pt-1">
-        <Shield className="w-3.5 h-3.5 text-[#e20b16]" />
+        <Shield className="w-3.5 h-3.5 text-[#fcb907]" />
         <span>Your contact details are confidential and will never be shared.</span>
       </div>
     </form>

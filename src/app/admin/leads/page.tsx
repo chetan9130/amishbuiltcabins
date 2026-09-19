@@ -114,7 +114,7 @@ export default function AdminLeadsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by name, email, phone, location..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
           />
           <Search className="w-4 h-4 text-[#6b7280] absolute left-3 top-3" />
         </form>
@@ -158,7 +158,7 @@ export default function AdminLeadsPage() {
       <div className="bg-white rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] overflow-hidden">
         {isLoading ? (
           <div className="py-16 text-center text-[#6b7280] text-xs flex flex-col items-center gap-2">
-            <Loader2 className="w-6 h-6 animate-spin text-[#e20b16]" />
+            <Loader2 className="w-6 h-6 animate-spin text-[#d97706]" />
             <span>Loading leads...</span>
           </div>
         ) : leads.length === 0 ? (
@@ -188,14 +188,14 @@ export default function AdminLeadsPage() {
                         <div className="font-bold text-[#101114] font-sans">{lead.name}</div>
                         <div className="text-[11px] text-[#6b7280] flex items-center gap-1.5 mt-0.5">
                           <Mail className="w-3 h-3 text-[#6b7280]" />
-                          <a href={`mailto:${lead.email}`} className="hover:text-[#e20b16] hover:underline">
+                          <a href={`mailto:${lead.email}`} className="hover:text-[#d97706] hover:underline">
                             {lead.email}
                           </a>
                         </div>
                         {lead.phone && (
                           <div className="text-[11px] text-[#6b7280] flex items-center gap-1.5 mt-0.5">
                             <Phone className="w-3 h-3 text-[#6b7280]" />
-                            <a href={`tel:${lead.phone}`} className="hover:text-[#e20b16] hover:underline">
+                            <a href={`tel:${lead.phone}`} className="hover:text-[#d97706] hover:underline">
                               {lead.phone}
                             </a>
                           </div>
@@ -223,9 +223,9 @@ export default function AdminLeadsPage() {
                         <select
                           value={lead.status}
                           onChange={(e) => handleStatusChange(leadId, e.target.value)}
-                          className={`px-3 py-1.5 rounded-xl text-[10px] font-bold uppercase border cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#e20b16] ${
+                          className={`px-3 py-1.5 rounded-xl text-[10px] font-bold uppercase border cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#fcb907] ${
                             lead.status === "NEW"
-                              ? "bg-red-50 text-[#e20b16] border-red-200"
+                              ? "bg-red-50 text-[#d97706] border-red-200"
                               : lead.status === "WON"
                               ? "bg-emerald-50 text-emerald-800 border-emerald-200"
                               : lead.status === "LOST"
@@ -253,7 +253,7 @@ export default function AdminLeadsPage() {
                       <td className="py-3.5 px-4 text-right">
                         <button
                           onClick={() => handleDelete(leadId, lead.name)}
-                          className="p-2 rounded-xl text-[#6b7280] hover:text-[#e20b16] hover:bg-red-50 border border-transparent hover:border-red-200 transition-colors cursor-pointer"
+                          className="p-2 rounded-xl text-[#6b7280] hover:text-[#d97706] hover:bg-red-50 border border-transparent hover:border-red-200 transition-colors cursor-pointer"
                           title="Delete Lead"
                         >
                           <Trash2 className="w-3.5 h-3.5" />

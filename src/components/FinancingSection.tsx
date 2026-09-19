@@ -73,7 +73,7 @@ export default function FinancingSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
               {/* Home Price */}
-              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#e20b16] transition-colors">
+              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#fcb907] focus-within:ring-1 focus-within:ring-[#fcb907] transition-all">
                 <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
                   Home Price
                 </label>
@@ -90,7 +90,7 @@ export default function FinancingSection() {
               </div>
 
               {/* Down Payment */}
-              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#e20b16] transition-colors">
+              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#fcb907] focus-within:ring-1 focus-within:ring-[#fcb907] transition-all">
                 <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
                   Down Payment
                 </label>
@@ -107,7 +107,7 @@ export default function FinancingSection() {
               </div>
 
               {/* Loan Term */}
-              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#e20b16] transition-colors">
+              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#fcb907] focus-within:ring-1 focus-within:ring-[#fcb907] transition-all">
                 <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
                   Loan Term
                 </label>
@@ -124,7 +124,7 @@ export default function FinancingSection() {
               </div>
 
               {/* Interest Rate */}
-              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#e20b16] transition-colors">
+              <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#fcb907] focus-within:ring-1 focus-within:ring-[#fcb907] transition-all">
                 <label className="block text-[11px] font-semibold text-[#6b7280] mb-0.5">
                   Interest Rate
                 </label>

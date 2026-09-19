@@ -233,8 +233,8 @@ export default function AdminVideoManager() {
       <div className="bg-[#101114] text-white p-6 sm:p-8 rounded-[22px] shadow-[0_20px_45px_rgba(16,17,20,0.15)] space-y-4 border border-[#101114]">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#e20b16] mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#e20b16]" />
+            <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#fcb907] mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#fcb907]" />
               <span>Automatic Channel Synchronization</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight">
@@ -248,16 +248,16 @@ export default function AdminVideoManager() {
           <div className="flex flex-wrap items-center gap-2.5 shrink-0">
             <button
               onClick={() => setAddModalOpen(true)}
-              className="px-4 py-2.5 bg-white text-[#101114] hover:bg-[#f6f7f9] text-xs font-bold uppercase tracking-wider rounded-xl transition-colors flex items-center gap-1.5 shadow-2xs cursor-pointer"
+              className="px-4 py-2.5 bg-white text-[#101114] hover:bg-[#fcb907] hover:text-[#101114] text-xs font-bold uppercase tracking-wider rounded-xl transition-colors flex items-center gap-1.5 shadow-2xs cursor-pointer"
             >
-              <Plus className="w-4 h-4 text-[#e20b16]" />
+              <Plus className="w-4 h-4 text-[#d97706]" />
               <span>Add Video</span>
             </button>
 
             <button
               onClick={handleManualSync}
               disabled={isSyncing}
-              className="px-5 py-2.5 bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-2 shadow-sm disabled:opacity-50 cursor-pointer"
+              className="px-5 py-2.5 bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-black uppercase tracking-wider rounded-xl transition-all flex items-center gap-2 shadow-sm disabled:opacity-50 cursor-pointer"
             >
               <RefreshCw className={`w-4 h-4 ${isSyncing ? "animate-spin" : ""}`} />
               <span>{isSyncing ? "Syncing..." : "Sync YouTube Now"}</span>
@@ -288,7 +288,7 @@ export default function AdminVideoManager() {
         <div className="p-5 bg-white border border-[#e7e9ee] rounded-[18px] space-y-1 shadow-[0_12px_35px_rgba(16,24,40,0.04)]">
           <div className="text-[10px] font-bold uppercase tracking-wider text-[#6b7280]">Last Sync Status</div>
           <div className="text-base font-bold text-[#101114] flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#e20b16]"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#fcb907]"></span>
             <span>{stats?.status === "never" ? "Never Synced" : stats?.status === "error" ? "Failed Sync" : "Active & Synced"}</span>
           </div>
           <div className="text-[11px] text-[#6b7280]">
@@ -306,13 +306,13 @@ export default function AdminVideoManager() {
 
         <div className="p-5 bg-white border border-[#e7e9ee] rounded-[18px] space-y-1 shadow-[0_12px_35px_rgba(16,24,40,0.04)]">
           <div className="text-[10px] font-bold uppercase tracking-wider text-[#6b7280]">New Videos Added</div>
-          <div className="text-2xl font-serif font-bold text-[#e20b16]">{stats?.newVideosAdded || 0}</div>
+          <div className="text-2xl font-serif font-bold text-[#d97706]">{stats?.newVideosAdded || 0}</div>
           <div className="text-[11px] text-[#6b7280]">From last channel sync</div>
         </div>
 
         <div className="p-5 bg-white border border-[#e7e9ee] rounded-[18px] space-y-1 shadow-[0_12px_35px_rgba(16,24,40,0.04)]">
           <div className="text-[10px] font-bold uppercase tracking-wider text-[#6b7280]">Auto Sync Mode</div>
-          <div className="text-base font-bold text-[#e20b16]">ON (Scheduled)</div>
+          <div className="text-base font-bold text-[#d97706]">ON (Scheduled)</div>
           <div className="text-[11px] text-[#6b7280]">Frequency: Every 1 Hour</div>
         </div>
       </div>
@@ -320,12 +320,12 @@ export default function AdminVideoManager() {
       {/* 3. FILTER & SEARCH STRIP */}
       <div className="p-5 bg-white border border-[#e7e9ee] rounded-[18px] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_12px_35px_rgba(16,24,40,0.04)]">
         <div className="flex items-center gap-3 w-full sm:w-auto">
-          <Filter className="w-4 h-4 text-[#e20b16]" />
+          <Filter className="w-4 h-4 text-[#d97706]" />
           <span className="text-xs font-bold uppercase tracking-wider text-[#101114]">Category:</span>
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="bg-[#f6f7f9] border border-[#d5d9e0] px-3.5 py-2.5 text-xs text-[#101114] font-bold rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] cursor-pointer"
+            className="bg-[#f6f7f9] border border-[#d5d9e0] px-3.5 py-2.5 text-xs text-[#101114] font-bold rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907] cursor-pointer"
           >
             <option value="All">All Categories ({videos.length})</option>
             {categoriesList.map((cat) => (
@@ -343,7 +343,7 @@ export default function AdminVideoManager() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search by title or video ID..."
-            className="w-full bg-[#f6f7f9] border border-[#d5d9e0] pl-10 pr-4 py-2.5 text-xs text-[#101114] font-medium rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+            className="w-full bg-[#f6f7f9] border border-[#d5d9e0] pl-10 pr-4 py-2.5 text-xs text-[#101114] font-medium rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
           />
         </div>
       </div>
@@ -352,7 +352,7 @@ export default function AdminVideoManager() {
       <div className="bg-white border border-[#e7e9ee] rounded-[18px] shadow-[0_12px_35px_rgba(16,24,40,0.04)] overflow-hidden">
         {isLoading ? (
           <div className="p-16 text-center text-xs text-[#6b7280] flex flex-col items-center gap-2">
-            <RefreshCw className="w-5 h-5 animate-spin text-[#e20b16]" />
+            <RefreshCw className="w-5 h-5 animate-spin text-[#fcb907]" />
             <span>Loading video database...</span>
           </div>
         ) : filteredVideos.length === 0 ? (
@@ -415,7 +415,7 @@ export default function AdminVideoManager() {
                           onChange={(e) =>
                             handleCategoryChange(vId, e.target.value as VideoCategory)
                           }
-                          className="bg-[#f6f7f9] border border-[#d5d9e0] px-3 py-1.5 text-xs text-[#101114] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] font-bold cursor-pointer"
+                          className="bg-[#f6f7f9] border border-[#d5d9e0] px-3 py-1.5 text-xs text-[#101114] rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907] font-bold cursor-pointer"
                         >
                           {categoriesList.map((cat) => (
                             <option key={cat} value={cat}>
@@ -462,7 +462,7 @@ export default function AdminVideoManager() {
                             href={`/videos/${video.youtubeVideoId}`}
                             target="_blank"
                             title="View on Website"
-                            className="p-2 text-[#101114] hover:text-[#e20b16] hover:bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl transition-colors"
+                            className="p-2 text-[#101114] hover:text-[#d97706] hover:bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl transition-colors"
                           >
                             <Eye className="w-3.5 h-3.5" />
                           </Link>
@@ -472,7 +472,7 @@ export default function AdminVideoManager() {
                             target="_blank"
                             rel="noreferrer"
                             title="Open on YouTube"
-                            className="p-2 text-[#101114] hover:text-[#e20b16] hover:bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl transition-colors"
+                            className="p-2 text-[#101114] hover:text-[#d97706] hover:bg-[#f6f7f9] border border-[#d5d9e0] rounded-xl transition-colors"
                           >
                             <ExternalLink className="w-3.5 h-3.5" />
                           </a>
@@ -480,7 +480,7 @@ export default function AdminVideoManager() {
                           <button
                             onClick={() => handleDeleteLocal(vId, video.title)}
                             title="Remove Local Record (Does not delete on YouTube)"
-                            className="p-2 text-[#6b7280] hover:text-[#e20b16] hover:bg-red-50 border border-transparent hover:border-red-200 rounded-xl transition-colors cursor-pointer"
+                            className="p-2 text-[#6b7280] hover:text-red-600 hover:bg-red-50 border border-transparent hover:border-red-200 rounded-xl transition-colors cursor-pointer"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
@@ -501,7 +501,7 @@ export default function AdminVideoManager() {
           <div className="relative max-w-lg w-full bg-white border border-[#e7e9ee] rounded-[22px] p-6 sm:p-7 shadow-2xl space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-[#e7e9ee]">
               <h3 className="text-base font-serif font-bold text-[#101114] flex items-center gap-2">
-                <Plus className="w-4 h-4 text-[#e20b16]" />
+                <Plus className="w-4 h-4 text-[#fcb907]" />
                 Add YouTube Video by URL
               </h3>
               <button
@@ -523,13 +523,13 @@ export default function AdminVideoManager() {
                 value={pastedUrl}
                 onChange={(e) => setPastedUrl(e.target.value)}
                 placeholder="https://www.youtube.com/watch?v=..."
-                className="w-full bg-[#f6f7f9] border border-[#d5d9e0] px-4 py-2.5 text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] rounded-xl"
+                className="w-full bg-[#f6f7f9] border border-[#d5d9e0] px-4 py-2.5 text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907] rounded-xl"
               />
               <button
                 type="button"
                 onClick={handleFetchUrl}
                 disabled={isFetchingUrl || !pastedUrl.trim()}
-                className="px-5 py-2.5 bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shrink-0 disabled:opacity-50 cursor-pointer shadow-xs"
+                className="px-5 py-2.5 bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-black uppercase tracking-wider rounded-xl transition-all shrink-0 disabled:opacity-50 cursor-pointer shadow-xs"
               >
                 {isFetchingUrl ? "Fetching..." : "Fetch"}
               </button>
@@ -537,7 +537,7 @@ export default function AdminVideoManager() {
 
             {fetchError && (
               <div className="p-3 bg-red-50 border border-red-200 text-red-900 text-xs rounded-xl flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 shrink-0 text-[#e20b16]" />
+                <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
                 <span>{fetchError}</span>
               </div>
             )}
@@ -572,7 +572,7 @@ export default function AdminVideoManager() {
                     <select
                       value={manualCategory}
                       onChange={(e) => setManualCategory(e.target.value as VideoCategory)}
-                      className="w-full bg-white border border-[#d5d9e0] px-3 py-1.5 text-xs text-[#101114] font-bold rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e20b16] cursor-pointer"
+                      className="w-full bg-white border border-[#d5d9e0] px-3 py-1.5 text-xs text-[#101114] font-bold rounded-xl focus:outline-none focus:ring-2 focus:ring-[#fcb907] cursor-pointer"
                     >
                       {categoriesList.map((cat) => (
                         <option key={cat} value={cat}>
@@ -591,7 +591,7 @@ export default function AdminVideoManager() {
                       onClick={() => setManualPublish(!manualPublish)}
                       className={`w-full py-1.5 text-xs font-bold uppercase tracking-wider rounded-xl border transition-colors cursor-pointer ${
                         manualPublish
-                          ? "bg-[#e20b16] text-white border-[#e20b16]"
+                          ? "bg-[#fcb907] text-[#101114] border-[#fcb907]"
                           : "bg-white text-[#6b7280] border-[#d5d9e0]"
                       }`}
                     >
@@ -614,7 +614,7 @@ export default function AdminVideoManager() {
                 type="button"
                 onClick={handleSaveManualVideo}
                 disabled={!fetchedVideo}
-                className="px-5 py-2 bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all disabled:opacity-50 cursor-pointer shadow-xs"
+                className="px-5 py-2 bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-black uppercase tracking-wider rounded-xl transition-all disabled:opacity-50 cursor-pointer shadow-xs"
               >
                 Publish To Website
               </button>

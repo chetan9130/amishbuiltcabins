@@ -18,6 +18,7 @@ const CATEGORY_TABS = [
   "Barndominiums",
   "House Kits",
   "Tiny Homes",
+  "Park Models",
   "Cabins",
   "ADUs & Granny Pods",
   "A-Frame Homes",
@@ -151,8 +152,8 @@ export default function ModelsCatalog() {
       <div className="wrap">
         {/* Page Header */}
         <div className="py-8 border-b border-[#e7e9ee]">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16] mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#e20b16]"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#d97706] mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#fcb907]"></span>
             <span>Floor Plans & Architectural Catalog</span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-[-1.5px] text-[#101114]">
@@ -170,8 +171,8 @@ export default function ModelsCatalog() {
                 onClick={() => setSelectedCategory(tab)}
                 className={`px-4 py-2 text-xs font-extrabold uppercase tracking-wider rounded-[9px] shrink-0 transition-all duration-200 cursor-pointer ${
                   selectedCategory === tab
-                    ? "bg-[#e20b16] text-white shadow-sm"
-                    : "bg-[#f6f7f9] text-[#101114] hover:bg-[#e20b16] hover:text-white border border-[#e7e9ee]"
+                    ? "bg-[#fcb907] text-[#101114] shadow-sm"
+                    : "bg-[#f6f7f9] text-[#101114] hover:bg-[#fcb907]/20 hover:text-[#101114] border border-[#e7e9ee]"
                 }`}
               >
                 {tab}
@@ -191,7 +192,7 @@ export default function ModelsCatalog() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search floor plans by name, style, or type..."
-                className="w-full bg-white border border-[#dfe2e7] pl-10 pr-4 py-2.5 text-xs text-[#101114] placeholder-[#9ca3af] focus:outline-none focus:border-[#e20b16] rounded-[9px]"
+                className="w-full bg-white border border-[#dfe2e7] pl-10 pr-4 py-2.5 text-xs text-[#101114] placeholder-[#9ca3af] focus:outline-none focus:border-[#fcb907] rounded-[9px]"
               />
               {searchQuery && (
                 <button
@@ -207,7 +208,7 @@ export default function ModelsCatalog() {
             {isFiltered && (
               <button
                 onClick={handleResetFilters}
-                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-[#e20b16] hover:bg-[#e20b16] hover:text-white bg-white border border-[#dfe2e7] rounded-[9px] transition-colors shrink-0 cursor-pointer"
+                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-[#d97706] hover:bg-[#fcb907] hover:text-[#101114] bg-white border border-[#dfe2e7] rounded-[9px] transition-colors shrink-0 cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Reset All Filters</span>
@@ -225,9 +226,12 @@ export default function ModelsCatalog() {
                 onChange={(e) => setSelectedStyle(e.target.value)}
                 className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
-                {ARCHITECTURAL_STYLES.map((st) => (
-                  <option key={st} value={st}>{st}</option>
-                ))}
+                <option value="All">All Styles</option>
+                <option value="Modern">Modern</option>
+                <option value="Rustic">Rustic</option>
+                <option value="Farmhouse">Farmhouse</option>
+                <option value="Industrial">Industrial</option>
+                <option value="Contemporary">Contemporary</option>
               </select>
             </div>
 
@@ -240,10 +244,10 @@ export default function ModelsCatalog() {
                 className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
                 <option value="all">Any Beds</option>
-                <option value="1">1+ Bed</option>
-                <option value="2">2+ Bed</option>
-                <option value="3">3+ Bed</option>
-                <option value="4">4+ Bed</option>
+                <option value="1">1 Bedroom</option>
+                <option value="2">2 Bedrooms</option>
+                <option value="3">3 Bedrooms</option>
+                <option value="4+">4+ Bedrooms</option>
               </select>
             </div>
 
@@ -256,21 +260,21 @@ export default function ModelsCatalog() {
                 className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
                 <option value="all">Any Baths</option>
-                <option value="1">1+ Bath</option>
-                <option value="2">2+ Bath</option>
-                <option value="3">3+ Bath</option>
+                <option value="1">1 Bath</option>
+                <option value="2">2 Baths</option>
+                <option value="3+">3+ Baths</option>
               </select>
             </div>
 
             {/* Floors / Stories */}
             <div className="flex flex-col bg-white border border-[#dfe2e7] px-3 py-2 rounded-[9px]">
-              <span className="text-[10px] text-[#6b7280] uppercase font-bold">Floors</span>
+              <span className="text-[10px] text-[#6b7280] uppercase font-bold">Stories</span>
               <select
                 value={storiesFilter}
                 onChange={(e) => setStoriesFilter(e.target.value)}
                 className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
-                <option value="all">Any Floors</option>
+                <option value="all">Any Levels</option>
                 <option value="1">1 Story</option>
                 <option value="2">2 Stories</option>
               </select>
@@ -285,26 +289,26 @@ export default function ModelsCatalog() {
                 className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
                 <option value={0}>Any Size</option>
-                <option value={600}>600+ Sq Ft</option>
-                <option value={1200}>1,200+ Sq Ft</option>
-                <option value={1800}>1,800+ Sq Ft</option>
-                <option value={2400}>2,400+ Sq Ft</option>
+                <option value={500}>500+ sq ft</option>
+                <option value={1000}>1,000+ sq ft</option>
+                <option value={1500}>1,500+ sq ft</option>
+                <option value={2000}>2,000+ sq ft</option>
               </select>
             </div>
 
-            {/* Max Price Filter */}
+            {/* Max Budget Filter */}
             <div className="flex flex-col bg-white border border-[#dfe2e7] px-3 py-2 rounded-[9px]">
-              <span className="text-[10px] text-[#6b7280] uppercase font-bold">Max Price</span>
+              <span className="text-[10px] text-[#6b7280] uppercase font-bold">Max Budget</span>
               <select
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
                 className="bg-transparent text-xs text-[#101114] focus:outline-none font-bold cursor-pointer pt-0.5"
               >
-                <option value={350000}>All Prices</option>
-                <option value={250000}>Under $250,000</option>
-                <option value={180000}>Under $180,000</option>
-                <option value={120000}>Under $120,000</option>
-                <option value={75000}>Under $75,000</option>
+                <option value={350000}>All Budgets</option>
+                <option value={300000}>Under $300k</option>
+                <option value={200000}>Under $200k</option>
+                <option value={150000}>Under $150k</option>
+                <option value={100000}>Under $100k</option>
               </select>
             </div>
           </div>
@@ -316,7 +320,7 @@ export default function ModelsCatalog() {
             Showing <span className="text-[#101114] font-bold">{filteredModels.length}</span> of {BUILDING_MODELS.length} models
           </div>
           {isFiltered && (
-            <span className="text-[#e20b16] font-bold">
+            <span className="text-[#d97706] font-bold">
               Filtered results active
             </span>
           )}

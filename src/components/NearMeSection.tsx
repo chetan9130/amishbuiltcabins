@@ -40,7 +40,7 @@ export default function NearMeSection() {
                 Search by ZIP Code
               </h3>
               <form onSubmit={handleZipSearch} className="space-y-3">
-                <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#e20b16] transition-colors">
+                <div className="border border-[#dfe2e7] rounded-[11px] p-3 bg-white focus-within:border-[#fcb907] focus-within:ring-1 focus-within:ring-[#fcb907] transition-all">
                   <input
                     type="text"
                     placeholder="Enter your ZIP code"
@@ -51,7 +51,7 @@ export default function NearMeSection() {
                 </div>
                 <button
                   type="submit"
-                  className="btn-primary w-full py-3 text-sm font-extrabold rounded-[11px]"
+                  className="bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] w-full py-3 text-sm font-black rounded-[11px] shadow-sm transition-all cursor-pointer"
                 >
                   Search →
                 </button>
@@ -72,7 +72,7 @@ export default function NearMeSection() {
                     <button
                       type="button"
                       onClick={() => handleStateClick(st)}
-                      className="hover:text-[#e20b16] hover:underline cursor-pointer"
+                      className="hover:text-[#d97706] hover:underline cursor-pointer font-medium"
                     >
                       {st}
                     </button>
@@ -91,19 +91,19 @@ export default function NearMeSection() {
                 {/* Simplified stylized US nationwide contour */}
                 <path d="M 50,70 Q 120,40 220,50 Q 300,30 420,40 Q 520,30 560,90 Q 580,140 550,200 Q 520,280 440,290 Q 380,310 320,300 Q 240,320 180,290 Q 100,280 60,220 Q 30,160 50,70 Z" fill="#e2e8f0" stroke="#cbd5e1" strokeWidth="3" />
                 {/* Regional hub delivery pin markers */}
-                <circle cx="160" cy="180" r="8" fill="#e20b16" className="animate-pulse" />
-                <circle cx="280" cy="190" r="8" fill="#e20b16" className="animate-pulse" />
-                <circle cx="390" cy="150" r="8" fill="#e20b16" className="animate-pulse" />
-                <circle cx="470" cy="210" r="8" fill="#e20b16" className="animate-pulse" />
-                <circle cx="480" cy="110" r="8" fill="#e20b16" className="animate-pulse" />
-                <circle cx="110" cy="120" r="8" fill="#e20b16" className="animate-pulse" />
+                <circle cx="160" cy="180" r="8" fill="#fcb907" className="animate-pulse" />
+                <circle cx="280" cy="190" r="8" fill="#fcb907" className="animate-pulse" />
+                <circle cx="390" cy="150" r="8" fill="#fcb907" className="animate-pulse" />
+                <circle cx="470" cy="210" r="8" fill="#fcb907" className="animate-pulse" />
+                <circle cx="480" cy="110" r="8" fill="#fcb907" className="animate-pulse" />
+                <circle cx="110" cy="120" r="8" fill="#fcb907" className="animate-pulse" />
               </svg>
 
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                 <div className="text-3xl sm:text-4xl font-black text-[#101114] tracking-wider opacity-90">
                   NATIONWIDE
                 </div>
-                <div className="text-xs font-bold text-[#e20b16] mt-1 bg-white/90 px-3 py-1 rounded-full shadow-xs backdrop-blur-xs">
+                <div className="text-xs font-bold text-[#d97706] mt-1 bg-white/95 px-3 py-1 rounded-full shadow-xs backdrop-blur-xs">
                   Direct Factory Delivery Across All 50 States
                 </div>
               </div>
@@ -135,7 +135,7 @@ export default function NearMeSection() {
             <div className="mt-6">
               <Link
                 href="/about"
-                className="btn-outline w-full py-3 text-sm font-extrabold rounded-[11px] text-center justify-center"
+                className="btn-outline w-full py-3 text-sm font-extrabold rounded-[11px] text-center justify-center hover:border-[#fcb907]"
               >
                 Learn More →
               </Link>

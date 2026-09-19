@@ -74,7 +74,7 @@ export default function AdminEditPage() {
   if (isLoading) {
     return (
       <div className="py-20 text-center text-gray-500 text-xs flex flex-col items-center gap-2">
-        <Loader2 className="w-6 h-6 animate-spin text-[#e20b16]" />
+        <Loader2 className="w-6 h-6 animate-spin text-[#d97706]" />
         <span>Loading page data...</span>
       </div>
     );
@@ -84,7 +84,7 @@ export default function AdminEditPage() {
     return (
       <div className="text-center py-20">
         <p className="text-sm text-gray-600">Page not found.</p>
-        <Link href="/admin/pages" className="text-xs font-bold text-[#e20b16] mt-2 inline-block">
+        <Link href="/admin/pages" className="text-xs font-bold text-[#d97706] mt-2 inline-block">
           ← Back to Pages
         </Link>
       </div>
@@ -117,13 +117,13 @@ export default function AdminEditPage() {
             href={`/admin/sections?pageId=${page.id || page._id}`}
             className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-[#d5d9e0] bg-white text-[#101114] hover:bg-[#f6f7f9] text-xs font-bold transition-all shadow-2xs"
           >
-            <Layers className="w-4 h-4 text-[#e20b16]" />
+            <Layers className="w-4 h-4 text-[#d97706]" />
             <span>Manage Sections ({page.sections?.length || 0})</span>
           </Link>
           <button
             type="submit"
             disabled={isSaving}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#e20b16] hover:bg-[#c50812] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#fcb907] hover:bg-[#e5a706] text-[#101114] text-xs font-bold uppercase tracking-wider shadow-sm transition-all disabled:opacity-50 cursor-pointer"
           >
             {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
             <span>Save Changes</span>
@@ -142,7 +142,7 @@ export default function AdminEditPage() {
           {message.type === "success" ? (
             <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
           ) : (
-            <AlertCircle className="w-4 h-4 text-[#e20b16] shrink-0" />
+            <AlertCircle className="w-4 h-4 text-[#d97706] shrink-0" />
           )}
           <span>{message.text}</span>
         </div>
@@ -163,7 +163,7 @@ export default function AdminEditPage() {
                 required
                 value={page.title || ""}
                 onChange={(e) => setPage({ ...page, title: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -174,7 +174,7 @@ export default function AdminEditPage() {
                 required
                 value={page.slug || ""}
                 onChange={(e) => setPage({ ...page, slug: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -184,7 +184,7 @@ export default function AdminEditPage() {
                 type="text"
                 value={page.subtitle || ""}
                 onChange={(e) => setPage({ ...page, subtitle: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -195,7 +195,7 @@ export default function AdminEditPage() {
                 value={page.content || ""}
                 onChange={(e) => setPage({ ...page, content: e.target.value })}
                 placeholder="Enter rich text or narrative content for this page..."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs font-mono text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -203,7 +203,7 @@ export default function AdminEditPage() {
           {/* SEO Metadata Box */}
           <div className="bg-white p-6 rounded-[18px] border border-[#e7e9ee] shadow-[0_12px_35px_rgba(16,24,40,0.04)] space-y-4">
             <div className="flex items-center gap-2 text-sm font-serif font-bold text-[#101114] border-b border-[#e7e9ee] pb-3">
-              <Search className="w-4 h-4 text-[#e20b16]" />
+              <Search className="w-4 h-4 text-[#d97706]" />
               <span>Search Engine Optimization (SEO)</span>
             </div>
 
@@ -218,7 +218,7 @@ export default function AdminEditPage() {
                 type="text"
                 value={page.seoTitle || ""}
                 onChange={(e) => setPage({ ...page, seoTitle: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -233,7 +233,7 @@ export default function AdminEditPage() {
                 rows={3}
                 value={page.metaDescription || ""}
                 onChange={(e) => setPage({ ...page, metaDescription: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 
@@ -244,7 +244,7 @@ export default function AdminEditPage() {
                 value={page.canonicalUrl || ""}
                 onChange={(e) => setPage({ ...page, canonicalUrl: e.target.value })}
                 placeholder="https://modularhome.com/..."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
           </div>
@@ -262,7 +262,7 @@ export default function AdminEditPage() {
               <select
                 value={page.status || "PUBLISHED"}
                 onChange={(e) => setPage({ ...page, status: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16] cursor-pointer"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-bold focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907] cursor-pointer"
               >
                 <option value="PUBLISHED">Published</option>
                 <option value="DRAFT">Draft</option>
@@ -277,7 +277,7 @@ export default function AdminEditPage() {
                 value={page.featuredImage || ""}
                 onChange={(e) => setPage({ ...page, featuredImage: e.target.value })}
                 placeholder="https://images.unsplash.com/..."
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e20b16]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d5d9e0] bg-[#f6f7f9] text-xs text-[#101114] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#fcb907]"
               />
             </div>
 

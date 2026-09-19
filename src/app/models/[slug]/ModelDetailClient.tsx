@@ -70,7 +70,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
           <span>/</span>
           <Link href="/buildings" className="hover:text-[#101114] transition-colors">Buildings</Link>
           <span>/</span>
-          <span className="text-[#e20b16] font-bold uppercase">{model.name}</span>
+          <span className="text-[#d97706] font-bold uppercase">{model.name}</span>
         </div>
       </div>
 
@@ -94,9 +94,9 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
               {/* Video Tour Quick Trigger Badge */}
               <button
                 onClick={handleOpenVideo}
-                className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-[9px] bg-white/95 hover:bg-[#e20b16] text-[#101114] hover:text-white border border-[#e7e9ee] text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all shadow-md cursor-pointer"
+                className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-[9px] bg-[#0f1218]/90 hover:bg-[#fcb907] text-white hover:text-[#101114] border border-[#fcb907]/30 text-xs font-black uppercase tracking-wider backdrop-blur-md transition-all shadow-md cursor-pointer"
               >
-                <Play className="w-3.5 h-3.5 fill-current" />
+                <Play className="w-3.5 h-3.5 fill-[#fcb907] group-hover:fill-[#101114]" />
                 <span>Watch Video Tour ({model.videoDuration || "Tour"})</span>
               </button>
             </div>
@@ -109,7 +109,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                   onClick={() => setActiveImage(img)}
                   className={`relative aspect-[16/10] rounded-[9px] overflow-hidden border transition-all cursor-pointer ${
                     activeImage === img
-                      ? "border-[#e20b16] ring-2 ring-[#e20b16]/40 scale-[1.02]"
+                      ? "border-[#fcb907] ring-2 ring-[#fcb907]/40 scale-[1.02]"
                       : "border-[#e7e9ee] opacity-70 hover:opacity-100"
                   }`}
                 >
@@ -129,7 +129,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
           <div className="lg:col-span-5 space-y-6">
             <div className="p-6 sm:p-7 bg-[#f6f7f9] border border-[#e7e9ee] rounded-[18px] shadow-sm space-y-5">
               <div>
-                <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#e20b16]">
+                <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#d97706]">
                   {model.series} • {model.category}
                 </span>
                 <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-[#101114] mt-1">
@@ -143,17 +143,17 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
               {/* Core Specs Grid */}
               <div className="grid grid-cols-3 gap-3 p-3.5 bg-white border border-[#e7e9ee] rounded-[11px] text-center">
                 <div className="flex flex-col items-center">
-                  <Maximize2 className="w-4 h-4 text-[#e20b16] mb-1" />
+                  <Maximize2 className="w-4 h-4 text-[#d97706] mb-1" />
                   <span className="text-[10px] uppercase text-[#6b7280] font-bold">Area</span>
                   <span className="font-bold text-xs sm:text-sm text-[#101114]">{model.sqft} SQ FT</span>
                 </div>
                 <div className="flex flex-col items-center border-x border-[#e7e9ee]">
-                  <Bed className="w-4 h-4 text-[#e20b16] mb-1" />
+                  <Bed className="w-4 h-4 text-[#d97706] mb-1" />
                   <span className="text-[10px] uppercase text-[#6b7280] font-bold">Bedrooms</span>
                   <span className="font-bold text-xs sm:text-sm text-[#101114]">{model.bedrooms > 0 ? `${model.bedrooms} Bed` : "Open"}</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <Bath className="w-4 h-4 text-[#e20b16] mb-1" />
+                  <Bath className="w-4 h-4 text-[#d97706] mb-1" />
                   <span className="text-[10px] uppercase text-[#6b7280] font-bold">Bathrooms</span>
                   <span className="font-bold text-xs sm:text-sm text-[#101114]">{model.bathrooms > 0 ? `${model.bathrooms} Bath` : "1 Bath"}</span>
                 </div>
@@ -163,13 +163,13 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
               <div className="pt-2 border-t border-[#e7e9ee] flex items-baseline justify-between">
                 <div>
                   <div className="text-[10px] uppercase tracking-wider text-[#6b7280] font-bold">Starting Price</div>
-                  <div className="text-3xl font-black text-[#e20b16]">
+                  <div className="text-3xl font-black text-[#d97706]">
                     {formatPrice(totalCalculatedPrice)}
                   </div>
                 </div>
                 {selectedOptions.length > 0 && (
                   <div className="text-right">
-                    <span className="text-[11px] text-[#e20b16] font-bold">
+                    <span className="text-[11px] text-[#d97706] font-bold">
                       +{formatPrice(optionsTotal)} in Options
                     </span>
                   </div>
@@ -191,7 +191,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                     href="tel:+18125954033"
                     className="btn-outline py-2.5 text-xs font-bold rounded-[9px] flex items-center justify-center gap-1.5"
                   >
-                    <Phone className="w-3.5 h-3.5 text-[#e20b16]" />
+                    <Phone className="w-3.5 h-3.5 text-[#d97706]" />
                     <span>Call Us</span>
                   </a>
 
@@ -206,7 +206,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
 
               {/* Engineering highlights badge */}
               <div className="p-3 bg-white border border-[#e7e9ee] rounded-[9px] flex items-center gap-2.5 text-xs text-[#6b7280]">
-                <ShieldCheck className="w-4 h-4 text-[#e20b16] shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-[#fcb907] shrink-0" />
                 <span>{model.warranty} • IBC & IRC Engineered</span>
               </div>
             </div>
@@ -219,7 +219,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
           <div className="lg:col-span-8 space-y-12">
             {/* Overview */}
             <section className="space-y-3">
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                 Design & Architecture
               </div>
               <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114]">
@@ -234,7 +234,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
             <section className="space-y-5 pt-8 border-t border-[#e7e9ee]">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                     Layout & Dimensions
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114]">
@@ -273,7 +273,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
             {/* Technical Specifications Table */}
             <section className="space-y-5 pt-8 border-t border-[#e7e9ee]">
               <div>
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                   Structural Tolerances
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114]">
@@ -305,7 +305,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                   </div>
                   <div className="grid grid-cols-2 p-3.5 text-xs bg-[#f6f7f9]">
                     <span className="text-[#6b7280] uppercase font-bold">Structural Warranty</span>
-                    <span className="text-[#e20b16] font-bold">{model.warranty}</span>
+                    <span className="text-[#d97706] font-bold">{model.warranty}</span>
                   </div>
 
                   {model.specs.map((spec, idx) => (
@@ -321,7 +321,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
             {/* Included Architectural Features */}
             <section className="space-y-5 pt-8 border-t border-[#e7e9ee]">
               <div>
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                   Standard Package
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114]">
@@ -347,7 +347,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
           <div className="lg:col-span-4 space-y-6">
             <div className="bg-[#f6f7f9] border border-[#e7e9ee] rounded-[18px] p-6 space-y-5 sticky top-28 shadow-sm">
               <div>
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                   Factory Add-ons
                 </div>
                 <h3 className="text-xl font-black uppercase tracking-tight text-[#101114] mt-1">
@@ -367,8 +367,8 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                       onClick={() => toggleOption(option.id)}
                       className={`cursor-pointer p-3.5 rounded-[11px] border transition-all ${
                         isChecked
-                          ? "bg-white border-[#e20b16] shadow-xs"
-                          : "bg-white/80 border-[#e7e9ee] hover:border-[#e20b16]"
+                          ? "bg-white border-[#fcb907] shadow-xs ring-1 ring-[#fcb907]"
+                          : "bg-white/80 border-[#e7e9ee] hover:border-[#fcb907]"
                       }`}
                     >
                       <div className="flex items-start justify-between gap-2">
@@ -376,11 +376,11 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                           <div
                             className={`w-4 h-4 rounded-[4px] border mt-0.5 flex items-center justify-center shrink-0 ${
                               isChecked
-                                ? "border-[#e20b16] bg-[#e20b16] text-white"
+                                ? "border-[#fcb907] bg-[#fcb907] text-[#101114]"
                                 : "border-[#6b7280]"
                             }`}
                           >
-                            {isChecked && <Check className="w-3 h-3" />}
+                            {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
                           </div>
                           <div>
                             <div className="text-xs font-bold uppercase text-[#101114]">
@@ -392,7 +392,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                           </div>
                         </div>
 
-                        <span className="text-xs font-bold text-[#e20b16] shrink-0">
+                        <span className="text-xs font-bold text-[#d97706] shrink-0">
                           +{formatPrice(option.price)}
                         </span>
                       </div>
@@ -409,11 +409,11 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                 </div>
                 <div className="flex justify-between text-xs text-[#6b7280]">
                   <span>Selected Upgrades:</span>
-                  <span className="text-[#e20b16] font-bold">+{formatPrice(optionsTotal)}</span>
+                  <span className="text-[#d97706] font-bold">+{formatPrice(optionsTotal)}</span>
                 </div>
                 <div className="flex justify-between text-sm font-bold text-[#101114] pt-2 border-t border-[#e7e9ee]">
                   <span>Updated Estimate:</span>
-                  <span className="text-[#e20b16] text-xl font-black">
+                  <span className="text-[#d97706] text-xl font-black">
                     {formatPrice(totalCalculatedPrice)}
                   </span>
                 </div>
@@ -432,7 +432,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
                     href="tel:+18125954033"
                     className="btn-outline w-full py-2.5 text-xs font-bold rounded-[11px] flex items-center justify-center gap-2"
                   >
-                    <Phone className="w-3.5 h-3.5 text-[#e20b16]" />
+                    <Phone className="w-3.5 h-3.5 text-[#d97706]" />
                     <span>Call +1-812-595-4033</span>
                   </a>
                 </div>
@@ -445,7 +445,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
         {relatedModels.length > 0 && (
           <div className="mt-20 pt-12 border-t border-[#e7e9ee]">
             <div className="mb-8">
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#e20b16]">
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706]">
                 Similar Footprints
               </div>
               <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#101114] mt-1">
@@ -472,7 +472,7 @@ export default function ModelDetailClient({ model, relatedModels }: ModelDetailC
               </h3>
               <button
                 onClick={() => setFloorPlanExpanded(false)}
-                className="p-1.5 text-[#6b7280] hover:text-[#e20b16] rounded-md cursor-pointer"
+                className="p-1.5 text-[#6b7280] hover:text-[#d97706] rounded-md cursor-pointer"
               >
                 <X className="w-6 h-6" />
               </button>
