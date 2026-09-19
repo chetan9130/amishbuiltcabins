@@ -330,10 +330,10 @@ function NavbarContent() {
         </div>
 
         {/* --- ROW 2: DEDICATED CATEGORY NAVIGATION RIBBON --- */}
-        <div className="hidden lg:block border-b border-[#e5e7eb] bg-white/95 backdrop-blur-xs">
-          <div className="wrap">
-            <nav className="flex items-center justify-between gap-1 xl:gap-2 py-1.5 overflow-x-auto no-scrollbar">
-              <div className="flex items-center gap-0.5 xl:gap-1.5 flex-wrap">
+        <div className="hidden lg:block border-b border-[#e5e7eb] bg-white/98 backdrop-blur-xs relative z-40 overflow-visible">
+          <div className="wrap relative overflow-visible">
+            <nav className="flex items-center justify-between gap-1 xl:gap-2 py-1.5 overflow-visible relative">
+              <div className="flex items-center gap-0.5 xl:gap-1.5 flex-wrap overflow-visible">
                 {PRIMARY_MENU_OPTIONS.map((item) => {
                   const active = currentCategory === item.categoryQuery;
                   return (
@@ -354,13 +354,17 @@ function NavbarContent() {
                 {/* "More" Dropdown Menu */}
                 <div 
                   ref={dropdownRef}
-                  className="relative"
+                  className="relative inline-block"
                   onMouseEnter={() => setMoreDropdownOpen(true)}
                   onMouseLeave={() => setMoreDropdownOpen(false)}
                 >
                   <button
                     type="button"
-                    onClick={() => setMoreDropdownOpen(!moreDropdownOpen)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setMoreDropdownOpen(!moreDropdownOpen);
+                    }}
                     className={`inline-flex items-center gap-1 px-2.5 xl:px-3 py-1.5 rounded-lg text-[12.5px] xl:text-[13px] font-bold tracking-tight whitespace-nowrap transition-all duration-150 cursor-pointer ${
                       isMoreActive || moreDropdownOpen
                         ? "bg-amber-50 text-[#b45309] ring-1 ring-amber-200/80 font-extrabold"
@@ -372,33 +376,38 @@ function NavbarContent() {
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${moreDropdownOpen ? "rotate-180" : ""}`} />
                   </button>
 
-                  {/* Dropdown Floating Card */}
+                  {/* Dropdown Floating Card with hover bridge */}
                   {moreDropdownOpen && (
-                    <div className="absolute left-0 top-full mt-1 w-80 bg-white border border-[#e5e7eb] rounded-2xl p-2.5 shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150">
-                      <div className="text-[10px] font-extrabold uppercase tracking-wider text-gray-400 px-3 py-1 border-b border-gray-100 mb-1">
-                        Explore More Services
-                      </div>
-                      <div className="space-y-0.5">
-                        {MORE_DROPDOWN_OPTIONS.map((option) => (
-                          <Link
-                            key={option.label}
-                            href={option.href}
-                            onClick={() => setMoreDropdownOpen(false)}
-                            className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f6f7f9] text-[#101114] hover:text-[#d97706] transition-colors group"
-                          >
-                            <div className="p-2 rounded-lg bg-[#fcb907]/15 text-[#d97706] group-hover:bg-[#fcb907] group-hover:text-[#101114] transition-colors shrink-0 mt-0.5">
-                              <option.icon className="w-4 h-4" />
-                            </div>
-                            <div>
-                              <div className="text-xs font-bold leading-snug">
-                                {option.label}
+                    <div 
+                      className="absolute left-0 top-full pt-1.5 w-80 z-[100] animate-in fade-in zoom-in-95 duration-150"
+                      onMouseEnter={() => setMoreDropdownOpen(true)}
+                    >
+                      <div className="bg-white border border-[#e5e7eb] rounded-2xl p-2.5 shadow-2xl ring-1 ring-black/5">
+                        <div className="text-[10px] font-extrabold uppercase tracking-wider text-gray-400 px-3 py-1 border-b border-gray-100 mb-1">
+                          Explore More Services
+                        </div>
+                        <div className="space-y-0.5">
+                          {MORE_DROPDOWN_OPTIONS.map((option) => (
+                            <Link
+                              key={option.label}
+                              href={option.href}
+                              onClick={() => setMoreDropdownOpen(false)}
+                              className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f6f7f9] text-[#101114] hover:text-[#d97706] transition-colors group"
+                            >
+                              <div className="p-2 rounded-lg bg-[#fcb907]/15 text-[#d97706] group-hover:bg-[#fcb907] group-hover:text-[#101114] transition-colors shrink-0 mt-0.5">
+                                <option.icon className="w-4 h-4" />
                               </div>
-                              <div className="text-[11px] text-[#6b7280] font-normal leading-tight mt-0.5">
-                                {option.desc}
+                              <div>
+                                <div className="text-xs font-bold leading-snug">
+                                  {option.label}
+                                </div>
+                                <div className="text-[11px] text-[#6b7280] font-normal leading-tight mt-0.5">
+                                  {option.desc}
+                                </div>
                               </div>
-                            </div>
-                          </Link>
-                        ))}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}
